@@ -1,14 +1,15 @@
 'use client';
 
-import React, { useState, use } from 'react';
-import { notFound } from 'next/navigation';
+import React, { useState } from 'react';
+import { useParams, notFound } from 'next/navigation';
 import { PRODUCTS, Product } from '@/lib/products';
 import { useCartStore } from '@/store/cartStore';
 import { ShieldCheck, Star, CheckCircle, Sparkles, Truck, Lock, ArrowLeft } from 'lucide-react';
 
-export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = use(params);
-  const product = PRODUCTS.find((p) => p.slug === resolvedParams.slug);
+export default function ProductDetailPage() {
+  const params = useParams();
+  const slug = typeof params?.slug === 'string' ? params.slug : (Array.isArray(params?.slug) ? params.slug[0] : '');
+  const product = PRODUCTS.find((p) => p.slug === slug);
 
   if (!product) {
     notFound();
@@ -152,7 +153,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
       </div>
 
-      {/* Alternating Proof & Science Sections (Desktop Text-Right / Image-Left and vice versa) */}
+      {/* Alternating Proof & Science Sections */}
       <section className="space-y-12">
         <div className="text-center max-w-xl mx-auto">
           <span className="text-xs font-bold text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20">
