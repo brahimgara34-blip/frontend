@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCartStore } from '@/store/cartStore';
 import { Sparkles, Timer, Check, ArrowRight } from 'lucide-react';
+import { trackPurchase } from '@/lib/pixel';
 
 export default function TimedUpsellModal() {
   const router = useRouter();
@@ -88,6 +89,14 @@ export default function TimedUpsellModal() {
       eventId,
     };
 
+    // 1. Trigger Client-Side Purchase Pixels (Meta, TikTok, Snapchat) with Deduplication ID
+    try {
+      trackPurchase(orderId, finalTotal, orderItems, eventId);
+    } catch (pixelErr) {
+      console.warn('Pixel tracking error:', pixelErr);
+    }
+
+    // 2. Send to Backend for Database storage, Google Sheets Webhook, and Server-Side CAPI
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.vitalismaroc.shop';
 
     try {

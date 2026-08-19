@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { Product, calculateOfferPrice } from '@/lib/products';
+import { trackAddToCart } from '@/lib/pixel';
 
 export interface CartItem {
   id: string;
@@ -49,6 +50,10 @@ export const useCartStore = create<CartState>((set, get) => ({
   pendingCustomerPhone: '',
 
   addItem: (product, quantity) => {
+    // Trigger AddToCart Pixel event
+    const tierPrice = calculateOfferPrice(quantity);
+    trackAddToCart({ id: product.id, name: product.name }, tierPrice, quantity);
+
     set((state) => {
       const existingIndex = state.items.findIndex((item) => item.id === product.id);
       let newItems = [...state.items];

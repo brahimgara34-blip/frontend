@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCartStore } from '@/store/cartStore';
 import { PRODUCTS, Product } from '@/lib/products';
 import { X, ShieldCheck, Zap, Lock, Phone, User } from 'lucide-react';
+import { trackInitiateCheckout } from '@/lib/pixel';
 
 export default function CheckoutModal() {
   const {
@@ -18,9 +19,18 @@ export default function CheckoutModal() {
   const [customerPhone, setCustomerPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
 
-  if (!isCheckoutOpen) return null;
-
   const totalPrice = getTotalPrice();
+
+  useEffect(() => {
+    if (isCheckoutOpen && items.length > 0) {
+      trackInitiateCheckout(
+        totalPrice,
+        items.map((i) => ({ id: i.id, name: i.product.name, quantity: i.quantity }))
+      );
+    }
+  }, [isCheckoutOpen, items, totalPrice]);
+
+  if (!isCheckoutOpen) return null;
 
   // Validate Moroccan phone number
   const validatePhone = (phone: string) => {

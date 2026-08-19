@@ -1,22 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, notFound } from 'next/navigation';
 import { PRODUCTS, Product } from '@/lib/products';
 import { useCartStore } from '@/store/cartStore';
 import { ShieldCheck, Star, CheckCircle, Sparkles, Truck, Lock, ArrowLeft } from 'lucide-react';
+import { trackViewContent } from '@/lib/pixel';
 
 export default function ProductDetailPage() {
   const params = useParams();
   const slug = typeof params?.slug === 'string' ? params.slug : (Array.isArray(params?.slug) ? params.slug[0] : '');
   const product = PRODUCTS.find((p) => p.slug === slug);
 
+  const { addItem } = useCartStore();
+  const [selectedTier, setSelectedTier] = useState<number>(1);
+
+  useEffect(() => {
+    if (product) {
+      trackViewContent({ id: product.id, name: product.name, price: 249 });
+    }
+  }, [product]);
+
   if (!product) {
     notFound();
   }
-
-  const { addItem } = useCartStore();
-  const [selectedTier, setSelectedTier] = useState<number>(1);
 
   const getTierPrice = (tier: number) => {
     if (tier === 1) return 249;

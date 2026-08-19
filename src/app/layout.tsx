@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import CheckoutModal from "@/components/CheckoutModal";
 import TimedUpsellModal from "@/components/TimedUpsellModal";
+import TrackingScripts from "@/components/TrackingScripts";
 
 export const metadata: Metadata = {
   title: "Vitalis Maroc™ | حلول الراحة والتقويم والعناية اليومية بالمغرب",
@@ -18,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
+      <head>
+        <TrackingScripts />
+      </head>
       <body className="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
         <Header />
         <main className="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
