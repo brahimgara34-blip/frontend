@@ -93,20 +93,28 @@ export default function TimedUpsellModal() {
     try {
       trackPurchase(orderId, finalTotal, orderItems, eventId);
     } catch (pixelErr) {
-      console.warn('Pixel tracking error:', pixelErr);
+      console.warn('Pixel tracking warning:', pixelErr);
     }
 
     // 2. Send to Backend for Database storage, Google Sheets Webhook, and Server-Side CAPI
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.vitalismaroc.shop';
 
     try {
-      await fetch(`${apiUrl}/api/v1/orders`, {
+      const response = await fetch(`${apiUrl}/api/v1/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+
+      if (!response.ok) {
+        const errorBody = await response.text();
+        console.error(`[Order Submit Error] Server responded with status ${response.status}:`, errorBody);
+      } else {
+        const resData = await response.json();
+        console.log('✅ [Order Created Successfully in Backend & Database]:', resData);
+      }
     } catch (err) {
-      console.log('Order created locally / backend queued:', err);
+      console.error('❌ [Network / API Connection Error]: Could not reach backend:', err);
     }
 
     setLastOrder(payload);
