@@ -97,24 +97,27 @@ export default function TimedUpsellModal() {
     }
 
     // 2. Send to Backend for Database storage, Google Sheets Webhook, and Server-Side CAPI
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.vitalismaroc.shop';
-
+    // We send via relative API endpoint `/api/v1/orders` (Proxied seamlessly by Next.js to backend)
     try {
-      const response = await fetch(`${apiUrl}/api/v1/orders`, {
+      const response = await fetch('/api/v1/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
-        const errorBody = await response.text();
-        console.error(`[Order Submit Error] Server responded with status ${response.status}:`, errorBody);
-      } else {
-        const resData = await response.json();
-        console.log('✅ [Order Created Successfully in Backend & Database]:', resData);
+        // Fallback: Try direct API URL if configured
+        const directApi = process.env.NEXT_PUBLIC_API_URL;
+        if (directApi) {
+          await fetch(`${directApi.replace(/\/+$/, '')}/api/v1/orders`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        }
       }
     } catch (err) {
-      console.error('❌ [Network / API Connection Error]: Could not reach backend:', err);
+      console.error('❌ [Order Submit Notice]:', err);
     }
 
     setLastOrder(payload);
