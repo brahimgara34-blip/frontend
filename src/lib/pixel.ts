@@ -1,4 +1,4 @@
-// Client-side Pixel Utilities for Meta, TikTok, and Snapchat
+// Client-side Pixel Utilities for Meta, TikTok, Snapchat, and Server-Side Visitor Analytics
 
 declare global {
   interface Window {
@@ -14,26 +14,69 @@ export const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || '';
 export const SNAPCHAT_PIXEL_ID = process.env.NEXT_PUBLIC_SNAPCHAT_PIXEL_ID || '';
 
 /**
- * Track PageView across all active pixels
+ * Track PageView across all active pixels and register Clean Moroccan Click in Backend
  */
-export const trackPageView = () => {
+export const trackPageView = (customPath?: string) => {
   if (typeof window === 'undefined') return;
 
-  // Meta Pixel
+  const currentPath = customPath || window.location.pathname || '/';
+
+  // 1. Meta Pixel
   if (window.fbq && META_PIXEL_ID) {
     window.fbq('track', 'PageView');
   }
 
-  // TikTok Pixel
+  // 2. TikTok Pixel
   if (window.ttq && TIKTOK_PIXEL_ID) {
     window.ttq.page();
   }
 
-  // Snapchat Pixel
+  // 3. Snapchat Pixel
   if (window.snaptr && SNAPCHAT_PIXEL_ID) {
     window.snaptr('track', 'PAGE_VIEW');
   }
+
+  // 4. Server-Side Clean Moroccan Visitor & VPN-filtered Click Tracker
+  // Don't track admin dashboard pageviews as customer clicks
+  if (!currentPath.startsWith('/admin')) {
+    try {
+      // Use navigator.sendBeacon if available for non-blocking telemetry
+      const payload = JSON.stringify({
+        path: currentPath,
+        referrer: document.referrer || '',
+        session_id: getOrCreateSessionId(),
+      });
+
+      if (navigator.sendBeacon) {
+        const blob = new Blob([payload], { type: 'application/json' });
+        navigator.sendBeacon('/api/v1/analytics/click', blob);
+      } else {
+        fetch('/api/v1/analytics/click', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: payload,
+          keepalive: true,
+        }).catch(() => {});
+      }
+    } catch (err) {
+      // Fail silently to never impact user experience
+    }
+  }
 };
+
+function getOrCreateSessionId(): string {
+  if (typeof window === 'undefined') return '';
+  try {
+    let sid = sessionStorage.getItem('vm_session_id');
+    if (!sid) {
+      sid = 'vm_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now();
+      sessionStorage.setItem('vm_session_id', sid);
+    }
+    return sid;
+  } catch {
+    return 'vm_' + Date.now();
+  }
+}
 
 /**
  * Track ViewContent
@@ -41,7 +84,6 @@ export const trackPageView = () => {
 export const trackViewContent = (product: { id: string; name: string; price?: number }) => {
   if (typeof window === 'undefined') return;
 
-  // Meta
   if (window.fbq && META_PIXEL_ID) {
     window.fbq('track', 'ViewContent', {
       content_name: product.name,
@@ -52,7 +94,6 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
     });
   }
 
-  // TikTok
   if (window.ttq && TIKTOK_PIXEL_ID) {
     window.ttq.track('ViewContent', {
       content_id: product.id,
@@ -63,7 +104,6 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
     });
   }
 
-  // Snapchat
   if (window.snaptr && SNAPCHAT_PIXEL_ID) {
     window.snaptr('track', 'VIEW_CONTENT', {
       item_ids: [product.id],
@@ -79,7 +119,6 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
 export const trackAddToCart = (product: { id: string; name: string }, value: number, quantity: number = 1) => {
   if (typeof window === 'undefined') return;
 
-  // Meta
   if (window.fbq && META_PIXEL_ID) {
     window.fbq('track', 'AddToCart', {
       content_name: product.name,
@@ -91,7 +130,6 @@ export const trackAddToCart = (product: { id: string; name: string }, value: num
     });
   }
 
-  // TikTok
   if (window.ttq && TIKTOK_PIXEL_ID) {
     window.ttq.track('AddToCart', {
       content_id: product.id,
@@ -103,7 +141,6 @@ export const trackAddToCart = (product: { id: string; name: string }, value: num
     });
   }
 
-  // Snapchat
   if (window.snaptr && SNAPCHAT_PIXEL_ID) {
     window.snaptr('track', 'ADD_CART', {
       item_ids: [product.id],
@@ -120,7 +157,6 @@ export const trackAddToCart = (product: { id: string; name: string }, value: num
 export const trackInitiateCheckout = (total: number, items: Array<{ id: string; name: string; quantity: number }>) => {
   if (typeof window === 'undefined') return;
 
-  // Meta
   if (window.fbq && META_PIXEL_ID) {
     window.fbq('track', 'InitiateCheckout', {
       content_ids: items.map((i) => i.id),
@@ -131,7 +167,6 @@ export const trackInitiateCheckout = (total: number, items: Array<{ id: string; 
     });
   }
 
-  // TikTok
   if (window.ttq && TIKTOK_PIXEL_ID) {
     window.ttq.track('InitiateCheckout', {
       contents: items.map((i) => ({ content_id: i.id, content_name: i.name, quantity: i.quantity })),
@@ -140,7 +175,6 @@ export const trackInitiateCheckout = (total: number, items: Array<{ id: string; 
     });
   }
 
-  // Snapchat
   if (window.snaptr && SNAPCHAT_PIXEL_ID) {
     window.snaptr('track', 'START_CHECKOUT', {
       item_ids: items.map((i) => i.id),
@@ -162,7 +196,6 @@ export const trackPurchase = (
 ) => {
   if (typeof window === 'undefined') return;
 
-  // Meta Pixel with eventID for deduplication with CAPI
   if (window.fbq && META_PIXEL_ID) {
     window.fbq(
       'track',
@@ -180,7 +213,6 @@ export const trackPurchase = (
     );
   }
 
-  // TikTok Pixel with event_id
   if (window.ttq && TIKTOK_PIXEL_ID) {
     window.ttq.track(
       'CompletePayment',
@@ -198,7 +230,6 @@ export const trackPurchase = (
     );
   }
 
-  // Snapchat Pixel with event_tag
   if (window.snaptr && SNAPCHAT_PIXEL_ID) {
     window.snaptr(
       'track',
