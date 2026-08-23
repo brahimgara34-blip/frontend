@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useCartStore } from '@/store/cartStore';
-import { ShoppingBag, ShieldCheck, Truck } from 'lucide-react';
+import { ShoppingBag, ShieldCheck, Truck, Award } from 'lucide-react';
 
 export default function Header() {
   const { openDrawer, getTotalItemsCount } = useCartStore();
@@ -12,22 +12,29 @@ export default function Header() {
   return (
     <>
       {/* Top Authority Banner */}
-      <div className="bg-authority-navy text-white text-xs font-bold py-2 px-4 text-center flex items-center justify-center gap-3 tracking-wide">
-        <ShieldCheck className="w-3.5 h-3.5 text-authority-emerald-light shrink-0" />
-        <span>توصيل مجاني 24-48 ساعة لجميع مدن المغرب</span>
-        <span className="text-white/30 hidden md:inline">|</span>
-        <span className="hidden md:inline">الدفع والمعاينة عند الاستلام — قبل دفع أي درهم</span>
-        <span className="text-white/30 hidden md:inline">|</span>
-        <Truck className="w-3.5 h-3.5 text-authority-gold shrink-0 hidden md:inline" />
-        <span className="hidden md:inline text-authority-gold">ضمان 12 شهراً مُعتمَد</span>
+      <div className="bg-[#0F2744] text-white text-xs font-bold py-2 px-4 text-center flex items-center justify-center gap-3 tracking-wide border-b border-slate-800" dir="rtl">
+        <div className="flex items-center gap-1 text-emerald-400">
+          <Truck className="w-3.5 h-3.5 shrink-0" />
+          <span>توصيل مجاني 24-48 ساعة لجميع مدن المغرب</span>
+        </div>
+        <span className="text-white/20 hidden md:inline">|</span>
+        <div className="hidden md:flex items-center gap-1 text-teal-300">
+          <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+          <span>المعاينة والفحص قبل دفع أي درهم</span>
+        </div>
+        <span className="text-white/20 hidden md:inline">|</span>
+        <div className="hidden md:flex items-center gap-1 text-amber-400">
+          <Award className="w-3.5 h-3.5 shrink-0" />
+          <span>ضمان استبدال معتمد 12 شهراً</span>
+        </div>
       </div>
 
-      <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+      <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800" dir="rtl">
         <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
           
           {/* Logo with VM Monogram */}
           <Link href="/" className="flex items-center gap-2.5 group cursor-pointer">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-authority-navy to-authority-navy-light p-0.5 shadow-lg shadow-authority-navy/40 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#0F2744] to-slate-800 p-0.5 shadow-lg shadow-teal-950/40 group-hover:scale-105 transition-transform border border-slate-700">
               <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
                 <span className="text-sm font-black tracking-tighter bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
                   VM
@@ -68,7 +75,7 @@ export default function Header() {
             <ShoppingBag className="w-4 h-4 text-teal-400" />
             <span className="hidden sm:inline">سلة المشتريات</span>
             {cartCount > 0 && (
-              <span className="bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-black text-[11px] px-2 py-0.5 rounded-full animate-pulse">
+              <span className="bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-[11px] px-2 py-0.5 rounded-full animate-pulse shadow-sm">
                 {cartCount}
               </span>
             )}
