@@ -37,15 +37,24 @@ export default function Footer() {
         {/* Links & Info */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-10 text-right">
           <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center">
-                <span className="text-xs font-black text-teal-400">VM</span>
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-authority-navy to-authority-navy-light flex items-center justify-center shadow-md">
+                <span className="text-xs font-black text-emerald-400">VM</span>
               </div>
-              <span className="font-black text-white text-sm">VITALIS MAROC™</span>
+              <div>
+                <span className="font-black text-white text-sm block leading-none">
+                  Vitalis Maroc<span className="text-slate-500">™</span>
+                </span>
+                <span className="text-[9px] text-slate-500 font-medium">حلول الراحة والعناية اليومية المبتكرة</span>
+              </div>
             </div>
             <p className="text-slate-400 leading-relaxed text-[11px]">
-              العلامة المغربية الأولى المتخصصة في الحلول التقويمية والعناية اليومية المبتكرة. نلتزم بتقديم أعلى معايير الجودة والمصداقية لزبنائنا في كافة ربوع المملكة.
+              العلامة المغربية المتخصصة في الحلول العملية والمنتجات المبتكرة لراحتك اليومية في البيت والعمل. توصيل مجاني، معاينة قبل الدفع، وضمان 12 شهراً.
             </p>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[10px] text-emerald-400 font-bold">+2,480 عميل راضٍ بالمغرب</span>
+            </div>
           </div>
 
           <div>
@@ -89,7 +98,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-slate-900 pt-6 text-center text-slate-500 text-[11px] flex flex-col md:flex-row justify-between items-center gap-2">
-          <span>جميع الحقوق محفوظة © {new Date().getFullYear()} Vitalis Maroc. الدفع عند الاستلام بعد الفحص.</span>
+          <span>جميع الحقوق محفوظة © {new Date().getFullYear()} Vitalis Maroc™ — حلول الراحة والعناية اليومية.</span>
           <span className="text-teal-500/80 font-medium">vitalismaroc.shop • صنع لراحتك اليومية</span>
         </div>
 

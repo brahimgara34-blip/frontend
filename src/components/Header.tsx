@@ -11,10 +11,15 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Banner */}
-      <div className="bg-gradient-to-r from-teal-700 via-cyan-700 to-teal-700 text-white text-xs md:text-sm font-bold py-2 px-4 text-center flex items-center justify-center gap-2 tracking-wide">
-        <Truck className="w-4 h-4 text-emerald-300 animate-bounce" />
-        <span>توصيل مجاني وسريع لجميع مدن المغرب (24-48 ساعة) • الدفع عند الاستلام بعد المعاينة</span>
+      {/* Top Authority Banner */}
+      <div className="bg-authority-navy text-white text-xs font-bold py-2 px-4 text-center flex items-center justify-center gap-3 tracking-wide">
+        <ShieldCheck className="w-3.5 h-3.5 text-authority-emerald-light shrink-0" />
+        <span>توصيل مجاني 24-48 ساعة لجميع مدن المغرب</span>
+        <span className="text-white/30 hidden md:inline">|</span>
+        <span className="hidden md:inline">الدفع والمعاينة عند الاستلام — قبل دفع أي درهم</span>
+        <span className="text-white/30 hidden md:inline">|</span>
+        <Truck className="w-3.5 h-3.5 text-authority-gold shrink-0 hidden md:inline" />
+        <span className="hidden md:inline text-authority-gold">ضمان 12 شهراً مُعتمَد</span>
       </div>
 
       <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
@@ -22,19 +27,19 @@ export default function Header() {
           
           {/* Logo with VM Monogram */}
           <Link href="/" className="flex items-center gap-2.5 group cursor-pointer">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-500 to-cyan-400 p-0.5 shadow-lg shadow-teal-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-authority-navy to-authority-navy-light p-0.5 shadow-lg shadow-authority-navy/40 group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
-                <span className="text-sm font-black tracking-tighter bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">
+                <span className="text-sm font-black tracking-tighter bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
                   VM
                 </span>
               </div>
             </div>
             <div>
               <span className="text-xl font-black text-white tracking-wider block">
-                vitalis<span className="text-teal-400">maroc</span>
+                Vitalis<span className="text-emerald-400">Maroc</span><span className="text-slate-500 text-sm">™</span>
               </span>
               <span className="text-[10px] text-slate-400 block -mt-1 font-medium">
-                حلول الراحة والعناية المتقدمة
+                حلول الراحة والعناية اليومية المبتكرة
               </span>
             </div>
           </Link>

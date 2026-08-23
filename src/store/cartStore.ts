@@ -8,6 +8,7 @@ export interface CartItem {
   quantity: number;
   selectedTier: number; // 1, 2, or 3
   tierPrice: number;
+  selectedColor?: string; // e.g. "Chromé", "Noir Mat"
 }
 
 interface CartState {
@@ -21,7 +22,7 @@ interface CartState {
   pendingCustomerPhone: string;
 
   // Actions
-  addItem: (product: Product, quantity: number) => void;
+  addItem: (product: Product, quantity: number, color?: string) => void;
   removeItem: (productId: string) => void;
   updateItemQuantity: (productId: string, delta: number) => void;
   clearCart: () => void;
@@ -49,8 +50,7 @@ export const useCartStore = create<CartState>((set, get) => ({
   pendingCustomerName: '',
   pendingCustomerPhone: '',
 
-  addItem: (product, quantity) => {
-    // Trigger AddToCart Pixel event
+  addItem: (product, quantity, color) => {
     const tierPrice = calculateOfferPrice(quantity);
     trackAddToCart({ id: product.id, name: product.name }, tierPrice, quantity);
 
@@ -65,6 +65,7 @@ export const useCartStore = create<CartState>((set, get) => ({
           quantity: newQty,
           selectedTier: newQty,
           tierPrice: calculateOfferPrice(newQty),
+          selectedColor: color ?? state.items[existingIndex].selectedColor,
         };
       } else {
         newItems.push({
@@ -73,12 +74,13 @@ export const useCartStore = create<CartState>((set, get) => ({
           quantity,
           selectedTier: quantity,
           tierPrice: calculateOfferPrice(quantity),
+          selectedColor: color,
         });
       }
 
       return {
         items: newItems,
-        isDrawerOpen: true, // Auto open drawer
+        isDrawerOpen: true,
       };
     });
   },

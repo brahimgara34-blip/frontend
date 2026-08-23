@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useCartStore } from '@/store/cartStore';
 import { Sparkles, Timer, Check, ArrowRight } from 'lucide-react';
 import { trackPurchase } from '@/lib/pixel';
@@ -56,10 +57,19 @@ export default function TimedUpsellModal() {
     setIsSubmitting(true);
 
     const eventId = 'evt_' + Math.random().toString(36).substring(2, 15) + Date.now();
-    const orderId = 'VM-' + Math.floor(1000 + Math.random() * 9000);
+    // Unique order ID starting with 'vitalis'
+    const orderId = 'vitalis-' + Math.floor(100000 + Math.random() * 900000);
+
+    const getItemSku = (id: string, name: string) => {
+      if (id === 'shower' || name.includes('HydroPure') || name.includes('دوش') || name.includes('رشاش')) return 'VM-SHW-01';
+      if (id === 'flosser' || name.includes('AuraFloss') || name.includes('خيط') || name.includes('الأسنان')) return 'VM-FLS-02';
+      if (id === 'cushion' || name.includes('ErgoCushion') || name.includes('وسادة')) return 'VM-CSH-03';
+      return `VM-${id.toUpperCase()}-01`;
+    };
 
     let orderItems = items.map((i) => ({
       id: i.id,
+      sku: i.product?.sku || getItemSku(i.id, i.product?.name || ''),
       name: i.product.name,
       quantity: i.quantity,
       price: i.tierPrice,
@@ -70,6 +80,7 @@ export default function TimedUpsellModal() {
     if (acceptUpsell) {
       orderItems.push({
         id: activeUpsellProduct.id,
+        sku: activeUpsellProduct.sku || getItemSku(activeUpsellProduct.id, activeUpsellProduct.name),
         name: `[عرض حصري بـ 199 د.م] ${activeUpsellProduct.name}`,
         quantity: 1,
         price: 199,
@@ -97,7 +108,6 @@ export default function TimedUpsellModal() {
     }
 
     // 2. Send to Backend for Database storage, Google Sheets Webhook, and Server-Side CAPI
-    // We send via relative API endpoint `/api/v1/orders` (Proxied seamlessly by Next.js to backend)
     try {
       const response = await fetch('/api/v1/orders', {
         method: 'POST',
@@ -152,8 +162,14 @@ export default function TimedUpsellModal() {
         {/* Product Card */}
         <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 text-right mb-6">
           <div className="flex items-center gap-3.5 mb-3">
-            <div className="text-4xl bg-slate-900 p-3 rounded-2xl border border-slate-800">
-              {activeUpsellProduct.icon}
+            <div className="relative w-20 h-20 bg-slate-900 p-2 rounded-2xl border border-slate-800 shrink-0 overflow-hidden flex items-center justify-center">
+              <Image
+                src={activeUpsellProduct.image || '/products/shower.png'}
+                alt={activeUpsellProduct.name}
+                fill
+                sizes="80px"
+                className="object-contain p-1"
+              />
             </div>
             <div>
               <span className="text-[10px] font-bold text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full">

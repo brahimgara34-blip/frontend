@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useCartStore } from '@/store/cartStore';
 import { PRODUCTS } from '@/lib/products';
 import { X, Trash2, Plus, Minus, ArrowLeft, ShieldCheck, Sparkles } from 'lucide-react';
@@ -80,8 +81,14 @@ export default function CartDrawer() {
                   className="bg-slate-950 p-3.5 rounded-2xl border border-slate-800 flex items-center justify-between gap-3"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="text-3xl bg-slate-900 p-2.5 rounded-xl border border-slate-800">
-                      {item.product.icon}
+                    <div className="relative w-12 h-12 bg-slate-900 rounded-xl border border-slate-800 shrink-0 p-1 overflow-hidden flex items-center justify-center">
+                      <Image
+                        src={item.product.image || '/products/shower.png'}
+                        alt={item.product.name}
+                        fill
+                        sizes="48px"
+                        className="object-contain p-0.5"
+                      />
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-white line-clamp-1">
@@ -90,9 +97,19 @@ export default function CartDrawer() {
                       <div className="text-teal-400 font-black text-xs mt-0.5">
                         {item.tierPrice} درهم مغربي
                       </div>
-                      <span className="text-[10px] text-slate-400">
-                        (باقة {item.quantity} {item.quantity === 1 ? 'قطعة' : 'قطع'})
-                      </span>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <span className="text-[10px] text-slate-400">
+                          {item.quantity} {item.quantity === 1 ? 'قطعة' : 'قطع'}
+                        </span>
+                        {item.selectedColor && (
+                          <>
+                            <span className="text-slate-600">·</span>
+                            <span className="text-[10px] text-slate-400">
+                              {item.selectedColor}
+                            </span>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
 
@@ -136,11 +153,19 @@ export default function CartDrawer() {
                 {crossSellCandidates.map((prod) => (
                   <div
                     key={prod.id}
-                    className="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800/80 flex items-center justify-between"
+                    className="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800/80 flex items-center justify-between gap-2"
                   >
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-xl">{prod.icon}</span>
-                      <div>
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="relative w-10 h-10 bg-slate-900 rounded-lg border border-slate-800 shrink-0 overflow-hidden">
+                        <Image
+                          src={prod.image}
+                          alt={prod.name}
+                          fill
+                          sizes="40px"
+                          className="object-contain p-0.5"
+                        />
+                      </div>
+                      <div className="min-w-0">
                         <div className="text-[11px] font-bold text-white line-clamp-1">
                           {prod.name}
                         </div>

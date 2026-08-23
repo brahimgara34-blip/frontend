@@ -8,7 +8,7 @@ import { CheckCircle2, PackageCheck, PhoneCall, Truck, ArrowLeft } from 'lucide-
 export default function ThankYouPage() {
   const { lastOrder } = useCartStore();
 
-  const orderId = lastOrder?.orderId || 'VM-' + Math.floor(1000 + Math.random() * 9000);
+  const orderId = lastOrder?.orderId || 'vitalis-' + Math.floor(100000 + Math.random() * 900000);
   const totalAmount = lastOrder?.totalAmount || 249;
   const items = lastOrder?.items || [{ name: 'طلب معتمد من فيتاليس ماروك', quantity: 1, price: 249 }];
 
@@ -39,41 +39,43 @@ export default function ThankYouPage() {
           <span>ملخص الطرد المؤكد:</span>
         </div>
 
-        <ul className="space-y-1.5 text-slate-300">
-          {items.map((item: any, idx: number) => (
-            <li key={idx} className="flex justify-between items-center">
-              <span>{item.name}</span>
-              <span className="font-bold text-white">×{item.quantity}</span>
-            </li>
-          ))}
-        </ul>
+        {items.map((item: any, idx: number) => (
+          <div key={idx} className="flex justify-between items-center text-slate-300 py-1">
+            <span>{item.name} × {item.quantity}</span>
+            <span className="font-bold text-white">{item.price} د.م</span>
+          </div>
+        ))}
 
-        <div className="border-t border-slate-800 pt-2.5 flex justify-between items-center text-sm font-bold">
-          <span className="text-slate-400">المبلغ الإجمالي عند الاستلام:</span>
-          <span className="text-teal-400 font-black text-lg">{totalAmount} درهم</span>
+        <div className="border-t border-slate-800 pt-2.5 flex justify-between items-center text-sm font-black">
+          <span className="text-white">المبلغ المطلوب عند الاستلام:</span>
+          <span className="text-emerald-400 text-base">{totalAmount} درهم</span>
         </div>
       </div>
 
-      {/* Delivery Guidance */}
-      <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800 text-right text-xs text-slate-300 space-y-2">
-        <div className="flex items-center gap-2 text-teal-400 font-bold">
-          <Truck className="w-4 h-4" />
-          <span>خطوات الاستلام السلس:</span>
+      {/* Next Steps for Customer */}
+      <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800 text-right space-y-3">
+        <h3 className="text-xs font-black text-white flex items-center gap-1.5">
+          <span>📋 الخطوات التالية لتسليم طلبك:</span>
+        </h3>
+        
+        <div className="flex items-start gap-2.5 text-xs text-slate-400">
+          <PhoneCall className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+          <span>سيتصل بك فريق التأكيد هاتفياً أو عبر الواتساب لتأكيد العنوان وموعد التسليم.</span>
         </div>
-        <p>1. سيتصل بكم الموزع هاتفياً قبل الوصول لتحديد موعد التسليم الدقيق.</p>
-        <p>2. المرجو تحضير المبلغ نقداً (<strong className="text-emerald-400">{totalAmount} درهم</strong>).</p>
-        <p>3. يحق لكم تفقد ومعاينة المنتجات داخل الطرد قبل دفع أي درهم.</p>
+
+        <div className="flex items-start gap-2.5 text-xs text-slate-400">
+          <Truck className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+          <span>الموزع سيحضر الطرد لباب دارك، ويمكنك فتح الطرد ومعاينته بالكامل قبل دفع أي درهم.</span>
+        </div>
       </div>
 
-      <div className="pt-2">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-teal-400 text-xs font-bold underline cursor-pointer"
-        >
-          <span>العودة للصفحة الرئيسية للمتجر</span>
-          <ArrowLeft className="w-4 h-4" />
-        </Link>
-      </div>
+      <Link
+        href="/"
+        className="inline-flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-3.5 rounded-xl transition-colors cursor-pointer"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span>العودة للصفحة الرئيسية</span>
+      </Link>
 
     </div>
   );
