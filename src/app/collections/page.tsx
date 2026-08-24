@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { PRODUCTS, Product } from '@/lib/products';
 import { useCartStore } from '@/store/cartStore';
 import Link from 'next/link';
+import SharedSocialProofSection from '@/components/SharedSocialProofSection';
 import {
   Sparkles, ArrowLeft, Star, ShieldCheck, Truck,
   CheckCircle2, Flame, Eye, ShoppingCart
@@ -63,6 +64,9 @@ export default function CollectionsPage() {
           />
         ))}
       </div>
+
+      {/* Shared Customer Testimonials & Verified Moroccan Reviews */}
+      <SharedSocialProofSection />
 
     </div>
   );

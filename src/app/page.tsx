@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PRODUCTS, Product } from '@/lib/products';
 import { useCartStore } from '@/store/cartStore';
+import SharedSocialProofSection from '@/components/SharedSocialProofSection';
 import {
   ShieldCheck, Star, CheckCircle2, ArrowLeft,
   Truck, Award, Sparkles, Check, Package, RotateCcw,
@@ -156,76 +157,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ======== تجارب وآراء الزبناء بالمغرب ======== */}
-      <section className="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 space-y-8 shadow-xl">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-          <div>
-            <div className="flex items-center gap-1.5 mb-1.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-              ))}
-              <span className="text-white text-xs font-black mr-2">4.9 / 5 تقييم ممتاز</span>
-            </div>
-            <h3 className="text-xl font-black text-white">
-              تجارب حقيقية من زبنائنا في كافة مدن المغرب
-            </h3>
-            <p className="text-slate-400 text-xs mt-0.5">
-              أكثر من 2,480 عميل يثقون في جودة وضمانات Vitalis Maroc™.
-            </p>
-          </div>
-          <div className="shrink-0 bg-slate-950 border border-slate-800 px-4 py-2 rounded-xl text-center">
-            <span className="text-emerald-400 font-black text-lg block">+2,480</span>
-            <span className="text-slate-400 text-[10px]">مشتري موثق بالمغرب</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            {
-              name: 'ياسين المنصوري',
-              city: 'الدار البيضاء (بوركون)',
-              product: 'HydroPure™ Turbo Shower',
-              stars: 5,
-              review: '"دوش التوربو بدّل ليا الدوش تماماً فـ الطابق الرابع. الصبيب ولى مجهد بزاف والماء نقي ومصفي من الكالكير والصدأ. سلعة أصلية ممتازة وتوصيل سريع لباب الدار."',
-            },
-            {
-              name: 'سكينة العلمي',
-              city: 'الرباط (أكدال)',
-              product: 'AuraFloss™ Water Flosser',
-              stars: 5,
-              review: '"خيط الأسنان المائي عتقني مع التقويم (Les bagues). كينقي كاع البقايا فـ ثواني بلا أي نزيف فـ اللثة. سهل الاستعمال وبطارية كتدوم طويلاً."',
-            },
-            {
-              name: 'حميد بناني',
-              city: 'طنجة (مالاباطا)',
-              product: 'ErgoCushion™ Orthopedic Seat',
-              stars: 5,
-              review: '"كسائق مهني كنجلس ساعات فـ الطاكسي. وسادة ErgoCushion حيدات عليا الحريق د الظهر وعرق النسا تماماً. باردة ومريحة بزاف ومثالية للجلوس الطويل."',
-            },
-          ].map((r, i) => (
-            <div key={i} className="bg-slate-950 p-4 rounded-2xl border border-slate-800/80 space-y-3 shadow-inner">
-              <div className="flex justify-between items-start">
-                <div>
-                  <span className="font-black text-xs text-white">{r.name}</span>
-                  <span className="block text-[10px] text-slate-500">{r.city}</span>
-                </div>
-                <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                  مشتري موثق ✓
-                </span>
-              </div>
-              <div className="flex gap-0.5">
-                {[...Array(r.stars)].map((_, j) => (
-                  <Star key={j} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <p className="text-xs text-slate-300 leading-relaxed">{r.review}</p>
-              <div className="text-[10px] text-teal-400 font-bold border-t border-slate-800/80 pt-2">
-                المنتج: {r.product}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ======== تجارب وآراء الزبناء بالمغرب المشتركة ======== */}
+      <SharedSocialProofSection />
 
       {/* ======== التزاماتنا وضمانات الشراء المعتمدة ======== */}
       <section className="relative rounded-3xl overflow-hidden border border-slate-800">

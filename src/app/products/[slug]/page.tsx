@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PRODUCTS, Product } from '@/lib/products';
 import { useCartStore } from '@/store/cartStore';
+import SharedSocialProofSection from '@/components/SharedSocialProofSection';
 import {
   ShieldCheck, Star, CheckCircle, Truck, Lock,
   ArrowLeft, ChevronLeft, Package, Sparkles, Eye,
@@ -579,7 +580,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       </div>
 
       {/* ========================================================= */}
-      {/* 5. FAQs — إزالة جميع الاعتراضات ومخاوف الزبون المغربي */}
+      {/* 5. SHARED REAL CUSTOMER TESTIMONIALS & SOCIAL PROOF */}
+      {/* ========================================================= */}
+      <SharedSocialProofSection currentSlug={product.slug} />
+
+      {/* ========================================================= */}
+      {/* 6. FAQs — إزالة جميع الاعتراضات ومخاوف الزبون المغربي */}
       {/* ========================================================= */}
       <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 md:p-10 border border-slate-800 shadow-xl space-y-6">
         <div className="text-center max-w-xl mx-auto space-y-1">
