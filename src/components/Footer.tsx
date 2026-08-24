@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShieldCheck, Truck, RotateCcw, Clock, MapPin, Mail, Award, Lock } from 'lucide-react';
 
 export default function Footer() {
@@ -38,8 +39,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-10 text-right">
           <div className="space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0F2744] to-slate-800 flex items-center justify-center shadow-md border border-slate-700">
-                <span className="text-xs font-black text-emerald-400">VM</span>
+              <div className="relative w-8 h-8 rounded-full overflow-hidden shadow-md shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="Vitalis Maroc Logo"
+                  fill
+                  sizes="32px"
+                  className="object-cover"
+                />
               </div>
               <div>
                 <span className="font-black text-white text-sm block leading-none">

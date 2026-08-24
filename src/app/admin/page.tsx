@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ShieldCheck, Award, Truck, Lock, User, Eye, EyeOff, LogOut,
   RefreshCw, Search, Phone, MessageSquare, CheckCircle2, Clock,
@@ -416,10 +417,15 @@ export default function AdminPage() {
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
           
           <div className="text-center mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#0F2744] to-slate-800 p-0.5 shadow-xl border border-slate-700 mx-auto flex items-center justify-center mb-4">
-              <span className="text-2xl font-black bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-                VM
-              </span>
+            <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-xl mx-auto mb-4 border border-slate-700">
+              <Image
+                src="/logo.png"
+                alt="Vitalis Maroc Logo"
+                fill
+                sizes="64px"
+                className="object-cover"
+                priority
+              />
             </div>
             <h1 className="text-2xl font-black text-white">لوحة تحكم Vitalis Maroc™</h1>
             <p className="text-slate-400 text-xs mt-1.5">
@@ -538,8 +544,14 @@ export default function AdminPage() {
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#0F2744] to-slate-800 flex items-center justify-center shadow-lg border border-slate-700">
-              <span className="text-base font-black text-emerald-400">VM</span>
+            <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-lg border border-slate-700 shrink-0">
+              <Image
+                src="/logo.png"
+                alt="Vitalis Maroc Logo"
+                fill
+                sizes="48px"
+                className="object-cover"
+              />
             </div>
             <div>
               <div className="flex items-center gap-2">

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCartStore } from '@/store/cartStore';
 import { ShoppingBag, ShieldCheck, Truck, Award } from 'lucide-react';
 
@@ -32,14 +33,17 @@ export default function Header() {
       <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800" dir="rtl">
         <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
           
-          {/* Logo with VM Monogram */}
-          <Link href="/" className="flex items-center gap-2.5 group cursor-pointer">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#0F2744] to-slate-800 p-0.5 shadow-lg shadow-teal-950/40 group-hover:scale-105 transition-transform border border-slate-700">
-              <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
-                <span className="text-sm font-black tracking-tighter bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-                  VM
-                </span>
-              </div>
+          {/* Logo with Official VM Monogram */}
+          <Link href="/" className="flex items-center gap-3 group cursor-pointer">
+            <div className="relative w-10 h-10 rounded-full shadow-lg shadow-teal-950/40 group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+              <Image
+                src="/logo.png"
+                alt="Vitalis Maroc Logo"
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
             </div>
             <div>
               <span className="text-xl font-black text-white tracking-wider block">
