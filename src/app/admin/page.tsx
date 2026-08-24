@@ -135,11 +135,14 @@ export default function AdminPage() {
     setIsLoggingIn(true);
     setLoginError('');
 
+    const cleanUser = username.trim();
+    const cleanPass = password.trim();
+
     try {
       let res = await fetch('/api/v1/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: username.trim(), password }),
+        body: JSON.stringify({ username: cleanUser, password: cleanPass }),
       });
 
       // If Next.js internal proxy or direct URL is needed
@@ -151,7 +154,7 @@ export default function AdminPage() {
             const fallbackRes = await fetch(`${cleanBase}/api/v1/admin/login`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ username: username.trim(), password }),
+              body: JSON.stringify({ username: cleanUser, password: cleanPass }),
             });
             if (fallbackRes.ok) {
               res = fallbackRes;
@@ -432,19 +435,29 @@ export default function AdminPage() {
           )}
 
           <form onSubmit={handleLogin} className="space-y-4">
-            {/* Quick credentials hint */}
-            <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 text-[11px] text-slate-400 space-y-1">
+            {/* Quick credentials hint & Autofill */}
+            <div
+              onClick={() => {
+                setUsername('admin');
+                setPassword('vitalis2026admin');
+                showToast('تمت تعبئة بيانات الدخول الافتراضية!');
+              }}
+              className="bg-slate-950/90 hover:bg-slate-950 border border-slate-800 hover:border-emerald-500/40 rounded-2xl p-3 text-[11px] text-slate-400 space-y-1 cursor-pointer transition-all group"
+              title="اضغط لتعبئة البيانات الافتراضية تلقائياً"
+            >
               <div className="flex justify-between items-center text-slate-300 font-bold border-b border-slate-800/80 pb-1">
                 <span>بيانات الدخول الافتراضية:</span>
-                <span className="text-[10px] text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full">Default</span>
+                <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full group-hover:bg-emerald-500/20">
+                  اضغط للتعبئة التلقائية ⚡
+                </span>
               </div>
               <div className="flex justify-between">
                 <span>اسم المستخدم:</span>
-                <span className="font-mono text-emerald-400 font-bold select-all">admin</span>
+                <span className="font-mono text-emerald-400 font-bold">admin</span>
               </div>
               <div className="flex justify-between">
                 <span>كلمة المرور:</span>
-                <span className="font-mono text-emerald-400 font-bold select-all">vitalis2026admin</span>
+                <span className="font-mono text-emerald-400 font-bold">vitalis2026admin</span>
               </div>
             </div>
 
