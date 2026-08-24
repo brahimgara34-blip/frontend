@@ -136,15 +136,33 @@ export default function AdminPage() {
     setLoginError('');
 
     try {
-      const res = await fetch('/api/v1/admin/login', {
+      let res = await fetch('/api/v1/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username: username.trim(), password }),
       });
+
+      // If Next.js internal proxy or direct URL is needed
+      if (!res.ok && res.status >= 500) {
+        const directApi = process.env.NEXT_PUBLIC_API_URL;
+        if (directApi) {
+          try {
+            const cleanBase = directApi.replace(/\/+$/, '');
+            const fallbackRes = await fetch(`${cleanBase}/api/v1/admin/login`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username: username.trim(), password }),
+            });
+            if (fallbackRes.ok) {
+              res = fallbackRes;
+            }
+          } catch {}
+        }
+      }
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.detail || 'اسم المستخدم أو كلمة المرور غير صحيحة');
+        throw new Error(data.detail || (res.status === 404 ? 'الخادم لم يتعرف على مسار تسجيل الدخول (يرجى عمل Push و Redeploy للباك اند)' : 'اسم المستخدم أو كلمة المرور غير صحيحة'));
       }
 
       const data = await res.json();
@@ -414,6 +432,22 @@ export default function AdminPage() {
           )}
 
           <form onSubmit={handleLogin} className="space-y-4">
+            {/* Quick credentials hint */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 text-[11px] text-slate-400 space-y-1">
+              <div className="flex justify-between items-center text-slate-300 font-bold border-b border-slate-800/80 pb-1">
+                <span>بيانات الدخول الافتراضية:</span>
+                <span className="text-[10px] text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full">Default</span>
+              </div>
+              <div className="flex justify-between">
+                <span>اسم المستخدم:</span>
+                <span className="font-mono text-emerald-400 font-bold select-all">admin</span>
+              </div>
+              <div className="flex justify-between">
+                <span>كلمة المرور:</span>
+                <span className="font-mono text-emerald-400 font-bold select-all">vitalis2026admin</span>
+              </div>
+            </div>
+
             <div>
               <label className="text-xs font-bold text-slate-300 block mb-1.5">
                 اسم المستخدم (Username)
