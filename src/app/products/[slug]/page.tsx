@@ -76,7 +76,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             
             {/* Main Visual Story Card */}
             <div
-              className="rounded-3xl p-4 md:p-5 relative overflow-hidden transition-all shadow-2xl border min-h-[420px] backdrop-blur-xl"
+              className="rounded-3xl p-4 md:p-5 relative overflow-hidden transition-all shadow-2xl border min-h-[440px] backdrop-blur-xl flex flex-col justify-between"
               style={{
                 background: `radial-gradient(circle at top left, ${selectedColor.hex}24 0%, rgba(15,23,42,0.92) 46%, rgba(2,6,23,0.98) 100%)`,
                 borderColor: `${selectedColor.hex}40`,
@@ -85,105 +85,86 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${sceneAccentClass.split(' ').slice(0, 2).join(' ')}`} />
 
               {/* Badge top-right */}
-              <div className="absolute top-4 right-4 z-10 bg-slate-900/90 text-white text-[10px] font-black px-3 py-1.5 rounded-xl shadow-md backdrop-blur-sm flex items-center gap-1.5">
+              <div className="absolute top-4 right-4 z-10 bg-slate-900/90 text-white text-[10px] font-black px-3 py-1.5 rounded-xl shadow-md backdrop-blur-sm flex items-center gap-1.5 border border-slate-700/60">
                 <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
                 <span>المنتج الأصلي المضمون 100%</span>
               </div>
 
-              <div className="pt-12 space-y-4">
-                <div>
-                  <span className={`inline-flex items-center gap-1.5 text-[10px] font-black px-3 py-1 rounded-full border ${sceneAccentClass.split(' ').slice(2).join(' ')}`}>
-                    {activeScene.type === 'problem' && <AlertCircle className="w-3.5 h-3.5" />}
-                    {activeScene.type === 'usage' && <Package className="w-3.5 h-3.5" />}
-                    {activeScene.type === 'result' && <ThumbsUp className="w-3.5 h-3.5" />}
-                    {activeScene.type === 'trust' && <Award className="w-3.5 h-3.5" />}
-                    <span>{activeScene.badge}</span>
-                  </span>
-                  <h2 className="text-xl md:text-2xl font-black text-white mt-3 leading-tight">
-                    {activeScene.title}
-                  </h2>
-                  <p className="text-xs text-slate-300 leading-relaxed mt-1.5">
-                    {activeScene.subtitle}
-                  </p>
-                </div>
+              {/* Scene Title & Badge */}
+              <div className="pt-10 space-y-2 relative z-10">
+                <span className={`inline-flex items-center gap-1.5 text-[10px] font-black px-3 py-1 rounded-full border ${sceneAccentClass.split(' ').slice(2).join(' ')}`}>
+                  {activeScene.type === 'problem' && <AlertCircle className="w-3.5 h-3.5" />}
+                  {activeScene.type === 'usage' && <Package className="w-3.5 h-3.5" />}
+                  {activeScene.type === 'result' && <ThumbsUp className="w-3.5 h-3.5" />}
+                  {activeScene.type === 'trust' && <Award className="w-3.5 h-3.5" />}
+                  <span>{activeScene.badge}</span>
+                </span>
+                <h2 className="text-lg md:text-xl font-black text-white leading-snug">
+                  {activeScene.title}
+                </h2>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {activeScene.subtitle}
+                </p>
+              </div>
 
-                {/* Before / Product / After visual composition */}
-                <div className="grid grid-cols-12 gap-2 items-center">
-                  <div className="col-span-4 space-y-2">
-                    <div className="bg-slate-950/80 border border-rose-500/20 rounded-2xl p-3 shadow-lg">
-                      <span className="text-[9px] font-black text-red-600 bg-red-50 px-2 py-0.5 rounded-full">
-                        {activeScene.beforeLabel || 'قبل'}
-                      </span>
-                      <div className="mt-2 h-20 rounded-xl bg-gradient-to-br from-rose-950/60 to-slate-900 border border-rose-500/20 flex items-center justify-center text-center px-2">
-                        <span className="text-[10px] font-bold text-slate-200 leading-relaxed">
-                          {activeScene.callouts[0]}
-                        </span>
-                      </div>
-                    </div>
+              {/* Central High-Res Scene Image Container */}
+              <div className="relative my-3 w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-800/80 bg-slate-950/60 group">
+                <div className="absolute inset-0 rounded-2xl blur-3xl opacity-30" style={{ backgroundColor: selectedColor.hex }} />
+                <Image
+                  src={activeScene.image || product.image}
+                  alt={activeScene.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  priority
+                />
+              </div>
+
+              {/* Callouts Bar */}
+              <div className="grid grid-cols-3 gap-2 relative z-10">
+                {activeScene.callouts.map((item, idx) => (
+                  <div key={idx} className="bg-slate-900/80 border border-slate-700/80 rounded-xl p-2 text-center shadow-sm">
+                    <CheckCircle className="w-3.5 h-3.5 text-emerald-400 mx-auto mb-1" />
+                    <span className="text-[10px] font-bold text-slate-200 leading-snug block">{item}</span>
                   </div>
-
-                  <div className="col-span-4 relative h-44 md:h-52">
-                    <div className="absolute inset-0 rounded-full blur-2xl opacity-40" style={{ backgroundColor: selectedColor.hex }} />
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      sizes="(max-width: 768px) 40vw, 18vw"
-                      className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                      priority
-                    />
-                  </div>
-
-                  <div className="col-span-4 space-y-2">
-                    <div className="bg-slate-950/80 border border-emerald-500/20 rounded-2xl p-3 shadow-lg">
-                      <span className="text-[9px] font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
-                        {activeScene.afterLabel || 'بعد'}
-                      </span>
-                      <div className="mt-2 h-20 rounded-xl bg-gradient-to-br from-emerald-950/60 to-teal-950/40 border border-emerald-500/20 flex items-center justify-center text-center px-2">
-                        <span className="text-[10px] font-bold text-emerald-200 leading-relaxed">
-                          {activeScene.callouts[1] || activeScene.callouts[0]}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-2">
-                  {activeScene.callouts.map((item, idx) => (
-                    <div key={idx} className="bg-slate-900/75 border border-slate-700 rounded-xl p-2 text-center shadow-sm">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 mx-auto mb-1" />
-                      <span className="text-[10px] font-bold text-slate-200 leading-snug block">{item}</span>
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
 
               {/* Active Color Tag */}
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-slate-700 shadow-sm z-10">
-                <span
-                  className="w-4 h-4 rounded-full border border-gray-300 shadow-sm"
-                  style={{ backgroundColor: selectedColor.hex }}
-                />
-                <span className="text-xs font-bold text-white">{selectedColor.nameAr}</span>
+              <div className="flex items-center justify-between pt-2 border-t border-slate-800/60 mt-2 text-xs">
+                <div className="flex items-center gap-2 bg-slate-950/90 backdrop-blur-md px-3 py-1 rounded-xl border border-slate-700 shadow-sm">
+                  <span
+                    className="w-3.5 h-3.5 rounded-full border border-gray-300 shadow-sm"
+                    style={{ backgroundColor: selectedColor.hex }}
+                  />
+                  <span className="text-[11px] font-bold text-white">{selectedColor.nameAr}</span>
+                </div>
+                <span className="text-[10px] text-teal-400 font-bold">انقر على المشاهد أدناه للاستكشاف ⬇️</span>
               </div>
             </div>
 
-            {/* Visual Story Thumbnails */}
+            {/* Visual Story Thumbnails with Miniature Images */}
             <div className="grid grid-cols-4 gap-2">
               {product.visualStory.map((scene, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveThumb(i)}
-                  className={`rounded-2xl p-2 min-h-[86px] flex flex-col items-center justify-center border-2 transition-all cursor-pointer text-center ${
+                  className={`rounded-2xl p-1.5 flex flex-col items-center justify-between border-2 transition-all cursor-pointer text-center overflow-hidden relative group ${
                     activeThumb === i
-                      ? 'border-teal-400 bg-teal-500/15 shadow-lg shadow-teal-950/30'
-                      : 'border-slate-700 bg-slate-900/70 hover:border-slate-500'
+                      ? 'border-teal-400 bg-teal-500/20 shadow-lg shadow-teal-950/40 ring-2 ring-teal-400/40'
+                      : 'border-slate-800 bg-slate-900/80 hover:border-slate-600'
                   }`}
                 >
-                  <span className="text-lg mb-1">
-                    {scene.type === 'problem' ? '⚠️' : scene.type === 'usage' ? '🛠️' : scene.type === 'result' ? '✅' : '🛡️'}
-                  </span>
-                  <span className="text-[9px] font-black text-slate-200 leading-tight line-clamp-2">
+                  <div className="relative w-full h-12 rounded-lg overflow-hidden mb-1 border border-slate-800/60 bg-slate-950">
+                    <Image
+                      src={scene.image || product.image}
+                      alt={scene.badge}
+                      fill
+                      sizes="90px"
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <span className="text-[9px] font-black text-slate-200 leading-tight line-clamp-1">
                     {scene.badge}
                   </span>
                 </button>
@@ -449,6 +430,47 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           ))}
         </div>
 
+        {/* Real Before/After Visual Proof Card */}
+        {product.beforeAfterImage && (
+          <div className="rounded-3xl overflow-hidden border border-slate-800 bg-slate-950/90 p-5 md:p-8 shadow-2xl relative">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-6 relative aspect-[16/9] md:aspect-[4/3] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group">
+                <Image
+                  src={product.beforeAfterImage}
+                  alt={`مقارنة قبل وبعد ${product.shortName}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-md px-3 py-1 rounded-xl text-[10px] font-black text-white border border-slate-700 shadow-md">
+                  ✦ دليل بصري واقعي: قبل مقابل بعد
+                </div>
+              </div>
+              <div className="md:col-span-6 space-y-3.5">
+                <span className="text-[10px] font-black text-teal-400 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full inline-block">
+                  النتيجة الحقيقية الملموسة
+                </span>
+                <h3 className="text-xl md:text-2xl font-black text-white leading-snug">
+                  شاهد الفرق الحاسم من أول دقيقة مع {product.shortName}
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  تخلص نهائياً من المشاكل اليومية واستعد الراحة والنظافة الكاملة بفضل التصميم الهندسي المبتكر مع حق المعاينة والتجربة أمام الموزع قبل دفع أي درهم.
+                </p>
+                <div className="grid grid-cols-2 gap-2.5 pt-2">
+                  <div className="bg-rose-950/40 border border-rose-500/20 rounded-2xl p-3 text-center">
+                    <span className="text-[10px] font-black text-rose-400 block mb-1">المعاناة قبل الحل ✕</span>
+                    <span className="text-xs font-bold text-slate-200">{product.painPoints[0]?.title || 'معاناة وإحباط يومي'}</span>
+                  </div>
+                  <div className="bg-emerald-950/40 border border-emerald-500/20 rounded-2xl p-3 text-center">
+                    <span className="text-[10px] font-black text-emerald-400 block mb-1">الراحة بعد الاستعمال ✓</span>
+                    <span className="text-xs font-bold text-emerald-200">{product.solutionProofs[0]?.title || 'راحة ونظافة تامة'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* 3 Strong Solution Proofs */}
         <div className="border-t border-slate-800 pt-8 space-y-6">
           <div className="text-center max-w-xl mx-auto">
@@ -554,22 +576,22 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               </p>
             </div>
 
-            {/* Visual Side with Product Image Backdrop */}
+            {/* Visual Side with High-Res Feature Image */}
             <div
-              className={`flex flex-col items-center justify-center p-8 min-h-[260px] text-center relative overflow-hidden ${
+              className={`flex flex-col items-center justify-center p-6 md:p-8 min-h-[280px] text-center relative overflow-hidden ${
                 sec.imagePosition === 'right' ? 'md:order-2' : 'md:order-1'
               }`}
               style={{
-                background: `radial-gradient(circle at center, ${selectedColor.hex}20 0%, #020617 85%)`,
+                background: `radial-gradient(circle at center, ${selectedColor.hex}25 0%, #020617 90%)`,
               }}
             >
-              <div className="relative w-44 h-44 mb-2">
+              <div className="relative w-full aspect-[4/3] max-w-sm rounded-2xl overflow-hidden shadow-2xl border border-slate-800/80 mb-3 group bg-slate-950">
                 <Image
-                  src={product.image}
+                  src={sec.image || product.image}
                   alt={sec.title}
                   fill
-                  sizes="180px"
-                  className="object-contain drop-shadow-xl"
+                  sizes="(max-width: 768px) 100vw, 360px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <span className="text-xs font-black text-slate-200">{sec.placeholderSvgText}</span>
