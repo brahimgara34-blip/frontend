@@ -1,7 +1,7 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-RUN apk add --no-cache git
+RUN apk add --no-cache git curl
 
 # Accept build arguments from Easypanel
 ARG NEXT_PUBLIC_SITE_URL
@@ -9,6 +9,7 @@ ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_META_PIXEL_ID
 ARG NEXT_PUBLIC_TIKTOK_PIXEL_ID
 ARG NEXT_PUBLIC_SNAPCHAT_PIXEL_ID
+ARG CACHEBUST=2026082502
 
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
@@ -19,8 +20,10 @@ ENV NEXT_PUBLIC_SNAPCHAT_PIXEL_ID=$NEXT_PUBLIC_SNAPCHAT_PIXEL_ID
 # Copy local files if present in context
 COPY . .
 
-# If package.json is missing in context (e.g. standalone Dockerfile build context in Easypanel), clone repository
-RUN if [ ! -f package.json ]; then \
+# Invalidate Docker build cache automatically on every git commit push
+ADD https://api.github.com/repos/brahimgara34-blip/frontend/git/refs/heads/main /tmp/latest_frontend_commit.json
+RUN if [ ! -f package.json ] || [ ! -d src ]; then \
+      rm -rf /tmp/repo && \
       git clone https://github.com/brahimgara34-blip/frontend.git /tmp/repo && \
       cp -r /tmp/repo/. /app/ && \
       rm -rf /tmp/repo; \
