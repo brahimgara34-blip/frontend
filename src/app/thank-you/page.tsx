@@ -71,22 +71,6 @@ export default function ThankYouPage() {
           </p>
         </div>
 
-        {/* 3. FAST-TRACK WHATSAPP BUTTON */}
-        <div className="space-y-3 text-center">
-          <p className="text-xs text-slate-400 font-bold">لا تريد الانتظار؟ أكد طلبك فوراً لتسريع الشحن:</p>
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-sm py-4 rounded-2xl shadow-xl shadow-[#25D366]/20 transition-all cursor-pointer"
-          >
-            <MessageCircle className="w-5 h-5" />
-            <span>أكد طلبك فوراً عبر الواتساب 🚀</span>
-          </a>
-        </div>
-
-        <hr className="border-slate-800" />
-
         {/* 4. CUSTOMER DETAILS VERIFICATION */}
         <div className="space-y-3">
           <h3 className="text-xs font-black text-slate-300 flex items-center gap-2">
