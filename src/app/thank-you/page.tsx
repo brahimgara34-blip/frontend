@@ -2,8 +2,14 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCartStore } from '@/store/cartStore';
-import { CheckCircle2, PackageCheck, PhoneCall, Truck, ArrowLeft } from 'lucide-react';
+import { PRODUCTS } from '@/lib/products';
+import { 
+  CheckCircle2, PackageCheck, PhoneCall, Truck, ArrowLeft, 
+  AlertTriangle, MessageCircle, User, MapPin, ShieldCheck,
+  Clock, Sparkles
+} from 'lucide-react';
 
 export default function ThankYouPage() {
   const { lastOrder } = useCartStore();
@@ -11,67 +17,176 @@ export default function ThankYouPage() {
   const orderId = lastOrder?.orderId || 'vitalis-' + Math.floor(100000 + Math.random() * 900000);
   const totalAmount = lastOrder?.totalAmount || 249;
   const items = lastOrder?.items || [{ name: 'طلب معتمد من فيتاليس ماروك', quantity: 1, price: 249 }];
+  const customerName = lastOrder?.customerName || 'عميلنا العزيز';
+  const phoneNumber = lastOrder?.phoneNumber || 'الرقم غير متوفر';
+
+  // WhatsApp Message Generation
+  const whatsappMessage = encodeURIComponent(`مرحباً، قمت بطلب من متجركم برقم الطلب (${orderId}). أريد تأكيد طلبي وشحنه في أسرع وقت. الاسم: ${customerName}`);
+  const whatsappLink = `https://wa.me/212681825745?text=${whatsappMessage}`;
 
   return (
-    <div className="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-2xl text-center space-y-6" dir="rtl">
+    <div className="max-w-2xl mx-auto space-y-6 pb-12" dir="rtl">
       
-      {/* Success Badge */}
-      <div className="w-16 h-16 bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl animate-bounce">
-        <CheckCircle2 className="w-8 h-8" />
-      </div>
-
-      <div>
-        <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-          رقم الطلب: {orderId}
-        </span>
-        <h1 className="text-2xl md:text-3xl font-black text-white mt-3">
-          شكراً لثقتكم! تم تسجيل طلبكم بنجاح 🎉
-        </h1>
-        <p className="text-slate-400 text-xs md:text-sm mt-1">
-          تم حجز شحنتكم وسيتم تجهيز الطرد وإرساله لباب منزلكم خلال 24 إلى 48 ساعة.
-        </p>
-      </div>
-
-      {/* Order Items Summary */}
-      <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-right text-xs space-y-2.5">
-        <div className="font-bold text-teal-400 border-b border-slate-800 pb-2 flex items-center gap-1.5">
-          <PackageCheck className="w-4 h-4" />
-          <span>ملخص الطرد المؤكد:</span>
-        </div>
-
-        {items.map((item: any, idx: number) => (
-          <div key={idx} className="flex justify-between items-center text-slate-300 py-1">
-            <span>{item.name} × {item.quantity}</span>
-            <span className="font-bold text-white">{item.price} د.م</span>
-          </div>
-        ))}
-
-        <div className="border-t border-slate-800 pt-2.5 flex justify-between items-center text-sm font-black">
-          <span className="text-white">المبلغ المطلوب عند الاستلام:</span>
-          <span className="text-emerald-400 text-base">{totalAmount} درهم</span>
+      {/* 1. URGENCY BANNER */}
+      <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex items-start gap-3 animate-pulse">
+        <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
+        <div>
+          <h3 className="text-sm font-black text-amber-400">انتباه: طلبك قيد المراجعة!</h3>
+          <p className="text-xs text-amber-200/80 mt-1">
+            تبقت خطوة واحدة فقط لتأكيد الشحن. يرجى إبقاء هاتفك قريباً منك للرد على مكالمة التأكيد.
+          </p>
         </div>
       </div>
 
-      {/* Next Steps for Customer */}
-      <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800 text-right space-y-3">
-        <h3 className="text-xs font-black text-white flex items-center gap-1.5">
-          <span>📋 الخطوات التالية لتسليم طلبك:</span>
-        </h3>
+      {/* MAIN THANK YOU CARD */}
+      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-8 relative overflow-hidden">
         
-        <div className="flex items-start gap-2.5 text-xs text-slate-400">
-          <PhoneCall className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-          <span>سيتصل بك فريق التأكيد هاتفياً أو عبر الواتساب لتأكيد العنوان وموعد التسليم.</span>
+        {/* Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-emerald-500/10 blur-3xl pointer-events-none" />
+
+        {/* Success Header */}
+        <div className="text-center relative z-10">
+          <div className="w-16 h-16 bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl mb-4 shadow-lg shadow-emerald-500/20">
+            <CheckCircle2 className="w-8 h-8" />
+          </div>
+          <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20">
+            رقم الطلب: {orderId}
+          </span>
+          <h1 className="text-2xl md:text-3xl font-black text-white mt-4 leading-tight">
+            شكراً لثقتكم {customerName}! <br/> تم تسجيل طلبكم بنجاح 🎉
+          </h1>
         </div>
 
-        <div className="flex items-start gap-2.5 text-xs text-slate-400">
-          <Truck className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-          <span>الموزع سيحضر الطرد لباب دارك، ويمكنك فتح الطرد ومعاينته بالكامل قبل دفع أي درهم.</span>
+        {/* 2. CALL EXPECTATION BOX */}
+        <div className="bg-slate-950/80 border border-slate-700/80 rounded-2xl p-5 text-right relative">
+          <div className="absolute top-0 right-0 w-1.5 h-full bg-teal-500 rounded-r-2xl" />
+          <h3 className="text-sm font-black text-white flex items-center gap-2 mb-2">
+            <PhoneCall className="w-4 h-4 text-teal-400 animate-bounce" />
+            <span>استعد! سيتصل بك فريقنا قريباً</span>
+          </h3>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            سنتصل بك من رقم غير مسجل لديك لتأكيد عنوانك وموعد التسليم. 
+            <br/><br/>
+            <span className="text-teal-300 font-bold">⏰ متى؟</span> في غضون أقل من 10 دقائق (بين 9 صباحاً و 9 مساءً). إذا طلبت خارج هذا الوقت، فانتظر مكالمتنا في الصباح الباكر.
+          </p>
+        </div>
+
+        {/* 3. FAST-TRACK WHATSAPP BUTTON */}
+        <div className="space-y-3 text-center">
+          <p className="text-xs text-slate-400 font-bold">لا تريد الانتظار؟ أكد طلبك فوراً لتسريع الشحن:</p>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-sm py-4 rounded-2xl shadow-xl shadow-[#25D366]/20 transition-all cursor-pointer"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>أكد طلبك فوراً عبر الواتساب 🚀</span>
+          </a>
+        </div>
+
+        <hr className="border-slate-800" />
+
+        {/* 4. CUSTOMER DETAILS VERIFICATION */}
+        <div className="space-y-3">
+          <h3 className="text-xs font-black text-slate-300 flex items-center gap-2">
+            <User className="w-4 h-4 text-slate-400" />
+            <span>بيانات الاتصال الخاصة بك:</span>
+          </h3>
+          <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 flex items-center justify-between">
+            <div className="space-y-1 text-right">
+              <p className="text-xs text-slate-400">رقم الهاتف المسجل:</p>
+              <p className="text-sm font-black text-white" dir="ltr">{phoneNumber}</p>
+            </div>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-[10px] text-teal-400 underline font-bold">
+              الرقم خاطئ؟ صححه هنا
+            </a>
+          </div>
+        </div>
+
+        {/* 5. CLEAN ORDER SUMMARY */}
+        <div className="space-y-3">
+          <h3 className="text-xs font-black text-slate-300 flex items-center gap-2">
+            <PackageCheck className="w-4 h-4 text-slate-400" />
+            <span>ملخص الطرد المؤكد:</span>
+          </h3>
+          <div className="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+            <div className="divide-y divide-slate-800/60">
+              {items.map((item: any, idx: number) => (
+                <div key={idx} className="p-3 flex items-center justify-between text-right">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-slate-900 rounded-lg border border-slate-700 flex items-center justify-center shrink-0">
+                      <span className="text-xs">📦</span>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-white line-clamp-1">{item.name}</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">الكمية: {item.quantity}</p>
+                    </div>
+                  </div>
+                  <div className="text-sm font-black text-white shrink-0">
+                    {item.price} د.م
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="bg-slate-900/50 p-4 border-t border-slate-800 flex items-center justify-between">
+              <span className="text-sm font-bold text-slate-300">المبلغ المطلوب عند الاستلام:</span>
+              <span className="text-lg font-black text-emerald-400">{totalAmount} درهم</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 6. SOCIAL PROOF & GUARANTEE */}
+        <div className="bg-slate-950/40 rounded-2xl p-4 text-center space-y-3">
+          <div className="flex justify-center gap-4">
+            <div className="flex flex-col items-center gap-1">
+              <ShieldCheck className="w-5 h-5 text-emerald-500" />
+              <span className="text-[10px] font-bold text-slate-300">معاينة قبل الدفع</span>
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <Truck className="w-5 h-5 text-emerald-500" />
+              <span className="text-[10px] font-bold text-slate-300">توصيل مجاني</span>
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <Clock className="w-5 h-5 text-emerald-500" />
+              <span className="text-[10px] font-bold text-slate-300">ضمان 12 شهراً</span>
+            </div>
+          </div>
+          <p className="text-[10px] text-slate-400">
+            أنت الآن واحد من +10,000 مغربي اختاروا الراحة والجودة مع Vitalis Maroc.
+          </p>
+        </div>
+
+      </div>
+
+      {/* 7. CROSS-SELL / DISCOVER MORE */}
+      <div className="pt-4 space-y-4">
+        <div className="text-center">
+          <h3 className="text-sm font-black text-white flex items-center justify-center gap-1.5">
+            <Sparkles className="w-4 h-4 text-teal-400" />
+            <span>اكتشف المزيد من الحلول المبتكرة</span>
+          </h3>
+          <p className="text-[10px] text-slate-400 mt-1">يمكنك إضافة منتجات أخرى لنفس الطرد وتوفير مصاريف الشحن.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {PRODUCTS.slice(0, 2).map((p) => (
+            <Link key={p.id} href={`/products/${p.slug}`} className="bg-slate-900 border border-slate-800 rounded-2xl p-3 flex items-center gap-3 hover:border-teal-500/50 transition-colors group">
+              <div className="relative w-16 h-16 bg-slate-950 rounded-xl border border-slate-800 shrink-0 overflow-hidden">
+                <Image src={p.image} alt={p.name} fill sizes="64px" className="object-contain p-1 group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="text-right">
+                <p className="text-[11px] font-bold text-white line-clamp-2">{p.name}</p>
+                <p className="text-[10px] text-teal-400 font-black mt-1">اكتشف التفاصيل ❯</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
 
       <Link
         href="/"
-        className="inline-flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-3.5 rounded-xl transition-colors cursor-pointer"
+        className="inline-flex items-center justify-center gap-2 w-full bg-slate-900 border border-slate-800 hover:bg-slate-800 text-white font-bold text-xs py-3.5 rounded-xl transition-colors cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>العودة للصفحة الرئيسية</span>

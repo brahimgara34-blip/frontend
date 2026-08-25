@@ -11,7 +11,7 @@ import {
   ShieldCheck, Star, CheckCircle, Truck, Lock,
   ArrowLeft, ChevronLeft, Package, Sparkles, Eye,
   Flame, Check, X, HelpCircle, ChevronDown, Award,
-  Clock, RotateCcw, ThumbsUp, AlertCircle
+  Clock, RotateCcw, ThumbsUp, AlertCircle, PhoneCall, User
 } from 'lucide-react';
 
 export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -374,19 +374,19 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               {/* Trust Badges Strip Under CTA */}
               <div className="bg-slate-900/80 border border-slate-700 rounded-2xl p-3 grid grid-cols-3 gap-2 text-center text-slate-200">
                 <div className="flex flex-col items-center">
-                  <Truck className="w-4 h-4 text-teal-600 mb-0.5" />
-                  <span className="text-[10px] font-bold">توصيل مجاني 24-48h</span>
-                  <span className="text-[9px] text-slate-500">لباب دارك بالمغرب</span>
+                  <PhoneCall className="w-4 h-4 text-teal-400 mb-0.5" />
+                  <span className="text-[10px] font-bold">تأكيد سريع</span>
+                  <span className="text-[9px] text-slate-500">نتصل بك هاتفياً</span>
                 </div>
                 <div className="flex flex-col items-center border-x border-slate-700">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 mb-0.5" />
-                  <span className="text-[10px] font-bold">افحص عاد خلص</span>
-                  <span className="text-[9px] text-slate-500">معاينة قبل الأداء</span>
+                  <Package className="w-4 h-4 text-emerald-400 mb-0.5" />
+                  <span className="text-[10px] font-bold">معاينة مجانية</span>
+                  <span className="text-[9px] text-slate-500">افتح الطرد وتأكد</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <RotateCcw className="w-4 h-4 text-amber-600 mb-0.5" />
-                  <span className="text-[10px] font-bold">ضمان 12 شهراً</span>
-                  <span className="text-[9px] text-slate-500">استبدال فوري مجاني</span>
+                  <ShieldCheck className="w-4 h-4 text-amber-400 mb-0.5" />
+                  <span className="text-[10px] font-bold">الدفع كاش</span>
+                  <span className="text-[9px] text-slate-500">خلص الموزع يداً بيد</span>
                 </div>
               </div>
 
@@ -397,6 +397,34 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
             </div>
 
+          </div>
+        </div>
+      </div>
+
+      {/* ========================================================= */}
+      {/* 1.5 GOLDEN REVIEW — الدليل الاجتماعي المبكر */}
+      {/* ========================================================= */}
+      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-xl mx-auto max-w-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1.5 h-full bg-amber-500 rounded-r-3xl" />
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center shrink-0 border border-slate-700">
+            <User className="w-6 h-6 text-slate-400" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1 mb-1">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star key={star} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <p className="text-sm font-bold text-white italic leading-relaxed">
+              "{product.slug === 'hydropure-shower' ? 'دوش التوربو بدل ليا الدوش 180 درجة فـ الطابق الرابع. الصبيب ولى مجهد بزاف وشعري مابقاش كيطيح بسبب الكالكير. سلعة ممتازة وتوصيل سريع.' : product.slug === 'aurafloss-water-flosser' ? 'خيط الأسنان المائي عتقني مع التقويم. كينقي كاع البقايا فـ ثواني بلا أي دم فـ اللثة. كنصح بيه أي واحد.' : 'كسائق مهني كنجلس ساعات فـ الطاكسي، هاد الوسادة حيدات عليا الحريق د الظهر وعرق النسا تماماً. باردة ومريحة بزاف.'}"
+            </p>
+            <div className="flex items-center gap-2 mt-2 text-[10px]">
+              <span className="text-slate-400 font-bold">زبون مؤكد من المغرب</span>
+              <span className="text-emerald-500 font-black flex items-center gap-0.5">
+                <CheckCircle className="w-3 h-3" /> تم الاستلام
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -521,7 +549,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                 <th className="p-3.5 font-black text-teal-200 bg-teal-500/10 border-x border-teal-500/20">
                   ⭐️ {product.shortName}
                 </th>
-                <th className="p-3.5 font-bold text-slate-400 rounded-l-2xl">المنتجات العادية الرخيصة</th>
+                <th className="p-3.5 font-bold text-slate-400 rounded-l-2xl">المنتجات المقلدة في السوق</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800">
@@ -600,6 +628,45 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           </div>
         ))}
       </div>
+
+      {/* ========================================================= */}
+      {/* 4.5 CROSS-SELLS — منتجات يشتريها عملاؤنا مع هذا المنتج */}
+      {/* ========================================================= */}
+      <section className="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl space-y-6">
+        <div className="text-center max-w-xl mx-auto space-y-1.5">
+          <span className="text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+            عروض إضافية
+          </span>
+          <h2 className="text-xl md:text-2xl font-black text-white">
+            زبناؤنا يفضلون إضافة هذه المنتجات لطلباتهم
+          </h2>
+          <p className="text-slate-400 text-xs">
+            أضف منتجاً آخر واستفد من شحنة واحدة وتوصيل مجاني لجميع المنتجات.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {otherProducts.slice(0, 2).map((p) => (
+            <Link key={p.id} href={`/products/${p.slug}`} className="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex items-center gap-4 hover:border-teal-500/50 transition-colors group">
+              <div className="relative w-20 h-20 bg-slate-900 rounded-xl border border-slate-700 shrink-0 overflow-hidden">
+                <Image src={p.image} alt={p.name} fill sizes="80px" className="object-contain p-1.5 group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="text-right flex-1">
+                <span className="text-[10px] font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full mb-1 inline-block">
+                  {p.badge}
+                </span>
+                <p className="text-sm font-bold text-white line-clamp-2">{p.name}</p>
+                <div className="flex items-center justify-between mt-2">
+                  <span className="text-emerald-400 font-black text-sm">249 درهم</span>
+                  <span className="text-[10px] text-teal-400 font-bold border border-teal-500/30 px-2 py-1 rounded-lg group-hover:bg-teal-500/10 transition-colors">
+                    اكتشف التفاصيل ❯
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {/* ========================================================= */}
       {/* 5. SHARED REAL CUSTOMER TESTIMONIALS & SOCIAL PROOF */}
@@ -732,6 +799,25 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             ))}
           </div>
         </div>
+      </div>
+
+      {/* ========================================================= */}
+      {/* 7. STICKY MOBILE BUY BUTTON */}
+      {/* ========================================================= */}
+      <div className="fixed bottom-0 left-0 right-0 p-3 bg-slate-950/90 backdrop-blur-md border-t border-slate-800 z-40 md:hidden animate-slideUp">
+        <button
+          onClick={handleDirectOrder}
+          className="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-white font-black text-sm py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-700/20 flex items-center justify-between active:scale-[0.98] transition-transform"
+        >
+          <div className="flex items-center gap-2">
+            <span className="text-lg">🛍️</span>
+            <span>تأكيد الطلب الآن</span>
+          </div>
+          <div className="flex items-center gap-1 bg-white/20 px-2.5 py-0.5 rounded-lg text-xs font-black">
+            <span>{currentTierObj.price} درهم</span>
+            <ArrowLeft className="w-3 h-3" />
+          </div>
+        </button>
       </div>
 
     </div>
