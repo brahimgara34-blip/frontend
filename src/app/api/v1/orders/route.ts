@@ -2,7 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const rawBody = await req.text();
+    if (!rawBody) {
+      return NextResponse.json({ error: 'Empty body' }, { status: 400 });
+    }
+    
+    let body;
+    try {
+      body = JSON.parse(rawBody);
+    } catch (e) {
+      console.error('❌ [JSON Parse Error]:', e, rawBody);
+      return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
 
     // Priority list of candidate backend URLs:
     // 1. Direct Easypanel Docker Service Names
