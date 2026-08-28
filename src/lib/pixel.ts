@@ -192,11 +192,15 @@ export const trackPurchase = (
   orderId: string,
   total: number,
   items: Array<{ id: string; name: string; quantity: number; price: number }>,
-  eventId: string
+  eventId: string,
+  phone?: string
 ) => {
   if (typeof window === 'undefined') return;
 
   if (window.fbq && META_PIXEL_ID) {
+    if (phone) {
+      window.fbq('init', META_PIXEL_ID, { ph: phone });
+    }
     window.fbq(
       'track',
       'Purchase',
@@ -214,6 +218,9 @@ export const trackPurchase = (
   }
 
   if (window.ttq && TIKTOK_PIXEL_ID) {
+    if (phone) {
+      window.ttq.identify({ phone_number: phone });
+    }
     window.ttq.track(
       'CompletePayment',
       {
@@ -231,6 +238,9 @@ export const trackPurchase = (
   }
 
   if (window.snaptr && SNAPCHAT_PIXEL_ID) {
+    if (phone) {
+      window.snaptr('init', SNAPCHAT_PIXEL_ID, { user_phone_number: phone });
+    }
     window.snaptr(
       'track',
       'PURCHASE',
@@ -240,8 +250,8 @@ export const trackPurchase = (
         currency: 'MAD',
         number_items: items.reduce((acc, curr) => acc + curr.quantity, 0),
         transaction_id: orderId,
-      },
-      { event_tag: eventId }
+        client_dedup_id: eventId,
+      }
     );
   }
 };

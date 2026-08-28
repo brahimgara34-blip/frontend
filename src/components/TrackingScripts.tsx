@@ -19,7 +19,7 @@ export default function TrackingScripts() {
         <>
           <Script
             id="meta-pixel"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `
                 !function(f,b,e,v,n,t,s)
@@ -51,7 +51,7 @@ export default function TrackingScripts() {
       {TIKTOK_PIXEL_ID && (
         <Script
           id="tiktok-pixel"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               !function (w, d, t) {
@@ -70,7 +70,7 @@ export default function TrackingScripts() {
       {SNAPCHAT_PIXEL_ID && (
         <Script
           id="snapchat-pixel"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()

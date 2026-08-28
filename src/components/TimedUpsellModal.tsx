@@ -100,9 +100,9 @@ export default function TimedUpsellModal() {
       eventId,
     };
 
-    // 1. Trigger Client-Side Purchase Pixels (Meta, TikTok, Snapchat) with Deduplication ID
+    // 1. Trigger Client-Side Purchase Pixels (Meta, TikTok, Snapchat) with Deduplication ID and Phone
     try {
-      trackPurchase(orderId, finalTotal, orderItems, eventId);
+      trackPurchase(orderId, finalTotal, orderItems, eventId, pendingCustomerPhone);
     } catch (pixelErr) {
       console.warn('Pixel tracking warning:', pixelErr);
     }
