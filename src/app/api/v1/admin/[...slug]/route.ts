@@ -133,7 +133,8 @@ async function proxyRequest(req: NextRequest, { params }: { params: Promise<{ sl
       product_breakdown: [
         { name: 'دوش التوربو المفلتر HydroPure™', sku: 'VM-SHW-01', units: 0, revenue: 0 },
         { name: 'خيط الأسنان المائي AuraFloss™', sku: 'VM-FLS-02', units: 0, revenue: 0 },
-        { name: 'وسادة المقعد التقويمية ErgoCushion™', sku: 'VM-CSH-03', units: 0, revenue: 0 },
+        { name: 'مشد الركبة الحراري KneeRelief™', sku: 'VM-KNE-03', units: 0, revenue: 0 },
+        { name: 'الميزان الذكي VitalFit™', sku: 'VM-SCL-04', units: 0, revenue: 0 },
       ],
       tier_breakdown: { '1_piece': 0, '2_pieces': 0, '3_pieces': 0 },
       cities_breakdown: [

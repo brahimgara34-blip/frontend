@@ -43,16 +43,24 @@ export default function CheckoutModal() {
   // Smart Upsell Target Logic
   const getSmartUpsellTarget = (): Product => {
     const cartIds = items.map((i) => i.id);
-    if (!cartIds.includes('cushion') && cartIds.includes('shower')) {
-      return PRODUCTS.find((p) => p.id === 'cushion') || PRODUCTS[2];
+    const pick = (id: string) => PRODUCTS.find((p) => p.id === id);
+
+    if (cartIds.includes('shower') && !cartIds.includes('scale')) {
+      return pick('scale') || PRODUCTS[3];
+    }
+    if (cartIds.includes('cushion') && !cartIds.includes('flosser')) {
+      return pick('flosser') || PRODUCTS[1];
+    }
+    if (cartIds.includes('flosser') && !cartIds.includes('cushion')) {
+      return pick('cushion') || PRODUCTS[2];
+    }
+    if (!cartIds.includes('scale')) {
+      return pick('scale') || PRODUCTS[3];
     }
     if (!cartIds.includes('shower')) {
-      return PRODUCTS.find((p) => p.id === 'shower') || PRODUCTS[0];
+      return pick('shower') || PRODUCTS[0];
     }
-    if (!cartIds.includes('flosser')) {
-      return PRODUCTS.find((p) => p.id === 'flosser') || PRODUCTS[1];
-    }
-    return PRODUCTS[2];
+    return PRODUCTS.find((p) => !cartIds.includes(p.id)) || PRODUCTS[2];
   };
 
   const handleSubmit = (e: React.FormEvent) => {

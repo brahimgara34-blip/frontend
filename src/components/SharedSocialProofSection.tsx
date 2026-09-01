@@ -54,15 +54,15 @@ const REVIEWS: CustomerReview[] = [
     id: 'rev-3',
     name: 'عبد الحق الإدريسي (سائق طاكسي)',
     city: 'مراكش (جيليز)',
-    productSlug: 'ergocushion-seat',
-    productShortName: 'وسادة المقعد ErgoCushion™',
-    productImage: '/products/cushion.png',
+    productSlug: 'kneerelief-heated-brace',
+    productShortName: 'مشد الركبة KneeRelief™',
+    productImage: '/products/knee.png',
     rating: 5,
     date: 'منذ أسبوع',
     verified: true,
-    highlight: 'راحات ليا الظهر وعظم العصعص فـ 8 ساعات سياقة يومياً',
-    comment: 'بحكم الخدمة ديالي كنجلس نهار كامل فـ الطاكسي وكان كيجيني حريق فضيع فـ أسفل الظهر والسخونية. وسادة ErgoCushion مع الجل المبرد بدلات ليا الراحة تماماً، مابقيتش كنحس بالتعب نهائياً.',
-    tag: 'مثالية للسيارة والعمل المكتبي',
+    highlight: 'الحرارة والمساج هداو عليا برودة الركبة من أول ليلة',
+    comment: 'بحكم الخدمة ديالي كنجلس نهار كامل فـ الطاكسي وكانت كتجيني برودة وحريق فالركبة. مشد KneeRelief بالحرارة والاهتزاز بدّل ليا الراحة تماماً، مابقيتش كنحس بالتصلب فالمشي.',
+    tag: 'مثالي للسائقين وآلام المفاصل',
   },
   {
     id: 'rev-4',
@@ -82,15 +82,15 @@ const REVIEWS: CustomerReview[] = [
     id: 'rev-5',
     name: 'عمر الصقلي (مهندس معلوميات)',
     city: 'فاس (طريق إيموزار)',
-    productSlug: 'ergocushion-seat',
-    productShortName: 'وسادة المقعد ErgoCushion™',
-    productImage: '/products/cushion.png',
+    productSlug: 'vitalfit-smart-scale',
+    productShortName: 'الميزان الذكي VitalFit™',
+    productImage: '/products/scale.png',
     rating: 5,
     date: 'منذ أسبوعين',
     verified: true,
-    highlight: 'الميموري فوم أصلي 100% ومكيهبطش مع الوقت',
-    comment: 'كنت كنعاني من عرق النسا مع جلسة البيسي الطويلة. الوسادة كتفرغ الضغط على العمود الفقري بطريقة علمية ملموسة من اليوم الأول. تستاهل كل درهم.',
-    tag: 'دعم تقويمي لأسفل الظهر',
+    highlight: 'ما بقيتش كنغشّ راسي بالوزن الكلي، كنشوف الدهون فالتيليفون',
+    comment: 'كنت كنحسب الراجيم ما خدامش حيت الميزان العادي كيزيد. مع VitalFit بان ليا باللي كنحرق الدهون وكنزيد فالعضلات. التطبيق ساهل وكيسجّل كل قراءة أوتوماتيك.',
+    tag: 'تتبع الوزن والدهون على الهاتف',
   },
   {
     id: 'rev-6',
@@ -139,7 +139,7 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
             ماذا يقول عملاؤنا في مختلف المدن المغربية عن منتجاتنا؟
           </h2>
           <p className="text-slate-300 text-xs md:text-sm mt-2 max-w-2xl leading-relaxed font-medium">
-            تجارب حقيقية لعملاء اختبروا قوة التدفق، نظافة الأسنان المجهرية، والراحة التقويمية مع سياسة المعاينة قبل الدفع والضمان الذهبي 12 شهراً.
+            تجارب حقيقية لعملاء اختبروا قوة التدفق، نظافة الأسنان المجهرية، راحة الركبة، وتتبع الوزن الذكي مع سياسة المعاينة قبل الدفع والضمان الذهبي 12 شهراً.
           </p>
         </div>
 

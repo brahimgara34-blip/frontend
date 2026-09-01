@@ -226,11 +226,14 @@ export default function HomePage() {
 function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: (p: Product, qty: number) => void }) {
   const [selectedTier, setSelectedTier] = useState<number>(1);
 
-  const tierData = [
-    { tier: 1, label: '1 قطعة', price: 249, sub: 'شخصي', accent: 'teal' },
-    { tier: 2, label: '2 قطع', price: 379, sub: 'وفر 119 د.م', accent: 'emerald', popular: true },
-    { tier: 3, label: '3 قطع', price: 499, sub: 'وفر 248 د.م', accent: 'amber' },
-  ];
+  const tierData = product.offerTiers.map((t) => ({
+    tier: t.tier,
+    label: t.tier === 1 ? '1 قطعة' : t.tier === 2 ? '2 قطع' : '3 قطع',
+    price: t.price,
+    sub: t.tier === 1 ? 'شخصي' : t.savingsText,
+    accent: t.accent,
+    popular: t.popular,
+  }));
 
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group hover:shadow-2xl hover:shadow-teal-950/20">

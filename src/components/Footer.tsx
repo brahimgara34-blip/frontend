@@ -80,7 +80,8 @@ export default function Footer() {
             <ul className="space-y-3 text-[11px] md:text-xs font-medium">
               <li><Link href="/products/hydropure-shower" className="hover:text-teal-400 transition-colors flex items-center gap-1.5"><span className="text-slate-600">▪</span> دوش التوربو المفلتر HydroPure™</Link></li>
               <li><Link href="/products/aurafloss-water-flosser" className="hover:text-teal-400 transition-colors flex items-center gap-1.5"><span className="text-slate-600">▪</span> خيط الأسنان المائي AuraFloss™</Link></li>
-              <li><Link href="/products/ergocushion-seat" className="hover:text-teal-400 transition-colors flex items-center gap-1.5"><span className="text-slate-600">▪</span> وسادة المقعد التقويمية ErgoCushion™</Link></li>
+              <li><Link href="/products/kneerelief-heated-brace" className="hover:text-teal-400 transition-colors flex items-center gap-1.5"><span className="text-slate-600">▪</span> مشد الركبة الحراري KneeRelief™</Link></li>
+              <li><Link href="/products/vitalfit-smart-scale" className="hover:text-teal-400 transition-colors flex items-center gap-1.5"><span className="text-slate-600">▪</span> الميزان الذكي VitalFit™</Link></li>
               <li className="pt-1"><Link href="/collections" className="hover:text-emerald-300 font-black text-emerald-400 transition-colors inline-flex items-center gap-1">كافة المجموعات ❯</Link></li>
             </ul>
           </div>

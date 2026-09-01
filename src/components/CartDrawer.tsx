@@ -172,7 +172,7 @@ export default function CartDrawer() {
                           {prod.name}
                         </div>
                         <div className="text-[10px] text-slate-400">
-                          باقة قطعة واحدة: <span className="font-bold text-emerald-400">249 درهم</span>
+                          باقة قطعة واحدة: <span className="font-bold text-emerald-400">199 درهم</span>
                         </div>
                       </div>
                     </div>

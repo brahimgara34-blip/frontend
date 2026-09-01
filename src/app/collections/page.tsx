@@ -85,11 +85,13 @@ function CollectionCard({
   onQuickBuy: (p: Product, qty: number) => void;
 }) {
   const [selectedTier, setSelectedTier] = useState<number>(1);
+  const t1 = product.offerTiers.find((t) => t.tier === 1);
+  const t2 = product.offerTiers.find((t) => t.tier === 2);
+  const t3 = product.offerTiers.find((t) => t.tier === 3);
 
   const getTierPrice = (tier: number) => {
-    if (tier === 1) return 249;
-    if (tier === 2) return 379;
-    return 499;
+    const match = product.offerTiers.find((t) => t.tier === tier);
+    return match?.price ?? product.offerTiers[0].price;
   };
 
   return (
@@ -162,7 +164,7 @@ function CollectionCard({
             }`}
           >
             <div>
-              <span className="block font-bold text-white">1 قطعة (249 درهم)</span>
+              <span className="block font-bold text-white">1 قطعة ({t1?.price} درهم)</span>
               <span className="text-[10px] text-slate-400">للاستخدام الفردي</span>
             </div>
             <span className="text-[10px] text-teal-400 font-bold bg-teal-500/10 px-2 py-0.5 rounded">توصيل مجاني</span>
@@ -177,10 +179,10 @@ function CollectionCard({
             }`}
           >
             <div>
-              <span className="block font-bold text-white">2 قطع (379 درهم) 🔥</span>
-              <span className="text-[10px] text-emerald-400 font-bold">189.5 درهم للقطعة</span>
+              <span className="block font-bold text-white">2 قطع ({t2?.price} درهم) 🔥</span>
+              <span className="text-[10px] text-emerald-400 font-bold">{t2?.perUnitPrice} درهم للقطعة</span>
             </div>
-            <span className="text-[10px] text-emerald-400 font-black bg-emerald-500/20 px-2 py-0.5 rounded">وفر 119 د.م</span>
+              <span className="text-[10px] text-emerald-400 font-black bg-emerald-500/20 px-2 py-0.5 rounded">{t2?.savingsText ? 'عرض مميز' : 'وفر'}</span>
           </div>
 
           <div
@@ -192,10 +194,10 @@ function CollectionCard({
             }`}
           >
             <div>
-              <span className="block font-bold text-white">3 قطع (499 درهم) 🏆</span>
-              <span className="text-[10px] text-amber-400 font-bold">166 درهم للقطعة</span>
+              <span className="block font-bold text-white">3 قطع ({t3?.price} درهم) 🏆</span>
+              <span className="text-[10px] text-amber-400 font-bold">{t3?.perUnitPrice} درهم للقطعة</span>
             </div>
-            <span className="text-[10px] text-amber-400 font-black bg-amber-500/20 px-2 py-0.5 rounded">وفر 248 د.م</span>
+              <span className="text-[10px] text-amber-400 font-black bg-amber-500/20 px-2 py-0.5 rounded">أفضل قيمة</span>
           </div>
         </div>
       </div>

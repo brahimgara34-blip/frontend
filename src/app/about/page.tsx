@@ -45,7 +45,7 @@ export default function AboutPage() {
               لماذا أسسنا Vitalis Maroc™؟
             </h2>
             <p className="text-slate-300 text-xs md:text-sm leading-relaxed font-medium">
-              انطلقت <strong>Vitalis Maroc™</strong> من ملاحظة واقعية: يعاني آلاف المغاربة يومياً من مشاكل متكررة تؤثر على راحتهم وصحتهم اليومية — مثل ضعف صبيب ماء الدوش وتراكم الكالكير، صعوبة تنظيف الأسنان وخاصة مع التقويم، والآلام الحادة لأسفل الظهر والعمود الفقري الناتجة عن الجلوس الطويل أثناء العمل أو السياقة.
+              انطلقت <strong>Vitalis Maroc™</strong> من ملاحظة واقعية: يعاني آلاف المغاربة يومياً من مشاكل متكررة تؤثر على راحتهم وصحتهم اليومية — مثل ضعف صبيب ماء الدوش وتراكم الكالكير، صعوبة تنظيف الأسنان وخاصة مع التقويم، برودة الركبة وآلام المفاصل، وصعوبة تتبع الوزن الحقيقي.
             </p>
             <p className="text-slate-300 text-xs md:text-sm leading-relaxed font-medium">
               هدفنا هو توفير منتجات وظيفية عالية الجودة تضمن نتائج فورية، مع كسر مخاوف التجارة الإلكترونية من خلال توفير <strong>حق المعاينة والتجربة أمام الموزع قبل دفع أي درهم</strong>، مع <strong>ضمان استبدال رسمي لمدة سنة كاملة</strong>.
@@ -54,7 +54,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 gap-3">
             {[
               { num: '+2,480', label: 'زبون راضٍ بالمغرب', color: 'text-emerald-400', border: 'border-emerald-500/20' },
-              { num: '3', label: 'منتجات أساسية مختبرة بعناية', color: 'text-white', border: 'border-slate-700/60' },
+              { num: '4', label: 'منتجات أساسية مختبرة بعناية', color: 'text-white', border: 'border-slate-700/60' },
               { num: '12', label: 'شهراً ضمان استبدال معتمد', color: 'text-amber-400', border: 'border-amber-500/20' },
               { num: '48h', label: 'أقصى وقت للتوصيل المجاني', color: 'text-teal-400', border: 'border-teal-500/20' },
             ].map((s, i) => (
