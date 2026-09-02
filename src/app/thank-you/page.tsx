@@ -15,8 +15,8 @@ export default function ThankYouPage() {
   const { lastOrder } = useCartStore();
 
   const orderId = lastOrder?.orderId || 'vitalis-' + Math.floor(100000 + Math.random() * 900000);
-  const totalAmount = lastOrder?.totalAmount || 249;
-  const items = lastOrder?.items || [{ name: 'طلب معتمد من فيتاليس ماروك', quantity: 1, price: 249 }];
+  const totalAmount = lastOrder?.totalAmount || 199;
+  const items = lastOrder?.items || [{ name: 'طلب معتمد من فيتاليس ماروك', quantity: 1, price: 199 }];
   const customerName = lastOrder?.customerName || 'عميلنا العزيز';
   const phoneNumber = lastOrder?.phoneNumber || 'الرقم غير متوفر';
 

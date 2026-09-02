@@ -67,7 +67,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed text-[11px] md:text-xs font-medium">
-              العلامة المغربية المتخصصة في تقديم منتجات عملية ومبتكرة لحل مشاكل البيت، العمل، والسيارة. شحن مجاني لكافة المدن، معاينة قبل الدفع، وضمان استبدال معتمد 12 شهراً.
+              العلامة المغربية المتخصصة في تقديم منتجات عملية ومبتكرة للعناية اليومية بالبيت والصحة. شحن مجاني لكافة المدن، معاينة قبل الدفع، وضمان استبدال معتمد 12 شهراً.
             </p>
             <div className="flex items-center gap-2 bg-slate-900/80 border border-slate-800/80 w-fit px-3 py-1.5 rounded-lg shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />

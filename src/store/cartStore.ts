@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Product, calculateOfferPrice } from '@/lib/products';
+import { Product, calculateOfferPrice, calculateKneeReliefPrice } from '@/lib/products';
 import { trackAddToCart } from '@/lib/pixel';
 
 export interface CartItem {
@@ -51,7 +51,9 @@ export const useCartStore = create<CartState>((set, get) => ({
   pendingCustomerPhone: '',
 
   addItem: (product, quantity, color) => {
-    const tierPrice = calculateOfferPrice(quantity);
+    const isKneeRelief = product.id === 'cushion';
+    const calculatePrice = isKneeRelief ? calculateKneeReliefPrice : calculateOfferPrice;
+    const tierPrice = calculatePrice(quantity);
     trackAddToCart({ id: product.id, name: product.name }, tierPrice, quantity);
 
     set((state) => {
@@ -64,7 +66,7 @@ export const useCartStore = create<CartState>((set, get) => ({
           ...state.items[existingIndex],
           quantity: newQty,
           selectedTier: newQty,
-          tierPrice: calculateOfferPrice(newQty),
+          tierPrice: calculatePrice(newQty),
           selectedColor: color ?? state.items[existingIndex].selectedColor,
         };
       } else {
@@ -73,7 +75,7 @@ export const useCartStore = create<CartState>((set, get) => ({
           product,
           quantity,
           selectedTier: quantity,
-          tierPrice: calculateOfferPrice(quantity),
+          tierPrice: calculatePrice(quantity),
           selectedColor: color,
         });
       }
@@ -98,12 +100,15 @@ export const useCartStore = create<CartState>((set, get) => ({
           if (item.id === productId) {
             const newQty = item.quantity + delta;
             if (newQty <= 0) return null;
-            return {
-              ...item,
-              quantity: newQty,
-              selectedTier: newQty,
-              tierPrice: calculateOfferPrice(newQty),
-            };
+          const isKneeRelief = item.id === 'cushion';
+          const calculatePrice = isKneeRelief ? calculateKneeReliefPrice : calculateOfferPrice;
+          
+          return {
+            ...item,
+            quantity: newQty,
+            selectedTier: newQty,
+            tierPrice: calculatePrice(newQty),
+          };
           }
           return item;
         })

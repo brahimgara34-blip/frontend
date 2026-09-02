@@ -89,7 +89,7 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
       content_name: product.name,
       content_ids: [product.id],
       content_type: 'product',
-      value: product.price || 249,
+      value: product.price || 199,
       currency: 'MAD',
     });
   }
@@ -99,7 +99,7 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
       content_id: product.id,
       content_type: 'product',
       content_name: product.name,
-      price: product.price || 249,
+      price: product.price || 199,
       currency: 'MAD',
     });
   }
@@ -107,7 +107,7 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
   if (window.snaptr && SNAPCHAT_PIXEL_ID) {
     window.snaptr('track', 'VIEW_CONTENT', {
       item_ids: [product.id],
-      price: product.price || 249,
+      price: product.price || 199,
       currency: 'MAD',
     });
   }

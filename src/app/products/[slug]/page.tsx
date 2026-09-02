@@ -441,7 +441,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             لماذا تفشل الطرق والمنتجات التقليدية؟
           </h2>
           <p className="text-slate-400 text-xs md:text-sm">
-            نظرة واقعية على الأضرار والإحباط الذي تسببه الحلول العادية في بيوتنا وسياراتنا.
+            نظرة واقعية على الأضرار والإحباط الذي تسببه الحلول العادية في بيوتنا كل يوم.
           </p>
         </div>
 
@@ -465,13 +465,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               <div className="md:col-span-6 relative aspect-[16/9] md:aspect-[4/3] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group">
                 <Image
                   src={product.beforeAfterImage}
-                  alt={`مقارنة قبل وبعد ${product.shortName}`}
+                  alt={`صورة توضيحية لـ ${product.shortName}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-md px-3 py-1 rounded-xl text-[10px] font-black text-white border border-slate-700 shadow-md">
-                  ✦ دليل بصري واقعي: قبل مقابل بعد
+                  ✦ تصميم عصري وفعال
                 </div>
               </div>
               <div className="md:col-span-6 space-y-3.5">
@@ -651,13 +651,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               <div className="relative w-20 h-20 bg-slate-900 rounded-xl border border-slate-700 shrink-0 overflow-hidden">
                 <Image src={p.image} alt={p.name} fill sizes="80px" className="object-contain p-1.5 group-hover:scale-110 transition-transform" />
               </div>
-              <div className="text-right flex-1">
+                  <div className="text-right flex-1">
                 <span className="text-[10px] font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full mb-1 inline-block">
                   {p.badge}
                 </span>
                 <p className="text-sm font-bold text-white line-clamp-2">{p.name}</p>
                 <div className="flex items-center justify-between mt-2">
-                  <span className="text-emerald-400 font-black text-sm">249 درهم</span>
+                  <span className="text-emerald-400 font-black text-sm">{p.offerTiers[0].price} درهم</span>
                   <span className="text-[10px] text-teal-400 font-bold border border-teal-500/30 px-2 py-1 rounded-lg group-hover:bg-teal-500/10 transition-colors">
                     اكتشف التفاصيل ❯
                   </span>
@@ -774,7 +774,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
                     <div className="flex items-center justify-between mt-3 gap-2">
                       <div>
-                        <span className="text-base font-black text-teal-700">249 د.م</span>
+                        <span className="text-base font-black text-teal-700">{other.offerTiers[0].price} د.م</span>
                         <span className="text-[10px] text-emerald-600 font-bold block">توصيل مجاني</span>
                       </div>
                       <div className="flex gap-2">

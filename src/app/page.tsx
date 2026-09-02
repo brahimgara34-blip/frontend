@@ -47,7 +47,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-slate-300 text-sm md:text-base mt-6 max-w-2xl mx-auto leading-relaxed font-medium">
-            منتجات أصلية ومختبرة بدقة لحل المشاكل الأكثر إزعاجاً في البيت، العمل، والسيارة بالمغرب. تمتع بمضاعفة صبيب الماء وتصفيته، تنظيف احترافي للأسنان واللثة، وتخفيف آلام الظهر وعرق النسا.
+            منتجات أصلية ومختبرة بدقة لحل المشاكل الأكثر إزعاجاً في بيوت المغاربة. تمتع بمضاعفة صبيب الماء وتصفيته، تنظيف احترافي للأسنان واللثة، راحة فورية لآلام الركبة، وتتبع ذكي لوزنك وصحتك.
           </p>
 
           {/* Trust Metrics Row */}
@@ -69,7 +69,7 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-3 gap-3 md:gap-4 max-w-xl mx-auto">
             <div className="bg-slate-950/80 border border-slate-800/80 p-4 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700 transition-colors">
               <span className="text-[10px] md:text-xs text-slate-400 block font-bold">1 قطعة</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block">249 د.م</span>
+              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block">199 د.م</span>
               <span className="text-[9px] md:text-[10px] text-slate-500 font-bold mt-0.5 block">توصيل مجاني</span>
             </div>
             <div className="bg-slate-950/90 border border-emerald-500/50 p-4 rounded-2xl backdrop-blur-md relative ring-2 ring-emerald-500/20 shadow-[0_0_25px_rgba(16,185,129,0.15)] transform scale-105 z-10">
@@ -77,13 +77,13 @@ export default function HomePage() {
                 الأكثر طلباً بالمغرب 🔥
               </span>
               <span className="text-[10px] md:text-xs text-slate-300 block font-bold">2 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block drop-shadow-sm">379 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-emerald-400 font-black mt-0.5 block">وفر 119 درهم</span>
+              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block drop-shadow-sm">299 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-emerald-400 font-black mt-0.5 block">وفر 99 درهم</span>
             </div>
             <div className="bg-slate-950/80 border border-slate-800/80 p-4 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700 transition-colors">
               <span className="text-[10px] md:text-xs text-slate-400 block font-bold">3 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-amber-400 mt-1 block">499 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-amber-400 font-black mt-0.5 block">وفر 248 درهم</span>
+              <span className="text-xl md:text-2xl font-black text-amber-400 mt-1 block">399 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-amber-400 font-black mt-0.5 block">وفر 198 درهم</span>
             </div>
           </div>
 
@@ -147,7 +147,7 @@ export default function HomePage() {
             اختر الحل المناسب لاحتياجك اليومي
           </h2>
           <p className="text-slate-400 text-xs md:text-sm mt-1.5">
-            حلول هندسية مصممة بدقة لمضاعفة صبيب الماء، تنظيف الأسنان المتقدم، والجلوس الصحي المريح.
+            حلول هندسية مصممة بدقة لمضاعفة صبيب الماء، تنظيف الأسنان المتقدم، راحة المفاصل، وتتبع الوزن الذكي.
           </p>
         </div>
 
