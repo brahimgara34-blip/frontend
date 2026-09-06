@@ -119,7 +119,7 @@ async function proxyRequest(req: NextRequest, { params }: { params: Promise<{ sl
         total_clicks: Math.max(FALLBACK_CLICKS.length, 12),
         cvr_percent: totalOrders > 0 ? Math.min(Math.round((totalOrders / 12) * 100), 100) : 0,
         upsell_orders_count: FALLBACK_ORDERS.filter((o) => o.hasUpsell).length,
-        upsell_revenue: FALLBACK_ORDERS.filter((o) => o.hasUpsell).reduce((acc, o) => acc + 199, 0),
+        upsell_revenue: FALLBACK_ORDERS.filter((o) => o.hasUpsell).reduce((acc, o) => acc + 149, 0),
         upsell_take_rate: totalOrders > 0 ? Math.round((FALLBACK_ORDERS.filter((o) => o.hasUpsell).length / totalOrders) * 100) : 0,
       },
       status_breakdown: {

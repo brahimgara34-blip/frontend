@@ -158,7 +158,7 @@ export default function TimedUpsellModal() {
           هل ترغب في إضافة هذا المنتج بـ <span className="text-teal-400 font-black">149 درهم فقط</span>؟
         </h2>
         <p className="text-slate-400 text-xs mt-2 mb-6 relative z-10 font-medium">
-          بصفتك طلبت الآن، يمكنك إضافة هذا المنتج لنفس الطرد بـ 149 درهم بدلاً من 199 درهم وبدون أي مصاريف شحن إضافية.
+          بصفتك طلبت الآن، يمكنك إضافة هذا المنتج لنفس الطرد بـ 149 درهم بدلاً من 179 درهم وبدون أي مصاريف شحن إضافية.
         </p>
 
         {/* Product Card */}
@@ -181,9 +181,9 @@ export default function TimedUpsellModal() {
                 {activeUpsellProduct.name}
               </h4>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-slate-500 text-xs line-through font-bold">199 درهم</span>
+                <span className="text-slate-500 text-xs line-through font-bold">179 درهم</span>
                 <span className="text-lg font-black text-emerald-400 drop-shadow-sm">149 درهم فقط!</span>
-                <span className="text-[10px] bg-red-500/20 text-red-400 font-bold px-1.5 py-0.5 rounded border border-red-500/20">وفر 50 درهم</span>
+                <span className="text-[10px] bg-red-500/20 text-red-400 font-bold px-1.5 py-0.5 rounded border border-red-500/20">وفر 30 درهم</span>
               </div>
             </div>
           </div>

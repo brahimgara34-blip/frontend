@@ -984,7 +984,7 @@ export default function AdminPage() {
                             ))}
                             {o.hasUpsell && (
                               <span className="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[9px] font-bold px-1.5 rounded">
-                                + Upsell (+199 د.م)
+                                + Upsell (+149 د.م)
                               </span>
                             )}
                           </div>

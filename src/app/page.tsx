@@ -69,7 +69,7 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-3 gap-3 md:gap-4 max-w-xl mx-auto">
             <div className="bg-slate-950/80 border border-slate-800/80 p-4 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700 transition-colors">
               <span className="text-[10px] md:text-xs text-slate-400 block font-bold">1 قطعة</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block">199 د.م</span>
+              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block">179 د.م</span>
               <span className="text-[9px] md:text-[10px] text-slate-500 font-bold mt-0.5 block">توصيل مجاني</span>
             </div>
             <div className="bg-slate-950/90 border border-emerald-500/50 p-4 rounded-2xl backdrop-blur-md relative ring-2 ring-emerald-500/20 shadow-[0_0_25px_rgba(16,185,129,0.15)] transform scale-105 z-10">
@@ -77,13 +77,13 @@ export default function HomePage() {
                 الأكثر طلباً بالمغرب 🔥
               </span>
               <span className="text-[10px] md:text-xs text-slate-300 block font-bold">2 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block drop-shadow-sm">299 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-emerald-400 font-black mt-0.5 block">وفر 99 درهم</span>
+              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block drop-shadow-sm">269 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-emerald-400 font-black mt-0.5 block">وفر 89 درهم</span>
             </div>
             <div className="bg-slate-950/80 border border-slate-800/80 p-4 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700 transition-colors">
               <span className="text-[10px] md:text-xs text-slate-400 block font-bold">3 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-amber-400 mt-1 block">399 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-amber-400 font-black mt-0.5 block">وفر 198 درهم</span>
+              <span className="text-xl md:text-2xl font-black text-amber-400 mt-1 block">359 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-amber-400 font-black mt-0.5 block">وفر 178 درهم</span>
             </div>
           </div>
 
