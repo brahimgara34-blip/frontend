@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useCartStore } from '@/store/cartStore';
 import { Sparkles, Timer, Check, ArrowRight } from 'lucide-react';
 import { trackPurchase } from '@/lib/pixel';
+import { getFirstLandingUrl } from '@/lib/attribution';
 
 export default function TimedUpsellModal() {
   const router = useRouter();
@@ -89,6 +90,8 @@ export default function TimedUpsellModal() {
       finalTotal += 149;
     }
 
+    const landingUrl = getFirstLandingUrl();
+
     const payload = {
       orderId,
       customerName: pendingCustomerName || 'عميل فيتاليس ماروك',
@@ -99,6 +102,8 @@ export default function TimedUpsellModal() {
       upsellProduct: acceptUpsell ? activeUpsellProduct.name : null,
       upsellAmount: acceptUpsell ? 149.0 : 0.0,
       eventId,
+      landingUrl,
+      url: landingUrl,
     };
 
     // 1. Trigger Client-Side Purchase Pixels (Meta, TikTok, Snapchat) with Deduplication ID and Phone

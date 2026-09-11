@@ -4,11 +4,13 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { META_PIXEL_ID, TIKTOK_PIXEL_ID, SNAPCHAT_PIXEL_ID, trackPageView } from '@/lib/pixel';
+import { captureFirstLandingUrl } from '@/lib/attribution';
 
 export default function TrackingScripts() {
   const pathname = usePathname();
 
   useEffect(() => {
+    captureFirstLandingUrl();
     trackPageView();
   }, [pathname]);
 
