@@ -1,6 +1,6 @@
 const SHEETS_WEBHOOK =
   process.env.GOOGLE_SHEET_WEBHOOK_URL ||
-  'https://script.google.com/macros/s/AKfycbzKj-JgAocEBK1wlnIX-M0Uand48zVAb70NP8zH_wrk7LDZ4mgjZq3tCqnfOA-BZg2v7Q/exec';
+  'https://script.google.com/macros/s/AKfycbwl0YoETUXCBu2FOvlKtBr3kugSYW9YVnK5iBNWXJFnDT8EIWlC3zOSIdadBwSEP0Jchg/exec';
 
 function pad(n: number) {
   return String(n).padStart(2, '0');
