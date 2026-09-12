@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CartDrawer from "@/components/CartDrawer";
-import CheckoutModal from "@/components/CheckoutModal";
-import TimedUpsellModal from "@/components/TimedUpsellModal";
 import TrackingScripts from "@/components/TrackingScripts";
+import SiteChrome from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vitalismaroc.shop'),
@@ -52,16 +48,7 @@ export default function RootLayout({
         <TrackingScripts />
       </head>
       <body className="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
-        <Header />
-        <main className="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
-          {children}
-        </main>
-        <Footer />
-
-        {/* Global Modals & Drawers */}
-        <CartDrawer />
-        <CheckoutModal />
-        <TimedUpsellModal />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
