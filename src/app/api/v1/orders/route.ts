@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sendOrderToGoogleSheet } from '@/lib/sheetsWebhook';
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,6 +14,12 @@ export async function POST(req: NextRequest) {
     } catch (e) {
       console.error('❌ [JSON Parse Error]:', e, rawBody);
       return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+
+    try {
+      await sendOrderToGoogleSheet(body);
+    } catch (sheetErr) {
+      console.error('❌ [Sheets Webhook Error]:', sheetErr);
     }
 
     // Priority list of candidate backend URLs:
@@ -54,7 +61,7 @@ export async function POST(req: NextRequest) {
             'user-agent': userAgent,
           },
           body: JSON.stringify(body),
-          signal: AbortSignal.timeout(3500),
+          signal: AbortSignal.timeout(10000),
         });
 
         if (response.ok) {
