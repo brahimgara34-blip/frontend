@@ -122,14 +122,17 @@ export default function TimedUpsellModal() {
       });
 
       if (!response.ok) {
-        // Fallback: Try direct API URL if configured
-        const directApi = process.env.NEXT_PUBLIC_API_URL;
-        if (directApi) {
-          await fetch(`${directApi.replace(/\/+$/, '')}/api/v1/orders`, {
+        const fallbacks = [
+          process.env.NEXT_PUBLIC_API_URL,
+          'https://api.vitalismaroc.shop',
+        ].filter(Boolean) as string[];
+        for (const base of fallbacks) {
+          const res = await fetch(`${base.replace(/\/+$/, '')}/api/v1/orders`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
           });
+          if (res.ok) break;
         }
       }
     } catch (err) {
