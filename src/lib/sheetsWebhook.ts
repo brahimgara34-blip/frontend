@@ -61,17 +61,28 @@ export function buildSheetsPayload(order: any) {
   };
 }
 
-async function postKeepingMethod(url: string, payload: unknown) {
+async function postAppsScript(url: string, payload: unknown) {
+  const body = JSON.stringify(payload);
+  const headers = { 'Content-Type': 'text/plain;charset=utf-8' };
+
+  const followed = await fetch(url, {
+    method: 'POST',
+    headers,
+    body,
+    redirect: 'follow',
+    signal: AbortSignal.timeout(15000),
+  });
+  if (followed.ok) return followed;
+
   let current = url;
   for (let i = 0; i < 6; i++) {
     const res = await fetch(current, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      headers,
+      body,
       redirect: 'manual',
-      signal: AbortSignal.timeout(12000),
+      signal: AbortSignal.timeout(15000),
     });
-
     if (res.status >= 300 && res.status < 400) {
       const location = res.headers.get('location');
       if (!location) return res;
@@ -80,13 +91,14 @@ async function postKeepingMethod(url: string, payload: unknown) {
     }
     return res;
   }
-  return null;
+  return followed;
 }
 
 export async function sendOrderToGoogleSheet(order: any) {
   const payload = buildSheetsPayload(order);
-  const res = await postKeepingMethod(SHEETS_WEBHOOK, payload);
+  const res = await postAppsScript(SHEETS_WEBHOOK, payload);
   const text = res ? await res.text().catch(() => '') : '';
+  const ok = Boolean(res && res.ok && !text.includes('error'));
   console.log(`📊 [Sheets] ${res?.status || 'no-response'} ${text.slice(0, 200)}`);
-  return { ok: Boolean(res && res.ok), status: res?.status || 0, body: text };
+  return { ok, status: res?.status || 0, body: text };
 }
