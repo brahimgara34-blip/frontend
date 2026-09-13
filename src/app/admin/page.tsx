@@ -99,6 +99,7 @@ export default function AdminPage() {
   const [orders, setOrders] = useState<OrderData[]>([]);
   const [clicks, setClicks] = useState<ClickData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [dataError, setDataError] = useState<string | null>(null);
 
   // Order filters
   const [statusFilter, setStatusFilter] = useState('all');
@@ -201,6 +202,7 @@ export default function AdminPage() {
 
     try {
       const headers = { Authorization: `Bearer ${token}` };
+      setDataError(null);
 
       // 1. Fetch Stats
       const statsRes = await fetch(`/api/v1/admin/stats?${queryParams.toString()}`, { headers });
@@ -215,9 +217,19 @@ export default function AdminPage() {
 
       // 2. Fetch Orders
       const ordersRes = await fetch(`/api/v1/admin/orders?${queryParams.toString()}&limit=200`, { headers });
+      if (ordersRes.status === 401) {
+        handleLogout();
+        return;
+      }
+      const ordersData = await ordersRes.json().catch(() => ({}));
       if (ordersRes.ok) {
-        const ordersData = await ordersRes.json();
         setOrders(ordersData.orders || []);
+        if (ordersData.source === 'disconnected') {
+          setDataError('تعذر قراءة الطلبات من قاعدة البيانات. الباكند غير متصل.');
+        }
+      } else {
+        setOrders([]);
+        setDataError(ordersData.detail || 'تعذر قراءة الطلبات من قاعدة البيانات');
       }
 
       // 3. Fetch Recent Clicks
@@ -648,6 +660,12 @@ export default function AdminPage() {
         </div>
       </div>
 
+      {dataError && (
+        <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-2xl px-4 py-3 text-xs font-bold">
+          {dataError}
+        </div>
+      )}
+
       {/* ======== KPI SUMMARY CARDS (6 DTC Metrics) ======== */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
         
@@ -938,6 +956,12 @@ export default function AdminPage() {
               ))}
             </div>
           </div>
+
+          {dataError && (
+            <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-2xl px-4 py-3 text-xs font-bold">
+              {dataError}
+            </div>
+          )}
 
           {/* Orders Table */}
           <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
