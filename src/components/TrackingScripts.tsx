@@ -3,7 +3,7 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { META_PIXEL_ID, TIKTOK_PIXEL_ID, SNAPCHAT_PIXEL_ID, trackPageView } from '@/lib/pixel';
+import { META_PIXEL_IDS, TIKTOK_PIXEL_ID, SNAPCHAT_PIXEL_ID, trackPageView } from '@/lib/pixel';
 import { captureFirstLandingUrl } from '@/lib/attribution';
 
 export default function TrackingScripts() {
@@ -17,7 +17,7 @@ export default function TrackingScripts() {
   return (
     <>
       {/* Meta (Facebook) Pixel */}
-      {META_PIXEL_ID && (
+      {META_PIXEL_IDS.length > 0 && (
         <>
           <Script
             id="meta-pixel"
@@ -32,19 +32,22 @@ export default function TrackingScripts() {
                 t.src=v;s=b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t,s)}(window, document,'script',
                 'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '${META_PIXEL_ID}');
+                ${META_PIXEL_IDS.map((id) => `fbq('init', '${id}');`).join('\n                ')}
                 fbq('track', 'PageView');
               `,
             }}
           />
           <noscript>
-            <img
-              height="1"
-              width="1"
-              style={{ display: 'none' }}
-              src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
-              alt="meta-pixel"
-            />
+            {META_PIXEL_IDS.map((id) => (
+              <img
+                key={id}
+                height="1"
+                width="1"
+                style={{ display: 'none' }}
+                src={`https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1`}
+                alt="meta-pixel"
+              />
+            ))}
           </noscript>
         </>
       )}

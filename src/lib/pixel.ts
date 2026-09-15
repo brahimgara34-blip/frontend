@@ -9,7 +9,15 @@ declare global {
   }
 }
 
-export const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '';
+function parsePixelIds(raw: string): string[] {
+  return raw
+    .split(/[,;]+/)
+    .map((id) => id.trim())
+    .filter(Boolean);
+}
+
+export const META_PIXEL_IDS = parsePixelIds(process.env.NEXT_PUBLIC_META_PIXEL_ID || '');
+export const META_PIXEL_ID = META_PIXEL_IDS[0] || '';
 export const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || '';
 export const SNAPCHAT_PIXEL_ID = process.env.NEXT_PUBLIC_SNAPCHAT_PIXEL_ID || '';
 
@@ -22,7 +30,7 @@ export const trackPageView = (customPath?: string) => {
   const currentPath = customPath || window.location.pathname || '/';
 
   // 1. Meta Pixel
-  if (window.fbq && META_PIXEL_ID) {
+  if (window.fbq && META_PIXEL_IDS.length) {
     window.fbq('track', 'PageView');
   }
 
@@ -84,7 +92,7 @@ function getOrCreateSessionId(): string {
 export const trackViewContent = (product: { id: string; name: string; price?: number }) => {
   if (typeof window === 'undefined') return;
 
-  if (window.fbq && META_PIXEL_ID) {
+  if (window.fbq && META_PIXEL_IDS.length) {
     window.fbq('track', 'ViewContent', {
       content_name: product.name,
       content_ids: [product.id],
@@ -119,7 +127,7 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
 export const trackAddToCart = (product: { id: string; name: string }, value: number, quantity: number = 1) => {
   if (typeof window === 'undefined') return;
 
-  if (window.fbq && META_PIXEL_ID) {
+  if (window.fbq && META_PIXEL_IDS.length) {
     window.fbq('track', 'AddToCart', {
       content_name: product.name,
       content_ids: [product.id],
@@ -157,7 +165,7 @@ export const trackAddToCart = (product: { id: string; name: string }, value: num
 export const trackInitiateCheckout = (total: number, items: Array<{ id: string; name: string; quantity: number }>) => {
   if (typeof window === 'undefined') return;
 
-  if (window.fbq && META_PIXEL_ID) {
+  if (window.fbq && META_PIXEL_IDS.length) {
     window.fbq('track', 'InitiateCheckout', {
       content_ids: items.map((i) => i.id),
       content_type: 'product',
@@ -197,9 +205,9 @@ export const trackPurchase = (
 ) => {
   if (typeof window === 'undefined') return;
 
-  if (window.fbq && META_PIXEL_ID) {
+  if (window.fbq && META_PIXEL_IDS.length) {
     if (phone) {
-      window.fbq('init', META_PIXEL_ID, { ph: phone });
+      META_PIXEL_IDS.forEach((id) => window.fbq('init', id, { ph: phone }));
     }
     window.fbq(
       'track',
