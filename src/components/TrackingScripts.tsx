@@ -3,7 +3,7 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { META_PIXEL_IDS, TIKTOK_PIXEL_ID, SNAPCHAT_PIXEL_ID, trackPageView } from '@/lib/pixel';
+import { META_PIXEL_IDS, TIKTOK_PIXEL_IDS, SNAPCHAT_PIXEL_ID, trackPageView } from '@/lib/pixel';
 import { captureFirstLandingUrl } from '@/lib/attribution';
 
 export default function TrackingScripts() {
@@ -53,7 +53,7 @@ export default function TrackingScripts() {
       )}
 
       {/* TikTok Pixel */}
-      {TIKTOK_PIXEL_ID && (
+      {TIKTOK_PIXEL_IDS.length > 0 && (
         <Script
           id="tiktok-pixel"
           strategy="lazyOnload"
@@ -63,7 +63,7 @@ export default function TrackingScripts() {
                 w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
                 var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
                 ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-                ttq.load('${TIKTOK_PIXEL_ID}');
+                ${TIKTOK_PIXEL_IDS.map((id) => `ttq.load('${id}');`).join('\n                ')}
                 ttq.page();
               }(window, document, 'ttq');
             `,

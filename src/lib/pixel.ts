@@ -18,7 +18,8 @@ function parsePixelIds(raw: string): string[] {
 
 export const META_PIXEL_IDS = parsePixelIds(process.env.NEXT_PUBLIC_META_PIXEL_ID || '');
 export const META_PIXEL_ID = META_PIXEL_IDS[0] || '';
-export const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || '';
+export const TIKTOK_PIXEL_IDS = parsePixelIds(process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || '');
+export const TIKTOK_PIXEL_ID = TIKTOK_PIXEL_IDS[0] || '';
 export const SNAPCHAT_PIXEL_ID = process.env.NEXT_PUBLIC_SNAPCHAT_PIXEL_ID || '';
 
 /**
@@ -35,7 +36,7 @@ export const trackPageView = (customPath?: string) => {
   }
 
   // 2. TikTok Pixel
-  if (window.ttq && TIKTOK_PIXEL_ID) {
+  if (window.ttq && TIKTOK_PIXEL_IDS.length) {
     window.ttq.page();
   }
 
@@ -102,7 +103,7 @@ export const trackViewContent = (product: { id: string; name: string; price?: nu
     });
   }
 
-  if (window.ttq && TIKTOK_PIXEL_ID) {
+  if (window.ttq && TIKTOK_PIXEL_IDS.length) {
     window.ttq.track('ViewContent', {
       content_id: product.id,
       content_type: 'product',
@@ -138,7 +139,7 @@ export const trackAddToCart = (product: { id: string; name: string }, value: num
     });
   }
 
-  if (window.ttq && TIKTOK_PIXEL_ID) {
+  if (window.ttq && TIKTOK_PIXEL_IDS.length) {
     window.ttq.track('AddToCart', {
       content_id: product.id,
       content_type: 'product',
@@ -175,7 +176,7 @@ export const trackInitiateCheckout = (total: number, items: Array<{ id: string; 
     });
   }
 
-  if (window.ttq && TIKTOK_PIXEL_ID) {
+  if (window.ttq && TIKTOK_PIXEL_IDS.length) {
     window.ttq.track('InitiateCheckout', {
       contents: items.map((i) => ({ content_id: i.id, content_name: i.name, quantity: i.quantity })),
       value: total,
@@ -225,7 +226,7 @@ export const trackPurchase = (
     );
   }
 
-  if (window.ttq && TIKTOK_PIXEL_ID) {
+  if (window.ttq && TIKTOK_PIXEL_IDS.length) {
     if (phone) {
       window.ttq.identify({ phone_number: phone });
     }
