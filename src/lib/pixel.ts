@@ -16,7 +16,12 @@ function parsePixelIds(raw: string): string[] {
     .filter(Boolean);
 }
 
-export const META_PIXEL_IDS = parsePixelIds(process.env.NEXT_PUBLIC_META_PIXEL_ID || '');
+export const META_PIXEL_IDS = [
+  ...parsePixelIds(process.env.NEXT_PUBLIC_META_PIXEL_ID || ''),
+  ...parsePixelIds(process.env.NEXT_PUBLIC_META_PIXEL_ID_2 || ''),
+  ...parsePixelIds(process.env.NEXT_PUBLIC_META_PIXEL_ID_3 || ''),
+  ...parsePixelIds(process.env.NEXT_PUBLIC_META_PIXEL_ID_4 || ''),
+].filter((id, index, all) => all.indexOf(id) === index);
 export const META_PIXEL_ID = META_PIXEL_IDS[0] || '';
 export const TIKTOK_PIXEL_IDS = parsePixelIds(process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || '');
 export const TIKTOK_PIXEL_ID = TIKTOK_PIXEL_IDS[0] || '';
