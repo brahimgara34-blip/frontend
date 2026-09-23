@@ -9,8 +9,9 @@ import {
   AlertTriangle, XCircle, ChevronDown, Download, DollarSign,
   TrendingUp, Users, ShoppingBag, ArrowUpRight, Zap, MapPin,
   Flame, Filter, Calendar, Check, Copy, Trash2, ExternalLink,
-  ShieldAlert, Activity, Globe, X
+  ShieldAlert, Activity, Globe, X, Calculator
 } from 'lucide-react';
+import ProfitCalculator from '@/components/ProfitCalculator';
 
 interface OrderItemData {
   id?: string;
@@ -48,6 +49,10 @@ interface StatsData {
     total_orders: number;
     confirmed_orders: number;
     aov: number;
+    lifetime_aov?: number;
+    lifetime_orders?: number;
+    lifetime_units?: number;
+    avg_units_per_order?: number;
     valid_morocco_clicks: number;
     blocked_vpn_clicks: number;
     total_clicks: number;
@@ -88,7 +93,7 @@ export default function AdminPage() {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   // Dashboard state
-  const [activeTab, setActiveTab] = useState<'analytics' | 'orders' | 'traffic'>('analytics');
+  const [activeTab, setActiveTab] = useState<'analytics' | 'orders' | 'traffic' | 'profit'>('analytics');
   const [dateRange, setDateRange] = useState<string>('all');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -758,7 +763,7 @@ export default function AdminPage() {
       </div>
 
       {/* ======== TABS NAVIGATION ======== */}
-      <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
+      <div className="flex items-center gap-3 border-b border-slate-800 pb-3 flex-wrap">
         <button
           onClick={() => setActiveTab('analytics')}
           className={`px-5 py-2.5 rounded-2xl text-xs md:text-sm font-black flex items-center gap-2 transition-all cursor-pointer ${
@@ -798,6 +803,18 @@ export default function AdminPage() {
         >
           <Activity className="w-4 h-4" />
           <span>سجل الزيارات والـ IP (Traffic Quality)</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('profit')}
+          className={`px-5 py-2.5 rounded-2xl text-xs md:text-sm font-black flex items-center gap-2 transition-all cursor-pointer ${
+            activeTab === 'profit'
+              ? 'bg-slate-800 text-emerald-400 border border-slate-700 shadow-md'
+              : 'text-slate-400 hover:text-white'
+          }`}
+        >
+          <Calculator className="w-4 h-4" />
+          <span>حاسبة الأرباح</span>
         </button>
       </div>
 
@@ -1144,6 +1161,10 @@ export default function AdminPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {activeTab === 'profit' && (
+        <ProfitCalculator stats={stats?.kpis || null} />
       )}
 
       {/* =========================================================================
