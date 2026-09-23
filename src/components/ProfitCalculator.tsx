@@ -373,13 +373,38 @@ export default function ProfitCalculator({ stats }: { stats: ProfitCalculatorSta
             <h4 className="font-black text-sm text-white">الأرباح عند التوسيع (Scaling)</h4>
           </div>
           <p className="text-[11px] text-slate-400 leading-relaxed">
-            نفس النسب الحالية. غيّر عدد العملاء المحتملين أو الـ CPL باش تشوف الربح على 1× و 2× و 5×.
+            الربح = المدخول − المصروف. المصروف هو كلشي اللي كتخرج: إعلانات + تأكيد + مستودع + توصيل + إرجاع + بضاعة.
           </p>
 
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="bg-rose-500/10 border border-rose-500/30 rounded-2xl p-4 space-y-1">
+              <div className="text-[10px] font-black text-rose-300">المصروف اللي كتخرج</div>
+              <div className="text-2xl font-black text-rose-400">{money(base.totalCost)} $</div>
+              <div className="text-[10px] text-slate-400">{money(base.totalCost * inputs.madPerUsd, 0)} د.م</div>
+              <div className="text-[10px] text-slate-500">
+                إعلانات {money(base.ads)}$ + عمليات وبضاعة {money(base.opsCost)}$
+              </div>
+            </div>
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 space-y-1">
+              <div className="text-[10px] font-black text-slate-400">المدخول اللي كيرجع (المسلّم فقط)</div>
+              <div className="text-2xl font-black text-white">{money(base.revenue)} $</div>
+              <div className="text-[10px] text-slate-400">{money(base.revenue * inputs.madPerUsd, 0)} د.م</div>
+              <div className="text-[10px] text-slate-500">{money(base.delivered, 1)} طلب مسلّم × {money(base.aovUsd)}$</div>
+            </div>
+            <div className={`${base.profit >= 0 ? 'bg-emerald-500/10 border-emerald-500/30' : 'bg-rose-500/10 border-rose-500/30'} border rounded-2xl p-4 space-y-1`}>
+              <div className={`text-[10px] font-black ${base.profit >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>الربح اللي كيبقا</div>
+              <div className={`text-2xl font-black ${base.profit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>{money(base.profit)} $</div>
+              <div className="text-[10px] text-slate-400">{money(base.profit * inputs.madPerUsd, 0)} د.م</div>
+              <div className="text-[10px] text-slate-500">
+                {money(base.revenue)} − {money(base.totalCost)} = {money(base.profit)}$
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <Stat label="الربح الصافي" value={`${money(base.profit)} $`} tone={base.profit >= 0 ? 'good' : 'bad'} sub={`${money(base.profit * inputs.madPerUsd, 0)} د.م`} />
-            <Stat label="هامش الربح" value={`${money(base.margin, 1)}%`} tone={base.margin >= 0 ? 'good' : 'bad'} />
-            <Stat label="ROAS" value={`${money(base.roas, 2)}x`} />
+            <Stat label="هامش الربح" value={`${money(base.margin, 1)}%`} tone={base.margin >= 0 ? 'good' : 'bad'} sub="ربح ÷ مدخول" />
+            <Stat label="ROAS" value={`${money(base.roas, 2)}x`} sub="مدخول ÷ إعلانات" />
+            <Stat label="مصروف / طلب مسلّم" value={`${money(base.delivered > 0 ? base.totalCost / base.delivered : 0)} $`} sub="شحال كتخرج على كل واصل" />
             <Stat label="ربح / طلب مسلّم" value={`${money(base.profitPerDelivered)} $`} />
           </div>
 
@@ -393,14 +418,16 @@ export default function ProfitCalculator({ stats }: { stats: ProfitCalculatorSta
               <Row label="مرتجعون" value={money(base.returned, 1)} icon={<RotateCcw className="w-3 h-3 text-rose-400" />} />
             </div>
             <div className="bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3">
-              <div className="text-[10px] font-black text-slate-500 mb-1">التكاليف بالدولار</div>
+              <div className="text-[10px] font-black text-slate-500 mb-1">تفصيل المصروف بالدولار</div>
               <Row label="إعلانات" value={`${money(base.ads)} $`} />
               <Row label={`تأكيد × ${CONFIRM_FEE}$`} value={`${money(base.confirmCost)} $`} />
               <Row label={`مستودع × ${WAREHOUSE_FEE}$`} value={`${money(base.warehouseCost)} $`} />
               <Row label={`توصيل × ${DELIVER_FEE}$`} value={`${money(base.deliveryCost)} $`} />
               <Row label={`إرجاع × ${RETURN_FEE}$`} value={`${money(base.returnCost)} $`} />
-              <Row label="تكلفة المنتج" value={`${money(base.cogs)} $`} />
+              <Row label="تكلفة المنتج (المسلّم)" value={`${money(base.cogs)} $`} />
+              <Row label="مجموع المصروف" value={`${money(base.totalCost)} $`} />
               <Row label="المدخول" value={`${money(base.revenue)} $`} />
+              <Row label="الربح الصافي" value={`${money(base.profit)} $`} />
             </div>
           </div>
         </section>
@@ -419,6 +446,7 @@ export default function ProfitCalculator({ stats }: { stats: ProfitCalculatorSta
                 <th className="p-3 font-bold">Leads</th>
                 <th className="p-3 font-bold">مسلّم</th>
                 <th className="p-3 font-bold">مدخول</th>
+                <th className="p-3 font-bold">مجموع المصروف</th>
                 <th className="p-3 font-bold">إعلانات</th>
                 <th className="p-3 font-bold">عمليات + بضاعة</th>
                 <th className="p-3 font-bold">ربح</th>
@@ -436,6 +464,7 @@ export default function ProfitCalculator({ stats }: { stats: ProfitCalculatorSta
                   <td className="p-3 font-mono">{money(s.row.leads, 0)}</td>
                   <td className="p-3 font-mono">{money(s.row.delivered, 1)}</td>
                   <td className="p-3 font-mono text-emerald-400">{money(s.row.revenue)} $</td>
+                  <td className="p-3 font-mono text-rose-400">{money(s.row.totalCost)} $</td>
                   <td className="p-3 font-mono">{money(s.row.ads)} $</td>
                   <td className="p-3 font-mono">{money(s.row.opsCost)} $</td>
                   <td className={`p-3 font-mono ${s.row.profit >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
