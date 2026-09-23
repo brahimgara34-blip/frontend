@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function PrivacyTermsPage() {
   return (
-    <div className="max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl space-y-6 text-xs md:text-sm text-slate-300 leading-relaxed">
-      <h1 className="text-2xl font-black text-white border-b border-slate-800 pb-4">
+    <div className="max-w-3xl mx-auto bg-white border border-stone-200 rounded-3xl p-6 md:p-10 shadow-sm space-y-6 text-xs md:text-sm text-slate-600 leading-relaxed">
+      <h1 className="text-2xl font-black text-[#1E3A5F] border-b border-stone-200 pb-4">
         سياسة الخصوصية والشروط والأحكام
       </h1>
 

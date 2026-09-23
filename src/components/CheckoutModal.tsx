@@ -81,13 +81,13 @@ export default function CheckoutModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn" dir="rtl">
-      <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E3A5F]/40 backdrop-blur-md animate-fadeIn" dir="rtl">
+      <div className="w-full max-w-md bg-[#FDFBF7] border border-stone-200 rounded-3xl p-6 shadow-2xl relative">
         
         {/* Close Button */}
         <button
           onClick={closeCheckout}
-          className="absolute top-4 left-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
+          className="absolute top-4 left-4 text-slate-400 hover:text-[#1E3A5F] p-1 rounded-lg hover:bg-stone-100 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -98,29 +98,29 @@ export default function CheckoutModal() {
             <Zap className="w-3.5 h-3.5" />
             <span>تأكيد فوري بدون بطاقة بنكية — الدفع عند الاستلام</span>
           </div>
-          <h2 className="text-xl font-black text-white">إتمام الطلب وتأكيد الشحن</h2>
-          <p className="text-slate-400 text-xs mt-0.5">
+          <h2 className="text-xl font-black text-[#1E3A5F]">إتمام الطلب وتأكيد الشحن</h2>
+          <p className="text-slate-500 text-xs mt-0.5">
             أدخل اسمك ورقم هاتفك لحجز شحنتك وإرسالها لباب منزلك.
           </p>
         </div>
 
         {/* Quick Cart Summary */}
-        <div className="bg-slate-950 p-3.5 rounded-2xl border border-slate-800 mb-5 text-xs space-y-1.5">
-          <div className="flex justify-between text-slate-400">
+        <div className="bg-white p-3.5 rounded-2xl border border-stone-200 mb-5 text-xs space-y-1.5">
+          <div className="flex justify-between text-slate-500">
             <span>المنتجات المطلوبة:</span>
-            <span className="font-bold text-white">{items.length} باقة</span>
+            <span className="font-bold text-[#1E3A5F]">{items.length} باقة</span>
           </div>
-          <div className="flex justify-between items-center text-slate-300 border-t border-slate-800 pt-2 font-bold">
+          <div className="flex justify-between items-center text-slate-600 border-t border-stone-200 pt-2 font-bold">
             <span>المبلغ المستحق عند الاستلام:</span>
-            <span className="text-teal-400 font-black text-base">{totalPrice} درهم</span>
+            <span className="text-teal-700 font-black text-base">{totalPrice} درهم</span>
           </div>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5 mb-1.5">
-              <User className="w-3.5 h-3.5 text-teal-400" />
+            <label className="text-xs font-bold text-slate-600 flex items-center gap-1.5 mb-1.5">
+              <User className="w-3.5 h-3.5 text-teal-600" />
               <span>الاسم الكامل *</span>
             </label>
             <input
@@ -129,13 +129,13 @@ export default function CheckoutModal() {
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               required
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-teal-500 transition-colors"
             />
           </div>
 
           <div>
-            <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5 mb-1.5">
-              <Phone className="w-3.5 h-3.5 text-teal-400" />
+            <label className="text-xs font-bold text-slate-600 flex items-center gap-1.5 mb-1.5">
+              <Phone className="w-3.5 h-3.5 text-teal-600" />
               <span>رقم الهاتف المغربي *</span>
             </label>
             <input
@@ -147,7 +147,7 @@ export default function CheckoutModal() {
                 setPhoneError('');
               }}
               required
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors text-left font-mono"
+              className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-teal-500 transition-colors text-left font-mono"
               dir="ltr"
             />
             <span className="text-[10px] text-slate-400 block mt-1">
@@ -169,7 +169,7 @@ export default function CheckoutModal() {
           </button>
         </form>
 
-        <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-bold relative z-10 bg-slate-950/50 py-2 rounded-lg border border-slate-800/50 mt-5">
+        <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-500 font-bold relative z-10 bg-emerald-50 py-2 rounded-lg border border-emerald-100 mt-5">
           <Lock className="w-3.5 h-3.5 text-teal-400" />
           <span>بياناتك محمية ومشفرة 100% وفق معايير الأمان</span>
         </div>

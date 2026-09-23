@@ -48,7 +48,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 1. HERO & OFFER SECTION — بطاقة العرض المباشرة عالية الإقناع */}
       {/* ========================================================= */}
-      <div className="relative rounded-3xl shadow-2xl border border-slate-800 overflow-hidden bg-gradient-to-br from-slate-950 via-[#102033] to-slate-900">
+      <div className="relative rounded-3xl shadow-2xl border border-[#1E3A5F]/20 overflow-hidden bg-gradient-to-br from-[#1E3A5F] via-[#234E70] to-[#0F766E]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(20,184,166,0.22),transparent_36%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.10),transparent_34%)] pointer-events-none" />
 
         {/* Breadcrumb & Social Proof Header */}
@@ -404,11 +404,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 1.5 GOLDEN REVIEW — الدليل الاجتماعي المبكر */}
       {/* ========================================================= */}
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-xl mx-auto max-w-2xl relative overflow-hidden">
+      <div className="bg-white border border-stone-200 rounded-3xl p-5 shadow-sm mx-auto max-w-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1.5 h-full bg-amber-500 rounded-r-3xl" />
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center shrink-0 border border-slate-700">
-            <User className="w-6 h-6 text-slate-400" />
+          <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center shrink-0 border border-amber-200">
+            <User className="w-6 h-6 text-amber-600" />
           </div>
           <div>
             <div className="flex items-center gap-1 mb-1">
@@ -416,7 +416,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                 <Star key={star} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <p className="text-sm font-bold text-white italic leading-relaxed">
+            <p className="text-sm font-bold text-[#1E3A5F] italic leading-relaxed">
               "{product.slug === 'hydropure-shower' ? 'دوش التوربو بدل ليا الدوش 180 درجة فـ الطابق الرابع. الصبيب ولى مجهد بزاف وشعري مابقاش كيطيح بسبب الكالكير. سلعة ممتازة وتوصيل سريع.' : product.slug === 'aurafloss-water-flosser' ? 'خيط الأسنان المائي عتقني مع التقويم. كينقي كاع البقايا فـ ثواني بلا أي دم فـ اللثة. كنصح بيه أي واحد.' : product.slug === 'kneerelief-heated-brace' ? 'مشد الركبة بالحرارة والمساج هدا عليا البرودة والتصلب من أول ليلة. كنلبسو ونحن جالس فالصالون والركبة كتسخن مزيان.' : 'الميزان الذكي بان ليا نسبة الدهون فالتيليفون، ما بقيتش كنغش راسي بالوزن العادي. ساهل وكيتكونيكطا بالبلوتوث فثواني.'}"
             </p>
             <div className="flex items-center gap-2 mt-2 text-[10px]">
@@ -432,12 +432,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 2. THE PROBLEM VS SOLUTION — تحليل المشاكل الحقيقية والدلائل القاطعة */}
       {/* ========================================================= */}
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 md:p-10 border border-slate-800 shadow-xl space-y-8">
+      <section className="bg-white rounded-3xl p-6 md:p-10 border border-stone-200 shadow-sm space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="inline-block text-xs font-bold text-red-700 bg-red-50 border border-red-200 px-3 py-1 rounded-full">
             المشاكل الحقيقية التي نعاني منها يومياً
           </span>
-          <h2 className="text-xl md:text-3xl font-black text-white">
+          <h2 className="text-xl md:text-3xl font-black text-[#1E3A5F]">
             لماذا تفشل الطرق والمنتجات التقليدية؟
           </h2>
           <p className="text-slate-400 text-xs md:text-sm">
@@ -448,11 +448,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
         {/* 3 Pain Points */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {product.painPoints.map((pain, idx) => (
-            <div key={idx} className="bg-rose-950/30 border border-rose-500/20 rounded-2xl p-5 space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-rose-500/10 text-rose-300 flex items-center justify-center font-black text-sm">
+            <div key={idx} className="bg-rose-50 border border-rose-200 rounded-2xl p-5 space-y-2.5">
+              <div className="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-black text-sm">
                 ✕
               </div>
-              <h3 className="font-black text-sm text-white">{pain.title}</h3>
+              <h3 className="font-black text-sm text-[#1E3A5F]">{pain.title}</h3>
               <p className="text-xs text-slate-400 leading-relaxed">{pain.description}</p>
             </div>
           ))}
@@ -460,7 +460,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
         {/* Real Before/After Visual Proof Card */}
         {product.beforeAfterImage && (
-          <div className="rounded-3xl overflow-hidden border border-slate-800 bg-slate-950/90 p-5 md:p-8 shadow-2xl relative">
+          <div className="rounded-3xl overflow-hidden border border-stone-200 bg-[#F6F1E8] p-5 md:p-8 shadow-sm relative">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
               <div className="md:col-span-6 relative aspect-[16/9] md:aspect-[4/3] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group">
                 <Image
@@ -478,10 +478,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                 <span className="text-[10px] font-black text-teal-400 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full inline-block">
                   النتيجة الحقيقية الملموسة
                 </span>
-                <h3 className="text-xl md:text-2xl font-black text-white leading-snug">
+                <h3 className="text-xl md:text-2xl font-black text-[#1E3A5F] leading-snug">
                   شاهد الفرق الحاسم من أول دقيقة مع {product.shortName}
                 </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   تخلص نهائياً من المشاكل اليومية واستعد الراحة والنظافة الكاملة بفضل التصميم الهندسي المبتكر مع حق المعاينة والتجربة أمام الموزع قبل دفع أي درهم.
                 </p>
                 <div className="grid grid-cols-2 gap-2.5 pt-2">
@@ -500,24 +500,24 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
         )}
 
         {/* 3 Strong Solution Proofs */}
-        <div className="border-t border-slate-800 pt-8 space-y-6">
+        <div className="border-t border-stone-200 pt-8 space-y-6">
           <div className="text-center max-w-xl mx-auto">
             <span className="inline-block text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full mb-2">
               الدلائل الهندسية القاطعة للحل
             </span>
-            <h3 className="text-lg md:text-2xl font-black text-white">
+            <h3 className="text-lg md:text-2xl font-black text-[#1E3A5F]">
               كيف يحل {product.shortName} المشكلة من أول استخدام؟
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {product.solutionProofs.map((proof, idx) => (
-              <div key={idx} className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-5 space-y-2 text-center">
-                <span className="text-2xl md:text-3xl font-black text-emerald-300 block">{proof.metric}</span>
-                <span className="text-xs font-bold text-emerald-100 bg-slate-950/70 border border-emerald-500/20 px-2.5 py-0.5 rounded-full inline-block">
+              <div key={idx} className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 space-y-2 text-center">
+                <span className="text-2xl md:text-3xl font-black text-emerald-600 block">{proof.metric}</span>
+                <span className="text-xs font-bold text-emerald-700 bg-white border border-emerald-200 px-2.5 py-0.5 rounded-full inline-block">
                   {proof.iconText}
                 </span>
-                <h4 className="font-black text-sm text-white mt-2">{proof.title}</h4>
+                <h4 className="font-black text-sm text-[#1E3A5F] mt-2">{proof.title}</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">{proof.description}</p>
               </div>
             ))}
@@ -528,12 +528,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 3. DIRECT COMPARISON TABLE — جدول المقارنة الفاضح للبدائل */}
       {/* ========================================================= */}
-      <section className="bg-gradient-to-br from-slate-950 via-[#0b1728] to-slate-900 rounded-3xl p-6 md:p-10 border border-slate-800 shadow-xl space-y-6">
+      <section className="bg-white rounded-3xl p-6 md:p-10 border border-stone-200 shadow-sm space-y-6">
         <div className="text-center max-w-xl mx-auto space-y-1.5">
           <span className="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full">
             المقارنة الشفافة
           </span>
-          <h2 className="text-xl md:text-2xl font-black text-white">
+          <h2 className="text-xl md:text-2xl font-black text-[#1E3A5F]">
             مقارنة مباشرة: منتج Vitalis الأصلي مقابل السلع التقليدية
           </h2>
           <p className="text-slate-400 text-xs">
@@ -544,19 +544,19 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
         <div className="overflow-x-auto">
           <table className="w-full text-right border-collapse text-xs md:text-sm">
             <thead>
-              <tr className="border-b border-slate-800 bg-slate-900/80">
-                <th className="p-3.5 font-bold text-slate-300 rounded-r-2xl">المعيار والمواصفة</th>
-                <th className="p-3.5 font-black text-teal-200 bg-teal-500/10 border-x border-teal-500/20">
+              <tr className="border-b border-stone-200 bg-[#F6F1E8]">
+                <th className="p-3.5 font-bold text-slate-600 rounded-r-2xl">المعيار والمواصفة</th>
+                <th className="p-3.5 font-black text-teal-800 bg-teal-50 border-x border-teal-200">
                   ⭐️ {product.shortName}
                 </th>
-                <th className="p-3.5 font-bold text-slate-400 rounded-l-2xl">المنتجات المقلدة في السوق</th>
+                <th className="p-3.5 font-bold text-slate-500 rounded-l-2xl">المنتجات المقلدة في السوق</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800">
+            <tbody className="divide-y divide-stone-200">
               {product.comparison.map((comp, idx) => (
-                <tr key={idx} className="hover:bg-slate-900/60">
-                  <td className="p-3.5 font-bold text-slate-200">{comp.feature}</td>
-                  <td className="p-3.5 font-bold text-teal-100 bg-teal-500/5 border-x border-teal-500/20 flex items-center gap-1.5">
+                <tr key={idx} className="hover:bg-[#F6F1E8]">
+                  <td className="p-3.5 font-bold text-[#1E3A5F]">{comp.feature}</td>
+                  <td className="p-3.5 font-bold text-teal-800 bg-teal-50/60 border-x border-teal-100 flex items-center gap-1.5">
                     <Check className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>{comp.vitalis}</span>
                   </td>
@@ -579,7 +579,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           <span className="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full">
             التفاصيل والمزايا الملموسة
           </span>
-          <h2 className="text-xl md:text-2xl font-black text-white mt-2">
+          <h2 className="text-xl md:text-2xl font-black text-[#1E3A5F] mt-2">
             كل ما تريد معرفته عن جودة وطريقة عمل المنتج
           </h2>
         </div>
@@ -587,7 +587,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
         {product.sections.map((sec, idx) => (
           <div
             key={idx}
-            className="grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden border border-slate-800 shadow-xl bg-slate-950"
+            className="grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden border border-stone-200 shadow-sm bg-white"
           >
             {/* Text Side */}
             <div className={`p-7 md:p-10 flex flex-col justify-center space-y-3 ${
@@ -596,7 +596,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               <span className="inline-block text-[11px] font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-0.5 rounded-full w-fit">
                 ✦ {sec.highlight}
               </span>
-              <h3 className="text-lg md:text-2xl font-black text-white leading-snug">
+              <h3 className="text-lg md:text-2xl font-black text-[#1E3A5F] leading-snug">
                 {sec.title}
               </h3>
               <p className="text-slate-400 text-xs md:text-sm leading-relaxed">
@@ -610,7 +610,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                 sec.imagePosition === 'right' ? 'md:order-2' : 'md:order-1'
               }`}
               style={{
-                background: `radial-gradient(circle at center, ${selectedColor.hex}25 0%, #020617 90%)`,
+                background: `radial-gradient(circle at center, ${selectedColor.hex}25 0%, #F6F1E8 90%)`,
               }}
             >
               <div className="relative w-full aspect-[4/3] max-w-sm rounded-2xl overflow-hidden shadow-2xl border border-slate-800/80 mb-3 group bg-slate-950">
@@ -622,7 +622,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <span className="text-xs font-black text-slate-200">{sec.placeholderSvgText}</span>
+              <span className="text-xs font-black text-[#1E3A5F]">{sec.placeholderSvgText}</span>
               <span className="text-[10px] text-emerald-300 font-bold mt-1">✓ فحص الجودة والمواصفات الأصلية 100%</span>
             </div>
           </div>
@@ -632,12 +632,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 4.5 CROSS-SELLS — منتجات يشتريها عملاؤنا مع هذا المنتج */}
       {/* ========================================================= */}
-      <section className="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl space-y-6">
+      <section className="bg-white border border-stone-200 rounded-3xl p-6 md:p-10 shadow-sm space-y-6">
         <div className="text-center max-w-xl mx-auto space-y-1.5">
           <span className="text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
             عروض إضافية
           </span>
-          <h2 className="text-xl md:text-2xl font-black text-white">
+          <h2 className="text-xl md:text-2xl font-black text-[#1E3A5F]">
             زبناؤنا يفضلون إضافة هذه المنتجات لطلباتهم
           </h2>
           <p className="text-slate-400 text-xs">
@@ -647,15 +647,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {otherProducts.slice(0, 2).map((p) => (
-            <Link key={p.id} href={`/products/${p.slug}`} className="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex items-center gap-4 hover:border-teal-500/50 transition-colors group">
-              <div className="relative w-20 h-20 bg-slate-900 rounded-xl border border-slate-700 shrink-0 overflow-hidden">
+            <Link key={p.id} href={`/products/${p.slug}`} className="bg-[#F6F1E8] border border-stone-200 rounded-2xl p-4 flex items-center gap-4 hover:border-emerald-300 transition-colors group">
+              <div className="relative w-20 h-20 bg-white rounded-xl border border-stone-200 shrink-0 overflow-hidden">
                 <Image src={p.image} alt={p.name} fill sizes="80px" className="object-contain p-1.5 group-hover:scale-110 transition-transform" />
               </div>
                   <div className="text-right flex-1">
-                <span className="text-[10px] font-bold text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full mb-1 inline-block">
+                <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full mb-1 inline-block">
                   {p.badge}
                 </span>
-                <p className="text-sm font-bold text-white line-clamp-2">{p.name}</p>
+                <p className="text-sm font-bold text-[#1E3A5F] line-clamp-2">{p.name}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-emerald-400 font-black text-sm">{p.offerTiers[0].price} درهم</span>
                   <span className="text-[10px] text-teal-400 font-bold border border-teal-500/30 px-2 py-1 rounded-lg group-hover:bg-teal-500/10 transition-colors">
@@ -676,12 +676,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 6. FAQs — إزالة جميع الاعتراضات ومخاوف الزبون المغربي */}
       {/* ========================================================= */}
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 md:p-10 border border-slate-800 shadow-xl space-y-6">
+      <section className="bg-white rounded-3xl p-6 md:p-10 border border-stone-200 shadow-sm space-y-6">
         <div className="text-center max-w-xl mx-auto space-y-1">
           <span className="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full">
             الأسئلة الشائعة والأجوبة
           </span>
-          <h2 className="text-xl md:text-2xl font-black text-white">
+          <h2 className="text-xl md:text-2xl font-black text-[#1E3A5F]">
             كل التساؤلات التي قد تخطر ببالك قبل الطلب
           </h2>
         </div>
@@ -692,11 +692,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             return (
               <div
                 key={idx}
-                className="border border-slate-800 rounded-2xl overflow-hidden transition-all bg-slate-950/70"
+                className="border border-stone-200 rounded-2xl overflow-hidden transition-all bg-[#FDFBF7]"
               >
                 <button
                   onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                  className="w-full p-4 text-right font-black text-xs md:text-sm text-white bg-slate-900/70 hover:bg-slate-800 flex items-center justify-between gap-3 cursor-pointer transition-colors"
+                  className="w-full p-4 text-right font-black text-xs md:text-sm text-[#1E3A5F] bg-white hover:bg-[#F6F1E8] flex items-center justify-between gap-3 cursor-pointer transition-colors"
                 >
                   <span className="flex items-center gap-2">
                     <HelpCircle className="w-4 h-4 text-teal-600 shrink-0" />
@@ -705,7 +705,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                   <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isOpen && (
-                  <div className="p-4 bg-slate-950 text-xs md:text-sm text-slate-400 leading-relaxed border-t border-slate-800">
+                  <div className="p-4 bg-[#F6F1E8] text-xs md:text-sm text-slate-600 leading-relaxed border-t border-stone-200">
                     {faq.answer}
                   </div>
                 )}
@@ -718,7 +718,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 6. DISCOVERY & CROSS-SELLS — العروض المتقاطعة للطلب المجمع */}
       {/* ========================================================= */}
-      <div className="bg-gradient-to-br from-slate-950 via-[#0b1728] to-slate-900 rounded-3xl shadow-xl border border-slate-800 overflow-hidden">
+      <div className="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
         <div className="p-6 md:p-8 space-y-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
@@ -728,7 +728,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                   عروض إضافية للشحن المجمع
                 </span>
               </div>
-              <h3 className="text-xl md:text-2xl font-black text-white">
+              <h3 className="text-xl md:text-2xl font-black text-[#1E3A5F]">
                 أضف منتجاً مكملاً لنفس الشحنة ووفر أكثر
               </h3>
               <p className="text-slate-400 text-xs md:text-sm mt-1 max-w-xl">
@@ -748,10 +748,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             {otherProducts.map((other) => (
               <div
                 key={other.id}
-                className="group bg-slate-900/75 border border-slate-800 rounded-2xl p-4 hover:border-teal-500/50 hover:shadow-md transition-all"
+                className="group bg-[#F6F1E8] border border-stone-200 rounded-2xl p-4 hover:border-emerald-300 hover:shadow-md transition-all"
               >
                 <div className="flex gap-4 items-center">
-                  <div className="shrink-0 bg-slate-950 border border-slate-700 rounded-2xl w-20 h-20 relative flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform shadow-sm overflow-hidden">
+                  <div className="shrink-0 bg-white border border-stone-200 rounded-2xl w-20 h-20 relative flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform overflow-hidden">
                     <Image
                       src={other.image}
                       alt={other.name}
@@ -765,7 +765,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                     <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
                       {other.badge}
                     </span>
-                    <h4 className="font-black text-sm text-white mt-1.5 leading-snug line-clamp-1">
+                    <h4 className="font-black text-sm text-[#1E3A5F] mt-1.5 leading-snug line-clamp-1">
                       {other.name}
                     </h4>
                     <p className="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
@@ -786,7 +786,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                         </button>
                         <Link
                           href={`/products/${other.slug}`}
-                          className="bg-slate-950 border border-slate-700 hover:bg-slate-800 text-slate-200 text-[11px] font-bold px-3 py-2 rounded-xl transition-all whitespace-nowrap flex items-center gap-1"
+                          className="bg-white border border-stone-200 hover:bg-stone-50 text-slate-600 text-[11px] font-bold px-3 py-2 rounded-xl transition-all whitespace-nowrap flex items-center gap-1"
                         >
                           <Eye className="w-3 h-3" />
                           <span>تفاصيل</span>
@@ -804,7 +804,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 7. STICKY MOBILE BUY BUTTON */}
       {/* ========================================================= */}
-      <div className="fixed bottom-0 left-0 right-0 p-3 bg-slate-950/90 backdrop-blur-md border-t border-slate-800 z-40 md:hidden animate-slideUp">
+      <div className="fixed bottom-0 left-0 right-0 p-3 bg-[#FDFBF7]/95 backdrop-blur-md border-t border-stone-200 z-40 md:hidden animate-slideUp">
         <button
           onClick={handleDirectOrder}
           className="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-white font-black text-sm py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-700/20 flex items-center justify-between active:scale-[0.98] transition-transform"

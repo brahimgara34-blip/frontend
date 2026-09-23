@@ -19,17 +19,15 @@ export default function HomePage() {
     <div className="space-y-16">
 
       {/* ======== HERO — تموضع قوي، موثوق، واحترافي ======== */}
-      <section className="relative rounded-3xl overflow-hidden border border-slate-800/60 shadow-[0_0_50px_-12px_rgba(16,185,129,0.15)] group">
-        {/* Background layers */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0a1122] to-slate-950" />
+      <section className="relative rounded-3xl overflow-hidden border border-[#1E3A5F]/15 shadow-[0_20px_50px_-20px_rgba(30,58,95,0.35)] group">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] via-[#234E70] to-[#0F766E]" />
         <div
-          className="absolute inset-0 opacity-20 transition-opacity duration-1000 group-hover:opacity-30"
+          className="absolute inset-0 opacity-30 transition-opacity duration-1000 group-hover:opacity-40"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 20% 40%, #059669 0%, transparent 40%), radial-gradient(circle at 80% 30%, #0D9488 0%, transparent 45%)',
+              'radial-gradient(circle at 20% 40%, #34d399 0%, transparent 40%), radial-gradient(circle at 80% 30%, #5eead4 0%, transparent 45%)',
           }}
         />
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay" />
 
         <div className="relative z-10 px-6 md:px-12 py-16 md:py-24 text-center">
           {/* Brand badge */}
@@ -58,7 +56,7 @@ export default function HomePage() {
               { icon: <Truck className="w-4 h-4 text-teal-400" />, text: 'توصيل مجاني 24-48 ساعة' },
               { icon: <Lock className="w-4 h-4 text-slate-400" />, text: 'المعاينة والفحص قبل الدفع' },
             ].map((m, i) => (
-              <div key={i} className="flex items-center gap-1.5 font-bold bg-slate-900/80 border border-slate-700/60 px-3.5 py-2 rounded-xl backdrop-blur-sm shadow-sm hover:border-slate-500 transition-colors">
+              <div key={i} className="flex items-center gap-1.5 font-bold bg-white/10 border border-white/20 px-3.5 py-2 rounded-xl backdrop-blur-sm hover:bg-white/15 transition-colors">
                 {m.icon}
                 <span>{m.text}</span>
               </div>
@@ -67,23 +65,23 @@ export default function HomePage() {
 
           {/* Official Pricing Matrix */}
           <div className="mt-12 grid grid-cols-3 gap-3 md:gap-4 max-w-xl mx-auto">
-            <div className="bg-slate-950/80 border border-slate-800/80 p-4 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700 transition-colors">
-              <span className="text-[10px] md:text-xs text-slate-400 block font-bold">1 قطعة</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block">179 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-slate-500 font-bold mt-0.5 block">توصيل مجاني</span>
+            <div className="bg-white/10 border border-white/15 p-4 rounded-2xl backdrop-blur-md hover:bg-white/15 transition-colors">
+              <span className="text-[10px] md:text-xs text-sky-100/80 block font-bold">1 قطعة</span>
+              <span className="text-xl md:text-2xl font-black text-emerald-300 mt-1 block">179 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-sky-100/60 font-bold mt-0.5 block">توصيل مجاني</span>
             </div>
-            <div className="bg-slate-950/90 border border-emerald-500/50 p-4 rounded-2xl backdrop-blur-md relative ring-2 ring-emerald-500/20 shadow-[0_0_25px_rgba(16,185,129,0.15)] transform scale-105 z-10">
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap shadow-md">
+            <div className="bg-white border border-emerald-300 p-4 rounded-2xl relative ring-2 ring-emerald-300/40 shadow-xl transform scale-105 z-10">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap shadow-md">
                 الأكثر طلباً بالمغرب 🔥
               </span>
-              <span className="text-[10px] md:text-xs text-slate-300 block font-bold">2 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-400 mt-1 block drop-shadow-sm">269 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-emerald-400 font-black mt-0.5 block">وفر 89 درهم</span>
+              <span className="text-[10px] md:text-xs text-slate-600 block font-bold">2 قطع</span>
+              <span className="text-xl md:text-2xl font-black text-emerald-600 mt-1 block">269 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-emerald-600 font-black mt-0.5 block">وفر 89 درهم</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800/80 p-4 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700 transition-colors">
-              <span className="text-[10px] md:text-xs text-slate-400 block font-bold">3 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-amber-400 mt-1 block">359 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-amber-400 font-black mt-0.5 block">وفر 178 درهم</span>
+            <div className="bg-white/10 border border-white/15 p-4 rounded-2xl backdrop-blur-md hover:bg-white/15 transition-colors">
+              <span className="text-[10px] md:text-xs text-sky-100/80 block font-bold">3 قطع</span>
+              <span className="text-xl md:text-2xl font-black text-amber-300 mt-1 block">359 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-amber-200 font-black mt-0.5 block">وفر 178 درهم</span>
             </div>
           </div>
 
@@ -125,13 +123,13 @@ export default function HomePage() {
         ].map((item, i) => (
           <div
             key={i}
-            className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 hover:bg-slate-900/90 hover:border-slate-700 transition-all shadow-lg group"
+            className="bg-white border border-stone-200 rounded-2xl p-5 hover:border-emerald-300 hover:shadow-md transition-all group"
           >
-            <div className="bg-slate-950 border border-slate-800 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner">
+            <div className="bg-emerald-50 border border-emerald-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               {item.icon}
             </div>
-            <h3 className="font-black text-sm text-white mb-1.5">{item.title}</h3>
-            <p className="text-slate-400 text-[11px] leading-relaxed font-medium">{item.desc}</p>
+            <h3 className="font-black text-sm text-[#1E3A5F] mb-1.5">{item.title}</h3>
+            <p className="text-slate-500 text-[11px] leading-relaxed font-medium">{item.desc}</p>
           </div>
         ))}
       </section>
@@ -139,14 +137,14 @@ export default function HomePage() {
       {/* ======== 3 منتجات معتمدة ======== */}
       <section className="space-y-6">
         <div className="text-center max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20 mb-2">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200 mb-2">
             <Package className="w-3.5 h-3.5" />
             <span>منتجاتنا الثلاثة الأساسية بالمغرب</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-black text-white">
+          <h2 className="text-2xl md:text-3xl font-black text-[#1E3A5F]">
             اختر الحل المناسب لاحتياجك اليومي
           </h2>
-          <p className="text-slate-400 text-xs md:text-sm mt-1.5">
+          <p className="text-slate-500 text-xs md:text-sm mt-1.5">
             حلول هندسية مصممة بدقة لمضاعفة صبيب الماء، تنظيف الأسنان المتقدم، راحة المفاصل، وتتبع الوزن الذكي.
           </p>
         </div>
@@ -162,14 +160,14 @@ export default function HomePage() {
       <SharedSocialProofSection />
 
       {/* ======== التزاماتنا وضمانات الشراء المعتمدة ======== */}
-      <section className="relative rounded-3xl overflow-hidden border border-slate-800">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-950" />
+      <section className="relative rounded-3xl overflow-hidden border border-[#1E3A5F]/15">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] to-[#0F766E]" />
         <div className="relative z-10 p-6 md:p-10">
           <div className="text-center mb-8">
             <h2 className="text-xl md:text-2xl font-black text-white">
               تسوق بكل راحة واطمئنان مع Vitalis Maroc™
             </h2>
-            <p className="text-slate-400 text-xs mt-1">
+            <p className="text-sky-100/80 text-xs mt-1">
               التزامات تجارية واضحة وصريحة لحماية كل مشتري في المغرب.
             </p>
           </div>
@@ -195,13 +193,13 @@ export default function HomePage() {
                 desc: 'شحن مجاني 100% لباب منزلك خلال 24 إلى 48 ساعة أينما كنت في ربوع المملكة المغربية.',
               },
             ].map((g, i) => (
-              <div key={i} className="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 space-y-3 hover:border-slate-700 transition-all">
+              <div key={i} className="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-3 hover:bg-white/15 transition-all">
                 <div className="flex items-center gap-3">
-                  <span className="text-slate-600 font-black text-2xl">{g.num}</span>
+                  <span className="text-white/30 font-black text-2xl">{g.num}</span>
                   {g.icon}
                 </div>
                 <h3 className="font-black text-sm text-white">{g.title}</h3>
-                <p className="text-slate-400 text-xs leading-relaxed">{g.desc}</p>
+                <p className="text-sky-100/75 text-xs leading-relaxed">{g.desc}</p>
               </div>
             ))}
           </div>
@@ -236,10 +234,9 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
   }));
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group hover:shadow-2xl hover:shadow-teal-950/20">
+    <div className="bg-white border border-stone-200 rounded-3xl p-5 flex flex-col justify-between hover:border-emerald-300 transition-all shadow-sm group hover:shadow-xl">
       <div>
-        {/* Real Product Image Box */}
-        <Link href={`/products/${product.slug}`} className="block relative bg-slate-950 rounded-2xl p-4 border border-slate-800/80 mb-4 overflow-hidden group-hover:border-teal-500/40 transition-all">
+        <Link href={`/products/${product.slug}`} className="block relative bg-[#F6F1E8] rounded-2xl p-4 border border-stone-200 mb-4 overflow-hidden group-hover:border-emerald-300 transition-all">
           <div className="w-full h-56 relative flex items-center justify-center">
             <Image
               src={product.image}
@@ -252,14 +249,14 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
         </Link>
 
         {/* Category badge */}
-        <span className="text-[10px] font-bold text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full border border-teal-400/20">
+        <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">
           {product.badge}
         </span>
 
-        <h3 className="font-bold text-base text-white mt-2 mb-1 leading-snug">
+        <h3 className="font-bold text-base text-[#1E3A5F] mt-2 mb-1 leading-snug">
           {product.name}
         </h3>
-        <p className="text-slate-400 text-xs line-clamp-2 mb-4 leading-relaxed">
+        <p className="text-slate-500 text-xs line-clamp-2 mb-4 leading-relaxed">
           {product.subheadline}
         </p>
 
@@ -272,9 +269,9 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
               className={`p-2.5 rounded-xl border text-xs flex justify-between items-center cursor-pointer transition-all relative ${
                 selectedTier === tier
                   ? accent === 'amber'
-                    ? 'border-amber-500 bg-amber-500/10 text-white font-bold'
-                    : 'border-emerald-500 bg-emerald-500/10 text-white font-bold ring-1 ring-emerald-500/30'
-                  : 'border-slate-800 bg-slate-950/60 text-slate-400 hover:border-slate-700'
+                    ? 'border-amber-400 bg-amber-50 text-[#1E3A5F] font-bold'
+                    : 'border-emerald-400 bg-emerald-50 text-[#1E3A5F] font-bold ring-1 ring-emerald-200'
+                  : 'border-stone-200 bg-[#FDFBF7] text-slate-500 hover:border-stone-300'
               }`}
             >
               {popular && (
@@ -294,17 +291,17 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
         </div>
       </div>
 
-      <div className="border-t border-slate-800 pt-3 space-y-2">
+      <div className="border-t border-stone-200 pt-3 space-y-2">
         <button
           onClick={() => onAddToCart(product, selectedTier)}
-          className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs py-3 rounded-xl shadow-lg shadow-emerald-950/40 transition-all cursor-pointer"
+          className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-black text-xs py-3 rounded-xl shadow-lg shadow-emerald-200/60 transition-all cursor-pointer"
         >
           أضف للسلة ({tierData.find((t) => t.tier === selectedTier)?.price} د.م) 🛒
         </button>
 
         <Link
           href={`/products/${product.slug}`}
-          className="block text-center text-slate-400 hover:text-teal-400 text-[11px] font-bold py-1 cursor-pointer transition-colors"
+          className="block text-center text-slate-500 hover:text-teal-700 text-[11px] font-bold py-1 cursor-pointer transition-colors"
         >
           التفاصيل والمواصفات الكاملة ❯
         </Link>

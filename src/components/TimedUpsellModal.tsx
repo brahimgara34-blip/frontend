@@ -146,8 +146,8 @@ export default function TimedUpsellModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-fadeIn" dir="rtl">
-      <div className="w-full max-w-lg bg-slate-900 border-2 border-amber-500/50 rounded-3xl p-6 md:p-8 shadow-[0_0_50px_rgba(245,158,11,0.2)] relative text-center overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E3A5F]/40 backdrop-blur-md animate-fadeIn" dir="rtl">
+      <div className="w-full max-w-lg bg-[#FDFBF7] border-2 border-amber-300 rounded-3xl p-6 md:p-8 shadow-2xl relative text-center overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
         
         {/* Countdown Header */}
@@ -162,7 +162,7 @@ export default function TimedUpsellModal() {
         </div>
 
         {/* Headline */}
-        <h2 className="text-xl md:text-2xl font-black text-white leading-tight relative z-10 drop-shadow-sm">
+        <h2 className="text-xl md:text-2xl font-black text-[#1E3A5F] leading-tight relative z-10">
           هل ترغب في إضافة هذا المنتج بـ <span className="text-teal-400 font-black">149 درهم فقط</span>؟
         </h2>
         <p className="text-slate-400 text-xs mt-2 mb-6 relative z-10 font-medium">
@@ -170,9 +170,9 @@ export default function TimedUpsellModal() {
         </p>
 
         {/* Product Card */}
-        <div className="bg-slate-950/80 border border-slate-800/80 rounded-2xl p-4 text-right mb-6 relative z-10 shadow-inner">
+        <div className="bg-white border border-stone-200 rounded-2xl p-4 text-right mb-6 relative z-10">
           <div className="flex items-center gap-3.5 mb-3">
-            <div className="relative w-20 h-20 bg-slate-900 p-2 rounded-2xl border border-slate-700/60 shrink-0 overflow-hidden flex items-center justify-center shadow-inner">
+            <div className="relative w-20 h-20 bg-[#F6F1E8] p-2 rounded-2xl border border-stone-200 shrink-0 overflow-hidden flex items-center justify-center">
               <Image
                 src={activeUpsellProduct.image || '/products/shower.png'}
                 alt={activeUpsellProduct.name}
@@ -185,7 +185,7 @@ export default function TimedUpsellModal() {
               <span className="text-[10px] font-bold text-teal-400 bg-teal-400/10 px-2.5 py-0.5 rounded-full border border-teal-500/20">
                 {activeUpsellProduct.badge}
               </span>
-              <h4 className="font-black text-sm text-white mt-1.5 drop-shadow-sm">
+              <h4 className="font-black text-sm text-[#1E3A5F] mt-1.5">
                 {activeUpsellProduct.name}
               </h4>
               <div className="flex items-center gap-2 mt-1">
@@ -214,7 +214,7 @@ export default function TimedUpsellModal() {
           <button
             onClick={() => handleFinalize(false)}
             disabled={isSubmitting}
-            className="w-full bg-slate-900/50 hover:bg-slate-800 text-slate-400 hover:text-slate-300 text-xs md:text-sm font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 border border-slate-800/80 hover:border-slate-700"
+            className="w-full bg-white hover:bg-[#F6F1E8] text-slate-500 hover:text-[#1E3A5F] text-xs md:text-sm font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 border border-stone-200 hover:border-stone-300"
           >
             <span>لا شكراً، اكتفِ بطلبي الأساسي</span>
             <ArrowRight className="w-3.5 h-3.5" />

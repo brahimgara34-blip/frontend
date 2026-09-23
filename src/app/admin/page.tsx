@@ -440,7 +440,7 @@ export default function AdminPage() {
   // =========================================================================
   if (!token) {
     return (
-      <div className="min-h-[80vh] flex items-center justify-center p-4" dir="rtl">
+      <div className="min-h-[80vh] flex items-center justify-center p-4 -mx-4 -my-8 px-4 bg-slate-950 text-slate-100" dir="rtl">
         <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
           
@@ -558,7 +558,7 @@ export default function AdminPage() {
   // 2. AUTHENTICATED DASHBOARD
   // =========================================================================
   return (
-    <div className="space-y-8 pb-16" dir="rtl">
+    <div className="space-y-8 pb-16 -mx-4 -my-8 px-4 pt-8 bg-slate-950 text-slate-100 min-h-screen" dir="rtl">
 
       {/* Toast Notification */}
       {toastMessage && (

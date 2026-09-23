@@ -11,8 +11,8 @@ export default function AboutPage() {
     <div className="space-y-8 max-w-4xl mx-auto" dir="rtl">
 
       {/* ======== HERO — قصة وهوية العلامة ======== */}
-      <div className="relative rounded-3xl overflow-hidden border border-slate-800/60 shadow-[0_0_40px_-10px_rgba(16,185,129,0.15)] group">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#0a1122] to-slate-950" />
+      <div className="relative rounded-3xl overflow-hidden border border-[#1E3A5F]/15 shadow-[0_20px_50px_-20px_rgba(30,58,95,0.35)] group">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] via-[#234E70] to-[#0F766E]" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay" />
         <div className="absolute -top-32 -left-32 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-colors duration-1000" />
         
@@ -35,30 +35,30 @@ export default function AboutPage() {
       </div>
 
       {/* ======== رسالتنا وقصتنا ======== */}
-      <div className="bg-slate-900/80 border border-slate-800/80 rounded-3xl p-6 md:p-10 shadow-xl space-y-6 backdrop-blur-sm">
+      <div className="bg-white border border-stone-200 rounded-3xl p-6 md:p-10 shadow-sm space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <span className="inline-block text-[11px] md:text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full shadow-sm">
               رسالتنا (Notre Mission)
             </span>
-            <h2 className="text-2xl font-black text-white leading-snug drop-shadow-sm">
+            <h2 className="text-2xl font-black text-[#1E3A5F] leading-snug">
               لماذا أسسنا Vitalis Maroc™؟
             </h2>
-            <p className="text-slate-300 text-xs md:text-sm leading-relaxed font-medium">
+            <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-medium">
               انطلقت <strong>Vitalis Maroc™</strong> من ملاحظة واقعية: يعاني آلاف المغاربة يومياً من مشاكل متكررة تؤثر على راحتهم وصحتهم اليومية — مثل ضعف صبيب ماء الدوش وتراكم الكالكير، صعوبة تنظيف الأسنان وخاصة مع التقويم، برودة الركبة وآلام المفاصل، وصعوبة تتبع الوزن الحقيقي.
             </p>
-            <p className="text-slate-300 text-xs md:text-sm leading-relaxed font-medium">
+            <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-medium">
               هدفنا هو توفير منتجات وظيفية عالية الجودة تضمن نتائج فورية، مع كسر مخاوف التجارة الإلكترونية من خلال توفير <strong>حق المعاينة والتجربة أمام الموزع قبل دفع أي درهم</strong>، مع <strong>ضمان استبدال رسمي لمدة سنة كاملة</strong>.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-3">
             {[
               { num: '+2,480', label: 'زبون راضٍ بالمغرب', color: 'text-emerald-400', border: 'border-emerald-500/20' },
-              { num: '4', label: 'منتجات أساسية مختبرة بعناية', color: 'text-white', border: 'border-slate-700/60' },
+              { num: '4', label: 'منتجات أساسية مختبرة بعناية', color: 'text-[#1E3A5F]', border: 'border-stone-200' },
               { num: '12', label: 'شهراً ضمان استبدال معتمد', color: 'text-amber-400', border: 'border-amber-500/20' },
               { num: '48h', label: 'أقصى وقت للتوصيل المجاني', color: 'text-teal-400', border: 'border-teal-500/20' },
             ].map((s, i) => (
-              <div key={i} className={`bg-slate-950/80 border ${s.border} rounded-2xl p-4 text-center shadow-inner hover:bg-slate-900 transition-colors`}>
+              <div key={i} className={`bg-[#F6F1E8] border ${s.border} rounded-2xl p-4 text-center hover:bg-white transition-colors`}>
                 <span className={`text-2xl font-black block drop-shadow-sm ${s.color}`}>{s.num}</span>
                 <span className="text-[10px] md:text-xs text-slate-400 font-bold mt-1 block leading-snug">{s.label}</span>
               </div>
@@ -68,12 +68,12 @@ export default function AboutPage() {
       </div>
 
       {/* ======== كيف نختار ونختبر منتجاتنا ======== */}
-      <div className="bg-slate-900/80 border border-slate-800/80 rounded-3xl p-6 md:p-10 shadow-xl backdrop-blur-sm">
+      <div className="bg-white border border-stone-200 rounded-3xl p-6 md:p-10 shadow-sm">
         <div className="text-center mb-8">
-          <span className="inline-block text-[11px] md:text-xs font-bold text-teal-400 bg-teal-500/10 border border-teal-500/20 px-3 py-1 rounded-full mb-3 shadow-sm">
+          <span className="inline-block text-[11px] md:text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full mb-3">
             معايير الجودة والمصداقية
           </span>
-          <h2 className="text-xl md:text-2xl font-black text-white drop-shadow-sm">
+          <h2 className="text-xl md:text-2xl font-black text-[#1E3A5F]">
             كيف نختار كل منتج نعرضه في متجرنا؟
           </h2>
           <p className="text-slate-400 text-xs md:text-sm mt-2 max-w-xl mx-auto font-medium">
@@ -104,12 +104,12 @@ export default function AboutPage() {
               desc: 'نثق تماماً في جودة ما نقدمه؛ وفي حال حدوث أي عيب مصنعي طوال سنة كاملة، يتم تعويضك باستبدال فوري دون أي تعقيد.',
             },
           ].map((s, i) => (
-            <div key={i} className="flex items-start gap-4 p-4 md:p-5 bg-slate-950/80 border border-slate-800/80 rounded-2xl hover:border-teal-500/40 hover:bg-slate-900 transition-all shadow-sm">
-              <span className="text-sm md:text-base font-black text-teal-400 bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-xl shrink-0 shadow-sm">
+            <div key={i} className="flex items-start gap-4 p-4 md:p-5 bg-[#F6F1E8] border border-stone-200 rounded-2xl hover:border-emerald-300 hover:bg-white transition-all">
+              <span className="text-sm md:text-base font-black text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1.5 rounded-xl shrink-0">
                 {s.step}
               </span>
               <div>
-                <h3 className="font-black text-sm text-white mb-1.5">{s.title}</h3>
+                <h3 className="font-black text-sm text-[#1E3A5F] mb-1.5">{s.title}</h3>
                 <p className="text-slate-400 text-[11px] md:text-xs leading-relaxed font-medium">{s.desc}</p>
               </div>
             </div>
@@ -136,31 +136,31 @@ export default function AboutPage() {
             desc: 'فريق محلي متواجد لمتابعة شحنتك، الإجابة على استفساراتك، وخدمتك طوال أيام الأسبوع.',
           },
         ].map((v, i) => (
-          <div key={i} className="bg-slate-900/80 rounded-2xl border border-slate-800/80 p-5 shadow-lg space-y-3 hover:bg-slate-900 hover:border-slate-700 transition-colors backdrop-blur-sm group">
-            <div className="bg-slate-950 border border-slate-800 w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+          <div key={i} className="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm space-y-3 hover:border-emerald-300 transition-colors group">
+            <div className="bg-emerald-50 border border-emerald-100 w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
               {v.icon}
             </div>
-            <h3 className="font-black text-sm text-white">{v.title}</h3>
+            <h3 className="font-black text-sm text-[#1E3A5F]">{v.title}</h3>
             <p className="text-slate-400 text-[11px] md:text-xs leading-relaxed font-medium">{v.desc}</p>
           </div>
         ))}
       </div>
 
       {/* ======== معلومات المقر والتواصل ======== */}
-      <div className="bg-slate-900/80 rounded-2xl border border-slate-800/80 shadow-xl p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-sm group hover:border-slate-700 transition-colors">
+      <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 group hover:border-emerald-200 transition-colors">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-teal-500/10 flex items-center justify-center border border-teal-500/20 group-hover:scale-110 transition-transform">
-            <MapPin className="w-5 h-5 text-teal-400 shrink-0" />
+          <div className="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center border border-teal-200 group-hover:scale-110 transition-transform">
+            <MapPin className="w-5 h-5 text-teal-600 shrink-0" />
           </div>
           <div>
-            <span className="font-black text-sm text-white">Vitalis Maroc™</span>
+            <span className="font-black text-sm text-[#1E3A5F]">Vitalis Maroc™</span>
             <span className="block text-xs text-slate-400">الدار البيضاء، المملكة المغربية • خدمة التوصيل السريع لجميع المدن</span>
           </div>
         </div>
         <div className="flex gap-3 w-full md:w-auto">
           <Link
             href="/contact"
-            className="flex-1 md:flex-none text-center text-xs font-bold text-slate-200 bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl hover:bg-slate-700 transition-all cursor-pointer"
+            className="flex-1 md:flex-none text-center text-xs font-bold text-[#1E3A5F] bg-[#F6F1E8] border border-stone-200 px-4 py-3 rounded-xl hover:bg-stone-100 transition-all cursor-pointer"
           >
             اتصل بنا
           </Link>
