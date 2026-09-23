@@ -12,6 +12,7 @@ import {
   ShieldAlert, Activity, Globe, X, Calculator
 } from 'lucide-react';
 import ProfitCalculator from '@/components/ProfitCalculator';
+import { detectAdSource, adSourceBadgeClass, type AdSourceId } from '@/lib/adSource';
 
 interface OrderItemData {
   id?: string;
@@ -40,6 +41,7 @@ interface OrderData {
   riskScore: number;
   clientIp: string;
   items: OrderItemData[];
+  landingUrl?: string;
   createdAt: string;
 }
 
@@ -108,6 +110,7 @@ export default function AdminPage() {
 
   // Order filters
   const [statusFilter, setStatusFilter] = useState('all');
+  const [sourceFilter, setSourceFilter] = useState<AdSourceId | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   // Selected order for Preview Modal
@@ -308,17 +311,21 @@ export default function AdminPage() {
   // Filtered orders for table
   const filteredOrders = useMemo(() => {
     return orders.filter((o) => {
+      const source = detectAdSource(o.landingUrl);
       const matchesStatus = statusFilter === 'all' || o.status === statusFilter;
+      const matchesSource = sourceFilter === 'all' || source.id === sourceFilter;
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||
         o.orderId.toLowerCase().includes(q) ||
         o.customerName.toLowerCase().includes(q) ||
         o.phoneNumber.includes(q) ||
-        (o.city && o.city.toLowerCase().includes(q));
-      return matchesStatus && matchesSearch;
+        (o.city && o.city.toLowerCase().includes(q)) ||
+        source.label.toLowerCase().includes(q) ||
+        (o.landingUrl || '').toLowerCase().includes(q);
+      return matchesStatus && matchesSource && matchesSearch;
     });
-  }, [orders, statusFilter, searchQuery]);
+  }, [orders, statusFilter, sourceFilter, searchQuery]);
 
   // Export to CSV
   const handleExportCSV = () => {
@@ -340,6 +347,8 @@ export default function AdminPage() {
       'currency',
       'status',
       'city',
+      'source',
+      'landing_url',
       'is_proxy',
       'risk_score'
     ];
@@ -364,6 +373,8 @@ export default function AdminPage() {
         `"SAR (الدرهم.المغربي)"`,
         `"${o.status}"`,
         `"${o.city}"`,
+        `"${detectAdSource(o.landingUrl).label}"`,
+        `"${(o.landingUrl || '').replace(/"/g, '""')}"`,
         o.isProxy ? 'نعم' : 'لا',
         o.riskScore
       ].join(',');
@@ -974,6 +985,30 @@ export default function AdminPage() {
             </div>
           </div>
 
+          <div className="flex items-center gap-1.5 flex-wrap text-xs">
+            <span className="text-slate-500 font-bold ml-1">المصدر:</span>
+            {([
+              { id: 'all', label: 'الكل' },
+              { id: 'tiktok', label: 'TikTok' },
+              { id: 'meta', label: 'Meta' },
+              { id: 'snapchat', label: 'Snapchat' },
+              { id: 'direct', label: 'مباشر' },
+              { id: 'unknown', label: 'غير محدد' },
+            ] as const).map((s) => (
+              <button
+                key={s.id}
+                onClick={() => setSourceFilter(s.id)}
+                className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
+                  sourceFilter === s.id
+                    ? 'bg-teal-500 text-slate-950 font-black'
+                    : 'bg-slate-950 border border-slate-800 text-slate-400 hover:text-white'
+                }`}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+
           {dataError && (
             <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 rounded-2xl px-4 py-3 text-xs font-bold">
               {dataError}
@@ -992,6 +1027,7 @@ export default function AdminPage() {
                     <th className="p-4">المنتجات المطلوبة</th>
                     <th className="p-4">المبلغ</th>
                     <th className="p-4">المدينة</th>
+                    <th className="p-4">المصدر</th>
                     <th className="p-4">الحالة</th>
                     <th className="p-4 text-center">الإجراءات</th>
                   </tr>
@@ -1038,6 +1074,16 @@ export default function AdminPage() {
                             <MapPin className="w-3 h-3 text-teal-400" />
                             <span>{o.city || 'المغرب'}</span>
                           </div>
+                        </td>
+                        <td className="p-4 whitespace-nowrap">
+                          {(() => {
+                            const source = detectAdSource(o.landingUrl);
+                            return (
+                              <span className={`inline-flex px-2 py-0.5 rounded-lg border text-[10px] font-black ${adSourceBadgeClass(source.id)}`}>
+                                {source.label}
+                              </span>
+                            );
+                          })()}
                         </td>
                         <td className="p-4 whitespace-nowrap">
                           {getStatusBadge(o.status)}
@@ -1264,6 +1310,22 @@ export default function AdminPage() {
                     <span className="text-slate-400">الجهة / الدولة:</span>
                     <span className="font-bold text-slate-300">{selectedOrder.region || 'المملكة المغربية'} ({selectedOrder.country})</span>
                   </div>
+                  <div className="flex justify-between items-center gap-2 pt-1">
+                    <span className="text-slate-400">المصدر:</span>
+                    {(() => {
+                      const source = detectAdSource(selectedOrder.landingUrl);
+                      return (
+                        <span className={`inline-flex px-2 py-0.5 rounded-lg border text-[10px] font-black ${adSourceBadgeClass(source.id)}`}>
+                          {source.label}
+                        </span>
+                      );
+                    })()}
+                  </div>
+                  {selectedOrder.landingUrl && (
+                    <div className="text-[10px] text-slate-500 break-all pt-1" dir="ltr">
+                      {selectedOrder.landingUrl}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
