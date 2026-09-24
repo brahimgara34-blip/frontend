@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #F6F1E8;
-  --foreground: #1B2A3D;
+  --background: #F6F1EA;
+  --foreground: #3B342C;
+  --vm-card: #FFFFFF;
+  --vm-muted: #8B8176;
+  --vm-line: #E8E0D5;
+  --vm-accent: #5C6B4F;
 }
 
 body {
@@ -13,7 +17,6 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }

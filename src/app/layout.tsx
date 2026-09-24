@@ -47,7 +47,7 @@ export default function RootLayout({
       <head>
         <TrackingScripts />
       </head>
-      <body className="bg-[#F6F1E8] text-slate-800 min-h-screen flex flex-col antialiased">
+      <body className="bg-[#F6F1EA] text-[#3B342C] min-h-screen flex flex-col antialiased">
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>

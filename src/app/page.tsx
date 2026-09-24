@@ -19,76 +19,62 @@ export default function HomePage() {
     <div className="space-y-16">
 
       {/* ======== HERO — تموضع قوي، موثوق، واحترافي ======== */}
-      <section className="relative rounded-3xl overflow-hidden border border-[#1E3A5F]/15 shadow-[0_20px_50px_-20px_rgba(30,58,95,0.35)] group">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] via-[#234E70] to-[#0F766E]" />
-        <div
-          className="absolute inset-0 opacity-30 transition-opacity duration-1000 group-hover:opacity-40"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle at 20% 40%, #34d399 0%, transparent 40%), radial-gradient(circle at 80% 30%, #5eead4 0%, transparent 45%)',
-          }}
-        />
-
-        <div className="relative z-10 px-6 md:px-12 py-16 md:py-24 text-center">
-          {/* Brand badge */}
-          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px] md:text-xs font-black px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-            <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
+      <section className="relative rounded-3xl overflow-hidden border border-[#E8E0D5] bg-white">
+        <div className="relative z-10 px-6 md:px-12 py-16 md:py-20 text-center">
+          <div className="inline-flex items-center gap-2 bg-[#F6F1EA] border border-[#E8E0D5] text-[#3B342C] text-[11px] md:text-xs font-black px-4 py-2 rounded-full mb-6">
+            <Sparkles className="w-4 h-4" />
             <span>Vitalis Maroc™ — العلامة المغربية المعتمدة لحلول الراحة اليومية</span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white max-w-4xl mx-auto leading-tight md:leading-tight tracking-tight drop-shadow-lg">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#3B342C] max-w-4xl mx-auto leading-tight tracking-tight">
             حلول عملية ومبتكرة —
             <br />
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-sm">
-              لروتين يومي أكثر راحة ونظافة
-            </span>
+            لروتين يومي أكثر راحة ونظافة
           </h1>
 
-          <p className="text-slate-300 text-sm md:text-base mt-6 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-[#8B8176] text-sm md:text-base mt-6 max-w-2xl mx-auto leading-relaxed font-medium">
             منتجات أصلية ومختبرة بدقة لحل المشاكل الأكثر إزعاجاً في بيوت المغاربة. تمتع بمضاعفة صبيب الماء وتصفيته، تنظيف احترافي للأسنان واللثة، راحة فورية لآلام الركبة، وتتبع ذكي لوزنك وصحتك.
           </p>
 
-          {/* Trust Metrics Row */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8 text-[11px] md:text-xs text-slate-300">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8 text-[11px] md:text-xs text-[#3B342C]">
             {[
-              { icon: <Award className="w-4 h-4 text-amber-400" />, text: '+2,480 عميل راضٍ بالمغرب' },
-              { icon: <ShieldCheck className="w-4 h-4 text-emerald-400" />, text: 'ضمان استبدال معتمد 12 شهراً' },
-              { icon: <Truck className="w-4 h-4 text-teal-400" />, text: 'توصيل مجاني 24-48 ساعة' },
-              { icon: <Lock className="w-4 h-4 text-slate-400" />, text: 'المعاينة والفحص قبل الدفع' },
+              { icon: <Award className="w-4 h-4" />, text: '+2,480 عميل راضٍ بالمغرب' },
+              { icon: <ShieldCheck className="w-4 h-4" />, text: 'ضمان استبدال معتمد 12 شهراً' },
+              { icon: <Truck className="w-4 h-4" />, text: 'توصيل مجاني 24-48 ساعة' },
+              { icon: <Lock className="w-4 h-4" />, text: 'المعاينة والفحص قبل الدفع' },
             ].map((m, i) => (
-              <div key={i} className="flex items-center gap-1.5 font-bold bg-white/10 border border-white/20 px-3.5 py-2 rounded-xl backdrop-blur-sm hover:bg-white/15 transition-colors">
+              <div key={i} className="flex items-center gap-1.5 font-bold bg-[#F6F1EA] border border-[#E8E0D5] px-3.5 py-2 rounded-xl">
                 {m.icon}
                 <span>{m.text}</span>
               </div>
             ))}
           </div>
 
-          {/* Official Pricing Matrix */}
           <div className="mt-12 grid grid-cols-3 gap-3 md:gap-4 max-w-xl mx-auto">
-            <div className="bg-white/10 border border-white/15 p-4 rounded-2xl backdrop-blur-md hover:bg-white/15 transition-colors">
-              <span className="text-[10px] md:text-xs text-sky-100/80 block font-bold">1 قطعة</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-300 mt-1 block">179 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-sky-100/60 font-bold mt-0.5 block">توصيل مجاني</span>
+            <div className="bg-[#F6F1EA] border border-[#E8E0D5] p-4 rounded-2xl">
+              <span className="text-[10px] md:text-xs text-[#8B8176] block font-bold">1 قطعة</span>
+              <span className="text-xl md:text-2xl font-black text-[#3B342C] mt-1 block">179 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-[#8B8176] font-bold mt-0.5 block">توصيل مجاني</span>
             </div>
-            <div className="bg-white border border-emerald-300 p-4 rounded-2xl relative ring-2 ring-emerald-300/40 shadow-xl transform scale-105 z-10">
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap shadow-md">
-                الأكثر طلباً بالمغرب 🔥
+            <div className="bg-white border-2 border-[#5C6B4F] p-4 rounded-2xl relative z-10">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#5C6B4F] text-white text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap">
+                الأكثر طلباً بالمغرب
               </span>
-              <span className="text-[10px] md:text-xs text-slate-600 block font-bold">2 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-emerald-600 mt-1 block">269 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-emerald-600 font-black mt-0.5 block">وفر 89 درهم</span>
+              <span className="text-[10px] md:text-xs text-[#8B8176] block font-bold">2 قطع</span>
+              <span className="text-xl md:text-2xl font-black text-[#3B342C] mt-1 block">269 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-[#5C6B4F] font-black mt-0.5 block">وفر 89 درهم</span>
             </div>
-            <div className="bg-white/10 border border-white/15 p-4 rounded-2xl backdrop-blur-md hover:bg-white/15 transition-colors">
-              <span className="text-[10px] md:text-xs text-sky-100/80 block font-bold">3 قطع</span>
-              <span className="text-xl md:text-2xl font-black text-amber-300 mt-1 block">359 د.م</span>
-              <span className="text-[9px] md:text-[10px] text-amber-200 font-black mt-0.5 block">وفر 178 درهم</span>
+            <div className="bg-[#F6F1EA] border border-[#E8E0D5] p-4 rounded-2xl">
+              <span className="text-[10px] md:text-xs text-[#8B8176] block font-bold">3 قطع</span>
+              <span className="text-xl md:text-2xl font-black text-[#3B342C] mt-1 block">359 د.م</span>
+              <span className="text-[9px] md:text-[10px] text-[#8B8176] font-bold mt-0.5 block">وفر 178 درهم</span>
             </div>
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/collections"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 hover:from-emerald-400 hover:via-teal-400 hover:to-emerald-400 text-slate-950 font-black text-sm md:text-base px-8 py-4.5 rounded-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all cursor-pointer group active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 bg-[#5C6B4F] hover:bg-[#4A5740] text-white font-black text-sm md:text-base px-8 py-4.5 rounded-2xl transition-all cursor-pointer group active:scale-[0.98]"
             >
               <span>اكتشف المنتجات واطلب الآن</span>
               <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -101,35 +87,35 @@ export default function HomePage() {
       <section className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {[
           {
-            icon: <CheckCircle2 className="w-6 h-6 text-emerald-400" />,
+            icon: <CheckCircle2 className="w-6 h-6 text-[#5C6B4F]" />,
             title: 'حلول عملية ومثبتة',
             desc: 'منتجات مختبرة تحل مشاكل حقيقية بنتائج فورية وملموسة من أول استعمال.',
           },
           {
-            icon: <ShieldCheck className="w-6 h-6 text-teal-400" />,
+            icon: <ShieldCheck className="w-6 h-6 text-[#5C6B4F]" />,
             title: 'المعاينة قبل الدفع',
             desc: 'افتح طردك وافحص منتجك أمام الموزع بكل راحة قبل دفع أي درهم.',
           },
           {
-            icon: <RotateCcw className="w-6 h-6 text-amber-400" />,
+            icon: <RotateCcw className="w-6 h-6 text-[#5C6B4F]" />,
             title: 'ضمان ذهبي 12 شهراً',
             desc: 'استبدال فوري بمنتج جديد عند أي عيب مصنعي طوال سنة كاملة.',
           },
           {
-            icon: <Truck className="w-6 h-6 text-emerald-400" />,
+            icon: <Truck className="w-6 h-6 text-[#5C6B4F]" />,
             title: 'توصيل مجاني وسريع',
             desc: 'شحن مجاني لكافة المدن والقرى المغربية خلال 24 إلى 48 ساعة لباب بيتك.',
           },
         ].map((item, i) => (
           <div
             key={i}
-            className="bg-white border border-stone-200 rounded-2xl p-5 hover:border-emerald-300 hover:shadow-md transition-all group"
+            className="bg-white border border-[#E8E0D5] rounded-2xl p-5 hover:border-slate-300 hover:shadow-md transition-all group"
           >
-            <div className="bg-emerald-50 border border-emerald-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="bg-[#F6F1EA] border border-[#E8E0D5] w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               {item.icon}
             </div>
-            <h3 className="font-black text-sm text-[#1E3A5F] mb-1.5">{item.title}</h3>
-            <p className="text-slate-500 text-[11px] leading-relaxed font-medium">{item.desc}</p>
+            <h3 className="font-black text-sm text-[#3B342C] mb-1.5">{item.title}</h3>
+            <p className="text-[#8B8176] text-[11px] leading-relaxed font-medium">{item.desc}</p>
           </div>
         ))}
       </section>
@@ -137,14 +123,14 @@ export default function HomePage() {
       {/* ======== 3 منتجات معتمدة ======== */}
       <section className="space-y-6">
         <div className="text-center max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200 mb-2">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3B342C] bg-white px-3 py-1 rounded-full border border-[#E8E0D5] mb-2">
             <Package className="w-3.5 h-3.5" />
             <span>منتجاتنا الثلاثة الأساسية بالمغرب</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-black text-[#1E3A5F]">
+          <h2 className="text-2xl md:text-3xl font-black text-[#3B342C]">
             اختر الحل المناسب لاحتياجك اليومي
           </h2>
-          <p className="text-slate-500 text-xs md:text-sm mt-1.5">
+          <p className="text-[#8B8176] text-xs md:text-sm mt-1.5">
             حلول هندسية مصممة بدقة لمضاعفة صبيب الماء، تنظيف الأسنان المتقدم، راحة المفاصل، وتتبع الوزن الذكي.
           </p>
         </div>
@@ -160,14 +146,13 @@ export default function HomePage() {
       <SharedSocialProofSection />
 
       {/* ======== التزاماتنا وضمانات الشراء المعتمدة ======== */}
-      <section className="relative rounded-3xl overflow-hidden border border-[#1E3A5F]/15">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] to-[#0F766E]" />
+      <section className="relative rounded-3xl overflow-hidden border border-[#E8E0D5] bg-white">
         <div className="relative z-10 p-6 md:p-10">
           <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-black text-white">
+            <h2 className="text-xl md:text-2xl font-black text-[#3B342C]">
               تسوق بكل راحة واطمئنان مع Vitalis Maroc™
             </h2>
-            <p className="text-sky-100/80 text-xs mt-1">
+            <p className="text-[#8B8176] text-xs mt-1">
               التزامات تجارية واضحة وصريحة لحماية كل مشتري في المغرب.
             </p>
           </div>
@@ -176,30 +161,30 @@ export default function HomePage() {
             {[
               {
                 num: '01',
-                icon: <ShieldCheck className="w-7 h-7 text-emerald-400" />,
+                icon: <ShieldCheck className="w-7 h-7 text-[#5C6B4F]" />,
                 title: 'حق المعاينة والفحص الكامل',
                 desc: 'افتح الطرد وتفقد جودة المنتج أمام الموزع قبل دفع أي درهم. الدفع نقداً عند الاستلام بعد الرضا الكامل.',
               },
               {
                 num: '02',
-                icon: <Award className="w-7 h-7 text-amber-400" />,
+                icon: <Award className="w-7 h-7 text-[#5C6B4F]" />,
                 title: 'ضمان استبدال ذهبي 12 شهراً',
                 desc: 'أي عيب مصنعي خلال سنة كاملة يتم تعويضه باستبدال فوري بمنتج جديد دون أي مصاريف أو تعقيدات.',
               },
               {
                 num: '03',
-                icon: <Truck className="w-7 h-7 text-teal-400" />,
+                icon: <Truck className="w-7 h-7 text-[#5C6B4F]" />,
                 title: 'توصيل مجاني وسريع لكافة المدن',
                 desc: 'شحن مجاني 100% لباب منزلك خلال 24 إلى 48 ساعة أينما كنت في ربوع المملكة المغربية.',
               },
             ].map((g, i) => (
-              <div key={i} className="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-3 hover:bg-white/15 transition-all">
+              <div key={i} className="bg-[#F6F1EA] border border-[#E8E0D5] rounded-2xl p-5 space-y-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-white/30 font-black text-2xl">{g.num}</span>
+                  <span className="text-[#8B8176] font-black text-2xl">{g.num}</span>
                   {g.icon}
                 </div>
-                <h3 className="font-black text-sm text-white">{g.title}</h3>
-                <p className="text-sky-100/75 text-xs leading-relaxed">{g.desc}</p>
+                <h3 className="font-black text-sm text-[#3B342C]">{g.title}</h3>
+                <p className="text-[#8B8176] text-xs leading-relaxed">{g.desc}</p>
               </div>
             ))}
           </div>
@@ -207,7 +192,7 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/collections"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm px-8 py-4 rounded-2xl shadow-xl transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#5C6B4F] hover:bg-[#4A5740] text-white font-black text-sm px-8 py-4 rounded-2xl transition-all cursor-pointer"
             >
               <span>تصفح المنتجات واطلب الآن</span>
               <ArrowLeft className="w-4 h-4" />
@@ -234,9 +219,9 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
   }));
 
   return (
-    <div className="bg-white border border-stone-200 rounded-3xl p-5 flex flex-col justify-between hover:border-emerald-300 transition-all shadow-sm group hover:shadow-xl">
+    <div className="bg-white border border-[#E8E0D5] rounded-3xl p-5 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm group hover:shadow-md">
       <div>
-        <Link href={`/products/${product.slug}`} className="block relative bg-[#F6F1E8] rounded-2xl p-4 border border-stone-200 mb-4 overflow-hidden group-hover:border-emerald-300 transition-all">
+        <Link href={`/products/${product.slug}`} className="block relative bg-[#F6F1EA] rounded-2xl p-4 border border-[#E8E0D5] mb-4 overflow-hidden group-hover:border-slate-300 transition-all">
           <div className="w-full h-56 relative flex items-center justify-center">
             <Image
               src={product.image}
@@ -249,14 +234,14 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
         </Link>
 
         {/* Category badge */}
-        <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">
+        <span className="text-[10px] font-bold text-[#3B342C] bg-[#F6F1EA] px-2.5 py-0.5 rounded-full border border-[#E8E0D5]">
           {product.badge}
         </span>
 
-        <h3 className="font-bold text-base text-[#1E3A5F] mt-2 mb-1 leading-snug">
+        <h3 className="font-bold text-base text-[#3B342C] mt-2 mb-1 leading-snug">
           {product.name}
         </h3>
-        <p className="text-slate-500 text-xs line-clamp-2 mb-4 leading-relaxed">
+        <p className="text-[#8B8176] text-xs line-clamp-2 mb-4 leading-relaxed">
           {product.subheadline}
         </p>
 
@@ -268,40 +253,38 @@ function ProductCard({ product, onAddToCart }: { product: Product; onAddToCart: 
               onClick={() => setSelectedTier(tier)}
               className={`p-2.5 rounded-xl border text-xs flex justify-between items-center cursor-pointer transition-all relative ${
                 selectedTier === tier
-                  ? accent === 'amber'
-                    ? 'border-amber-400 bg-amber-50 text-[#1E3A5F] font-bold'
-                    : 'border-emerald-400 bg-emerald-50 text-[#1E3A5F] font-bold ring-1 ring-emerald-200'
-                  : 'border-stone-200 bg-[#FDFBF7] text-slate-500 hover:border-stone-300'
+                  ? 'border-[#5C6B4F] bg-[#F6F1EA] text-[#3B342C] font-bold'
+                  : 'border-[#E8E0D5] bg-[#F6F1EA] text-[#8B8176] hover:border-slate-300'
               }`}
             >
               {popular && (
-                <span className="absolute -top-2 right-2 text-[8px] font-black bg-emerald-500 text-slate-950 px-1.5 py-0.5 rounded-full shadow-sm">
+                <span className="absolute -top-2 right-2 text-[8px] font-black bg-[#F6F1EA]0 text-slate-950 px-1.5 py-0.5 rounded-full shadow-sm">
                   ★ الأكثر طلباً بالمغرب
                 </span>
               )}
               <span>{label}</span>
               <div className="text-left">
-                <span className={`font-black ${accent === 'amber' ? 'text-amber-400' : 'text-emerald-400'}`}>
+                <span className="font-black text-[#3B342C]">
                   {price} د.م
                 </span>
-                {sub && <span className="text-[9px] text-slate-500 block">{sub}</span>}
+                {sub && <span className="text-[9px] text-[#8B8176] block">{sub}</span>}
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="border-t border-stone-200 pt-3 space-y-2">
+      <div className="border-t border-[#E8E0D5] pt-3 space-y-2">
         <button
           onClick={() => onAddToCart(product, selectedTier)}
-          className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-black text-xs py-3 rounded-xl shadow-lg shadow-emerald-200/60 transition-all cursor-pointer"
+          className="w-full bg-[#5C6B4F] hover:bg-[#4A5740] text-white font-black text-xs py-3 rounded-xl transition-all cursor-pointer"
         >
           أضف للسلة ({tierData.find((t) => t.tier === selectedTier)?.price} د.م) 🛒
         </button>
 
         <Link
           href={`/products/${product.slug}`}
-          className="block text-center text-slate-500 hover:text-teal-700 text-[11px] font-bold py-1 cursor-pointer transition-colors"
+          className="block text-center text-[#8B8176] hover:text-[#3B342C] text-[11px] font-bold py-1 cursor-pointer transition-colors"
         >
           التفاصيل والمواصفات الكاملة ❯
         </Link>

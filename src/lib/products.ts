@@ -310,7 +310,7 @@ export const PRODUCTS: Product[] = [
     shortName: 'خيط الأسنان المائي AuraFloss™',
     category: 'صحة ونظافة الفم واللثة',
     icon: '🦷',
-    image: '/products/flosser-hero.png',
+    image: '/products/flosser-usage.jpg',
     beforeAfterImage: '/products/flosser-result.png',
     rating: 4.9,
     reviewsCount: 980,
@@ -340,6 +340,15 @@ export const PRODUCTS: Product[] = [
     ],
     visualStory: [
       {
+        type: 'usage',
+        title: 'جهاز تنظيف الأسنان المائي AuraFloss™ — 3 أوضاع للتنظيف',
+        subtitle: 'Soft للثة الحساسة، Pulse لمساج اللثة، وStrong للتنظيف العميق. جهاز واحد يكفي لكل أفراد العائلة.',
+        badge: 'المنتج الأصلي',
+        image: '/products/flosser-usage.jpg',
+        callouts: ['Soft Mode', 'Pulse Mode', 'Strong Mode'],
+        accent: 'teal',
+      },
+      {
         type: 'problem',
         title: 'المعاناة مع الفرشاة العادية: نزيف اللثة وعدم الوصول للزوايا',
         subtitle: 'الفرشاة التقليدية لا تصل لأعمق الزوايا وتسبب إزعاجاً مستمراً للثة الحساسة.',
@@ -349,15 +358,6 @@ export const PRODUCTS: Product[] = [
         accent: 'rose',
       },
       {
-        type: 'usage',
-        title: '60 ثانية فوق مغسلتك: املأ الخزان ووجّه النبضة',
-        subtitle: 'املأ خزان الـ 300ml بالماء الفاتر، اختر الوضع المناسب للثتك، ومرّر الفوهة على خط اللثة بين كل سنّين.',
-        badge: 'طريقة الاستعمال',
-        image: '/products/flosser-usage.png',
-        callouts: ['خزان 300ml', '3 أوضاع تنظيف', '60 ثانية يومياً'],
-        accent: 'teal',
-      },
-      {
         type: 'result',
         title: 'ابتسامة مشرقة وفم منعش من أول استعمال',
         subtitle: 'تنظيف عميق بدون ألم ولا نزيف، ونفَس منعش يدوم طوال اليوم يمنحك ثقة كاملة في ابتسامتك.',
@@ -365,15 +365,6 @@ export const PRODUCTS: Product[] = [
         image: '/products/flosser-result.png',
         callouts: ['تنظيف 99.9%', 'بدون ألم', 'ابتسامة واثقة'],
         accent: 'emerald',
-      },
-      {
-        type: 'trust',
-        title: 'الطقم الأصلي الكامل مع 4 فوهات وكابل USB-C',
-        subtitle: 'يشمل الجهاز الأصلي، 4 فوهات متخصصة، كابل الشحن السريع، وضمان استبدال سنة كاملة.',
-        badge: 'الطقم الأصلي والملحقات',
-        image: '/products/flosser-hero.png',
-        callouts: ['شحن USB-C', 'بطارية حتى 30 يوم', 'ضمان 12 شهر'],
-        accent: 'amber',
       },
     ],
     offerTiers: [
@@ -509,7 +500,7 @@ export const PRODUCTS: Product[] = [
         highlight: 'مقاوم للماء IPX7 و4 فوهات متخصصة',
         imagePosition: 'right',
         placeholderSvgText: 'Braces & Dental Deep Clean',
-        image: '/products/flosser-usage.png',
+        image: '/products/flosser-usage.jpg',
       },
       {
         title: 'دقيقة واحدة كل صباح تكفيك لابتسامة واثقة',

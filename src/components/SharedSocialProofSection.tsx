@@ -42,7 +42,7 @@ const REVIEWS: CustomerReview[] = [
     city: 'الرباط (أكدال)',
     productSlug: 'aurafloss-water-flosser',
     productShortName: 'خيط الأسنان المائي AuraFloss™',
-    productImage: '/products/flosser-hero.png',
+    productImage: '/products/flosser-usage.jpg',
     rating: 5,
     date: 'منذ 5 أيام',
     verified: true,
@@ -98,7 +98,7 @@ const REVIEWS: CustomerReview[] = [
     city: 'أكادير (صونابا)',
     productSlug: 'aurafloss-water-flosser',
     productShortName: 'خيط الأسنان المائي AuraFloss™',
-    productImage: '/products/flosser-hero.png',
+    productImage: '/products/flosser-usage.jpg',
     rating: 5,
     date: 'منذ 3 أسابيع',
     verified: true,
@@ -117,45 +117,45 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
   });
 
   return (
-    <section className="bg-white rounded-3xl p-6 md:p-10 border border-stone-200 shadow-sm space-y-8 relative overflow-hidden group" dir="rtl">
+    <section className="bg-white rounded-3xl p-6 md:p-10 border border-[#E8E0D5] shadow-sm space-y-8 relative overflow-hidden group" dir="rtl">
       <div className="absolute -top-32 -right-32 w-64 h-64 bg-teal-200/30 rounded-full blur-3xl pointer-events-none" />
       
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-stone-200 pb-6 relative z-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E8E0D5] pb-6 relative z-10">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <span className="flex items-center gap-1.5 text-[11px] md:text-xs font-black text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-1.5 rounded-full">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span className="flex items-center gap-1.5 text-[11px] md:text-xs font-black text-[#3B342C] bg-[#F6F1EA] border border-[#E8E0D5] px-3.5 py-1.5 rounded-full">
+              <ShieldCheck className="w-4 h-4 text-[#5C6B4F]" />
               <span>شهادات حقيقية 100% وموثوقة من زبنائنا بالمغرب</span>
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1 text-[11px] md:text-xs font-bold text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20 shadow-sm">
+            <span className="hidden sm:inline-flex items-center gap-1 text-[11px] md:text-xs font-bold text-[#8B8176] bg-[#F6F1EA]0/10 px-3 py-1.5 rounded-full border border-amber-500/20 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 animate-pulse" />
               <span>+3,500 عميل راضٍ</span>
             </span>
           </div>
 
-          <h2 className="text-xl md:text-3xl font-black text-[#1E3A5F] leading-tight">
+          <h2 className="text-xl md:text-3xl font-black text-[#3B342C] leading-tight">
             ماذا يقول عملاؤنا في مختلف المدن المغربية عن منتجاتنا؟
           </h2>
-          <p className="text-slate-500 text-xs md:text-sm mt-2 max-w-2xl leading-relaxed font-medium">
+          <p className="text-[#8B8176] text-xs md:text-sm mt-2 max-w-2xl leading-relaxed font-medium">
             تجارب حقيقية لعملاء اختبروا قوة التدفق، نظافة الأسنان المجهرية، راحة الركبة، وتتبع الوزن الذكي مع سياسة المعاينة قبل الدفع والضمان الذهبي 12 شهراً.
           </p>
         </div>
 
         {/* Global Rating Score Box */}
-        <div className="bg-[#F6F1E8] border border-stone-200 rounded-2xl p-4 flex items-center gap-4 shrink-0">
+        <div className="bg-[#F6F1EA] border border-[#E8E0D5] rounded-2xl p-4 flex items-center gap-4 shrink-0">
           <div className="text-center">
-            <span className="text-3xl md:text-4xl font-black text-emerald-600 block leading-none">4.9</span>
-            <span className="text-[10px] md:text-[11px] text-slate-500 font-bold mt-1 block">من 5.0</span>
+            <span className="text-3xl md:text-4xl font-black text-[#5C6B4F] block leading-none">4.9</span>
+            <span className="text-[10px] md:text-[11px] text-[#8B8176] font-bold mt-1 block">من 5.0</span>
           </div>
-          <div className="border-r border-stone-200 pr-4 space-y-1.5">
+          <div className="border-r border-[#E8E0D5] pr-4 space-y-1.5">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <Star key={i} className="w-4 h-4 fill-amber-400 text-[#8B8176]" />
               ))}
             </div>
-            <span className="text-xs font-bold text-[#1E3A5F] block">تقييم ممتاز (Excellent)</span>
-            <span className="text-[10px] text-emerald-400 font-bold block">✓ 100% شحن مع المعاينة قبل الأداء</span>
+            <span className="text-xs font-bold text-[#3B342C] block">تقييم ممتاز (Excellent)</span>
+            <span className="text-[10px] text-[#5C6B4F] font-bold block">✓ 100% شحن مع المعاينة قبل الأداء</span>
           </div>
         </div>
       </div>
@@ -166,8 +166,8 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
           onClick={() => setActiveFilter('all')}
           className={`px-5 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap ${
             activeFilter === 'all'
-              ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black shadow-[0_0_15px_rgba(16,185,129,0.3)]'
-              : 'bg-[#F6F1E8] text-slate-500 border border-stone-200 hover:text-[#1E3A5F] hover:bg-stone-100'
+              ? 'bg-[#5C6B4F] text-white font-black'
+              : 'bg-[#F6F1EA] text-[#8B8176] border border-[#E8E0D5] hover:text-[#3B342C] hover:bg-stone-100'
           }`}
         >
           كافة الشهادات والتجارب ({REVIEWS.length})
@@ -179,8 +179,8 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
             onClick={() => setActiveFilter(prod.slug)}
             className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap ${
               activeFilter === prod.slug
-                ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black shadow-[0_0_15px_rgba(16,185,129,0.3)]'
-                : 'bg-[#F6F1E8] text-slate-500 border border-stone-200 hover:text-[#1E3A5F] hover:bg-stone-100'
+                ? 'bg-[#5C6B4F] text-white font-black'
+                : 'bg-[#F6F1EA] text-[#8B8176] border border-[#E8E0D5] hover:text-[#3B342C] hover:bg-stone-100'
             }`}
           >
             <div className={`relative w-5 h-5 rounded-full overflow-hidden shrink-0 ${activeFilter === prod.slug ? 'bg-white/20' : 'bg-white'}`}>
@@ -196,7 +196,7 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
         {filteredReviews.map((review) => (
           <div
             key={review.id}
-            className="bg-[#FDFBF7] hover:bg-white border border-stone-200 hover:border-emerald-300 rounded-2xl p-5 md:p-6 flex flex-col justify-between transition-all duration-300 shadow-sm group relative overflow-hidden"
+            className="bg-[#FFFFFF] hover:bg-white border border-[#E8E0D5] hover:border-[#E8E0D5] rounded-2xl p-5 md:p-6 flex flex-col justify-between transition-all duration-300 shadow-sm group relative overflow-hidden"
           >
             <div className="space-y-3.5">
               
@@ -204,40 +204,40 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
               <div className="flex justify-between items-start gap-2">
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="font-black text-sm text-[#1E3A5F]">{review.name}</span>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-teal-400" />
+                    <span className="font-black text-sm text-[#3B342C]">{review.name}</span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#5C6B4F]" />
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-1 font-medium">
-                    <MapPin className="w-3 h-3 text-teal-400" />
+                  <div className="flex items-center gap-1.5 text-[11px] text-[#8B8176] mt-1 font-medium">
+                    <MapPin className="w-3 h-3 text-[#5C6B4F]" />
                     <span>{review.city}</span>
-                    <span className="text-slate-600">•</span>
-                    <span className="text-slate-500">{review.date}</span>
+                    <span className="text-[#8B8176]">•</span>
+                    <span className="text-[#8B8176]">{review.date}</span>
                   </div>
                 </div>
 
-                <span className="bg-emerald-500/10 text-emerald-400 text-[10px] font-black px-2.5 py-1 rounded-md border border-emerald-500/20 shadow-sm">
+                <span className="bg-[#F6F1EA]0/10 text-[#5C6B4F] text-[10px] font-black px-2.5 py-1 rounded-md border border-emerald-500/20 shadow-sm">
                   شراء مؤكد ✓
                 </span>
               </div>
 
               {/* Stars & Tag */}
-              <div className="flex items-center justify-between gap-2 border-y border-stone-200 py-2.5">
+              <div className="flex items-center justify-between gap-2 border-y border-[#E8E0D5] py-2.5">
                 <div className="flex">
                   {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-[#8B8176]" />
                   ))}
                 </div>
-                <span className="text-[10px] text-teal-700 font-bold bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200 truncate max-w-[180px]">
+                <span className="text-[10px] text-[#3B342C] font-bold bg-[#F6F1EA] px-2.5 py-1 rounded-md border border-[#E8E0D5] truncate max-w-[180px]">
                   {review.tag}
                 </span>
               </div>
 
               {/* Headline & Comment */}
               <div>
-                <h4 className="font-black text-xs md:text-sm text-[#1E3A5F] mb-2 leading-snug">
+                <h4 className="font-black text-xs md:text-sm text-[#3B342C] mb-2 leading-snug">
                   "{review.highlight}"
                 </h4>
-                <p className="text-slate-400 text-xs leading-relaxed font-medium">
+                <p className="text-[#8B8176] text-xs leading-relaxed font-medium">
                   {review.comment}
                 </p>
               </div>
@@ -246,10 +246,10 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
             {/* Product Mini Badge Footer */}
             <Link
               href={`/products/${review.productSlug}`}
-              className="mt-5 pt-3.5 border-t border-stone-200 flex items-center justify-between text-xs text-slate-500 hover:text-teal-700 transition-colors group-hover:border-emerald-200"
+              className="mt-5 pt-3.5 border-t border-[#E8E0D5] flex items-center justify-between text-xs text-[#8B8176] hover:text-[#3B342C] transition-colors group-hover:border-[#E8E0D5]"
             >
               <div className="flex items-center gap-2.5">
-                <div className="relative w-9 h-9 rounded-lg bg-white p-1 border border-stone-200 shrink-0 group-hover:border-emerald-300 transition-colors">
+                <div className="relative w-9 h-9 rounded-lg bg-white p-1 border border-[#E8E0D5] shrink-0 group-hover:border-[#E8E0D5] transition-colors">
                   <Image
                     src={review.productImage}
                     alt={review.productShortName}
@@ -258,11 +258,11 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
                     className="object-contain p-0.5"
                   />
                 </div>
-                <span className="text-[11px] font-bold text-slate-600 group-hover:text-[#1E3A5F] line-clamp-1 transition-colors">
+                <span className="text-[11px] font-bold text-[#8B8176] group-hover:text-[#3B342C] line-clamp-1 transition-colors">
                   {review.productShortName}
                 </span>
               </div>
-              <span className="text-[10px] text-teal-400 font-bold shrink-0 bg-teal-500/10 px-2 py-1 rounded-md border border-teal-500/20">معاينة ❯</span>
+              <span className="text-[10px] text-[#5C6B4F] font-bold shrink-0 bg-[#F6F1EA]0/10 px-2 py-1 rounded-md border border-teal-500/20">معاينة ❯</span>
             </Link>
           </div>
         ))}
@@ -270,21 +270,21 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
 
       {/* Trust Strip Footer */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 text-center text-xs relative z-10">
-        <div className="bg-[#F6F1E8] p-3.5 rounded-xl border border-stone-200 flex items-center justify-center gap-2 hover:border-emerald-200 transition-colors">
-          <Truck className="w-4 h-4 text-emerald-600" />
-          <span className="font-bold text-[#1E3A5F]">توصيل 24-48 ساعة بالمغرب</span>
+        <div className="bg-[#F6F1EA] p-3.5 rounded-xl border border-[#E8E0D5] flex items-center justify-center gap-2 hover:border-[#E8E0D5] transition-colors">
+          <Truck className="w-4 h-4 text-[#5C6B4F]" />
+          <span className="font-bold text-[#3B342C]">توصيل 24-48 ساعة بالمغرب</span>
         </div>
-        <div className="bg-[#F6F1E8] p-3.5 rounded-xl border border-stone-200 flex items-center justify-center gap-2 hover:border-emerald-200 transition-colors">
-          <ShieldCheck className="w-4 h-4 text-teal-600" />
-          <span className="font-bold text-[#1E3A5F]">المعاينة قبل دفع أي درهم</span>
+        <div className="bg-[#F6F1EA] p-3.5 rounded-xl border border-[#E8E0D5] flex items-center justify-center gap-2 hover:border-[#E8E0D5] transition-colors">
+          <ShieldCheck className="w-4 h-4 text-[#5C6B4F]" />
+          <span className="font-bold text-[#3B342C]">المعاينة قبل دفع أي درهم</span>
         </div>
-        <div className="bg-[#F6F1E8] p-3.5 rounded-xl border border-stone-200 flex items-center justify-center gap-2 hover:border-emerald-200 transition-colors">
-          <Award className="w-4 h-4 text-amber-500" />
-          <span className="font-bold text-[#1E3A5F]">ضمان استبدال ذهبي 12 شهراً</span>
+        <div className="bg-[#F6F1EA] p-3.5 rounded-xl border border-[#E8E0D5] flex items-center justify-center gap-2 hover:border-[#E8E0D5] transition-colors">
+          <Award className="w-4 h-4 text-[#8B8176]" />
+          <span className="font-bold text-[#3B342C]">ضمان استبدال ذهبي 12 شهراً</span>
         </div>
-        <div className="bg-[#F6F1E8] p-3.5 rounded-xl border border-stone-200 flex items-center justify-center gap-2 hover:border-emerald-200 transition-colors">
-          <Package className="w-4 h-4 text-teal-600" />
-          <span className="font-bold text-[#1E3A5F]">طرد مغلف ومختوم بأمان</span>
+        <div className="bg-[#F6F1EA] p-3.5 rounded-xl border border-[#E8E0D5] flex items-center justify-center gap-2 hover:border-[#E8E0D5] transition-colors">
+          <Package className="w-4 h-4 text-[#5C6B4F]" />
+          <span className="font-bold text-[#3B342C]">طرد مغلف ومختوم بأمان</span>
         </div>
       </div>
 
