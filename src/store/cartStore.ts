@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Product, calculateOfferPrice, calculateKneeReliefPrice } from '@/lib/products';
+import { Product } from '@/lib/products';
 import { trackAddToCart } from '@/lib/pixel';
 
 export interface CartItem {
@@ -51,9 +51,8 @@ export const useCartStore = create<CartState>((set, get) => ({
   pendingCustomerPhone: '',
 
   addItem: (product, quantity, color) => {
-    const isKneeRelief = product.id === 'cushion';
-    const calculatePrice = isKneeRelief ? calculateKneeReliefPrice : calculateOfferPrice;
-    const tierPrice = calculatePrice(quantity);
+    // New products only have 1 tier, price is fixed per unit
+    const tierPrice = product.offerTiers[0].price * quantity;
     trackAddToCart({ id: product.id, name: product.name }, tierPrice, quantity);
 
     set((state) => {
@@ -66,7 +65,7 @@ export const useCartStore = create<CartState>((set, get) => ({
           ...state.items[existingIndex],
           quantity: newQty,
           selectedTier: newQty,
-          tierPrice: calculatePrice(newQty),
+          tierPrice: product.offerTiers[0].price * newQty,
           selectedColor: color ?? state.items[existingIndex].selectedColor,
         };
       } else {
@@ -75,7 +74,7 @@ export const useCartStore = create<CartState>((set, get) => ({
           product,
           quantity,
           selectedTier: quantity,
-          tierPrice: calculatePrice(quantity),
+          tierPrice: product.offerTiers[0].price * quantity,
           selectedColor: color,
         });
       }
@@ -100,14 +99,13 @@ export const useCartStore = create<CartState>((set, get) => ({
           if (item.id === productId) {
             const newQty = item.quantity + delta;
             if (newQty <= 0) return null;
-          const isKneeRelief = item.id === 'cushion';
-          const calculatePrice = isKneeRelief ? calculateKneeReliefPrice : calculateOfferPrice;
           
+          // New products only have 1 tier, price is fixed per unit
           return {
             ...item,
             quantity: newQty,
             selectedTier: newQty,
-            tierPrice: calculatePrice(newQty),
+            tierPrice: item.product.offerTiers[0].price * newQty,
           };
           }
           return item;
