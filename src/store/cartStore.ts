@@ -51,8 +51,12 @@ export const useCartStore = create<CartState>((set, get) => ({
   pendingCustomerPhone: '',
 
   addItem: (product, quantity, color) => {
-    // New products only have 1 tier, price is fixed per unit
-    const tierPrice = product.offerTiers[0].price * quantity;
+    // Find matching tier for quantity, or use highest tier available
+    const tier = product.offerTiers.find(t => t.tier === quantity) || 
+                 product.offerTiers[product.offerTiers.length - 1] || 
+                 product.offerTiers[0];
+                 
+    const tierPrice = tier ? tier.price : 0;
     trackAddToCart({ id: product.id, name: product.name }, tierPrice, quantity);
 
     set((state) => {
@@ -61,11 +65,15 @@ export const useCartStore = create<CartState>((set, get) => ({
       
       if (existingIndex > -1) {
         const newQty = state.items[existingIndex].quantity + quantity;
+        const newTier = product.offerTiers.find(t => t.tier === newQty) || 
+                        product.offerTiers[product.offerTiers.length - 1] || 
+                        product.offerTiers[0];
+                        
         newItems[existingIndex] = {
           ...state.items[existingIndex],
           quantity: newQty,
           selectedTier: newQty,
-          tierPrice: product.offerTiers[0].price * newQty,
+          tierPrice: newTier ? newTier.price : 0,
           selectedColor: color ?? state.items[existingIndex].selectedColor,
         };
       } else {
@@ -74,7 +82,7 @@ export const useCartStore = create<CartState>((set, get) => ({
           product,
           quantity,
           selectedTier: quantity,
-          tierPrice: product.offerTiers[0].price * quantity,
+          tierPrice: tierPrice,
           selectedColor: color,
         });
       }
@@ -100,12 +108,16 @@ export const useCartStore = create<CartState>((set, get) => ({
             const newQty = item.quantity + delta;
             if (newQty <= 0) return null;
           
-          // New products only have 1 tier, price is fixed per unit
+          // Find matching tier for quantity, or use highest tier available
+          const newTier = item.product.offerTiers.find(t => t.tier === newQty) || 
+                          item.product.offerTiers[item.product.offerTiers.length - 1] || 
+                          item.product.offerTiers[0];
+                          
           return {
             ...item,
             quantity: newQty,
             selectedTier: newQty,
-            tierPrice: item.product.offerTiers[0].price * newQty,
+            tierPrice: newTier ? newTier.price : 0,
           };
           }
           return item;

@@ -278,15 +278,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                       onClick={() => setSelectedTier(tier.tier)}
                       className={`relative p-4 rounded-2xl border-2 transition-all cursor-pointer select-none ${
                         isSelected
-                          ? 'border-[#5C6B4F] bg-[#F6F1EA] shadow-sm ring-1 ring-emerald-100'
-                          : 'border-[#E8E0D5] bg-[#F6F1EA] hover:border-slate-300'
+                          ? 'border-[#5C6B4F] bg-[#F6F1EA] shadow-sm ring-1 ring-[#5C6B4F]/20'
+                          : 'border-[#E8E0D5] bg-[#F6F1EA] hover:border-[#5C6B4F]/50'
                       }`}
                     >
                       {/* Popular / Best value badge */}
                       {tier.badge && (
                         <span
                           className={`absolute -top-3 left-4 text-[10px] font-black px-3 py-0.5 rounded-full text-white shadow-sm ${
-                            tier.accent === 'amber' ? 'bg-amber-600' : 'bg-teal-600'
+                            tier.accent === 'amber' ? 'bg-amber-600' : 'bg-[#5C6B4F]'
                           }`}
                         >
                           {tier.badge}
@@ -300,7 +300,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                             className={`w-5 h-5 rounded-full mt-0.5 flex items-center justify-center shrink-0 border-2 transition-colors ${
                               isSelected
                                 ? 'border-[#5C6B4F] bg-[#5C6B4F]'
-                                : 'border-slate-300 bg-white'
+                                : 'border-[#E8E0D5] bg-white'
                             }`}
                           >
                             {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
@@ -313,7 +313,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                             <div className="text-[11px] text-[#8B8176] mt-0.5 leading-snug">
                               {tier.subtitle}
                             </div>
-                            <div className="text-[11px] font-bold text-[#3B342C] mt-1 flex items-center gap-1">
+                            <div className="text-[11px] font-bold text-[#5C6B4F] mt-1 flex items-center gap-1">
                               <span>✓ {tier.savingsText}</span>
                             </div>
                           </div>
@@ -325,9 +325,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                             <span className="text-xs text-[#8B8176] line-through">{tier.originalPrice} د.م</span>
                             <span className="text-xl font-black text-[#3B342C]">{tier.price} <span className="text-xs font-bold text-[#3B342C]">د.م</span></span>
                           </div>
-                          <span className="text-[10px] text-[#8B8176] block">
-                            (فقط {tier.perUnitPrice.toFixed(0)} درهم للقطعة)
-                          </span>
+                          {tier.tier > 1 && (
+                            <span className="text-[10px] text-[#8B8176] block">
+                              (فقط {tier.perUnitPrice.toFixed(0)} درهم للقطعة)
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>

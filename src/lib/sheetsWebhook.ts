@@ -31,7 +31,11 @@ function skuFromItem(item: { id?: string; sku?: string; name?: string }) {
 
 export function buildSheetsPayload(order: any) {
   const items = Array.isArray(order.items) ? order.items : [];
-  const products = items.map((i: any) => String(i.name || 'منتج فيتاليس ماروك').replace(/^\[.*?\]\s*/, ''));
+  const products = items.map((i: any) => {
+    const tier = i.product?.offerTiers?.find((t: any) => t.tier === i.selectedTier);
+    const baseName = String(i.name || i.product?.name || 'منتج فيتاليس ماروك').replace(/^\[.*?\]\s*/, '');
+    return tier ? `${baseName} - ${tier.name}` : baseName;
+  });
   const skus = items.map((i: any) => skuFromItem(i));
   const quantities = items.map((i: any) => String(i.quantity || 1));
   const rawId = String(order.orderId || order.orderid || '');

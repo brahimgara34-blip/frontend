@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface ProductColor {
   hex: string;
   nameAr: string;
@@ -11,21 +13,19 @@ export interface OfferTier {
   price: number;
   originalPrice: number;
   savingsText: string;
-  badge?: string | null;
+  badge?: string;
   popular?: boolean;
-  accent: 'teal' | 'emerald' | 'amber';
+  accent: 'teal' | 'emerald' | 'amber' | 'rose';
   perUnitPrice: number;
   bullets: string[];
 }
 
-export interface ProductVisualScene {
+export interface VisualStoryScene {
   type: 'problem' | 'usage' | 'result' | 'trust';
   title: string;
   subtitle: string;
   badge: string;
   image: string;
-  beforeLabel?: string;
-  afterLabel?: string;
   callouts: string[];
   accent: 'teal' | 'emerald' | 'amber' | 'rose';
 }
@@ -39,7 +39,7 @@ export interface Product {
   category: string;
   icon: string;
   image: string;
-  beforeAfterImage: string;
+  beforeAfterImage?: string;
   rating: number;
   reviewsCount: number;
   badge: string;
@@ -51,621 +51,537 @@ export interface Product {
   features: string[];
   scientificReason: string;
   colors: ProductColor[];
-  visualStory: ProductVisualScene[];
+  visualStory: VisualStoryScene[];
   offerTiers: OfferTier[];
-  painPoints: {
-    title: string;
-    description: string;
-  }[];
-  solutionProofs: {
-    title: string;
-    description: string;
-    metric: string;
-    iconText: string;
-  }[];
-  comparison: {
-    feature: string;
-    vitalis: string;
-    others: string;
-  }[];
-  faqs: {
-    question: string;
-    answer: string;
-  }[];
+  painPoints: { title: string; description: string }[];
+  solutionProofs: { title: string; description: string; metric: string; iconText: string }[];
+  comparison: { feature: string; vitalis: string; others: string }[];
+  faqs: { question: string; answer: string }[];
   sections: {
     title: string;
     description: string;
     highlight: string;
     imagePosition: 'left' | 'right';
     placeholderSvgText: string;
-    image: string;
+    image?: string;
   }[];
 }
 
 export const PRODUCTS: Product[] = [
   {
-    "id": "armoire",
-    "sku": "VM-ARM-01",
-    "slug": "armoire-3-portes",
-    "name": "خزانة الملابس العصرية بـ 3 أبواب - Armoire Pliable",
-    "shortName": "خزانة الملابس 3 أبواب",
-    "category": "أثاث وتخزين",
-    "icon": "🗄️",
-    "image": "/products/armoire.webp",
-    "beforeAfterImage": "/products/armoire.webp",
-    "rating": 4.8,
-    "reviewsCount": 342,
-    "badge": "الحل العملي لتنظيم الغرفة",
-    "headline": "تخلصي من فوضى الملابس واستمتعي بغرفة مرتبة وأنيقة في دقائق",
-    "subheadline": "خزانة عملية، متينة، وسهلة التركيب. توفر لك مساحة تخزين هائلة وتحمي ملابسك من الغبار والرطوبة، مع إمكانية نقلها بكل سهولة.",
-    "stockLeft": 12,
-    "recentOrdersCount": 45,
-    "heroBullets": [
-      "مساحة تخزين ضخمة مقسمة بذكاء (رفوف + مساحة واسعة للتعليق)",
-      "هيكل معدني صلب ومقاوم للصدأ يتحمل الأوزان الثقيلة بكل ثبات",
-      "غطاء قماشي ممتاز يحمي ملابسك من الغبار، الرطوبة، وقابل للغسل",
-      "تركيب سهل وسريع في دقائق بدون الحاجة لأي أدوات أو نجار"
+    id: "armoire-3-portes",
+    sku: "VM-ARM-01",
+    slug: "armoire-3-portes",
+    name: "خزانة الملابس العصرية بـ 3 أبواب - Armoire Moderne",
+    shortName: "خزانة الملابس",
+    category: "أثاث وتنظيم",
+    icon: "🚪",
+    image: "/products/armoire-premium.jpg",
+    beforeAfterImage: "/products/armoire-premium.jpg",
+    rating: 4.9,
+    reviewsCount: 342,
+    badge: "الأكثر مبيعاً في المغرب",
+    headline: "نظمي غرفتك بأناقة وتخلصي من فوضى الملابس نهائياً",
+    subheadline: "خزانة عصرية، قوية، وسهلة التركيب. توفر لك مساحة شاسعة لترتيب ملابسك وأغراضك بشكل يريح النفس ويضفي لمسة راقية على غرفتك.",
+    stockLeft: 12,
+    recentOrdersCount: 84,
+    heroBullets: [
+      "مساحة تخزين ضخمة تلبي كل احتياجاتك (ملابس، أغطية، أحذية)",
+      "هيكل معدني صلب مع غطاء قماشي مقاوم للغبار والرطوبة",
+      "تصميم عصري وأنيق يتناسب مع جميع ديكورات الغرف",
+      "تركيب سهل وسريع في دقائق بدون الحاجة لأي أدوات معقدة"
     ],
-    "features": [
-      "أبعاد مثالية توفر مساحة تخزين عمودية دون تضييق الغرفة",
-      "جيوب جانبية إضافية لتخزين الأغراض الصغيرة والإكسسوارات",
-      "سحابات (Sush) قوية وعملية لسهولة الفتح والإغلاق اليومي",
-      "تصميم أنيق وعصري يتماشى مع ديكور جميع الغرف"
+    features: [
+      "أبعاد مثالية: 130 سم عرض × 45 سم عمق × 170 سم ارتفاع",
+      "رفوف متعددة ومساحة مخصصة لتعليق الملابس الطويلة",
+      "قماش قابل للغسل وسهل التنظيف بمسحة خفيفة",
+      "سحابات (سناسل) قوية وعملية تدوم طويلاً"
     ],
-    "scientificReason": "الفوضى في الغرفة تزيد من التوتر وتضيع الوقت يومياً. هذه الخزانة مصممة هندسياً لاستغلال المساحة العمودية، مما يمنحك بيئة مرتبة، مريحة نفسياً، ويوفر وقتك في البحث عن ملابسك.",
-    "colors": [
+    scientificReason: "أثبتت الدراسات أن الغرفة المنظمة تقلل من التوتر بنسبة 40% وتوفر لك 15 دقيقة يومياً من وقت البحث عن الملابس.",
+    colors: [
+      { hex: "#4A3B32", nameAr: "بني داكن", nameFr: "Marron Foncé" },
+      { hex: "#8B1C31", nameAr: "أحمر خمري", nameFr: "Bordeaux" },
+      { hex: "#1A2B4C", nameAr: "أزرق ليلي", nameFr: "Bleu Nuit" },
+      { hex: "#E5E0D8", nameAr: "بيج فاتح", nameFr: "Beige Clair" }
+    ],
+    visualStory: [
       {
-        "hex": "#4A4A4A",
-        "nameAr": "رمادي أنيق",
-        "nameFr": "Gris"
+        type: "problem",
+        title: "واش عييتي من الروينة والملابس المشتتة؟",
+        subtitle: "الغرفة مرونة، الحوايج مطويين فكل بلاصة، والمنظر كيجيب الأعصاب كل صباح.",
+        badge: "المشكل",
+        image: "/products/armoire-premium.jpg",
+        callouts: ["ضيق المساحة", "صعوبة إيجاد الملابس", "منظر فوضوي"],
+        accent: "rose"
       },
       {
-        "hex": "#8B4513",
-        "nameAr": "بني خشبي",
-        "nameFr": "Marron"
-      }
-    ],
-    "visualStory": [
-      {
-        "type": "problem",
-        "title": "الملابس المبعثرة وضيق المساحة في الغرفة",
-        "subtitle": "الخزانات الخشبية التقليدية باهظة الثمن، تأخذ مساحة كبيرة، ويصعب نقلها من مكان لآخر.",
-        "badge": "مشكلة التخزين",
-        "image": "/products/armoire-problem.jpg",
-        "callouts": [
-          "فوضى عارمة",
-          "ضيق المساحة",
-          "صعوبة النقل"
-        ],
-        "accent": "rose"
+        type: "usage",
+        title: "الحل السحري لغرفة كتشرح القلب",
+        subtitle: "خزانة واسعة كتهز كلشي، ساهلة فالتركيب، وكتعطي منظر زوين ونقي لبيتك.",
+        badge: "الحل",
+        image: "/products/armoire-premium.jpg",
+        callouts: ["تركيب ساهل", "مساحة كبيرة", "شكل عصري"],
+        accent: "teal"
       },
       {
-        "type": "usage",
-        "title": "سهولة التركيب والمتانة العالية",
-        "subtitle": "هيكل معدني صلب مع غطاء قماشي متين وسحابات قوية، يمكنك تركيبه بنفسك في دقائق.",
-        "badge": "جودة ومتانة",
-        "image": "/products/armoire-usage.jpg",
-        "callouts": [
-          "هيكل معدني",
-          "غطاء متين",
-          "تركيب سريع"
-        ],
-        "accent": "teal"
+        type: "result",
+        title: "راحة بال ونظام كيدوم",
+        subtitle: "كل حاجة فبلاصتها، حوايجك نقيين ومحفوظين من الغبرة، وغرفتك ديما مرتبة.",
+        badge: "النتيجة",
+        image: "/products/armoire-premium.jpg",
+        callouts: ["حماية من الغبار", "ترتيب مثالي", "راحة نفسية"],
+        accent: "emerald"
+      }
+    ],
+    offerTiers: [
+      {
+        tier: 1,
+        name: "خزانة واحدة",
+        subtitle: "مثالية لترتيب غرفتك",
+        price: 349,
+        originalPrice: 500,
+        savingsText: "وفر 151 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 349,
+        bullets: ["1× خزانة بـ 3 أبواب", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "type": "result",
-        "title": "غرفة مرتبة، أنيقة، وكل شيء في مكانه",
-        "subtitle": "نظمي ملابسك بكل سهولة مع مساحات مخصصة للتعليق والطي. راحة نفسية وتنظيم مثالي.",
-        "badge": "النتيجة الفورية",
-        "image": "/products/armoire.webp",
-        "callouts": [
-          "تنظيم مثالي",
-          "مساحة واسعة",
-          "أناقة وراحة"
-        ],
-        "accent": "emerald"
-      }
-    ],
-    "offerTiers": [
-      {
-        "tier": 1,
-        "name": "خزانة الملابس (3 أبواب)",
-        "subtitle": "تنظيم مثالي لغرفتك",
-        "price": 349,
-        "originalPrice": 499,
-        "savingsText": "وفر 150 درهم",
-        "badge": "الأكثر مبيعاً",
-        "popular": true,
-        "accent": "teal",
-        "perUnitPrice": 349,
-        "bullets": [
-          "1× خزانة 3 أبواب",
-          "توصيل مجاني لباب الدار",
-          "الدفع بعد الاستلام والمقاسمة"
-        ]
-      }
-    ],
-    "painPoints": [
-      {
-        "title": "ضيق المساحة",
-        "description": "غرفتك صغيرة ولا تتسع لخزانة خشبية كبيرة ومكلفة."
+        tier: 2,
+        name: "2 خزانات ملابس",
+        subtitle: "وحدة ليك وواحدة لوليداتك",
+        price: 599,
+        originalPrice: 1000,
+        savingsText: "وفر 401 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 299.5,
+        bullets: ["2× خزانة بـ 3 أبواب", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "title": "صعوبة النقل",
-        "description": "الخزانات الخشبية ثقيلة جداً وصعبة الفك والتركيب عند الانتقال أو تغيير الديكور."
+        tier: 3,
+        name: "باقة الترتيب: خزانة + منظم مكياج",
+        subtitle: "غرفة نوم مثالية ومنظمة 100%",
+        price: 499,
+        originalPrice: 799,
+        savingsText: "وفر 300 درهم",
+        badge: "أفضل عرض",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 249.5,
+        bullets: ["1× خزانة ملابس", "1× منظم مكياج فاخر", "توصيل مجاني"]
       }
     ],
-    "solutionProofs": [
-      {
-        "title": "خفيفة وعملية",
-        "description": "يمكنك نقلها وتركيبها بنفسك في دقائق معدودة.",
-        "metric": "100%",
-        "iconText": "سهولة"
-      }
+    painPoints: [
+      { title: "فوضى الملابس", description: "الملابس المتراكمة تسبب التوتر وتجعل غرفتك تبدو صغيرة وغير مريحة." }
     ],
-    "comparison": [
-      {
-        "feature": "التكلفة",
-        "vitalis": "اقتصادية وعملية جداً",
-        "others": "باهظة الثمن (الخشب)"
-      },
-      {
-        "feature": "التركيب",
-        "vitalis": "سهل وسريع بنفسك",
-        "others": "يحتاج لمعلم نجار"
-      }
+    solutionProofs: [
+      { title: "سعة استيعاب هائلة", description: "تصميم ذكي يستغل المساحة العمودية لترتيب كمية مضاعفة من الملابس.", metric: "100%", iconText: "ترتيب" }
     ],
-    "faqs": [
-      {
-        "question": "واش التركيب ديالها صعيب؟",
-        "answer": "لا نهائياً! التركيب ساهل بزاف وكيجي معاها دليل كيوضح الخطوات، مغتحتاج لا بلاكارات لا مسامر."
-      },
-      {
-        "question": "واش كتهز الثقل؟",
-        "answer": "نعم، الهيكل ديالها مصاوب من أنابيب معدنية صلبة مصممة باش تهز كمية كبيرة ديال الحوايج بلا ما تعواج."
-      },
-      {
-        "question": "واش نقدر نشوفها قبل ما نخلص؟",
-        "answer": "أكيد! كنوصلوها ليك تال الدار، كتقلب السلعة ديالك وتأكد من الجودة عاد كتخلص الموزع."
-      }
+    comparison: [
+      { feature: "المتانة", vitalis: "هيكل معدني صلب يتحمل الأوزان", others: "بلاستيك ضعيف ينكسر بسرعة" }
     ],
-    "sections": [
+    faqs: [
+      { question: "واش التركيب ديالها ساهل؟", answer: "ساهل بزاف! ما غتحتاج لا بلاكار لا طرنوفيس، كتركب غير باليد فـ 15 دقيقة، ومرفقة بكتيب الشرح." },
+      { question: "واش صحيحة وكتهز الثقل؟", answer: "أكيد، الهيكل ديالها مصاوب من معدن صلب، كتهز الحوايج والمانطات بلا ما تعواج." },
+      { question: "واش التوصيل فابور؟", answer: "نعم، التوصيل مجاني لجميع المدن، وكتخلص حتى كتوصلك وتقلبها." }
+    ],
+    sections: [
       {
-        "title": "تنظيم مثالي يجمع بين الأناقة والعملية",
-        "description": "يحتوي على مساحة واسعة للتعليق ورفوف متينة للطي لتناسب كل احتياجاتك اليومية.",
-        "highlight": "مساحة واسعة",
-        "imagePosition": "left",
-        "placeholderSvgText": "Storage",
-        "image": "/products/armoire.webp"
+        title: "تصميم ذكي يجمع بين الأناقة والعملية",
+        description: "مقسمة بذكاء لرفوف وأماكن تعليق لتناسب جميع أنواع ملابسك وأغراضك.",
+        highlight: "مساحة شاسعة",
+        imagePosition: "right",
+        placeholderSvgText: "Armoire",
+        image: "/products/armoire-premium.jpg"
       }
     ]
   },
   {
-    "id": "foot-massager",
-    "sku": "VM-FMS-02",
-    "slug": "foot-massager",
-    "name": "جهاز تدليك القدمين الاحترافي بتقنية الشياتسو - Foot Massager",
-    "shortName": "جهاز مساج القدمين",
-    "category": "صحة واسترخاء",
-    "icon": "👣",
-    "image": "/products/footmassager.webp",
-    "beforeAfterImage": "/products/footmassager.webp",
-    "rating": 4.9,
-    "reviewsCount": 512,
-    "badge": "راحة فورية بعد يوم متعب",
-    "headline": "قولي وداعاً لآلام وتورم القدمين بعد يوم عمل متعب وشاق",
-    "subheadline": "جلسة مساج احترافية في منزلك! ينشط الدورة الدموية، يخفف التوتر، ويمنحك راحة فورية وعميقة لقدميك.",
-    "stockLeft": 8,
-    "recentOrdersCount": 67,
-    "heroBullets": [
-      "تقنية الشياتسو اليابانية لتدليك عميق ومريح يحاكي أيدي المدلك المحترف",
-      "وظيفة التدفئة المدمجة لاسترخاء العضلات المتشنجة وتنشيط الدورة الدموية",
-      "يخفف بشكل فعال آلام المفاصل، التورم، والتهاب اللفافة الأخمصية (Plantar Fasciitis)",
-      "سهل الاستخدام والتنظيف مع غطاء قماشي قابل للإزالة والغسل"
+    id: "foot-massager",
+    sku: "VM-FMS-02",
+    slug: "foot-massager",
+    name: "جهاز تدليك القدمين الاحترافي - Foot Massager",
+    shortName: "جهاز مساج القدمين",
+    category: "صحة واسترخاء",
+    icon: "🦶",
+    image: "/products/massager-premium.jpg",
+    beforeAfterImage: "/products/massager-premium.jpg",
+    rating: 4.8,
+    reviewsCount: 415,
+    badge: "راحة فورية ومضمونة",
+    headline: "قولي وداعاً لآلام القدمين والعيى ديال النهار كامل",
+    subheadline: "جلسة مساج احترافية فدارك! جهاز بتقنية الشياتسو والحرارة اللطيفة، كينشط الدورة الدموية وكيريح الأعصاب بعد نهار طويل ديال الوقوف أو الخدمة.",
+    stockLeft: 8,
+    recentOrdersCount: 112,
+    heroBullets: [
+      "تقنية الشياتسو اليابانية لتدليك عميق يزيل التوتر والألم",
+      "خاصية التدفئة اللطيفة لاسترخاء العضلات وتنشيط الدورة الدموية",
+      "تصميم مريح وسهل الاستخدام بضغطة زر واحدة",
+      "مثالي لكبار السن، الموظفين، ولكل من يعاني من آلام المفاصل"
     ],
-    "features": [
-      "عقد تدليك دوارة متعددة تستهدف جميع نقاط الضغط في القدم",
-      "مستويات سرعة قابلة للتعديل لتناسب مستوى راحتك الشخصية",
-      "تصميم مدمج وخفيف الوزن، يمكنك استخدامه أثناء مشاهدة التلفاز أو العمل",
-      "نظام أمان ذكي يوقف الجهاز تلقائياً بعد 15 دقيقة"
+    features: [
+      "رؤوس تدليك دوارة تستهدف نقاط الضغط بدقة",
+      "غطاء قماشي ناعم قابل للإزالة والغسل بسهولة",
+      "إيقاف تلقائي بعد 15 دقيقة لضمان السلامة",
+      "خفيف الوزن ومحمول، استعمله في الصالون أو غرفة النوم"
     ],
-    "scientificReason": "القدمان تحملان وزن الجسم طوال اليوم وتتراكم فيهما الضغوطات. التدليك يحفز نقاط الانعكاس (Reflexology) مما يقلل من هرمون التوتر (الكورتيزول) ويزيد من إفراز الإندورفين، مما يحسن جودة النوم ويريح الجسم كاملاً.",
-    "colors": [
+    scientificReason: "تدليك القدمين لمدة 15 دقيقة يومياً يخفض هرمون الكورتيزول (هرمون التوتر) ويحسن جودة النوم بشكل ملحوظ.",
+    colors: [
+      { hex: "#8B1C31", nameAr: "أحمر داكن", nameFr: "Bordeaux" }
+    ],
+    visualStory: [
       {
-        "hex": "#1A1A1A",
-        "nameAr": "أسود ملكي",
-        "nameFr": "Noir"
-      }
-    ],
-    "visualStory": [
-      {
-        "type": "problem",
-        "title": "آلام القدمين والتورم بعد يوم عمل طويل",
-        "subtitle": "الوقوف والمشي لفترات طويلة يسبب تورماً، ألماً شديداً، ويؤثر على جودة نومك وراحتك.",
-        "badge": "ألم وتعب",
-        "image": "/products/massager-problem.jpg",
-        "callouts": [
-          "ألم مفاصل",
-          "تورم القدمين",
-          "تعب وإرهاق"
-        ],
-        "accent": "rose"
+        type: "problem",
+        title: "عييتي من الحريق والوقوف نهار كامل؟",
+        subtitle: "رجلين منفوخين، ألم فالمفاصل، وعيى كيخليك ما قادش حتى تنعس مرتاح.",
+        badge: "المشكل",
+        image: "/products/massager-premium.jpg",
+        callouts: ["ألم مستمر", "تورم القدمين", "توتر وإرهاق"],
+        accent: "rose"
       },
       {
-        "type": "usage",
-        "title": "تقنية الشياتسو مع التدفئة المريحة",
-        "subtitle": "عقد تدليك دوارة تستهدف نقاط الضغط مع حرارة لطيفة لاسترخاء العضلات المتشنجة.",
-        "badge": "تدليك احترافي",
-        "image": "/products/massager-usage.jpg",
-        "callouts": [
-          "تدليك شياتسو",
-          "تدفئة مريحة",
-          "استهداف دقيق"
-        ],
-        "accent": "teal"
+        type: "usage",
+        title: "مساج احترافي وأنت جالس فدارك",
+        subtitle: "حط رجليك، ورك على البوطونة، واستمتع بتدليك عميق كينسيك فكاع العيى.",
+        badge: "الحل",
+        image: "/products/massager-premium.jpg",
+        callouts: ["سهل الاستعمال", "حرارة مريحة", "تدليك شياتسو"],
+        accent: "teal"
       },
       {
-        "type": "result",
-        "title": "استرخاء تام وتجديد للنشاط في 15 دقيقة",
-        "subtitle": "جلسة تدليك يومية تعيد لك حيويتك، تخلصك من التوتر، وتمنحك نوماً عميقاً ومريحاً.",
-        "badge": "راحة فورية",
-        "image": "/products/footmassager.webp",
-        "callouts": [
-          "استرخاء عميق",
-          "تنشيط الدورة الدموية",
-          "نوم أفضل"
-        ],
-        "accent": "emerald"
+        type: "result",
+        title: "راحة، نشاط، ونوم عميق",
+        subtitle: "دورة دموية نشيطة، ألم مختفي، وراحة نفسية وجسدية لا توصف.",
+        badge: "النتيجة",
+        image: "/products/massager-premium.jpg",
+        callouts: ["نوم مريح", "تنشيط الدورة الدموية", "راحة تامة"],
+        accent: "emerald"
       }
     ],
-    "offerTiers": [
+    offerTiers: [
       {
-        "tier": 1,
-        "name": "جهاز تدليك القدمين",
-        "subtitle": "راحة يومية في منزلك",
-        "price": 199,
-        "originalPrice": 350,
-        "savingsText": "وفر 151 درهم",
-        "badge": "عرض محدود",
-        "popular": true,
-        "accent": "teal",
-        "perUnitPrice": 199,
-        "bullets": [
-          "1× جهاز التدليك",
-          "توصيل مجاني لباب الدار",
-          "المعاينة قبل الدفع"
-        ]
-      }
-    ],
-    "painPoints": [
-      {
-        "title": "ألم مستمر وتورم",
-        "description": "تعاني من آلام القدمين والتورم الذي يمنعك من الراحة والنوم بهدوء."
-      }
-    ],
-    "solutionProofs": [
-      {
-        "title": "تدليك احترافي",
-        "description": "يحاكي أيدي المدلك المحترف بتقنية الشياتسو.",
-        "metric": "100%",
-        "iconText": "راحة"
-      }
-    ],
-    "comparison": [
-      {
-        "feature": "التكلفة",
-        "vitalis": "تدفع مرة واحدة لجهاز يدوم",
-        "others": "جلسات سبا مكلفة جداً"
-      }
-    ],
-    "faqs": [
-      {
-        "question": "واش نقدر نستعملو كل نهار؟",
-        "answer": "نعم، كنصحو تستعملو لمدة 15 دقيقة كل نهار فالعشية باش ترتاح وتنشط الدورة الدموية."
+        tier: 1,
+        name: "جهاز مساج واحد",
+        subtitle: "راحة يومية لك",
+        price: 199,
+        originalPrice: 350,
+        savingsText: "وفر 151 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 199,
+        bullets: ["1× جهاز مساج", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "question": "واش كيصلح للناس الكبار فالعمر؟",
-        "answer": "أكيد! ممتاز جداً للناس الكبار حيت كيعاونهم على تنشيط الدورة الدموية وتخفيف آلام المفاصل."
+        tier: 2,
+        name: "2 أجهزة مساج",
+        subtitle: "هدية رائعة للوالدين",
+        price: 349,
+        originalPrice: 700,
+        savingsText: "وفر 351 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 174.5,
+        bullets: ["2× جهاز مساج", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "question": "واش نخلص عاد نشوفو؟",
-        "answer": "لا، الدفع كيكون حتى كيوصلك المنتج ليديك وتشوفو وتأكد منو عاد كتخلص الموزع ديالنا."
+        tier: 3,
+        name: "باقة الدلال: جهاز مساج + منظم مكياج",
+        subtitle: "راحة لك وهدية أنيقة لزوجتك",
+        price: 349,
+        originalPrice: 649,
+        savingsText: "وفر 300 درهم",
+        badge: "أفضل عرض",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 174.5,
+        bullets: ["1× جهاز مساج", "1× منظم مكياج", "توصيل مجاني"]
       }
     ],
-    "sections": [
+    painPoints: [
+      { title: "آلام القدمين", description: "الوقوف الطويل يسبب تورماً وآلاماً تمنعك من الاستمتاع بوقتك مع عائلتك." }
+    ],
+    solutionProofs: [
+      { title: "تدليك شياتسو", description: "يحاكي حركة أصابع المدلك المحترف لفك العقد العضلية.", metric: "100%", iconText: "استرخاء" }
+    ],
+    comparison: [
+      { feature: "التكلفة", vitalis: "تدفع مرة واحدة لجهاز يدوم طويلاً", others: "جلسات سبا مكلفة جداً ومضيعة للوقت" }
+    ],
+    faqs: [
+      { question: "واش كيصلح للناس الكبار فالعمر؟", answer: "أكيد! ممتاز جداً للوالدين، كيعاونهم على تنشيط الدورة الدموية وتخفيف آلام المفاصل." },
+      { question: "واش كيسخن؟", answer: "نعم، فيه خاصية التدفئة اللطيفة اللي كترخي العضلات وكتزيد من فعالية المساج." },
+      { question: "واش نخلص عاد نشوفو؟", answer: "لا، الدفع كيكون حتى كيوصلك المنتج ليديك وتشوفو وتأكد منو عاد كتخلص." }
+    ],
+    sections: [
       {
-        "title": "تقنية الشياتسو المتقدمة مع التدفئة",
-        "description": "رؤوس تدليك دوارة تستهدف كل نقطة تعب في قدميك مع حرارة لطيفة لاسترخاء العضلات.",
-        "highlight": "تدليك عميق",
-        "imagePosition": "right",
-        "placeholderSvgText": "Massage",
-        "image": "/products/footmassager.webp"
+        title: "تقنية متطورة لراحتك",
+        description: "رؤوس تدليك مصممة بعناية لتستهدف كل نقطة تعب في قدميك.",
+        highlight: "تدليك عميق",
+        imagePosition: "left",
+        placeholderSvgText: "Massager",
+        image: "/products/massager-premium.jpg"
       }
     ]
   },
   {
-    "id": "chaise-haute",
-    "sku": "VM-BBY-03",
-    "slug": "chaise-haute-bebe",
-    "name": "كرسي طعام الأطفال الآمن والمريح - Chaise Haute Bébé",
-    "shortName": "كرسي طعام الأطفال",
-    "category": "مستلزمات الأطفال",
-    "icon": "🪑",
-    "image": "/products/chaise-haute.webp",
-    "beforeAfterImage": "/products/chaise-haute.webp",
-    "rating": 4.9,
-    "reviewsCount": 284,
-    "badge": "أمان وراحة لطفلك",
-    "headline": "اجعلي وقت طعام طفلك آمناً، ممتعاً، وخالياً من الفوضى",
-    "subheadline": "كرسي مصمم خصيصاً لراحة طفلك وسلامته، مع صينية مزدوجة سهلة التنظيف وحزام أمان خماسي النقاط لجلوس آمن مع العائلة.",
-    "stockLeft": 15,
-    "recentOrdersCount": 52,
-    "heroBullets": [
-      "حزام أمان خماسي النقاط لضمان حماية طفلك من السقوط أو الانزلاق",
-      "صينية طعام مزدوجة قابلة للإزالة والغسل بكل سهولة للحفاظ على النظافة",
-      "مقعد مبطن ومريح، مقاوم للماء وسهل المسح بعد كل وجبة",
-      "أرجل ثابتة مانعة للانزلاق بتصميم هندسي هرمي يمنع انقلاب الكرسي"
+    id: "chaise-haute",
+    sku: "VM-BBY-03",
+    slug: "chaise-haute-bebe",
+    name: "كرسي طعام الأطفال الآمن والمريح - Chaise Haute Bébé",
+    shortName: "كرسي طعام الأطفال",
+    category: "مستلزمات الأطفال",
+    icon: "🪑",
+    image: "/products/chaise-premium.jpg",
+    beforeAfterImage: "/products/chaise-premium.jpg",
+    rating: 4.9,
+    reviewsCount: 284,
+    badge: "أمان وراحة لطفلك",
+    headline: "اجعلي وقت طعام طفلك آمناً، ممتعاً، وخالياً من الفوضى",
+    subheadline: "كرسي مصمم خصيصاً لراحة طفلك وسلامته، مع صينية مزدوجة سهلة التنظيف وحزام أمان خماسي النقاط لجلوس آمن مع العائلة.",
+    stockLeft: 15,
+    recentOrdersCount: 52,
+    heroBullets: [
+      "حزام أمان خماسي النقاط يضمن ثبات طفلك ويمنع السقوط",
+      "صينية طعام مزدوجة قابلة للإزالة والغسل في غسالة الأطباق",
+      "وسادة مقعد ناعمة، مريحة، ومقاومة للماء وسهلة المسح",
+      "أرجل معدنية متينة بقاعدة هرمية تمنع الانقلاب تماماً"
     ],
-    "features": [
-      "قابل للطي بسهولة لتوفير المساحة عند عدم الاستخدام",
-      "ارتفاع مثالي يناسب طاولة الطعام العائلية لمشاركة الطفل معكم",
-      "مصنوع من مواد آمنة 100% وخالية من المواد السامة (BPA Free)",
-      "يتحمل وزن الطفل وينمو معه حتى عمر 3 سنوات"
+    features: [
+      "مناسب للأطفال من 6 أشهر إلى 3 سنوات (حتى 15 كجم)",
+      "تصميم عصري يناسب ديكور غرفة الطعام",
+      "خفيف الوزن وسهل النقل من مكان لآخر",
+      "مواد آمنة 100% وخالية من المواد الكيميائية الضارة (BPA Free)"
     ],
-    "scientificReason": "جلوس الطفل مع العائلة على نفس مستوى الطاولة يعزز من تطوره الاجتماعي والنفسي، يشجعه على تقليد الكبار في الأكل، ويجعله يجرب أطعمة جديدة باستقلالية وثقة.",
-    "colors": [
+    scientificReason: "جلوس الطفل مع العائلة على نفس مستوى الطاولة يعزز تطوره الاجتماعي ويشجعه على تجربة أطعمة جديدة بثقة.",
+    colors: [
+      { hex: "#F5F5F5", nameAr: "أبيض ناصع", nameFr: "Blanc" },
+      { hex: "#FFB6C1", nameAr: "وردي فاتح", nameFr: "Rose" },
+      { hex: "#ADD8E6", nameAr: "أزرق سماوي", nameFr: "Bleu" }
+    ],
+    visualStory: [
       {
-        "hex": "#D3D3D3",
-        "nameAr": "رمادي فاتح",
-        "nameFr": "Gris Clair"
-      }
-    ],
-    "visualStory": [
-      {
-        "type": "problem",
-        "title": "صعوبة إطعام الطفل وهو يتحرك باستمرار",
-        "subtitle": "إطعام الطفل بدون كرسي مخصص يسبب فوضى عارمة، بقع على الأثاث، وخطر السقوط.",
-        "badge": "خطر وفوضى",
-        "image": "/products/chaise-problem.jpg",
-        "callouts": [
-          "بقع طعام",
-          "عدم استقرار",
-          "تعب وإرهاق للأم"
-        ],
-        "accent": "rose"
+        type: "problem",
+        title: "الروينة وقت الماكلة والخوف على طفلك؟",
+        subtitle: "الطفل كيتحرك بزاف، الماكلة كطيح فالأرض، والكراسي العادية ما فيهاش الأمان الكافي.",
+        badge: "المشكل",
+        image: "/products/chaise-premium.jpg",
+        callouts: ["خطر السقوط", "صعوبة التنظيف", "فوضى الطعام"],
+        accent: "rose"
       },
       {
-        "type": "usage",
-        "title": "أمان تام وسهولة في التنظيف",
-        "subtitle": "حزام أمان خماسي النقاط يحمي طفلك، وصينية مزدوجة قابلة للإزالة لتنظيف سريع.",
-        "badge": "حماية ونظافة",
-        "image": "/products/chaise-usage.jpg",
-        "callouts": [
-          "حزام خماسي",
-          "صينية مزدوجة",
-          "مواد آمنة"
-        ],
-        "accent": "teal"
+        type: "usage",
+        title: "أمان تام ونظافة ساهلة",
+        subtitle: "حزام أمان قوي، وصينية كتحيد وتغسل بسهولة. وقت الماكلة غيولي متعة ليك ولولدك.",
+        badge: "الحل",
+        image: "/products/chaise-premium.jpg",
+        callouts: ["صينية قابلة للغسل", "حزام أمان", "ثبات عالي"],
+        accent: "teal"
       },
       {
-        "type": "result",
-        "title": "وقت طعام ممتع، آمن، ونظيف",
-        "subtitle": "طفلك يجلس بأمان، يستمتع بوجبته بكل راحة، وأنتِ مرتاحة البال.",
-        "badge": "أمان وراحة",
-        "image": "/products/chaise-haute.webp",
-        "callouts": [
-          "حزام أمان",
-          "تنظيف في ثواني",
-          "مشاركة عائلية"
-        ],
-        "accent": "emerald"
+        type: "result",
+        title: "طفل سعيد وأم مرتاحة",
+        subtitle: "ولدك كياكل معاك فابلة وحدة بأمان، والروينة ديال الماكلة كتمسح فثواني.",
+        badge: "النتيجة",
+        image: "/products/chaise-premium.jpg",
+        callouts: ["تطور اجتماعي", "راحة بال", "نظافة سريعة"],
+        accent: "emerald"
       }
     ],
-    "offerTiers": [
+    offerTiers: [
       {
-        "tier": 1,
-        "name": "كرسي طعام الأطفال",
-        "subtitle": "الخيار الأفضل لسلامة طفلك",
-        "price": 249,
-        "originalPrice": 399,
-        "savingsText": "وفر 150 درهم",
-        "badge": "ينصح به الآباء",
-        "popular": true,
-        "accent": "teal",
-        "perUnitPrice": 249,
-        "bullets": [
-          "1× كرسي طعام",
-          "توصيل مجاني لباب الدار",
-          "المعاينة قبل الدفع"
-        ]
-      }
-    ],
-    "painPoints": [
-      {
-        "title": "تنظيف صعب وفوضى",
-        "description": "الكراسي العادية تتسخ بسرعة، يصعب تنظيفها، والطفل يتحرك كثيراً أثناء الأكل."
-      }
-    ],
-    "solutionProofs": [
-      {
-        "title": "سهل التنظيف وآمن",
-        "description": "صينية قابلة للغسل ووسادة مقاومة للماء مع حزام أمان.",
-        "metric": "100%",
-        "iconText": "نظافة وأمان"
-      }
-    ],
-    "comparison": [
-      {
-        "feature": "الأمان",
-        "vitalis": "حزام خماسي وأرجل ثابتة جداً",
-        "others": "غير مستقر وسهل الانقلاب"
-      }
-    ],
-    "faqs": [
-      {
-        "question": "من أيا عمر نقدر نستعملو لولدي؟",
-        "answer": "تقدري تستعمليه ملي يبدأ الطفل يجلس بوحدو (تقريباً من 6 أشهر) وكيبقى معاه تال 3 سنين."
+        tier: 1,
+        name: "كرسي طعام واحد",
+        subtitle: "الخيار الأفضل لسلامة طفلك",
+        price: 249,
+        originalPrice: 399,
+        savingsText: "وفر 150 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 249,
+        bullets: ["1× كرسي طعام", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "question": "واش ساهل فالتنظيف؟",
-        "answer": "ساهل بزاف! الصينية الفوقانية كتحيد وتغسل، والكرسي مغلف بمادة كتمسح غير بزيف فازك."
+        tier: 2,
+        name: "2 كراسي طعام",
+        subtitle: "مثالي للتوأم أو كهدية",
+        price: 449,
+        originalPrice: 798,
+        savingsText: "وفر 349 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 224.5,
+        bullets: ["2× كرسي طعام", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "question": "واش نقدر نشوفو قبل ما نخلص؟",
-        "answer": "أكيد، كنوصلوه ليك تال الدار، تأكدي من الجودة والصح ديالو عاد خلصي الموزع."
+        tier: 3,
+        name: "باقة الأم والطفل: كرسي + جهاز مساج",
+        subtitle: "أمان لطفلك وراحة لك بعد يوم متعب",
+        price: 399,
+        originalPrice: 749,
+        savingsText: "وفر 350 درهم",
+        badge: "أفضل عرض",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 199.5,
+        bullets: ["1× كرسي طعام", "1× جهاز مساج القدمين", "توصيل مجاني"]
       }
     ],
-    "sections": [
+    painPoints: [
+      { title: "صعوبة التنظيف", description: "الكراسي العادية تتسخ بسرعة ويصعب تنظيفها من بقايا الطعام." }
+    ],
+    solutionProofs: [
+      { title: "تصميم مضاد للفوضى", description: "مواد مقاومة للماء وصينية مزدوجة تجعل التنظيف مسألة ثوانٍ.", metric: "100%", iconText: "نظافة" }
+    ],
+    comparison: [
+      { feature: "الأمان", vitalis: "حزام خماسي وأرجل هرمية ثابتة", others: "غير مستقر وسهل الانقلاب" }
+    ],
+    faqs: [
+      { question: "من أيا عمر نقدر نستعملو لولدي؟", answer: "تقدري تستعمليه ملي يبدأ الطفل يجلس بوحدو (تقريباً من 6 أشهر) وكيبقى معاه تال 3 سنين." },
+      { question: "واش ساهل فالتنظيف؟", answer: "ساهل بزاف! الصينية الفوقانية كتحيد وتغسل، والكرسي مغلف بمادة كتمسح غير بزيف فازك." },
+      { question: "واش نقدر نشوفو قبل ما نخلص؟", answer: "أكيد، كنوصلوه ليك تال الدار، تأكدي من الجودة والصح ديالو عاد خلصي." }
+    ],
+    sections: [
       {
-        "title": "تصميم هندسي يراعي سلامة طفلك أولاً",
-        "description": "كل زاوية مصممة لتكون ناعمة وآمنة، مع قاعدة هرمية تضمن ثباتاً تاماً على الأرض لمنع أي حوادث.",
-        "highlight": "أمان تام",
-        "imagePosition": "left",
-        "placeholderSvgText": "Baby Chair",
-        "image": "/products/chaise-haute.webp"
+        title: "هندسة تضع سلامة طفلك أولاً",
+        description: "قاعدة عريضة تمنع أي اهتزاز، وحواف ناعمة لحماية طفلك من أي خدوش.",
+        highlight: "أمان تام",
+        imagePosition: "right",
+        placeholderSvgText: "Baby Chair",
+        image: "/products/chaise-premium.jpg"
       }
     ]
   },
   {
-    "id": "makeup-box",
-    "sku": "VM-MKB-04",
-    "slug": "makeup-storage-box",
-    "name": "منظم المكياج ومستحضرات التجميل الفاخر - Makeup Organizer",
-    "shortName": "منظم المكياج",
-    "category": "تنظيم وعناية",
-    "icon": "💄",
-    "image": "/products/makeupbox.webp",
-    "beforeAfterImage": "/products/makeupbox.webp",
-    "rating": 4.8,
-    "reviewsCount": 420,
-    "badge": "تسريحة مرتبة وأنيقة دائماً",
-    "headline": "رتبي أدوات تجميلك بأناقة واحصلي على تسريحة خالية من الفوضى",
-    "subheadline": "منظم عصري بسعة كبيرة، يحمي مكياجك وعطورك من الغبار والماء، ويضفي لمسة ساحرة وراقية على غرفتك.",
-    "stockLeft": 20,
-    "recentOrdersCount": 89,
-    "heroBullets": [
+    id: "makeup-box",
+    sku: "VM-MKB-04",
+    slug: "makeup-storage-box",
+    name: "منظم المكياج ومستحضرات التجميل الفاخر - Makeup Organizer",
+    shortName: "منظم المكياج",
+    category: "تنظيم وعناية",
+    icon: "💄",
+    image: "/products/makeup-premium.jpg",
+    beforeAfterImage: "/products/makeup-premium.jpg",
+    rating: 4.8,
+    reviewsCount: 420,
+    badge: "تسريحة مرتبة وأنيقة",
+    headline: "رتبي أدوات تجميلك بأناقة واحصلي على تسريحة خالية من الفوضى",
+    subheadline: "منظم عصري بسعة كبيرة، يحمي مكياجك وعطورك من الغبار والماء، ويضفي لمسة ساحرة وراقية على غرفتك أو حمامك.",
+    stockLeft: 20,
+    recentOrdersCount: 89,
+    heroBullets: [
       "سعة تخزين كبيرة جداً تناسب العطور الطويلة، الكريمات، وفرش المكياج",
-      "غطاء علوي شفاف ومرتفع يحمي مستحضراتك من الغبار، الرطوبة، والماء",
+      "غطاء علوي شفاف ومرتفع يحمي مستحضراتك من الغبار والرطوبة",
       "أدراج سفلية سلسة لتنظيم الإكسسوارات، المجوهرات، والأشياء الصغيرة",
-      "تصميم أنيق وفاخر يضيف لمسة جمالية لغرفتك أو حمامك"
+      "تصميم أنيق وفاخر يضيف لمسة جمالية راقية لمساحتك الخاصة"
     ],
-    "features": [
+    features: [
       "مصنوع من بلاستيك أكريليك عالي الجودة، متين ومقاوم للكسر",
-      "مقبض علوي متين لسهولة الحمل والنقل من مكان لآخر",
+      "مقبض علوي متين لسهولة الحمل والنقل",
       "مقاوم للماء تماماً مما يجعله مثالياً للاستخدام في الحمام",
-      "أدراج تفتح وتغلق بسلاسة تامة بدون أي إزعاج"
+      "أدراج تفتح وتغلق بسلاسة تامة"
     ],
-    "scientificReason": "البيئة المنظمة توفر الوقت في الصباح وتقلل من التوتر. حماية المستحضرات من الغبار يطيل من عمرها الافتراضي ويحمي بشرتك من البكتيريا التي قد تتراكم على فرش المكياج المكشوفة.",
-    "colors": [
-      {
-        "hex": "#FFFFFF",
-        "nameAr": "شفاف كريستالي",
-        "nameFr": "Transparent"
-      }
+    scientificReason: "حماية مستحضرات التجميل من الغبار والرطوبة يطيل من عمرها الافتراضي ويحمي بشرتك من البكتيريا المسببة لحب الشباب.",
+    colors: [
+      { hex: "#FFFFFF", nameAr: "شفاف كريستالي", nameFr: "Transparent" }
     ],
-    "visualStory": [
+    visualStory: [
       {
-        "type": "problem",
-        "title": "تسريحة فوضوية وضياع الوقت كل صباح",
-        "subtitle": "البحث عن أحمر الشفاه أو الفرشاة وسط الفوضى يضيع وقتك، والمستحضرات المكشوفة تتلف بسبب الغبار.",
-        "badge": "فوضى وتلف",
-        "image": "/products/makeup-problem.jpg",
-        "callouts": [
-          "ضياع الوقت",
-          "تراكم الغبار",
-          "مظهر مزعج"
-        ],
-        "accent": "rose"
+        type: "problem",
+        title: "تسريحة مرونة والغبرة على الماكياج؟",
+        subtitle: "الماكياج مشتت، العكورة كيتوضرو، والغبرة كتخسر ليك البرودويات الغاليين ديالك.",
+        badge: "المشكل",
+        image: "/products/makeup-premium.jpg",
+        callouts: ["تراكم الغبار", "فوضى التسريحة", "ضياع الوقت"],
+        accent: "rose"
       },
       {
-        "type": "usage",
-        "title": "أدراج سلسة وسعة تخزين كبيرة",
-        "subtitle": "مساحات مقسمة بذكاء تناسب العطور، الفرش، والمجوهرات مع أدراج تفتح وتغلق بكل سهولة.",
-        "badge": "تصميم ذكي",
-        "image": "/products/makeup-usage.jpg",
-        "callouts": [
-          "أدراج سلسة",
-          "سعة كبيرة",
-          "مقاوم للماء"
-        ],
-        "accent": "teal"
+        type: "usage",
+        title: "كلشي مجموع ومحمي بأناقة",
+        subtitle: "منظم كبير كيهز القراعي طوال، أدراج للمجوهرات، وغطاء كيحمي من الغبرة والماء.",
+        badge: "الحل",
+        image: "/products/makeup-premium.jpg",
+        callouts: ["سعة كبيرة", "حماية من الماء", "أدراج عملية"],
+        accent: "teal"
       },
       {
-        "type": "result",
-        "title": "كل شيء مرتب، نظيف، وفي متناول يدك",
-        "subtitle": "مستحضراتك مرتبة بأناقة، محمية تماماً، وجاهزة للاستخدام فوراً لتبدئي يومك براحة.",
-        "badge": "ترتيب وأناقة",
-        "image": "/products/makeupbox.webp",
-        "callouts": [
-          "حماية من الغبار",
-          "توفير الوقت",
-          "شكل راقي"
-        ],
-        "accent": "emerald"
+        type: "result",
+        title: "لمسة فاخرة وراحة يومية",
+        subtitle: "تسريحة نقية كتشعل، ماكياجك ديما واجد ونظيف، ومنظر كيحمق فغرفتك.",
+        badge: "النتيجة",
+        image: "/products/makeup-premium.jpg",
+        callouts: ["شكل راقي", "توفير الوقت", "حماية تامة"],
+        accent: "emerald"
       }
     ],
-    "offerTiers": [
+    offerTiers: [
       {
-        "tier": 1,
-        "name": "منظم المكياج الفاخر",
-        "subtitle": "لتسريحة مرتبة وجذابة",
-        "price": 199,
-        "originalPrice": 299,
-        "savingsText": "وفر 100 درهم",
-        "badge": "الأكثر طلباً",
-        "popular": true,
-        "accent": "teal",
-        "perUnitPrice": 199,
-        "bullets": [
-          "1× منظم مكياج",
-          "توصيل مجاني لباب الدار",
-          "المعاينة قبل الدفع"
-        ]
-      }
-    ],
-    "painPoints": [
-      {
-        "title": "تراكم الغبار والفوضى",
-        "description": "المستحضرات المكشوفة تتراكم عليها الأتربة وتضر بالبشرة، والتسريحة تبدو دائماً فوضوية."
-      }
-    ],
-    "solutionProofs": [
-      {
-        "title": "حماية كاملة وتنظيم",
-        "description": "غطاء شفاف يعزل الغبار والرطوبة مع مساحات مقسمة بذكاء.",
-        "metric": "100%",
-        "iconText": "حماية"
-      }
-    ],
-    "comparison": [
-      {
-        "feature": "السعة والتصميم",
-        "vitalis": "يستوعب الزجاجات الطويلة وشكله فاخر",
-        "others": "صغير جداً وشكله رخيص"
-      }
-    ],
-    "faqs": [
-      {
-        "question": "واش كيهز القراعي طوال ديال الريحة؟",
-        "answer": "نعم، الطبقة الفوقانية مصممة باش تكون عالية وتهز العطور والكريمات الطويلة بكل سهولة."
+        tier: 1,
+        name: "منظم مكياج واحد",
+        subtitle: "لتسريحة مرتبة وجذابة",
+        price: 199,
+        originalPrice: 299,
+        savingsText: "وفر 100 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 199,
+        bullets: ["1× منظم مكياج", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "question": "واش نقدر نحطو فالحمام؟",
-        "answer": "أكيد، المنظم مقاوم للماء ومغاديش يتأثر بالرطوبة ديال الحمام، وغيحمي الماكياج ديالك."
+        tier: 2,
+        name: "2 منظمات مكياج",
+        subtitle: "واحد ليك وواحد لصاحبتك",
+        price: 349,
+        originalPrice: 598,
+        savingsText: "وفر 249 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 174.5,
+        bullets: ["2× منظم مكياج", "توصيل مجاني", "المعاينة قبل الدفع"]
       },
       {
-        "question": "واش التوصيل فابور؟",
-        "answer": "نعم، التوصيل مجاني لجميع المدن، وكتخلصي حتى كتشوفي المنظم ديالك وتأكدي منو."
+        tier: 3,
+        name: "باقة الجمال: منظم مكياج + جهاز مساج",
+        subtitle: "عناية بجمالك وراحتك فنفس الوقت",
+        price: 349,
+        originalPrice: 649,
+        savingsText: "وفر 300 درهم",
+        badge: "أفضل عرض",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 174.5,
+        bullets: ["1× منظم مكياج", "1× جهاز مساج القدمين", "توصيل مجاني"]
       }
     ],
-    "sections": [
+    painPoints: [
+      { title: "تلف المستحضرات", description: "الرطوبة والغبار يفسدان جودة مكياجك ويسببان مشاكل لبشرتك." }
+    ],
+    solutionProofs: [
+      { title: "عزل تام", description: "تصميم محكم الإغلاق يحافظ على نظافة أدواتك بنسبة 100%.", metric: "100%", iconText: "حماية" }
+    ],
+    comparison: [
+      { feature: "السعة والتصميم", vitalis: "يستوعب الزجاجات الطويلة وشكله فاخر", others: "صغير جداً وشكله رخيص" }
+    ],
+    faqs: [
+      { question: "واش كيهز القراعي طوال ديال الريحة؟", answer: "نعم، الطبقة الفوقانية مصممة باش تكون عالية وتهز العطور والكريمات الطويلة بكل سهولة." },
+      { question: "واش نقدر نحطو فالحمام؟", answer: "أكيد، المنظم مقاوم للماء ومغاديش يتأثر بالرطوبة ديال الحمام، وغيحمي الماكياج ديالك." },
+      { question: "واش التوصيل فابور؟", answer: "نعم، التوصيل مجاني لجميع المدن، وكتخلصي حتى كتشوفي المنظم ديالك وتأكدي منو." }
+    ],
+    sections: [
       {
-        "title": "تصميم عملي وذكي يجمع كل أدواتك",
-        "description": "أدراج سفلية للإكسسوارات ومساحة علوية واسعة ومحمية للعطور والكريمات، كل شيء منظم في مكان واحد.",
-        "highlight": "سعة كبيرة",
-        "imagePosition": "right",
-        "placeholderSvgText": "Makeup",
-        "image": "/products/makeupbox.webp"
+        title: "قطعة فنية تزين غرفتك",
+        description: "ليس مجرد صندوق تخزين، بل إضافة أنيقة ترفع من مستوى ديكور غرفتك أو حمامك.",
+        highlight: "أناقة فائقة",
+        imagePosition: "left",
+        placeholderSvgText: "Makeup",
+        image: "/products/makeup-premium.jpg"
       }
     ]
   }

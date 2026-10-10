@@ -28,38 +28,38 @@ export default function ThankYouPage() {
     <div className="max-w-2xl mx-auto space-y-6 pb-12" dir="rtl">
       
       {/* 1. URGENCY BANNER */}
-      <div className="bg-[#F6F1EA]0/10 border border-amber-500/30 rounded-2xl p-4 flex items-start gap-3 animate-pulse">
-        <AlertTriangle className="w-6 h-6 text-[#8B8176] shrink-0 mt-0.5" />
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3 animate-pulse">
+        <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
         <div>
-          <h3 className="text-sm font-black text-[#8B8176]">انتباه: طلبك قيد المراجعة!</h3>
-          <p className="text-xs text-amber-200/80 mt-1">
+          <h3 className="text-sm font-black text-amber-800">انتباه: طلبك قيد المراجعة!</h3>
+          <p className="text-xs text-amber-700 mt-1 font-medium">
             تبقت خطوة واحدة فقط لتأكيد الشحن. يرجى إبقاء هاتفك قريباً منك للرد على مكالمة التأكيد.
           </p>
         </div>
       </div>
 
       {/* MAIN THANK YOU CARD */}
-      <div className="bg-white border border-[#E8E0D5] rounded-3xl p-6 md:p-8 shadow-sm space-y-8 relative overflow-hidden">
+      <div className="bg-white border border-[#E8E0D5] rounded-3xl p-6 md:p-8 shadow-xl shadow-[#5C6B4F]/5 space-y-8 relative overflow-hidden">
         
         {/* Background Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-[#F6F1EA]0/10 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-[#5C6B4F]/5 blur-3xl pointer-events-none" />
 
         {/* Success Header */}
         <div className="text-center relative z-10">
-          <div className="w-16 h-16 bg-[#F6F1EA]0/20 border-2 border-emerald-500 text-[#5C6B4F] rounded-full flex items-center justify-center mx-auto text-3xl mb-5 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-            <CheckCircle2 className="w-8 h-8" />
+          <div className="w-20 h-20 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto text-3xl mb-5 shadow-[0_0_20px_rgba(16,185,129,0.2)] border-4 border-white ring-1 ring-emerald-100">
+            <CheckCircle2 className="w-10 h-10" />
           </div>
-          <span className="text-[10px] font-bold text-[#5C6B4F] bg-[#F6F1EA]0/10 px-3 py-1.5 rounded-full border border-emerald-500/20 shadow-sm">
+          <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200">
             رقم الطلب: {orderId}
           </span>
-          <h1 className="text-2xl md:text-3xl font-black text-[#3B342C] mt-5 leading-tight">
+          <h1 className="text-2xl md:text-3xl font-black text-[#3B342C] mt-6 leading-tight">
             شكراً لثقتكم {customerName}! <br/> تم تسجيل طلبكم بنجاح 🎉
           </h1>
         </div>
 
         {/* 2. CALL EXPECTATION BOX */}
-        <div className="bg-[#F6F1EA] border border-[#E8E0D5] rounded-2xl p-5 text-right relative">
-          <div className="absolute top-0 right-0 w-1.5 h-full bg-[#F6F1EA]0 rounded-r-2xl" />
+        <div className="bg-[#F6F1EA] border border-[#E8E0D5] rounded-2xl p-5 text-right relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1.5 h-full bg-[#5C6B4F]" />
           <h3 className="text-sm font-black text-[#3B342C] flex items-center gap-2 mb-2">
             <PhoneCall className="w-4 h-4 text-[#5C6B4F] animate-bounce" />
             <span>استعد! سيتصل بك فريقنا قريباً</span>
