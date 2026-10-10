@@ -76,8 +76,8 @@ export const PRODUCTS: Product[] = [
     shortName: "خزانة الملابس",
     category: "أثاث وتنظيم",
     icon: "🚪",
-    image: "/products/armoire-premium.jpg",
-    beforeAfterImage: "/products/armoire-premium.jpg",
+    image: "/products/armoire.webp",
+    beforeAfterImage: "/products/armoire.webp",
     rating: 4.9,
     reviewsCount: 342,
     badge: "الأكثر مبيعاً في المغرب",
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
         title: "واش عييتي من الروينة والملابس المشتتة؟",
         subtitle: "الغرفة مرونة، الحوايج مطويين فكل بلاصة، والمنظر كيجيب الأعصاب كل صباح.",
         badge: "المشكل",
-        image: "/products/armoire-premium.jpg",
+        image: "/products/armoire.webp",
         callouts: ["ضيق المساحة", "صعوبة إيجاد الملابس", "منظر فوضوي"],
         accent: "rose"
       },
@@ -119,7 +119,7 @@ export const PRODUCTS: Product[] = [
         title: "الحل السحري لغرفة كتشرح القلب",
         subtitle: "خزانة واسعة كتهز كلشي، ساهلة فالتركيب، وكتعطي منظر زوين ونقي لبيتك.",
         badge: "الحل",
-        image: "/products/armoire-premium.jpg",
+        image: "/products/armoire.webp",
         callouts: ["تركيب ساهل", "مساحة كبيرة", "شكل عصري"],
         accent: "teal"
       },
@@ -128,7 +128,7 @@ export const PRODUCTS: Product[] = [
         title: "راحة بال ونظام كيدوم",
         subtitle: "كل حاجة فبلاصتها، حوايجك نقيين ومحفوظين من الغبرة، وغرفتك ديما مرتبة.",
         badge: "النتيجة",
-        image: "/products/armoire-premium.jpg",
+        image: "/products/armoire.webp",
         callouts: ["حماية من الغبار", "ترتيب مثالي", "راحة نفسية"],
         accent: "emerald"
       }
@@ -207,8 +207,8 @@ export const PRODUCTS: Product[] = [
     shortName: "جهاز مساج القدمين",
     category: "صحة واسترخاء",
     icon: "🦶",
-    image: "/products/massager-premium.jpg",
-    beforeAfterImage: "/products/massager-premium.jpg",
+    image: "/products/footmassager.webp",
+    beforeAfterImage: "/products/footmassager.webp",
     rating: 4.8,
     reviewsCount: 415,
     badge: "راحة فورية ومضمونة",
@@ -238,7 +238,7 @@ export const PRODUCTS: Product[] = [
         title: "عييتي من الحريق والوقوف نهار كامل؟",
         subtitle: "رجلين منفوخين، ألم فالمفاصل، وعيى كيخليك ما قادش حتى تنعس مرتاح.",
         badge: "المشكل",
-        image: "/products/massager-premium.jpg",
+        image: "/products/footmassager.webp",
         callouts: ["ألم مستمر", "تورم القدمين", "توتر وإرهاق"],
         accent: "rose"
       },
@@ -247,7 +247,7 @@ export const PRODUCTS: Product[] = [
         title: "مساج احترافي وأنت جالس فدارك",
         subtitle: "حط رجليك، ورك على البوطونة، واستمتع بتدليك عميق كينسيك فكاع العيى.",
         badge: "الحل",
-        image: "/products/massager-premium.jpg",
+        image: "/products/footmassager.webp",
         callouts: ["سهل الاستعمال", "حرارة مريحة", "تدليك شياتسو"],
         accent: "teal"
       },
@@ -256,7 +256,7 @@ export const PRODUCTS: Product[] = [
         title: "راحة، نشاط، ونوم عميق",
         subtitle: "دورة دموية نشيطة، ألم مختفي، وراحة نفسية وجسدية لا توصف.",
         badge: "النتيجة",
-        image: "/products/massager-premium.jpg",
+        image: "/products/footmassager.webp",
         callouts: ["نوم مريح", "تنشيط الدورة الدموية", "راحة تامة"],
         accent: "emerald"
       }
@@ -335,8 +335,8 @@ export const PRODUCTS: Product[] = [
     shortName: "كرسي طعام الأطفال",
     category: "مستلزمات الأطفال",
     icon: "🪑",
-    image: "/products/chaise-premium.jpg",
-    beforeAfterImage: "/products/chaise-premium.jpg",
+    image: "/products/chaise-haute.webp",
+    beforeAfterImage: "/products/chaise-haute.webp",
     rating: 4.9,
     reviewsCount: 284,
     badge: "أمان وراحة لطفلك",
@@ -368,7 +368,7 @@ export const PRODUCTS: Product[] = [
         title: "الروينة وقت الماكلة والخوف على طفلك؟",
         subtitle: "الطفل كيتحرك بزاف، الماكلة كطيح فالأرض، والكراسي العادية ما فيهاش الأمان الكافي.",
         badge: "المشكل",
-        image: "/products/chaise-premium.jpg",
+        image: "/products/chaise-haute.webp",
         callouts: ["خطر السقوط", "صعوبة التنظيف", "فوضى الطعام"],
         accent: "rose"
       },
@@ -377,7 +377,7 @@ export const PRODUCTS: Product[] = [
         title: "أمان تام ونظافة ساهلة",
         subtitle: "حزام أمان قوي، وصينية كتحيد وتغسل بسهولة. وقت الماكلة غيولي متعة ليك ولولدك.",
         badge: "الحل",
-        image: "/products/chaise-premium.jpg",
+        image: "/products/chaise-haute.webp",
         callouts: ["صينية قابلة للغسل", "حزام أمان", "ثبات عالي"],
         accent: "teal"
       },
@@ -386,7 +386,7 @@ export const PRODUCTS: Product[] = [
         title: "طفل سعيد وأم مرتاحة",
         subtitle: "ولدك كياكل معاك فابلة وحدة بأمان، والروينة ديال الماكلة كتمسح فثواني.",
         badge: "النتيجة",
-        image: "/products/chaise-premium.jpg",
+        image: "/products/chaise-haute.webp",
         callouts: ["تطور اجتماعي", "راحة بال", "نظافة سريعة"],
         accent: "emerald"
       }
@@ -465,8 +465,8 @@ export const PRODUCTS: Product[] = [
     shortName: "منظم المكياج",
     category: "تنظيم وعناية",
     icon: "💄",
-    image: "/products/makeup-premium.jpg",
-    beforeAfterImage: "/products/makeup-premium.jpg",
+    image: "/products/makeupbox.webp",
+    beforeAfterImage: "/products/makeupbox.webp",
     rating: 4.8,
     reviewsCount: 420,
     badge: "تسريحة مرتبة وأنيقة",
@@ -496,7 +496,7 @@ export const PRODUCTS: Product[] = [
         title: "تسريحة مرونة والغبرة على الماكياج؟",
         subtitle: "الماكياج مشتت، العكورة كيتوضرو، والغبرة كتخسر ليك البرودويات الغاليين ديالك.",
         badge: "المشكل",
-        image: "/products/makeup-premium.jpg",
+        image: "/products/makeupbox.webp",
         callouts: ["تراكم الغبار", "فوضى التسريحة", "ضياع الوقت"],
         accent: "rose"
       },
@@ -505,7 +505,7 @@ export const PRODUCTS: Product[] = [
         title: "كلشي مجموع ومحمي بأناقة",
         subtitle: "منظم كبير كيهز القراعي طوال، أدراج للمجوهرات، وغطاء كيحمي من الغبرة والماء.",
         badge: "الحل",
-        image: "/products/makeup-premium.jpg",
+        image: "/products/makeupbox.webp",
         callouts: ["سعة كبيرة", "حماية من الماء", "أدراج عملية"],
         accent: "teal"
       },
@@ -514,7 +514,7 @@ export const PRODUCTS: Product[] = [
         title: "لمسة فاخرة وراحة يومية",
         subtitle: "تسريحة نقية كتشعل، ماكياجك ديما واجد ونظيف، ومنظر كيحمق فغرفتك.",
         badge: "النتيجة",
-        image: "/products/makeup-premium.jpg",
+        image: "/products/makeupbox.webp",
         callouts: ["شكل راقي", "توفير الوقت", "حماية تامة"],
         accent: "emerald"
       }
