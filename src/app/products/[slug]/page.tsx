@@ -20,13 +20,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
   if (!product) notFound();
 
   const { addItem, openCheckout } = useCartStore();
-  const [selectedTier, setSelectedTier] = useState<number>(2); // Default to Tier 2 (Most popular)
+  const [selectedTier, setSelectedTier] = useState<number>(1); // Default to Tier 1
   const [selectedColorIdx, setSelectedColorIdx] = useState<number>(0);
   const [activeThumb, setActiveThumb] = useState<number>(0);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
 
   const selectedColor = product.colors[selectedColorIdx];
-  const currentTierObj = product.offerTiers.find((t) => t.tier === selectedTier) || product.offerTiers[1];
+  const currentTierObj = product.offerTiers.find((t) => t.tier === selectedTier) || product.offerTiers[0];
   const activeScene = product.visualStory[activeThumb] || product.visualStory[0];
   const sceneAccentClass = {
     teal: 'from-teal-500 to-cyan-500 text-[#3B342C] bg-[#F6F1EA] border-[#E8E0D5]',
