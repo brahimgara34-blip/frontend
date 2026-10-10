@@ -40,6 +40,16 @@ interface CartState {
   getTotalItemsCount: () => number;
 }
 
+export function priceForQuantity(product: Product, quantity: number): number {
+  const tiers = [...product.offerTiers].sort((a, b) => a.tier - b.tier);
+  if (tiers.length === 0 || quantity <= 0) return 0;
+  const exact = tiers.find((t) => t.tier === quantity);
+  if (exact) return exact.price;
+  // Units beyond the largest bundle are charged at the single-unit price, never discounted further.
+  const largest = [...tiers].reverse().find((t) => t.tier <= quantity) ?? tiers[0];
+  return largest.price + (quantity - largest.tier) * tiers[0].price;
+}
+
 export const useCartStore = create<CartState>((set, get) => ({
   items: [],
   isDrawerOpen: false,
@@ -51,12 +61,7 @@ export const useCartStore = create<CartState>((set, get) => ({
   pendingCustomerPhone: '',
 
   addItem: (product, quantity, color) => {
-    // Find matching tier for quantity, or use highest tier available
-    const tier = product.offerTiers.find(t => t.tier === quantity) || 
-                 product.offerTiers[product.offerTiers.length - 1] || 
-                 product.offerTiers[0];
-                 
-    const tierPrice = tier ? tier.price : 0;
+    const tierPrice = priceForQuantity(product, quantity);
     trackAddToCart({ id: product.id, name: product.name }, tierPrice, quantity);
 
     set((state) => {
@@ -65,15 +70,11 @@ export const useCartStore = create<CartState>((set, get) => ({
       
       if (existingIndex > -1) {
         const newQty = state.items[existingIndex].quantity + quantity;
-        const newTier = product.offerTiers.find(t => t.tier === newQty) || 
-                        product.offerTiers[product.offerTiers.length - 1] || 
-                        product.offerTiers[0];
-                        
         newItems[existingIndex] = {
           ...state.items[existingIndex],
           quantity: newQty,
           selectedTier: newQty,
-          tierPrice: newTier ? newTier.price : 0,
+          tierPrice: priceForQuantity(product, newQty),
           selectedColor: color ?? state.items[existingIndex].selectedColor,
         };
       } else {
@@ -108,16 +109,11 @@ export const useCartStore = create<CartState>((set, get) => ({
             const newQty = item.quantity + delta;
             if (newQty <= 0) return null;
           
-          // Find matching tier for quantity, or use highest tier available
-          const newTier = item.product.offerTiers.find(t => t.tier === newQty) || 
-                          item.product.offerTiers[item.product.offerTiers.length - 1] || 
-                          item.product.offerTiers[0];
-                          
           return {
             ...item,
             quantity: newQty,
             selectedTier: newQty,
-            tierPrice: newTier ? newTier.price : 0,
+            tierPrice: priceForQuantity(item.product, newQty),
           };
           }
           return item;

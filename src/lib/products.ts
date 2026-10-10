@@ -162,16 +162,16 @@ export const PRODUCTS: Product[] = [
       },
       {
         tier: 3,
-        name: "باقة الترتيب: خزانة + منظم مكياج",
-        subtitle: "غرفة نوم مرتبة من الحوايج حتى للمكياج",
-        price: 499,
-        originalPrice: 799,
-        savingsText: "وفر 300 درهم",
-        badge: "أفضل عرض",
+        name: "3 خزانات ملابس",
+        subtitle: "لغرف الدار كاملة",
+        price: 849,
+        originalPrice: 1500,
+        savingsText: "وفر 651 درهم",
+        badge: "أفضل قيمة",
         popular: false,
         accent: "amber",
-        perUnitPrice: 249.5,
-        bullets: ["1× خزانة ملابس", "1× منظم مكياج دوار", "توصيل مجاني"]
+        perUnitPrice: 283,
+        bullets: ["3× خزانة بـ 3 أقسام", "توصيل مجاني", "المعاينة قبل الدفع"]
       }
     ],
     painPoints: [
@@ -290,16 +290,16 @@ export const PRODUCTS: Product[] = [
       },
       {
         tier: 3,
-        name: "باقة الدلال: لوحة مساج + منظم مكياج",
-        subtitle: "راحة ليك وهدية زوينة",
-        price: 349,
-        originalPrice: 649,
-        savingsText: "وفر 300 درهم",
-        badge: "أفضل عرض",
+        name: "3 لوحات مساج",
+        subtitle: "للعائلة كاملة",
+        price: 499,
+        originalPrice: 1050,
+        savingsText: "وفر 551 درهم",
+        badge: "أفضل قيمة",
         popular: false,
         accent: "amber",
-        perUnitPrice: 174.5,
-        bullets: ["1× لوحة مساج", "1× منظم مكياج دوار", "توصيل مجاني"]
+        perUnitPrice: 166.3,
+        bullets: ["3× لوحة مساج", "توصيل مجاني", "المعاينة قبل الدفع"]
       }
     ],
     painPoints: [
@@ -418,16 +418,16 @@ export const PRODUCTS: Product[] = [
       },
       {
         tier: 3,
-        name: "باقة الأم: كرسي + لوحة مساج",
-        subtitle: "راحة لطفلك وراحة لرجليك",
-        price: 399,
-        originalPrice: 749,
-        savingsText: "وفر 350 درهم",
-        badge: "أفضل عرض",
+        name: "3 كراسي",
+        subtitle: "للدار، عند الجدة، وفالطوموبيل",
+        price: 649,
+        originalPrice: 1197,
+        savingsText: "وفر 548 درهم",
+        badge: "أفضل قيمة",
         popular: false,
         accent: "amber",
-        perUnitPrice: 199.5,
-        bullets: ["1× كرسي ماكلة", "1× لوحة مساج القدمين", "توصيل مجاني"]
+        perUnitPrice: 216.3,
+        bullets: ["3× كرسي ماكلة قابل للطي", "توصيل مجاني", "المعاينة قبل الدفع"]
       }
     ],
     painPoints: [
@@ -546,16 +546,16 @@ export const PRODUCTS: Product[] = [
       },
       {
         tier: 3,
-        name: "باقة الجمال: منظم مكياج + لوحة مساج",
-        subtitle: "ترتيب لتسريحتك وراحة لرجليك",
-        price: 349,
-        originalPrice: 649,
-        savingsText: "وفر 300 درهم",
-        badge: "أفضل عرض",
+        name: "3 منظمات مكياج",
+        subtitle: "هدية لخواتاتك ولا صحاباتك",
+        price: 499,
+        originalPrice: 897,
+        savingsText: "وفر 398 درهم",
+        badge: "أفضل قيمة",
         popular: false,
         accent: "amber",
-        perUnitPrice: 174.5,
-        bullets: ["1× منظم مكياج دوار", "1× لوحة مساج القدمين", "توصيل مجاني"]
+        perUnitPrice: 166.3,
+        bullets: ["3× منظم مكياج دوار", "توصيل مجاني", "المعاينة قبل الدفع"]
       }
     ],
     painPoints: [
