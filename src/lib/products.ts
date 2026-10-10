@@ -131,13 +131,26 @@ export const PRODUCTS: Product[] = [
         "title": "الملابس المبعثرة وضيق المساحة في الغرفة",
         "subtitle": "الخزانات الخشبية التقليدية باهظة الثمن، تأخذ مساحة كبيرة، ويصعب نقلها من مكان لآخر.",
         "badge": "مشكلة التخزين",
-        "image": "/products/armoire.webp",
+        "image": "/products/armoire-problem.jpg",
         "callouts": [
           "فوضى عارمة",
           "ضيق المساحة",
           "صعوبة النقل"
         ],
         "accent": "rose"
+      },
+      {
+        "type": "usage",
+        "title": "سهولة التركيب والمتانة العالية",
+        "subtitle": "هيكل معدني صلب مع غطاء قماشي متين وسحابات قوية، يمكنك تركيبه بنفسك في دقائق.",
+        "badge": "جودة ومتانة",
+        "image": "/products/armoire-usage.jpg",
+        "callouts": [
+          "هيكل معدني",
+          "غطاء متين",
+          "تركيب سريع"
+        ],
+        "accent": "teal"
       },
       {
         "type": "result",
@@ -270,13 +283,26 @@ export const PRODUCTS: Product[] = [
         "title": "آلام القدمين والتورم بعد يوم عمل طويل",
         "subtitle": "الوقوف والمشي لفترات طويلة يسبب تورماً، ألماً شديداً، ويؤثر على جودة نومك وراحتك.",
         "badge": "ألم وتعب",
-        "image": "/products/footmassager.webp",
+        "image": "/products/massager-problem.jpg",
         "callouts": [
           "ألم مفاصل",
           "تورم القدمين",
           "تعب وإرهاق"
         ],
         "accent": "rose"
+      },
+      {
+        "type": "usage",
+        "title": "تقنية الشياتسو مع التدفئة المريحة",
+        "subtitle": "عقد تدليك دوارة تستهدف نقاط الضغط مع حرارة لطيفة لاسترخاء العضلات المتشنجة.",
+        "badge": "تدليك احترافي",
+        "image": "/products/massager-usage.jpg",
+        "callouts": [
+          "تدليك شياتسو",
+          "تدفئة مريحة",
+          "استهداف دقيق"
+        ],
+        "accent": "teal"
       },
       {
         "type": "result",
@@ -400,13 +426,26 @@ export const PRODUCTS: Product[] = [
         "title": "صعوبة إطعام الطفل وهو يتحرك باستمرار",
         "subtitle": "إطعام الطفل بدون كرسي مخصص يسبب فوضى عارمة، بقع على الأثاث، وخطر السقوط.",
         "badge": "خطر وفوضى",
-        "image": "/products/chaise-haute.webp",
+        "image": "/products/chaise-problem.jpg",
         "callouts": [
           "بقع طعام",
           "عدم استقرار",
           "تعب وإرهاق للأم"
         ],
         "accent": "rose"
+      },
+      {
+        "type": "usage",
+        "title": "أمان تام وسهولة في التنظيف",
+        "subtitle": "حزام أمان خماسي النقاط يحمي طفلك، وصينية مزدوجة قابلة للإزالة لتنظيف سريع.",
+        "badge": "حماية ونظافة",
+        "image": "/products/chaise-usage.jpg",
+        "callouts": [
+          "حزام خماسي",
+          "صينية مزدوجة",
+          "مواد آمنة"
+        ],
+        "accent": "teal"
       },
       {
         "type": "result",
@@ -530,13 +569,26 @@ export const PRODUCTS: Product[] = [
         "title": "تسريحة فوضوية وضياع الوقت كل صباح",
         "subtitle": "البحث عن أحمر الشفاه أو الفرشاة وسط الفوضى يضيع وقتك، والمستحضرات المكشوفة تتلف بسبب الغبار.",
         "badge": "فوضى وتلف",
-        "image": "/products/makeupbox.webp",
+        "image": "/products/makeup-problem.jpg",
         "callouts": [
           "ضياع الوقت",
           "تراكم الغبار",
           "مظهر مزعج"
         ],
         "accent": "rose"
+      },
+      {
+        "type": "usage",
+        "title": "أدراج سلسة وسعة تخزين كبيرة",
+        "subtitle": "مساحات مقسمة بذكاء تناسب العطور، الفرش، والمجوهرات مع أدراج تفتح وتغلق بكل سهولة.",
+        "badge": "تصميم ذكي",
+        "image": "/products/makeup-usage.jpg",
+        "callouts": [
+          "أدراج سلسة",
+          "سعة كبيرة",
+          "مقاوم للماء"
+        ],
+        "accent": "teal"
       },
       {
         "type": "result",
