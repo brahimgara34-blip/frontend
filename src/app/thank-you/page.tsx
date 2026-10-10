@@ -39,10 +39,10 @@ export default function ThankYouPage() {
       </div>
 
       {/* MAIN THANK YOU CARD */}
-      <div className="bg-white border border-[#E8E0D5] rounded-3xl p-6 md:p-8 shadow-xl shadow-[#5C6B4F]/5 space-y-8 relative overflow-hidden">
+      <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6 md:p-8 shadow-xl shadow-[#047857]/5 space-y-8 relative overflow-hidden">
         
         {/* Background Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-[#5C6B4F]/5 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-[#047857]/5 blur-3xl pointer-events-none" />
 
         {/* Success Header */}
         <div className="text-center relative z-10">
@@ -52,37 +52,37 @@ export default function ThankYouPage() {
           <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200">
             رقم الطلب: {orderId}
           </span>
-          <h1 className="text-2xl md:text-3xl font-black text-[#3B342C] mt-6 leading-tight">
+          <h1 className="text-2xl md:text-3xl font-black text-[#111827] mt-6 leading-tight">
             شكراً لثقتكم {customerName}! <br/> تم تسجيل طلبكم بنجاح 🎉
           </h1>
         </div>
 
         {/* 2. CALL EXPECTATION BOX */}
-        <div className="bg-[#F6F1EA] border border-[#E8E0D5] rounded-2xl p-5 text-right relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-1.5 h-full bg-[#5C6B4F]" />
-          <h3 className="text-sm font-black text-[#3B342C] flex items-center gap-2 mb-2">
-            <PhoneCall className="w-4 h-4 text-[#5C6B4F] animate-bounce" />
+        <div className="bg-[#F7F8FA] border border-[#E5E7EB] rounded-2xl p-5 text-right relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1.5 h-full bg-[#047857]" />
+          <h3 className="text-sm font-black text-[#111827] flex items-center gap-2 mb-2">
+            <PhoneCall className="w-4 h-4 text-[#047857] animate-bounce" />
             <span>استعد! سيتصل بك فريقنا قريباً</span>
           </h3>
-          <p className="text-xs text-[#8B8176] leading-relaxed font-medium">
+          <p className="text-xs text-[#6B7280] leading-relaxed font-medium">
             سنتصل بك من رقم غير مسجل لديك لتأكيد عنوانك وموعد التسليم. 
             <br/><br/>
-            <span className="text-[#3B342C] font-bold">⏰ متى؟</span> في غضون أقل من 10 دقائق (بين 9 صباحاً و 9 مساءً). إذا طلبت خارج هذا الوقت، فانتظر مكالمتنا في الصباح الباكر.
+            <span className="text-[#111827] font-bold">⏰ متى؟</span> في غضون أقل من 10 دقائق (بين 9 صباحاً و 9 مساءً). إذا طلبت خارج هذا الوقت، فانتظر مكالمتنا في الصباح الباكر.
           </p>
         </div>
 
         {/* 4. CUSTOMER DETAILS VERIFICATION */}
         <div className="space-y-3 relative z-10">
-          <h3 className="text-xs font-black text-[#8B8176] flex items-center gap-2">
-            <User className="w-4 h-4 text-[#5C6B4F]" />
+          <h3 className="text-xs font-black text-[#6B7280] flex items-center gap-2">
+            <User className="w-4 h-4 text-[#047857]" />
             <span>بيانات الاتصال الخاصة بك:</span>
           </h3>
-          <div className="bg-[#F6F1EA] border border-[#E8E0D5] rounded-xl p-4 flex items-center justify-between">
+          <div className="bg-[#F7F8FA] border border-[#E5E7EB] rounded-xl p-4 flex items-center justify-between">
             <div className="space-y-1 text-right">
-              <p className="text-xs text-[#8B8176] font-bold">رقم الهاتف المسجل:</p>
-              <p className="text-sm font-black text-[#3B342C] tracking-wider" dir="ltr">{phoneNumber}</p>
+              <p className="text-xs text-[#6B7280] font-bold">رقم الهاتف المسجل:</p>
+              <p className="text-sm font-black text-[#111827] tracking-wider" dir="ltr">{phoneNumber}</p>
             </div>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#5C6B4F] underline font-bold hover:text-[#5C6B4F] transition-colors">
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#047857] underline font-bold hover:text-[#047857] transition-colors">
               الرقم خاطئ؟ صححه هنا
             </a>
           </div>
@@ -90,53 +90,53 @@ export default function ThankYouPage() {
 
         {/* 5. CLEAN ORDER SUMMARY */}
         <div className="space-y-3 relative z-10">
-          <h3 className="text-xs font-black text-[#8B8176] flex items-center gap-2">
-            <PackageCheck className="w-4 h-4 text-[#5C6B4F]" />
+          <h3 className="text-xs font-black text-[#6B7280] flex items-center gap-2">
+            <PackageCheck className="w-4 h-4 text-[#047857]" />
             <span>ملخص الطرد المؤكد:</span>
           </h3>
-          <div className="bg-[#F6F1EA] border border-[#E8E0D5] rounded-xl overflow-hidden">
+          <div className="bg-[#F7F8FA] border border-[#E5E7EB] rounded-xl overflow-hidden">
             <div className="divide-y divide-stone-200">
               {items.map((item: any, idx: number) => (
                 <div key={idx} className="p-3 flex items-center justify-between text-right hover:bg-white transition-colors">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white rounded-lg border border-[#E8E0D5] flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 bg-white rounded-lg border border-[#E5E7EB] flex items-center justify-center shrink-0">
                       <span className="text-xs">📦</span>
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-[#3B342C] line-clamp-1">{item.name}</p>
-                      <p className="text-[10px] text-[#8B8176] mt-1 font-bold">الكمية: {item.quantity}</p>
+                      <p className="text-xs font-bold text-[#111827] line-clamp-1">{item.name}</p>
+                      <p className="text-[10px] text-[#6B7280] mt-1 font-bold">الكمية: {item.quantity}</p>
                     </div>
                   </div>
-                  <div className="text-sm font-black text-[#3B342C] shrink-0">
+                  <div className="text-sm font-black text-[#111827] shrink-0">
                     {item.price} د.م
                   </div>
                 </div>
               ))}
             </div>
-            <div className="bg-white p-4 border-t border-[#E8E0D5] flex items-center justify-between">
-              <span className="text-sm font-bold text-[#8B8176]">المبلغ المطلوب عند الاستلام:</span>
-              <span className="text-lg font-black text-[#5C6B4F] drop-shadow-sm">{totalAmount} درهم</span>
+            <div className="bg-white p-4 border-t border-[#E5E7EB] flex items-center justify-between">
+              <span className="text-sm font-bold text-[#6B7280]">المبلغ المطلوب عند الاستلام:</span>
+              <span className="text-lg font-black text-[#047857] drop-shadow-sm">{totalAmount} درهم</span>
             </div>
           </div>
         </div>
 
         {/* 6. SOCIAL PROOF & GUARANTEE */}
-        <div className="bg-[#F6F1EA] rounded-2xl p-4 text-center space-y-4 border border-[#E8E0D5] relative z-10">
+        <div className="bg-[#F7F8FA] rounded-2xl p-4 text-center space-y-4 border border-[#E5E7EB] relative z-10">
           <div className="flex justify-center gap-4">
             <div className="flex flex-col items-center gap-1.5">
-              <ShieldCheck className="w-5 h-5 text-[#5C6B4F]" />
-              <span className="text-[10px] font-bold text-[#8B8176]">معاينة قبل الدفع</span>
+              <ShieldCheck className="w-5 h-5 text-[#047857]" />
+              <span className="text-[10px] font-bold text-[#6B7280]">معاينة قبل الدفع</span>
             </div>
             <div className="flex flex-col items-center gap-1.5">
-              <Truck className="w-5 h-5 text-[#5C6B4F]" />
-              <span className="text-[10px] font-bold text-[#8B8176]">توصيل مجاني</span>
+              <Truck className="w-5 h-5 text-[#047857]" />
+              <span className="text-[10px] font-bold text-[#6B7280]">توصيل مجاني</span>
             </div>
             <div className="flex flex-col items-center gap-1.5">
-              <Clock className="w-5 h-5 text-[#5C6B4F]" />
-              <span className="text-[10px] font-bold text-[#8B8176]">ضمان 12 شهراً</span>
+              <Clock className="w-5 h-5 text-[#047857]" />
+              <span className="text-[10px] font-bold text-[#6B7280]">ضمان 12 شهراً</span>
             </div>
           </div>
-          <p className="text-[10px] text-[#8B8176] font-medium">
+          <p className="text-[10px] text-[#6B7280] font-medium">
             أنت الآن واحد من +10,000 مغربي اختاروا الراحة والجودة مع Vitalis Maroc.
           </p>
         </div>
@@ -146,22 +146,22 @@ export default function ThankYouPage() {
       {/* 7. CROSS-SELL / DISCOVER MORE */}
       <div className="pt-4 space-y-4">
         <div className="text-center">
-          <h3 className="text-sm font-black text-[#3B342C] flex items-center justify-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-[#5C6B4F] animate-pulse" />
+          <h3 className="text-sm font-black text-[#111827] flex items-center justify-center gap-1.5">
+            <Sparkles className="w-4 h-4 text-[#047857] animate-pulse" />
             <span>اكتشف المزيد من الحلول المبتكرة</span>
           </h3>
-          <p className="text-[10px] text-[#8B8176] mt-1 font-medium">يمكنك إضافة منتجات أخرى لنفس الطرد وتوفير مصاريف الشحن.</p>
+          <p className="text-[10px] text-[#6B7280] mt-1 font-medium">يمكنك إضافة منتجات أخرى لنفس الطرد وتوفير مصاريف الشحن.</p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {PRODUCTS.slice(0, 2).map((p) => (
-            <Link key={p.id} href={`/products/${p.slug}`} className="bg-white border border-[#E8E0D5] rounded-2xl p-3 flex items-center gap-3 hover:border-[#E8E0D5] transition-colors group shadow-sm">
-              <div className="relative w-16 h-16 bg-[#F6F1EA] rounded-xl border border-[#E8E0D5] shrink-0 overflow-hidden group-hover:border-[#E8E0D5] transition-colors">
+            <Link key={p.id} href={`/products/${p.slug}`} className="bg-white border border-[#E5E7EB] rounded-2xl p-3 flex items-center gap-3 hover:border-[#E5E7EB] transition-colors group shadow-sm">
+              <div className="relative w-16 h-16 bg-[#F7F8FA] rounded-xl border border-[#E5E7EB] shrink-0 overflow-hidden group-hover:border-[#E5E7EB] transition-colors">
                 <Image src={p.image} alt={p.name} fill sizes="64px" className="object-contain p-1 group-hover:scale-110 transition-transform" />
               </div>
               <div className="text-right">
-                <p className="text-[11px] font-bold text-[#3B342C] line-clamp-2 group-hover:text-[#3B342C] transition-colors">{p.name}</p>
-                <p className="text-[10px] text-[#5C6B4F] font-black mt-1.5 bg-[#F6F1EA]0/10 inline-block px-2 py-0.5 rounded border border-teal-500/20">اكتشف التفاصيل ❯</p>
+                <p className="text-[11px] font-bold text-[#111827] line-clamp-2 group-hover:text-[#111827] transition-colors">{p.name}</p>
+                <p className="text-[10px] text-[#047857] font-black mt-1.5 bg-[#047857]/10 inline-block px-2 py-0.5 rounded border border-teal-500/20">اكتشف التفاصيل ❯</p>
               </div>
             </Link>
           ))}
@@ -170,7 +170,7 @@ export default function ThankYouPage() {
 
       <Link
         href="/"
-        className="inline-flex items-center justify-center gap-2 w-full bg-white border border-[#E8E0D5] hover:bg-[#F6F1EA] text-[#3B342C] font-bold text-xs py-4 rounded-xl transition-all cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
+        className="inline-flex items-center justify-center gap-2 w-full bg-white border border-[#E5E7EB] hover:bg-[#F7F8FA] text-[#111827] font-bold text-xs py-4 rounded-xl transition-all cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>العودة للصفحة الرئيسية</span>

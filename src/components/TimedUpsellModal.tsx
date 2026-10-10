@@ -146,33 +146,33 @@ export default function TimedUpsellModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3B342C]/40 backdrop-blur-md animate-fadeIn" dir="rtl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#111827]/40 backdrop-blur-md animate-fadeIn" dir="rtl">
       <div className="w-full max-w-lg bg-[#FFFFFF] border-2 border-amber-300 rounded-3xl p-6 md:p-8 shadow-2xl relative text-center overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#F6F1EA]0/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#047857]/10 rounded-full blur-3xl pointer-events-none" />
         
         {/* Countdown Header */}
-        <div className="flex items-center justify-between bg-[#F6F1EA]0/10 border border-amber-500/20 px-4 py-2 rounded-full mb-6 relative z-10 shadow-inner">
-          <div className="flex items-center gap-1.5 text-[11px] md:text-xs font-bold text-[#8B8176]">
+        <div className="flex items-center justify-between bg-[#047857]/10 border border-amber-500/20 px-4 py-2 rounded-full mb-6 relative z-10 shadow-inner">
+          <div className="flex items-center gap-1.5 text-[11px] md:text-xs font-bold text-[#6B7280]">
             <Timer className="w-4 h-4 animate-spin" />
             <span>عرض الفرصة الأخيرة لمرة واحدة:</span>
           </div>
-          <span className="bg-[#F6F1EA]0 text-slate-950 text-[11px] md:text-xs font-black px-3 py-1 rounded-full animate-pulse shadow-sm">
+          <span className="bg-[#047857] text-slate-950 text-[11px] md:text-xs font-black px-3 py-1 rounded-full animate-pulse shadow-sm">
             {countdown} ثانية متبقية
           </span>
         </div>
 
         {/* Headline */}
-        <h2 className="text-xl md:text-2xl font-black text-[#3B342C] leading-tight relative z-10">
-          هل ترغب في إضافة هذا المنتج بـ <span className="text-[#5C6B4F] font-black">149 درهم فقط</span>؟
+        <h2 className="text-xl md:text-2xl font-black text-[#111827] leading-tight relative z-10">
+          هل ترغب في إضافة هذا المنتج بـ <span className="text-[#047857] font-black">149 درهم فقط</span>؟
         </h2>
-        <p className="text-[#8B8176] text-xs mt-2 mb-6 relative z-10 font-medium">
+        <p className="text-[#6B7280] text-xs mt-2 mb-6 relative z-10 font-medium">
           بصفتك طلبت الآن، يمكنك إضافة هذا المنتج لنفس الطرد بـ 149 درهم بدلاً من 179 درهم وبدون أي مصاريف شحن إضافية.
         </p>
 
         {/* Product Card */}
-        <div className="bg-white border border-[#E8E0D5] rounded-2xl p-4 text-right mb-6 relative z-10">
+        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-4 text-right mb-6 relative z-10">
           <div className="flex items-center gap-3.5 mb-3">
-            <div className="relative w-20 h-20 bg-[#F6F1EA] p-2 rounded-2xl border border-[#E8E0D5] shrink-0 overflow-hidden flex items-center justify-center">
+            <div className="relative w-20 h-20 bg-[#F7F8FA] p-2 rounded-2xl border border-[#E5E7EB] shrink-0 overflow-hidden flex items-center justify-center">
               <Image
                 src={activeUpsellProduct.image || '/products/shower.png'}
                 alt={activeUpsellProduct.name}
@@ -182,20 +182,20 @@ export default function TimedUpsellModal() {
               />
             </div>
             <div>
-              <span className="text-[10px] font-bold text-[#5C6B4F] bg-teal-400/10 px-2.5 py-0.5 rounded-full border border-teal-500/20">
+              <span className="text-[10px] font-bold text-[#047857] bg-teal-400/10 px-2.5 py-0.5 rounded-full border border-teal-500/20">
                 {activeUpsellProduct.badge}
               </span>
-              <h4 className="font-black text-sm text-[#3B342C] mt-1.5">
+              <h4 className="font-black text-sm text-[#111827] mt-1.5">
                 {activeUpsellProduct.name}
               </h4>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-[#8B8176] text-xs line-through font-bold">179 درهم</span>
-                <span className="text-lg font-black text-[#5C6B4F] drop-shadow-sm">149 درهم فقط!</span>
+                <span className="text-[#6B7280] text-xs line-through font-bold">179 درهم</span>
+                <span className="text-lg font-black text-[#047857] drop-shadow-sm">149 درهم فقط!</span>
                 <span className="text-[10px] bg-red-500/20 text-red-400 font-bold px-1.5 py-0.5 rounded border border-red-500/20">وفر 30 درهم</span>
               </div>
             </div>
           </div>
-          <p className="text-[11px] text-[#8B8176] border-t border-slate-800/80 pt-3 leading-relaxed font-medium">
+          <p className="text-[11px] text-[#6B7280] border-t border-slate-800/80 pt-3 leading-relaxed font-medium">
             {activeUpsellProduct.subheadline}
           </p>
         </div>
@@ -205,7 +205,7 @@ export default function TimedUpsellModal() {
           <button
             onClick={() => handleFinalize(true)}
             disabled={isSubmitting}
-            className="w-full bg-[#5C6B4F] hover:bg-[#4A5740] text-white font-black text-sm md:text-base py-4 rounded-2xl transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-[0.98]"
+            className="w-full bg-[#F97316] hover:bg-[#EA580C] shadow-lg shadow-orange-500/25 text-white font-black text-sm md:text-base py-4 rounded-2xl transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-[0.98]"
           >
             <Sparkles className="w-5 h-5" />
             <span>نعم! أضفه لشحنتي بـ (+149 درهم فقط) 🎁</span>
@@ -214,7 +214,7 @@ export default function TimedUpsellModal() {
           <button
             onClick={() => handleFinalize(false)}
             disabled={isSubmitting}
-            className="w-full bg-white hover:bg-[#F6F1EA] text-[#8B8176] hover:text-[#3B342C] text-xs md:text-sm font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 border border-[#E8E0D5] hover:border-stone-300"
+            className="w-full bg-white hover:bg-[#F7F8FA] text-[#6B7280] hover:text-[#111827] text-xs md:text-sm font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 border border-[#E5E7EB] hover:border-stone-300"
           >
             <span>لا شكراً، اكتفِ بطلبي الأساسي</span>
             <ArrowRight className="w-3.5 h-3.5" />

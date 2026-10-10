@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #F6F1EA;
-  --foreground: #3B342C;
+  --background: #F7F8FA;
+  --foreground: #111827;
   --vm-card: #FFFFFF;
-  --vm-muted: #8B8176;
-  --vm-line: #E8E0D5;
-  --vm-accent: #5C6B4F;
+  --vm-muted: #6B7280;
+  --vm-line: #E5E7EB;
+  --vm-accent: #047857;
 }
 
 body {

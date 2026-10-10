@@ -23,31 +23,31 @@ export default function CollectionsPage() {
     <div className="space-y-10" dir="rtl">
       
       {/* Header Banner */}
-      <div className="bg-white border border-[#E8E0D5] rounded-3xl p-6 md:p-10 shadow-sm relative overflow-hidden text-center md:text-right">
+      <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6 md:p-10 shadow-sm relative overflow-hidden text-center md:text-right">
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-[#F6F1EA] border border-[#E8E0D5] text-[#3B342C] text-[11px] md:text-xs font-black px-4 py-1.5 rounded-full mb-4">
-            <Sparkles className="w-4 h-4 text-[#5C6B4F]" />
+          <div className="inline-flex items-center gap-2 bg-[#F7F8FA] border border-[#E5E7EB] text-[#111827] text-[11px] md:text-xs font-black px-4 py-1.5 rounded-full mb-4">
+            <Sparkles className="w-4 h-4 text-[#047857]" />
             <span>المنتجات الحصرية المعتمدة 2026 — Vitalis Maroc™</span>
           </div>
-          <h1 className="text-2xl md:text-4xl font-black text-[#3B342C] leading-tight">
+          <h1 className="text-2xl md:text-4xl font-black text-[#111827] leading-tight">
             تشكيلة المنتجات الرابحة لحياة يومية أكثر راحة ونظافة
           </h1>
-          <p className="text-[#8B8176] text-xs md:text-sm mt-3 leading-relaxed font-medium">
-            منتجات أصلية مختارة ومختبرة بعناية لحل مشاكل يومية حقيقية بنتائج فورية. جميع المنتجات مشمولة بـ <span className="text-[#3B342C] font-bold">التوصيل المجاني</span> و<span className="text-[#3B342C] font-bold">المعاينة قبل الدفع</span> و<span className="text-[#3B342C] font-bold">ضمان 12 شهراً</span>.
+          <p className="text-[#6B7280] text-xs md:text-sm mt-3 leading-relaxed font-medium">
+            منتجات أصلية مختارة ومختبرة بعناية لحل مشاكل يومية حقيقية بنتائج فورية. جميع المنتجات مشمولة بـ <span className="text-[#111827] font-bold">التوصيل المجاني</span> و<span className="text-[#111827] font-bold">المعاينة قبل الدفع</span> و<span className="text-[#111827] font-bold">ضمان 12 شهراً</span>.
           </p>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-3 text-[11px] md:text-xs text-[#3B342C]">
-          <div className="flex items-center gap-1.5 bg-[#F6F1EA] border border-[#E8E0D5] px-3.5 py-2 rounded-xl">
-            <Truck className="w-4 h-4 text-[#5C6B4F]" />
+        <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-3 text-[11px] md:text-xs text-[#111827]">
+          <div className="flex items-center gap-1.5 bg-[#F7F8FA] border border-[#E5E7EB] px-3.5 py-2 rounded-xl">
+            <Truck className="w-4 h-4 text-[#047857]" />
             <span className="font-bold">شحن مجاني 24-48h</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-[#F6F1EA] border border-[#E8E0D5] px-3.5 py-2 rounded-xl">
-            <ShieldCheck className="w-4 h-4 text-[#5C6B4F]" />
+          <div className="flex items-center gap-1.5 bg-[#F7F8FA] border border-[#E5E7EB] px-3.5 py-2 rounded-xl">
+            <ShieldCheck className="w-4 h-4 text-[#047857]" />
             <span className="font-bold">افحص السلعة عاد خلص</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-[#F6F1EA] border border-[#E8E0D5] px-3.5 py-2 rounded-xl">
-            <CheckCircle2 className="w-4 h-4 text-[#5C6B4F]" />
+          <div className="flex items-center gap-1.5 bg-[#F7F8FA] border border-[#E5E7EB] px-3.5 py-2 rounded-xl">
+            <CheckCircle2 className="w-4 h-4 text-[#047857]" />
             <span className="font-bold">ضمان استبدال سنة كاملة</span>
           </div>
         </div>
@@ -92,18 +92,18 @@ function CollectionCard({
   };
 
   return (
-    <div className="bg-white border border-[#E8E0D5] hover:border-[#E8E0D5] rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 shadow-sm group hover:shadow-xl">
+    <div className="bg-white border border-[#E5E7EB] hover:border-[#E5E7EB] rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 shadow-sm group hover:shadow-xl">
       <div>
-        <Link href={`/products/${product.slug}`} className="block relative bg-[#F6F1EA] rounded-2xl p-4 border border-[#E8E0D5] mb-5 overflow-hidden group-hover:border-[#E8E0D5] transition-all">
+        <Link href={`/products/${product.slug}`} className="block relative bg-[#F7F8FA] rounded-2xl p-4 border border-[#E5E7EB] mb-5 overflow-hidden group-hover:border-[#E5E7EB] transition-all">
           <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent z-10 pointer-events-none" />
           
           {/* Badges Overlay */}
           <div className="absolute top-3 right-3 z-20 flex flex-col gap-2 items-end">
-            <span className="bg-white/95 backdrop-blur-md text-[#3B342C] text-[10px] font-black px-3 py-1.5 rounded-lg border border-[#E8E0D5] shadow-md">
+            <span className="bg-white/95 backdrop-blur-md text-[#111827] text-[10px] font-black px-3 py-1.5 rounded-lg border border-[#E5E7EB] shadow-md">
               {product.badge}
             </span>
-            <span className="flex items-center gap-1 text-[9px] font-black text-[#8B8176] bg-[#F6F1EA] border border-[#E8E0D5] px-2.5 py-1 rounded-md">
-              <Flame className="w-3 h-3 text-[#8B8176] animate-pulse" />
+            <span className="flex items-center gap-1 text-[9px] font-black text-[#6B7280] bg-[#F7F8FA] border border-[#E5E7EB] px-2.5 py-1 rounded-md">
+              <Flame className="w-3 h-3 text-[#6B7280] animate-pulse" />
               <span>متبقي {product.stockLeft} قطع</span>
             </span>
           </div>
@@ -119,7 +119,7 @@ function CollectionCard({
             />
           </div>
 
-          <div className="absolute bottom-3 left-3 z-20 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#8B8176] flex items-center gap-1.5 border border-[#E8E0D5] shadow-sm transition-colors group-hover:text-[#3B342C] group-hover:border-[#E8E0D5]">
+          <div className="absolute bottom-3 left-3 z-20 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#6B7280] flex items-center gap-1.5 border border-[#E5E7EB] shadow-sm transition-colors group-hover:text-[#111827] group-hover:border-[#E5E7EB]">
             <Eye className="w-3.5 h-3.5" />
             <span>عرض التفاصيل</span>
           </div>
@@ -130,21 +130,21 @@ function CollectionCard({
           <div className="flex items-center gap-1.5">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-[#8B8176]" />
+                <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-[#6B7280]" />
               ))}
             </div>
-            <span className="text-xs font-black text-[#3B342C]">4.9</span>
+            <span className="text-xs font-black text-[#111827]">4.9</span>
           </div>
-          <span className="text-[10px] font-bold text-[#8B8176]">({product.reviewsCount} تقييم)</span>
+          <span className="text-[10px] font-bold text-[#6B7280]">({product.reviewsCount} تقييم)</span>
         </div>
 
         {/* Title */}
         <Link href={`/products/${product.slug}`} className="px-1 block">
-          <h2 className="font-black text-base md:text-lg text-[#3B342C] group-hover:text-[#3B342C] transition-colors leading-snug line-clamp-2">
+          <h2 className="font-black text-base md:text-lg text-[#111827] group-hover:text-[#111827] transition-colors leading-snug line-clamp-2">
             {product.name}
           </h2>
         </Link>
-        <p className="text-[#8B8176] text-[11px] md:text-xs mt-2 mb-5 line-clamp-2 leading-relaxed font-medium px-1">
+        <p className="text-[#6B7280] text-[11px] md:text-xs mt-2 mb-5 line-clamp-2 leading-relaxed font-medium px-1">
           {product.subheadline}
         </p>
 
@@ -154,54 +154,54 @@ function CollectionCard({
             onClick={() => setSelectedTier(1)}
             className={`p-2.5 rounded-xl border text-xs flex justify-between items-center cursor-pointer transition-all ${
               selectedTier === 1
-                ? 'border-[#5C6B4F] bg-[#F6F1EA] font-bold text-[#3B342C] shadow-sm'
-                : 'border-[#E8E0D5] bg-[#FFFFFF] text-[#8B8176] hover:border-stone-300'
+                ? 'border-[#047857] bg-[#F7F8FA] font-bold text-[#111827] shadow-sm'
+                : 'border-[#E5E7EB] bg-[#FFFFFF] text-[#6B7280] hover:border-stone-300'
             }`}
           >
             <div>
-              <span className="block font-bold text-[#3B342C]">1 قطعة ({t1?.price} درهم)</span>
-              <span className="text-[10px] text-[#8B8176]">للاستخدام الفردي</span>
+              <span className="block font-bold text-[#111827]">1 قطعة ({t1?.price} درهم)</span>
+              <span className="text-[10px] text-[#6B7280]">للاستخدام الفردي</span>
             </div>
-            <span className="text-[10px] text-[#5C6B4F] font-bold bg-[#F6F1EA]0/10 px-2 py-0.5 rounded">توصيل مجاني</span>
+            <span className="text-[10px] text-[#047857] font-bold bg-[#047857]/10 px-2 py-0.5 rounded">توصيل مجاني</span>
           </div>
 
           <div
             onClick={() => setSelectedTier(2)}
             className={`p-2.5 rounded-xl border text-xs flex justify-between items-center cursor-pointer transition-all ${
               selectedTier === 2
-                ? 'border-[#5C6B4F] bg-[#F6F1EA] font-bold text-[#3B342C] shadow-sm'
-                : 'border-[#E8E0D5] bg-[#FFFFFF] text-[#8B8176] hover:border-stone-300'
+                ? 'border-[#047857] bg-[#F7F8FA] font-bold text-[#111827] shadow-sm'
+                : 'border-[#E5E7EB] bg-[#FFFFFF] text-[#6B7280] hover:border-stone-300'
             }`}
           >
             <div>
-              <span className="block font-bold text-[#3B342C]">2 قطع ({t2?.price} درهم) 🔥</span>
-              <span className="text-[10px] text-[#5C6B4F] font-bold">{t2?.perUnitPrice} درهم للقطعة</span>
+              <span className="block font-bold text-[#111827]">2 قطع ({t2?.price} درهم) 🔥</span>
+              <span className="text-[10px] text-[#047857] font-bold">{t2?.perUnitPrice} درهم للقطعة</span>
             </div>
-              <span className="text-[10px] text-[#5C6B4F] font-black bg-[#F6F1EA]0/20 px-2 py-0.5 rounded">{t2?.savingsText ? 'عرض مميز' : 'وفر'}</span>
+              <span className="text-[10px] text-[#047857] font-black bg-[#047857]/20 px-2 py-0.5 rounded">{t2?.savingsText ? 'عرض مميز' : 'وفر'}</span>
           </div>
 
           <div
             onClick={() => setSelectedTier(3)}
             className={`p-2.5 rounded-xl border text-xs flex justify-between items-center cursor-pointer transition-all ${
               selectedTier === 3
-                ? 'border-[#5C6B4F] bg-[#F6F1EA] font-bold text-[#3B342C] shadow-sm'
-                : 'border-[#E8E0D5] bg-[#FFFFFF] text-[#8B8176] hover:border-stone-300'
+                ? 'border-[#047857] bg-[#F7F8FA] font-bold text-[#111827] shadow-sm'
+                : 'border-[#E5E7EB] bg-[#FFFFFF] text-[#6B7280] hover:border-stone-300'
             }`}
           >
             <div>
-              <span className="block font-bold text-[#3B342C]">3 قطع ({t3?.price} درهم) 🏆</span>
-              <span className="text-[10px] text-[#8B8176] font-bold">{t3?.perUnitPrice} درهم للقطعة</span>
+              <span className="block font-bold text-[#111827]">3 قطع ({t3?.price} درهم) 🏆</span>
+              <span className="text-[10px] text-[#6B7280] font-bold">{t3?.perUnitPrice} درهم للقطعة</span>
             </div>
-              <span className="text-[10px] text-[#8B8176] font-black bg-[#F6F1EA]0/20 px-2 py-0.5 rounded">أفضل قيمة</span>
+              <span className="text-[10px] text-[#6B7280] font-black bg-[#047857]/20 px-2 py-0.5 rounded">أفضل قيمة</span>
           </div>
         </div>
       </div>
 
       {/* Buttons */}
-      <div className="border-t border-[#E8E0D5] pt-3 space-y-2">
+      <div className="border-t border-[#E5E7EB] pt-3 space-y-2">
         <button
           onClick={() => onQuickBuy(product, selectedTier)}
-          className="w-full bg-[#5C6B4F] hover:bg-[#4A5740] text-white font-black text-xs md:text-sm py-3.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+          className="w-full bg-[#F97316] hover:bg-[#EA580C] shadow-lg shadow-orange-500/25 text-white font-black text-xs md:text-sm py-3.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
         >
           <span>تأكيد الطلب الآن — {getTierPrice(selectedTier)} درهم</span>
           <ArrowLeft className="w-4 h-4" />
@@ -210,17 +210,17 @@ function CollectionCard({
         <div className="grid grid-cols-2 gap-2">
           <button
             onClick={() => onAddToCart(product, selectedTier)}
-            className="w-full bg-[#F6F1EA] hover:bg-[#E8E0D5] text-[#3B342C] text-xs font-bold py-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 border border-[#E8E0D5]"
+            className="w-full bg-[#F7F8FA] hover:bg-[#E5E7EB] text-[#111827] text-xs font-bold py-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 border border-[#E5E7EB]"
           >
-            <ShoppingCart className="w-3.5 h-3.5 text-[#5C6B4F]" />
+            <ShoppingCart className="w-3.5 h-3.5 text-[#047857]" />
             <span>+ أضف للسلة</span>
           </button>
           
           <Link
             href={`/products/${product.slug}`}
-            className="w-full bg-white border border-[#E8E0D5] hover:bg-[#F6F1EA] text-[#8B8176] text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1"
+            className="w-full bg-white border border-[#E5E7EB] hover:bg-[#F7F8FA] text-[#6B7280] text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1"
           >
-            <Eye className="w-3.5 h-3.5 text-[#8B8176]" />
+            <Eye className="w-3.5 h-3.5 text-[#6B7280]" />
             <span>عرض الشرح</span>
           </Link>
         </div>
