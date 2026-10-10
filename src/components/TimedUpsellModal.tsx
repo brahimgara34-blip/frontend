@@ -62,10 +62,10 @@ export default function TimedUpsellModal() {
     const orderId = 'vitalis-' + Math.floor(100000 + Math.random() * 900000);
 
     const getItemSku = (id: string, name: string) => {
-      if (id === 'shower' || name.includes('HydroPure') || name.includes('دوش') || name.includes('رشاش')) return 'VM-SHW-01';
-      if (id === 'flosser' || name.includes('AuraFloss') || name.includes('خيط') || name.includes('الأسنان')) return 'VM-FLS-02';
-      if (id === 'cushion' || name.includes('KneeRelief') || name.includes('ركبة') || name.includes('مشد')) return 'VM-KNE-03';
-      if (id === 'scale' || name.includes('VitalFit') || name.includes('ميزان') || name.includes('دهون')) return 'VM-SCL-04';
+      if (id.includes('armoire') || name.includes('خزانة') || name.includes('دولاب')) return 'VM-ARM-01';
+      if (id.includes('massager') || name.includes('مساج') || name.includes('تدليك')) return 'VM-FMS-02';
+      if (id.includes('chaise') || name.includes('كرسي') || name.includes('طعام')) return 'VM-BBY-03';
+      if (id.includes('makeup') || name.includes('منظم') || name.includes('مكياج')) return 'VM-MKB-04';
       return `VM-${id.toUpperCase()}-01`;
     };
 

@@ -22,10 +22,10 @@ function skuFromItem(item: { id?: string; sku?: string; name?: string }) {
   if (item.sku) return item.sku;
   const id = String(item.id || '').toLowerCase();
   const name = String(item.name || '').toLowerCase();
-  if (id.includes('shower') || name.includes('hydropure') || name.includes('دوش') || name.includes('رشاش')) return 'VM-SHW-01';
-  if (id.includes('flosser') || name.includes('aurafloss') || name.includes('خيط')) return 'VM-FLS-02';
-  if (id.includes('knee') || id.includes('cushion') || name.includes('kneerelief') || name.includes('ركبة')) return 'VM-KNE-03';
-  if (id.includes('scale') || name.includes('vitalfit') || name.includes('ميزان')) return 'VM-SCL-04';
+  if (id.includes('armoire') || name.includes('خزانة') || name.includes('دولاب')) return 'VM-ARM-01';
+  if (id.includes('massager') || name.includes('مساج') || name.includes('تدليك')) return 'VM-FMS-02';
+  if (id.includes('chaise') || name.includes('كرسي') || name.includes('طعام')) return 'VM-BBY-03';
+  if (id.includes('makeup') || name.includes('منظم') || name.includes('مكياج')) return 'VM-MKB-04';
   return 'VM-PROD-01';
 }
 

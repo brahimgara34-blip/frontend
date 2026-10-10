@@ -33,7 +33,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-[#8B8176] text-sm md:text-base mt-6 max-w-2xl mx-auto leading-relaxed font-medium">
-            منتجات أصلية ومختبرة بدقة لحل المشاكل الأكثر إزعاجاً في بيوت المغاربة. تمتع بمضاعفة صبيب الماء وتصفيته، تنظيف احترافي للأسنان واللثة، راحة فورية لآلام الركبة، وتتبع ذكي لوزنك وصحتك.
+            منتجات أصلية ومختبرة بدقة لحل المشاكل الأكثر إزعاجاً في بيوت المغاربة. تمتع بتنظيم مثالي لغرفتك، راحة فورية لآلام القدمين، أمان تام لطفلك أثناء الطعام، وتسريحة مكياج مرتبة وأنيقة.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8 text-[11px] md:text-xs text-[#3B342C]">
@@ -125,13 +125,13 @@ export default function HomePage() {
         <div className="text-center max-w-xl mx-auto">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3B342C] bg-white px-3 py-1 rounded-full border border-[#E8E0D5] mb-2">
             <Package className="w-3.5 h-3.5" />
-            <span>منتجاتنا الثلاثة الأساسية بالمغرب</span>
+            <span>منتجاتنا الأساسية بالمغرب</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-[#3B342C]">
             اختر الحل المناسب لاحتياجك اليومي
           </h2>
           <p className="text-[#8B8176] text-xs md:text-sm mt-1.5">
-            حلول هندسية مصممة بدقة لمضاعفة صبيب الماء، تنظيف الأسنان المتقدم، راحة المفاصل، وتتبع الوزن الذكي.
+            حلول هندسية مصممة بدقة لتنظيم المساحات، راحة العضلات، أمان الأطفال، وترتيب مستحضرات التجميل.
           </p>
         </div>
 

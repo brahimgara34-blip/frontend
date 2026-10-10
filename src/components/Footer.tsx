@@ -43,10 +43,10 @@ export default function Footer() {
           <div>
             <div className="font-black text-[#3B342C] text-xs md:text-sm mb-4">المنتجات المعتمدة</div>
             <ul className="space-y-3 text-[11px] md:text-xs font-medium">
-              <li><Link href="/products/hydropure-shower" className="hover:text-[#3B342C] transition-colors">دوش التوربو المفلتر HydroPure™</Link></li>
-              <li><Link href="/products/aurafloss-water-flosser" className="hover:text-[#3B342C] transition-colors">خيط الأسنان المائي AuraFloss™</Link></li>
-              <li><Link href="/products/kneerelief-heated-brace" className="hover:text-[#3B342C] transition-colors">مشد الركبة الحراري KneeRelief™</Link></li>
-              <li><Link href="/products/vitalfit-smart-scale" className="hover:text-[#3B342C] transition-colors">الميزان الذكي VitalFit™</Link></li>
+              <li><Link href="/products/armoire-3-portes" className="hover:text-[#3B342C] transition-colors">دولاب الملابس 3 أبواب</Link></li>
+              <li><Link href="/products/foot-massager" className="hover:text-[#3B342C] transition-colors">مدلك القدمين</Link></li>
+              <li><Link href="/products/chaise-haute-bebe" className="hover:text-[#3B342C] transition-colors">كرسي طعام الأطفال</Link></li>
+              <li><Link href="/products/makeup-storage-box" className="hover:text-[#3B342C] transition-colors">منظم المكياج</Link></li>
               <li className="pt-1"><Link href="/collections" className="font-black text-[#3B342C]">كافة المجموعات ❯</Link></li>
             </ul>
           </div>
