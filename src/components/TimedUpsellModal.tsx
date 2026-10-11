@@ -52,6 +52,8 @@ export default function TimedUpsellModal() {
   if (!isUpsellOpen || !activeUpsellProduct) return null;
 
   const currentTotal = getTotalPrice();
+  const upsellPrice = activeUpsellProduct.upsellPrice;
+  const upsellRegular = activeUpsellProduct.offerTiers[0].price;
 
   const handleFinalize = async (acceptUpsell: boolean) => {
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -83,11 +85,11 @@ export default function TimedUpsellModal() {
       orderItems.push({
         id: activeUpsellProduct.id,
         sku: activeUpsellProduct.sku || getItemSku(activeUpsellProduct.id, activeUpsellProduct.name),
-        name: `[عرض حصري بـ 149 د.م] ${activeUpsellProduct.name}`,
+        name: `[عرض حصري بـ ${upsellPrice} د.م] ${activeUpsellProduct.name}`,
         quantity: 1,
-        price: 149,
+        price: upsellPrice,
       });
-      finalTotal += 149;
+      finalTotal += upsellPrice;
     }
 
     const landingUrl = getFirstLandingUrl();
@@ -100,7 +102,7 @@ export default function TimedUpsellModal() {
       totalAmount: finalTotal,
       hasUpsell: acceptUpsell,
       upsellProduct: acceptUpsell ? activeUpsellProduct.name : null,
-      upsellAmount: acceptUpsell ? 149.0 : 0.0,
+      upsellAmount: acceptUpsell ? upsellPrice : 0.0,
       eventId,
       landingUrl,
       url: landingUrl,
@@ -163,10 +165,10 @@ export default function TimedUpsellModal() {
 
         {/* Headline */}
         <h2 className="text-xl md:text-2xl font-black text-[#111827] leading-tight relative z-10">
-          هل ترغب في إضافة هذا المنتج بـ <span className="text-[#047857] font-black">149 درهم فقط</span>؟
+          هل ترغب في إضافة هذا المنتج بـ <span className="text-[#047857] font-black">{upsellPrice} درهم فقط</span>؟
         </h2>
         <p className="text-[#6B7280] text-xs mt-2 mb-6 relative z-10 font-medium">
-          بصفتك طلبت الآن، يمكنك إضافة هذا المنتج لنفس الطرد بـ 149 درهم بدلاً من 179 درهم وبدون أي مصاريف شحن إضافية.
+          بصفتك طلبت الآن، يمكنك إضافة هذا المنتج لنفس الطرد بـ {upsellPrice} درهم بدلاً من {upsellRegular} درهم وبدون أي مصاريف شحن إضافية.
         </p>
 
         {/* Product Card */}
@@ -189,9 +191,9 @@ export default function TimedUpsellModal() {
                 {activeUpsellProduct.name}
               </h4>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-[#6B7280] text-xs line-through font-bold">179 درهم</span>
-                <span className="text-lg font-black text-[#047857] drop-shadow-sm">149 درهم فقط!</span>
-                <span className="text-[10px] bg-red-500/20 text-red-400 font-bold px-1.5 py-0.5 rounded border border-red-500/20">وفر 30 درهم</span>
+                <span className="text-[#6B7280] text-xs line-through font-bold">{upsellRegular} درهم</span>
+                <span className="text-lg font-black text-[#047857] drop-shadow-sm">{upsellPrice} درهم فقط!</span>
+                <span className="text-[10px] bg-red-500/20 text-red-600 font-bold px-1.5 py-0.5 rounded border border-red-500/20">وفر {upsellRegular - upsellPrice} درهم</span>
               </div>
             </div>
           </div>
@@ -208,7 +210,7 @@ export default function TimedUpsellModal() {
             className="w-full bg-[#F97316] hover:bg-[#EA580C] shadow-lg shadow-orange-500/25 text-white font-black text-sm md:text-base py-4 rounded-2xl transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-[0.98]"
           >
             <Sparkles className="w-5 h-5" />
-            <span>نعم! أضفه لشحنتي بـ (+149 درهم فقط) 🎁</span>
+            <span>نعم! أضفه لشحنتي بـ (+{upsellPrice} درهم فقط) 🎁</span>
           </button>
 
           <button
