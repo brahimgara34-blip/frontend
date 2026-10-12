@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, use } from 'react';
+import React, { useState } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,8 +14,8 @@ import {
   Clock, RotateCcw, ThumbsUp, AlertCircle, PhoneCall, User
 } from 'lucide-react';
 
-export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = use(params);
+export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   const product = PRODUCTS.find((p) => p.slug === resolvedParams.slug);
   if (!product) notFound();
 
