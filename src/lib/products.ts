@@ -198,6 +198,14 @@ export const PRODUCTS: Product[] = [
         imagePosition: "right",
         placeholderSvgText: "Armoire",
         image: "/products/armoire-usage-real.jpg"
+      },
+      {
+        title: "تركيب ساهل وبدون أدوات",
+        description: "ما تحتاجي لا تورنوفيس لا مطرقة. الهيكل كيركب باليد بسهولة تامة، ومثالي حتى لألعاب الأطفال.",
+        highlight: "عملية جداً",
+        imagePosition: "left",
+        placeholderSvgText: "Armoire Details",
+        image: "/images/products/armoire-details.jpg"
       }
     ]
   },
