@@ -335,6 +335,14 @@ export const PRODUCTS: Product[] = [
         imagePosition: "left",
         placeholderSvgText: "Massager",
         image: "/products/massager-usage-real.jpg"
+      },
+      {
+        title: "تصميم مريح وفعال",
+        description: "مصمم خصيصاً باش يريح القدمين من التعب. كرات المساج كتعمل على تنشيط الدورة الدموية، والمغناطيس كيزيد من فعالية الاسترخاء بعد نهار طويل.",
+        highlight: "راحة تامة",
+        imagePosition: "right",
+        placeholderSvgText: "Massager Details",
+        image: "/images/products/massager-details.png"
       }
     ]
   },
