@@ -464,6 +464,14 @@ export const PRODUCTS: Product[] = [
         imagePosition: "right",
         placeholderSvgText: "Baby Chair",
         image: "/products/chaise-usage-real.jpg"
+      },
+      {
+        title: "أمان وراحة فكل بلاصة",
+        description: "كرسي مجهز بحزام أمان خماسي النقاط (5-Point Harness) وطبلة ساهلة فالتنظيف. كيتطوى بسهولة (Compact Fold) باش تديه معاك لأي بلاصة.",
+        highlight: "جودة ممتازة",
+        imagePosition: "left",
+        placeholderSvgText: "Baby Chair Details",
+        image: "/images/products/chaise-details.jpg"
       }
     ]
   },
@@ -593,6 +601,14 @@ export const PRODUCTS: Product[] = [
         imagePosition: "left",
         placeholderSvgText: "Makeup",
         image: "/products/makeup-usage-real.jpg"
+      },
+      {
+        title: "سعة كبيرة وتصميم أنيق",
+        description: "كيهز بزاف ديال المنتجات بمختلف الأحجام، من القراعي الطوال حتى للفرشات. تصميم أكريليك شفاف كيزيد لمسة ديال الأناقة للتسريحة ديالك.",
+        highlight: "جودة عالية",
+        imagePosition: "right",
+        placeholderSvgText: "Makeup Details",
+        image: "/images/products/makeup-details.jpg"
       }
     ]
   }
