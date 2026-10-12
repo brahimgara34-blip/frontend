@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, use } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PRODUCTS, Product } from '@/lib/products';
 import { useCartStore } from '@/store/cartStore';
 import SharedSocialProofSection from '@/components/SharedSocialProofSection';
+
 import {
   ShieldCheck, Star, CheckCircle, Truck, Lock,
   ArrowLeft, ChevronLeft, Package, Sparkles, Eye,
@@ -14,8 +15,8 @@ import {
   Clock, RotateCcw, ThumbsUp, AlertCircle, PhoneCall, User
 } from 'lucide-react';
 
-export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
+export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = use(params);
   const product = PRODUCTS.find((p) => p.slug === resolvedParams.slug);
   if (!product) notFound();
 
