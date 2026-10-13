@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useState, use } from 'react';
+import React, { useState, use, useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PRODUCTS, Product } from '@/lib/products';
 import { useCartStore } from '@/store/cartStore';
 import SharedSocialProofSection from '@/components/SharedSocialProofSection';
+import { trackViewContent } from '@/lib/pixel';
 
 import {
   ShieldCheck, Star, CheckCircle, Truck, Lock,
@@ -27,6 +28,19 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
     Math.max(0, product.visualStory.findIndex((s) => s.type === 'usage'))
   );
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
+
+  useEffect(() => {
+    // Pixel scripts load with lazyOnload, so wait for them before firing ViewContent.
+    let attempts = 0;
+    const timer = setInterval(() => {
+      attempts += 1;
+      if (window.fbq || window.ttq || window.snaptr || attempts >= 20) {
+        clearInterval(timer);
+        trackViewContent({ id: product.id, name: product.name, price: product.offerTiers[0].price });
+      }
+    }, 500);
+    return () => clearInterval(timer);
+  }, [product.id]);
 
   const selectedColor = product.colors[selectedColorIdx];
   const currentTierObj = product.offerTiers.find((t) => t.tier === selectedTier) || product.offerTiers[0];
