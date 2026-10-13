@@ -16,12 +16,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
     }
 
-    try {
-      await sendOrderToGoogleSheet(body);
-    } catch (sheetErr) {
-      console.error('❌ [Sheets Webhook Error]:', sheetErr);
-    }
-
     // Priority list of candidate backend URLs:
     // 1. Direct Easypanel Docker Service Names
     // 2. Custom Environment Variables
@@ -79,6 +73,14 @@ export async function POST(req: NextRequest) {
     }
 
     console.error('❌ [Order Forward Error]: All backend candidate URLs failed. Last error:', lastError);
+
+    // The backend normally writes the order to Google Sheets; only do it here when the backend is unreachable.
+    try {
+      await sendOrderToGoogleSheet(body);
+    } catch (sheetErr) {
+      console.error('❌ [Sheets Webhook Error]:', sheetErr);
+    }
+
     return NextResponse.json(
       { error: 'Backend unreachable', details: lastError },
       { status: 502 }
