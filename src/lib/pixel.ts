@@ -215,14 +215,25 @@ export const trackPurchase = (
     if (phone) {
       META_PIXEL_IDS.forEach((id) => window.fbq('init', id, { ph: phone }));
     }
+    const purchaseValue = Number(total) || 0;
+    const contents = items.map((item) => {
+      const quantity = item.quantity || 1;
+      const lineTotal = Number(item.price) || 0;
+      return {
+        id: item.id,
+        quantity,
+        item_price: Math.round((lineTotal / quantity) * 100) / 100,
+      };
+    });
     window.fbq(
       'track',
       'Purchase',
       {
-        content_name: 'DTC Order',
+        content_name: items.map((item) => item.name).filter(Boolean).join(' + ') || 'DTC Order',
         content_ids: items.map((i) => i.id),
         content_type: 'product',
-        value: total,
+        contents,
+        value: purchaseValue,
         currency: 'MAD',
         num_items: items.reduce((acc, curr) => acc + curr.quantity, 0),
         order_id: orderId,

@@ -21,7 +21,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
   const product = PRODUCTS.find((p) => p.slug === resolvedParams.slug);
   if (!product) notFound();
 
-  const { addItem, openCheckout } = useCartStore();
+  const { addItem, openCheckout, isCheckoutOpen } = useCartStore();
   const [selectedTier, setSelectedTier] = useState<number>(1); // Default to Tier 1
   const [selectedColorIdx, setSelectedColorIdx] = useState<number>(0);
   const [activeThumb, setActiveThumb] = useState<number>(() =>
@@ -53,9 +53,16 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
   }[activeScene.accent];
 
   const handleDirectOrder = () => {
-    addItem(product, selectedTier, selectedColor.nameFr);
+    addItem(product, selectedTier, selectedColor.nameFr, { replace: true });
     openCheckout();
   };
+
+  const offerNote =
+    product.slug === 'armoire-3-portes'
+      ? 'خزانة قماش كتركب باليد، ماشي بلاكار دالخشب.'
+      : product.slug === 'chaise-haute-bebe'
+        ? 'كرسي كيتطوى وكيتهز معاك، والخلص حتى يوصلك.'
+        : '';
 
   const otherProducts = PRODUCTS.filter((p) => p.id !== product.id);
 
@@ -86,7 +93,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
 
           {/* ——— الجانب الأيمن: معرض صور المنتج والعلامات ——— */}
-          <div className="lg:col-span-5 p-5 md:p-8 space-y-4 bg-[#F7F8FA]">
+          <div className="order-2 lg:order-1 lg:col-span-5 p-5 md:p-8 space-y-4 bg-[#F7F8FA]">
             
             {/* Main Visual Story Card */}
             <div
@@ -199,7 +206,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           </div>
 
           {/* ——— الجانب الأيسر: صياغة العرض الفائقة + الباقات التنافسية + زر الشراء الفوري ——— */}
-          <div className="lg:col-span-7 p-5 md:p-8 border-t lg:border-t-0 lg:border-r border-[#E5E7EB] bg-white flex flex-col justify-between space-y-6">
+          <div className="order-1 lg:order-2 lg:col-span-7 p-5 md:p-8 border-t lg:border-t-0 lg:border-r border-[#E5E7EB] bg-white flex flex-col justify-between space-y-6">
 
             <div>
               {/* Category & Verified Reviews Bar */}
@@ -227,6 +234,26 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               <p className="text-[#6B7280] text-xs md:text-sm mt-3 leading-relaxed">
                 {product.subheadline}
               </p>
+
+              <div className="mt-4 rounded-2xl border border-[#047857]/30 bg-[#F7F8FA] p-4">
+                <div className="flex items-end justify-between gap-3">
+                  <div>
+                    <div className="text-[11px] font-bold text-[#6B7280]">الثمن دابا</div>
+                    <div className="text-3xl font-black text-[#111827] leading-none mt-1">
+                      {currentTierObj.price} <span className="text-base">درهم</span>
+                    </div>
+                    <div className="text-xs text-[#6B7280] line-through mt-1">{currentTierObj.originalPrice} درهم</div>
+                  </div>
+                  <div className="text-[11px] font-bold text-[#047857] text-left leading-relaxed">
+                    التوصيل فابور
+                    <br />
+                    خلّص حتى يوصلك
+                  </div>
+                </div>
+                {offerNote && (
+                  <p className="mt-3 text-xs font-bold text-[#111827] leading-relaxed">{offerNote}</p>
+                )}
+              </div>
 
               {/* Instant Proof Bullets (Why this solves the problem right now) */}
               <div className="my-4 bg-[#F7F8FA] border border-emerald-100 rounded-2xl p-3.5 space-y-2">
@@ -822,7 +849,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       {/* ========================================================= */}
       {/* 7. STICKY MOBILE BUY BUTTON */}
       {/* ========================================================= */}
-      <div className="fixed bottom-0 left-0 right-0 p-3 bg-[#FFFFFF]/95 backdrop-blur-md border-t border-[#E5E7EB] z-40 md:hidden animate-slideUp">
+      {!isCheckoutOpen && <div className="fixed bottom-0 left-0 right-0 p-3 bg-[#FFFFFF]/95 backdrop-blur-md border-t border-[#E5E7EB] z-40 md:hidden animate-slideUp">
         <button
           onClick={handleDirectOrder}
           className="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-white font-black text-sm py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-700/20 flex items-center justify-between active:scale-[0.98] transition-transform"
@@ -836,7 +863,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             <ArrowLeft className="w-3 h-3" />
           </div>
         </button>
-      </div>
+      </div>}
 
     </div>
   );

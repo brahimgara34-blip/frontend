@@ -1,23 +1,27 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useCartStore } from '@/store/cartStore';
-import { PRODUCTS, Product } from '@/lib/products';
-import { X, ShieldCheck, Zap, Lock, Phone, User } from 'lucide-react';
+import { X, Zap, Lock, Phone, User } from 'lucide-react';
 import { trackInitiateCheckout } from '@/lib/pixel';
+import { placeOrder } from '@/lib/placeOrder';
 
 export default function CheckoutModal() {
+  const router = useRouter();
   const {
     isCheckoutOpen,
     closeCheckout,
     items,
     getTotalPrice,
-    openUpsell
+    setLastOrder,
+    clearCart,
   } = useCartStore();
 
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const totalPrice = getTotalPrice();
 
@@ -40,31 +44,9 @@ export default function CheckoutModal() {
     return regex.test(cleaned);
   };
 
-  // Smart Upsell Target Logic
-  const getSmartUpsellTarget = (): Product => {
-    const cartIds = items.map((i) => i.id);
-    const pick = (id: string) => PRODUCTS.find((p) => p.id === id);
-
-    if (cartIds.includes('shower') && !cartIds.includes('scale')) {
-      return pick('scale') || PRODUCTS[3];
-    }
-    if (cartIds.includes('cushion') && !cartIds.includes('flosser')) {
-      return pick('flosser') || PRODUCTS[1];
-    }
-    if (cartIds.includes('flosser') && !cartIds.includes('cushion')) {
-      return pick('cushion') || PRODUCTS[2];
-    }
-    if (!cartIds.includes('scale')) {
-      return pick('scale') || PRODUCTS[3];
-    }
-    if (!cartIds.includes('shower')) {
-      return pick('shower') || PRODUCTS[0];
-    }
-    return PRODUCTS.find((p) => !cartIds.includes(p.id)) || PRODUCTS[2];
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
     if (!customerName.trim()) {
       alert('المرجو إدخال الاسم الكامل');
       return;
@@ -76,8 +58,25 @@ export default function CheckoutModal() {
     }
 
     setPhoneError('');
-    const targetProduct = getSmartUpsellTarget();
-    openUpsell(targetProduct, customerName.trim(), customerPhone.trim());
+    setIsSubmitting(true);
+    const payload = await placeOrder(
+      customerName.trim(),
+      customerPhone.trim(),
+      items.map((item) => ({
+        id: item.id,
+        sku: item.product.sku,
+        name: item.product.name,
+        quantity: item.quantity,
+        price: item.tierPrice,
+      }))
+    );
+    setLastOrder(payload);
+    clearCart();
+    closeCheckout();
+    setCustomerName('');
+    setCustomerPhone('');
+    setIsSubmitting(false);
+    router.push('/thank-you');
   };
 
   return (
@@ -162,10 +161,11 @@ export default function CheckoutModal() {
 
           <button
             type="submit"
-            className="w-full bg-[#F97316] hover:bg-[#EA580C] shadow-lg shadow-orange-500/25 text-white font-black text-sm py-4 rounded-xl transition-all cursor-pointer mt-4 active:scale-[0.98] flex items-center justify-center gap-2"
+            disabled={isSubmitting}
+            className="w-full bg-[#F97316] hover:bg-[#EA580C] disabled:opacity-70 shadow-lg shadow-orange-500/25 text-white font-black text-sm py-4 rounded-xl transition-all cursor-pointer mt-4 active:scale-[0.98] flex items-center justify-center gap-2"
           >
             <Zap className="w-4 h-4" />
-            <span>تأكيد الطلب وحجز الشحنة الآن</span>
+            <span>{isSubmitting ? 'كنسجّلو الطلب...' : `تأكيد الطلب — ${totalPrice} درهم`}</span>
           </button>
         </form>
 

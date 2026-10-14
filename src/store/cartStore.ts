@@ -22,7 +22,7 @@ interface CartState {
   pendingCustomerPhone: string;
 
   // Actions
-  addItem: (product: Product, quantity: number, color?: string) => void;
+  addItem: (product: Product, quantity: number, color?: string, options?: { replace?: boolean }) => void;
   removeItem: (productId: string) => void;
   updateItemQuantity: (productId: string, delta: number) => void;
   clearCart: () => void;
@@ -60,9 +60,23 @@ export const useCartStore = create<CartState>((set, get) => ({
   pendingCustomerName: '',
   pendingCustomerPhone: '',
 
-  addItem: (product, quantity, color) => {
+  addItem: (product, quantity, color, options) => {
     const tierPrice = priceForQuantity(product, quantity);
     trackAddToCart({ id: product.id, name: product.name }, tierPrice, quantity);
+
+    const line = {
+      id: product.id,
+      product,
+      quantity,
+      selectedTier: quantity,
+      tierPrice,
+      selectedColor: color,
+    };
+
+    if (options?.replace) {
+      set({ items: [line], isDrawerOpen: false });
+      return;
+    }
 
     set((state) => {
       const existingIndex = state.items.findIndex((item) => item.id === product.id);
@@ -78,14 +92,7 @@ export const useCartStore = create<CartState>((set, get) => ({
           selectedColor: color ?? state.items[existingIndex].selectedColor,
         };
       } else {
-        newItems.push({
-          id: product.id,
-          product,
-          quantity,
-          selectedTier: quantity,
-          tierPrice: tierPrice,
-          selectedColor: color,
-        });
+        newItems.push({ ...line, selectedColor: color ?? undefined });
       }
 
       return {
