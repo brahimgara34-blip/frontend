@@ -209,6 +209,37 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           <div className="order-1 lg:order-2 lg:col-span-7 p-5 md:p-8 border-t lg:border-t-0 lg:border-r border-[#E5E7EB] bg-white flex flex-col justify-between space-y-6">
 
             <div>
+              <div className="lg:hidden relative w-full h-56 rounded-2xl overflow-hidden border border-[#E5E7EB] bg-white mb-4">
+                <Image
+                  src={product.image}
+                  alt={product.shortName}
+                  fill
+                  sizes="100vw"
+                  className="object-contain p-3"
+                  priority
+                />
+              </div>
+
+              <div className="lg:hidden rounded-2xl border border-[#047857]/30 bg-[#F7F8FA] p-4 mb-4">
+                <div className="flex items-end justify-between gap-3">
+                  <div>
+                    <div className="text-[11px] font-bold text-[#6B7280]">الثمن دابا</div>
+                    <div className="text-3xl font-black text-[#111827] leading-none mt-1">
+                      {currentTierObj.price} <span className="text-base">درهم</span>
+                    </div>
+                    <div className="text-xs text-[#6B7280] line-through mt-1">{currentTierObj.originalPrice} درهم</div>
+                  </div>
+                  <div className="text-[11px] font-bold text-[#047857] text-left leading-relaxed">
+                    التوصيل فابور
+                    <br />
+                    خلّص حتى يوصلك
+                  </div>
+                </div>
+                {offerNote && (
+                  <p className="mt-3 text-xs font-bold text-[#111827] leading-relaxed">{offerNote}</p>
+                )}
+              </div>
+
               {/* Category & Verified Reviews Bar */}
               <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
                 <span className="text-[11px] font-bold text-[#111827] bg-[#F7F8FA] border border-[#E5E7EB] px-3 py-1 rounded-full">
@@ -235,7 +266,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                 {product.subheadline}
               </p>
 
-              <div className="mt-4 rounded-2xl border border-[#047857]/30 bg-[#F7F8FA] p-4">
+              <div className="hidden lg:block mt-4 rounded-2xl border border-[#047857]/30 bg-[#F7F8FA] p-4">
                 <div className="flex items-end justify-between gap-3">
                   <div>
                     <div className="text-[11px] font-bold text-[#6B7280]">الثمن دابا</div>
@@ -490,17 +521,33 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           </p>
         </div>
 
-        {/* 3 Pain Points */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {product.painPoints.map((pain, idx) => (
-            <div key={idx} className="bg-rose-50 border border-rose-200 rounded-2xl p-5 space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-black text-sm">
-                ✕
+        {/* Pain Points */}
+        <div className="space-y-4">
+          {product.painPoints.map((pain, idx) => {
+            const problemImage = product.visualStory.find((s) => s.type === 'problem')?.image;
+            return (
+              <div key={idx} className="bg-rose-50 border border-rose-200 rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+                {problemImage && (
+                  <div className="relative w-full aspect-[4/3] md:aspect-auto md:min-h-[240px]">
+                    <Image
+                      src={problemImage}
+                      alt={pain.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 450px"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="p-5 md:p-8 space-y-2.5 flex flex-col justify-center">
+                  <div className="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-black text-sm">
+                    ✕
+                  </div>
+                  <h3 className="font-black text-base md:text-lg text-[#111827]">{pain.title}</h3>
+                  <p className="text-xs md:text-sm text-[#6B7280] leading-relaxed">{pain.description}</p>
+                </div>
               </div>
-              <h3 className="font-black text-sm text-[#111827]">{pain.title}</h3>
-              <p className="text-xs text-[#6B7280] leading-relaxed">{pain.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Real Before/After Visual Proof Card */}
@@ -555,17 +602,34 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {product.solutionProofs.map((proof, idx) => (
-              <div key={idx} className="bg-[#F7F8FA] border border-[#E5E7EB] rounded-2xl p-5 space-y-2 text-center">
-                <span className="text-2xl md:text-3xl font-black text-[#047857] block">{proof.metric}</span>
-                <span className="text-xs font-bold text-[#111827] bg-white border border-[#E5E7EB] px-2.5 py-0.5 rounded-full inline-block">
-                  {proof.iconText}
-                </span>
-                <h4 className="font-black text-sm text-[#111827] mt-2">{proof.title}</h4>
-                <p className="text-xs text-[#6B7280] leading-relaxed">{proof.description}</p>
-              </div>
-            ))}
+          <div className="space-y-4">
+            {product.solutionProofs.map((proof, idx) => {
+              const solutionImage =
+                product.visualStory.find((s) => s.type === 'usage')?.image ||
+                product.visualStory.find((s) => s.type === 'result')?.image ||
+                product.image;
+              return (
+                <div key={idx} className="bg-[#F7F8FA] border border-[#E5E7EB] rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+                  <div className="relative w-full aspect-[4/3] md:aspect-auto md:min-h-[240px]">
+                    <Image
+                      src={solutionImage}
+                      alt={proof.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 450px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-5 md:p-8 space-y-2.5 flex flex-col justify-center">
+                    <span className="text-2xl md:text-3xl font-black text-[#047857]">{proof.metric}</span>
+                    <span className="text-xs font-bold text-[#111827] bg-white border border-[#E5E7EB] px-2.5 py-0.5 rounded-full w-fit">
+                      {proof.iconText}
+                    </span>
+                    <h4 className="font-black text-base md:text-lg text-[#111827]">{proof.title}</h4>
+                    <p className="text-xs md:text-sm text-[#6B7280] leading-relaxed">{proof.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
