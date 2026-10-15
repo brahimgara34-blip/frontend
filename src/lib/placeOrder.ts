@@ -26,6 +26,7 @@ export interface PlacedOrder {
 function skuFor(id: string, name: string, sku?: string): string {
   if (sku) return sku;
   if (id.includes('armoire') || name.includes('خزانة')) return 'VM-ARM-01';
+  if (id.includes('neck') || name.includes('رقبة') || name.includes('الرقبة')) return 'VM-NCK-06';
   if (id.includes('massager') || name.includes('مساج')) return 'VM-FMS-02';
   if (id.includes('chaise') || name.includes('كرسي')) return 'VM-BBY-03';
   if (id.includes('makeup') || name.includes('مكياج') || name.includes('منظم')) return 'VM-MKB-04';

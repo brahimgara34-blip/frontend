@@ -64,7 +64,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
         ? 'كرسي كيتطوى وكيتهز معاك، والخلص حتى يوصلك.'
         : product.slug === 'machine-boxe-enfants'
           ? 'كتثبت فالحيط، فيها موسيقى ونقاط، والقفازات داخلين. خلّص حتى يوصلك.'
-          : '';
+          : product.slug === 'masseur-nuque'
+            ? 'كتلبس على الرقبة والكتف، ويقدر يمشي حتى للخصر والرجل. خلّص حتى يوصلك.'
+            : '';
 
   const otherProducts = PRODUCTS.filter((p) => p.id !== product.id);
 
@@ -496,6 +498,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                 'chaise-haute-bebe': 'ولدي ولى كياكل جالس مزيان. الطبلة كتحيد وتغسل، وكنطويه وكنهزو معايا عند العائلة.',
                 'makeup-storage-box': 'المنظم كيهز بزاف وشكلو راقي، وكندورو وكنلقى كلشي قدامي. الموزع خلاني نشوفو عاد خلصت.',
                 'machine-boxe-enfants': 'ولدي ولى كيلعب فالملاكمة فالدار بدل التليفون. الموسيقى والنقاط كيخليوه فرحان، وحتى باه كيلعب معاه.',
+                'masseur-nuque': 'كنلبسو على رقبتي فالعشية بعد الخدمة، وكنحس بالراحة. وحتى على الكتف ساهل، والموزع خلاني نشوفو عاد خلصت.',
               }[product.slug] ?? product.subheadline}"
             </p>
             <div className="flex items-center gap-2 mt-2 text-[10px]">
