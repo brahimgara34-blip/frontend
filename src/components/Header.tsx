@@ -47,7 +47,7 @@ export default function Header() {
                 Vitalis Maroc<span className="text-[#6B7280] text-sm">™</span>
               </span>
               <span className="text-[9px] md:text-[10px] text-[#6B7280] block -mt-1 font-bold">
-                حلول الراحة والعناية اليومية المبتكرة
+                منتجات الدار بأحسن الأثمنة والعروض
               </span>
             </div>
           </Link>

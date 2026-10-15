@@ -48,7 +48,7 @@ const REVIEWS: CustomerReview[] = [
     verified: true,
     highlight: 'خدمتي كنوقف فيها بزاف، هاد المساج عتقني!',
     comment: 'كنديرها شي دقايق فالعشية وكنحس برجلي خفافو. ساهلة وما محتاجاش تريسيتي، وكتستاهل الثمن ديالها.',
-    tag: 'موصى به لآلام المفاصل',
+    tag: 'راحة للرجلين فالدار',
   },
   {
     id: 'rev-3',
@@ -128,9 +128,9 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
               <ShieldCheck className="w-4 h-4 text-[#047857]" />
               <span>شهادات حقيقية 100% وموثوقة من زبنائنا بالمغرب</span>
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1 text-[11px] md:text-xs font-bold text-[#6B7280] bg-[#047857]/10 px-3 py-1.5 rounded-full border border-amber-500/20 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-              <span>+3,500 عميل راضٍ</span>
+            <span className="hidden sm:inline-flex items-center gap-1 text-[11px] md:text-xs font-bold text-[#6B7280] bg-[#047857]/10 px-3 py-1.5 rounded-full border border-emerald-500/20 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>المعاينة قبل أي خلاص</span>
             </span>
           </div>
 
@@ -138,7 +138,7 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
             ماذا يقول عملاؤنا في مختلف المدن المغربية عن منتجاتنا؟
           </h2>
           <p className="text-[#6B7280] text-xs md:text-sm mt-2 max-w-2xl leading-relaxed font-medium">
-            آراء زبناء جربو الخزانة، لوحة المساج، كرسي الماكلة ومنظم المكياج، مع المعاينة قبل الدفع والضمان 12 شهراً.
+            هاد الآراء على الخزانة، لوحة المساج، كرسي الماكلة ومنظم المكياج. نفس الشروط على كل المنتجات فالستور: توصيل فابور، وكتشوف السلعة قبل ما تخلص.
           </p>
         </div>
 
@@ -173,7 +173,7 @@ export default function SharedSocialProofSection({ currentSlug }: { currentSlug?
           كافة الشهادات والتجارب ({REVIEWS.length})
         </button>
 
-        {PRODUCTS.map((prod) => (
+        {PRODUCTS.filter((prod) => REVIEWS.some((r) => r.productSlug === prod.slug)).map((prod) => (
           <button
             key={prod.slug}
             onClick={() => setActiveFilter(prod.slug)}
