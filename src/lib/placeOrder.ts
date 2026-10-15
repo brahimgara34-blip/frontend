@@ -25,6 +25,11 @@ export interface PlacedOrder {
 
 function skuFor(id: string, name: string, sku?: string): string {
   if (sku) return sku;
+  if (id.includes('hair-brush') || id.includes('brosse') || name.includes('فرشاة')) return 'VM-BRH-11';
+  if (id.includes('screw') || name.includes('مفك')) return 'VM-SCR-10';
+  if (id.includes('dryer') || id.includes('sechoir') || name.includes('مجفف')) return 'VM-DRY-09';
+  if (id.includes('gift-set') || name.includes('طقم')) return 'VM-SET-08';
+  if (id.includes('faucet') || id.includes('robinet') || name.includes('صنبور')) return 'VM-TAP-07';
   if (id.includes('armoire') || name.includes('خزانة')) return 'VM-ARM-01';
   if (id.includes('neck') || name.includes('رقبة') || name.includes('الرقبة')) return 'VM-NCK-06';
   if (id.includes('massager') || name.includes('مساج')) return 'VM-FMS-02';

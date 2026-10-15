@@ -33,7 +33,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-[#6B7280] text-sm md:text-base mt-5 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              منتجات عملية للبيت المغربي: مدلك الرقبة والكتف، آلة ملاكمة للولاد، خزانة للحوايج، لوحة مساج للرجلين، كرسي الماكلة، ومنظم المكياج. شوف المنتج بعينيك قبل ما تخلص.
+              منتجات عملية للبيت المغربي: فرشاة السيشوار، طقم مفك كهربائي، مجفف ثياب، طقم ساعة هدية، وصنبور ماء مصفى. شوف المنتج بعينيك قبل ما تخلص.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-6 text-[11px] md:text-xs text-[#111827]">
@@ -66,7 +66,7 @@ export default function HomePage() {
                 key={p.id}
                 href={`/products/${p.slug}`}
                 className={`group relative rounded-2xl overflow-hidden bg-white border border-[#E5E7EB] shadow-sm hover:shadow-lg transition-all ${
-                  p.id === 'neck-massager' ? 'col-span-2 aspect-[16/8]' : 'aspect-square'
+                  p.id === 'hair-brush' ? 'col-span-2 aspect-[16/8]' : 'aspect-square'
                 }`}
               >
                 <Image
@@ -135,7 +135,7 @@ export default function HomePage() {
             اختر الحل المناسب لاحتياجك اليومي
           </h2>
           <p className="text-[#6B7280] text-xs md:text-sm mt-1.5">
-            مدلك للرقبة والكتف، آلة ملاكمة للولاد، تنظيم الدار، وراحة الرجلين.
+            فرشاة سيشوار للتصفيف فالدار، طقم مفك كهربائي، مجفف ثياب للشتا، وطقم ساعة هدية.
           </p>
         </div>
 

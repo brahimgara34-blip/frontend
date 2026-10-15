@@ -43,6 +43,11 @@ export default function Footer() {
           <div>
             <div className="font-black text-[#111827] text-xs md:text-sm mb-4">المنتجات المعتمدة</div>
             <ul className="space-y-3 text-[11px] md:text-xs font-medium">
+              <li><Link href="/products/brosse-cheveux" className="hover:text-[#111827] transition-colors">فرشاة السيشوار</Link></li>
+              <li><Link href="/products/tournevis-electrique" className="hover:text-[#111827] transition-colors">طقم المفك الكهربائي</Link></li>
+              <li><Link href="/products/sechoir-portable" className="hover:text-[#111827] transition-colors">مجفف الثياب المحمول</Link></li>
+              <li><Link href="/products/coffret-montre-bijoux" className="hover:text-[#111827] transition-colors">طقم الساعة والمجوهرات</Link></li>
+              <li><Link href="/products/robinet-filtre-eau" className="hover:text-[#111827] transition-colors">صنبور الماء المصفي</Link></li>
               <li><Link href="/products/masseur-nuque" className="hover:text-[#111827] transition-colors">مدلك الرقبة والكتف</Link></li>
               <li><Link href="/products/machine-boxe-enfants" className="hover:text-[#111827] transition-colors">آلة الملاكمة للأطفال</Link></li>
               <li><Link href="/products/armoire-3-portes" className="hover:text-[#111827] transition-colors">دولاب الملابس 3 أبواب</Link></li>

@@ -70,6 +70,840 @@ export interface Product {
 
 export const PRODUCTS: Product[] = [
   {
+    id: "hair-brush",
+    sku: "VM-BRH-11",
+    upsellPrice: 175,
+    slug: "brosse-cheveux",
+    name: "فرشاة السيشوار 2 في 1 - Brosse Soufflante",
+    shortName: "فرشاة السيشوار",
+    category: "العناية بالشعر",
+    icon: "💇",
+    image: "/products/brush-product.jpg",
+    beforeAfterImage: "/products/brush-home.jpg",
+    rating: 4.8,
+    reviewsCount: 112,
+    badge: "تنشيف وتصفيف",
+    headline: "تنشيف وتصفيف فنفس الوقت، بلا ما تبدل بين السيشوار والفرشاة",
+    subheadline: "فرشاة سيشوار 2 في 1 للدار: كتنشف وكتصاوب الشعر فحركة وحدة. الشعيرات كتعاون على التشابك، وخفيفة فاليد.",
+    stockLeft: 16,
+    recentOrdersCount: 21,
+    heroBullets: [
+      "تنشيف وتصفيف فنفس الوقت",
+      "شعيرات كتعاون تنقص التشابك",
+      "خفيفة وسهلة فاليد",
+      "تصفيف فالدار بلا ما تمشي للصالون كل مرة"
+    ],
+    features: [
+      "فرشاة وسيشوار فآلة وحدة",
+      "فيها سلك، كتخدم مباشرة",
+      "مناسبة للتصفيف اليومي فالدار",
+      "النتيجة كتبان من التصفيف، وماشي علاج للشعر"
+    ],
+    scientificReason: "ملي الهواء والفرشاة كيخدموا مع بعض، الشعر كيتساوب وهو كيتنشف، بلا ما تبدل الأداة فوسط التصفيف.",
+    colors: [
+      { hex: "#BE185D", nameAr: "أسود ووردي", nameFr: "Noir rose" }
+    ],
+    visualStory: [
+      {
+        type: "usage",
+        title: "شعر ناعم فالدار",
+        subtitle: "التصفيف كيدار فالحمام ولا قدام المراية، بلا موعد فالصالون.",
+        badge: "فالدار",
+        image: "/products/brush-home.jpg",
+        callouts: ["فالدار", "تصفيف", "سهل"],
+        accent: "teal"
+      },
+      {
+        type: "trust",
+        title: "فرشاة متكاملة",
+        subtitle: "تنشيف وتصفيف فنفس الوقت، شعيرات للتشابك، وخفيفة فالاستعمال.",
+        badge: "المميزات",
+        image: "/products/brush-features.jpg",
+        callouts: ["2 في 1", "شعيرات", "خفيفة"],
+        accent: "amber"
+      },
+      {
+        type: "result",
+        title: "من التشابك للتصفيف",
+        subtitle: "الفكرة: الشعر المتشابك كيتساوب ويولي أنعم بعد التصفيف.",
+        badge: "قبل وبعد",
+        image: "/products/brush-before.jpg",
+        callouts: ["قبل", "بعد", "تصفيف"],
+        accent: "emerald"
+      },
+      {
+        type: "usage",
+        title: "2 في 1",
+        subtitle: "فرشاة السيشوار كتنشف وكتمشط فحركة وحدة.",
+        badge: "الاستعمال",
+        image: "/products/brush-product.jpg",
+        callouts: ["سيشوار", "فرشاة", "وحدة"],
+        accent: "teal"
+      }
+    ],
+    offerTiers: [
+      {
+        tier: 1,
+        name: "فرشاة وحدة",
+        subtitle: "للتصفيف اليومي",
+        price: 199,
+        originalPrice: 349,
+        savingsText: "وفر 150 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 199,
+        bullets: ["1× فرشاة السيشوار", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 2,
+        name: "2 فراشي",
+        subtitle: "وحدة ليك ووحدة هدية",
+        price: 349,
+        originalPrice: 698,
+        savingsText: "وفر 349 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 174.5,
+        bullets: ["2× فرشاة السيشوار", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 3,
+        name: "3 فراشي",
+        subtitle: "للدار ولا للبيع",
+        price: 499,
+        originalPrice: 1047,
+        savingsText: "وفر 548 درهم",
+        badge: "أفضل قيمة",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 166.3,
+        bullets: ["3× فرشاة السيشوار", "توصيل مجاني", "المعاينة قبل الدفع"]
+      }
+    ],
+    painPoints: [
+      { title: "السيشوار والفرشاة بزوج", description: "كتبدل بين جوج أدوات، واليد كتعيا قبل ما الشعر يتصاوب." },
+      { title: "التشابك", description: "الشعر المبلل ولا الطويل كيتشابك ملي كتنشفيه بلا فرشاة مناسبة." },
+      { title: "الصالون كل مرة", description: "تصفيفة بسيطة ما تستاهلش تمشي للصالون فكل خروج." }
+    ],
+    solutionProofs: [
+      { title: "2 في 1", description: "الهواء والفرشاة فآلة وحدة. كتنشف وكتصاوب فنفس الوقت.", metric: "2", iconText: "في 1" },
+      { title: "شعيرات", description: "الشعيرات كتعاون تفك التشابك وأنت كتصاوب.", metric: "1", iconText: "فرشاة" },
+      { title: "فالدار", description: "كتستعملها قدام المراية. فيها سلك وكتخدم نيشان.", metric: "دار", iconText: "سهل" }
+    ],
+    comparison: [
+      { feature: "الأدوات", vitalis: "فرشاة وسيشوار فآلة وحدة", others: "سيشوار بوحدو وفرشاة بوحدها" },
+      { feature: "الوقت", vitalis: "تنشيف وتصفيف فنفس الحركة", others: "كتبدل بين جوج أدوات" },
+      { feature: "الاستعمال", vitalis: "خفيفة للتصفيف اليومي فالدار", others: "موعد فالصالون لكل تصفيفة" }
+    ],
+    faqs: [
+      { question: "شنو هي هاد الفرشاة؟", answer: "فرشاة سيشوار 2 في 1: كتنشف الشعر وكتصاوبو فنفس الوقت. ماشي غير فرشاة عادية، وماشي سيشوار بوحدو." },
+      { question: "واش لاسلكية؟", answer: "لا. فيها سلك، وكتخدم ملي تركبيها." },
+      { question: "واش كتعالج الشعر؟", answer: "لا. هادي أداة تصفيف. كتعاون على الشكل والنعومة من الاستعمال، وما كتعالجش الشعر." },
+      { question: "لمن مناسبة؟", answer: "للتصفيف اليومي فالدار. النتيجة كتبدل حسب نوع الشعر وطريقة الاستعمال." },
+      { question: "واش نخلص قبل ما نشوفها؟", answer: "لا. التوصيل فابور، وكتخلص حتى توصلك وتشوفها." }
+    ],
+    sections: [
+      {
+        title: "تصفيف فالدار",
+        description: "قدّام المراية، الفرشاة كتنشف وكتصاوب. ما محتاجاش تبدل بين السيشوار والفرشاة.",
+        highlight: "فالدار",
+        imagePosition: "right",
+        placeholderSvgText: "تصفيف فالدار",
+        image: "/products/brush-home.jpg"
+      },
+      {
+        title: "تنشيف وتصفيف معاً",
+        description: "الهواء كيجي مع الشعيرات. الشعر كيتساوب وهو كيتنشف، والشعيرات كتعاون على التشابك.",
+        highlight: "2 في 1",
+        imagePosition: "left",
+        placeholderSvgText: "فرشاة 2 في 1",
+        image: "/products/brush-features.jpg"
+      },
+      {
+        title: "قبل التصفيف وبعدو",
+        description: "الفكرة ديال الفرشاة: الشعر المتشابك كيتساوب ويولي أنعم. النتيجة كتبقى على حسب شعرك.",
+        highlight: "تصفيف",
+        imagePosition: "right",
+        placeholderSvgText: "قبل وبعد",
+        image: "/products/brush-before.jpg"
+      }
+    ]
+  },
+  {
+    id: "screwdriver-set",
+    sku: "VM-SCR-10",
+    upsellPrice: 175,
+    slug: "tournevis-electrique",
+    name: "طقم مفك كهربائي لاسلكي - Tournevis Sans Fil",
+    shortName: "طقم المفك الكهربائي",
+    category: "خدمة الدار",
+    icon: "🔧",
+    image: "/products/screw-case.jpg",
+    beforeAfterImage: "/products/screw-home.jpg",
+    rating: 4.8,
+    reviewsCount: 96,
+    badge: "خدمة الدار بسهولة",
+    headline: "رف، براغي، وأثاث… الطقم كامل فالعلبة بلا ما تشري كل رأس بوحدو",
+    subheadline: "مفك كهربائي لاسلكي كيتشارجا بالUSB، مع ضوء، دوران يمين ويسار، رؤوس متعددة، وصلة مرنة، وعلبة كتجمع كلشي. للخدمة الخفيفة فالدار.",
+    stockLeft: 18,
+    recentOrdersCount: 19,
+    heroBullets: [
+      "مفك لاسلكي كيتشارجا بالكابل USB",
+      "ضوء قدام الرأس، ودوران يمين ويسار",
+      "رؤوس، مآخذ، ووصلة مرنة برتقالية داخل العلبة",
+      "كيتجمع فالعلبة وما كيبقاش مفرق فالدروج"
+    ],
+    features: [
+      "مقبض مطاطي ومفتاح التشغيل",
+      "مفك كبير ومفك صغير فنفس الطقم",
+      "مناسب للرفوف، الأثاث، والبراغي فالدار",
+      "ما محتاجش طوموبيل ولا بنزين: كيتشارجا وتخدم"
+    ],
+    scientificReason: "ملي كتكون الرؤوس والوصلة مع المفك فعلبة وحدة، خدمة الدار كتبدا نيشان بلا ما تقلب على المفك المناسب.",
+    colors: [
+      { hex: "#DC2626", nameAr: "أسود وأحمر", nameFr: "Noir rouge" }
+    ],
+    visualStory: [
+      {
+        type: "usage",
+        title: "خدمة الدار بسهولة",
+        subtitle: "تركيب رف ولا أثاث فالدار، والعلبة حداك فيها الرؤوس.",
+        badge: "فالدار",
+        image: "/products/screw-home.jpg",
+        callouts: ["رفوف", "أثاث", "براغي"],
+        accent: "teal"
+      },
+      {
+        type: "trust",
+        title: "طقم كامل، ماشي مفك بوحدو",
+        subtitle: "رؤوس متعددة، وصلة مرنة، كابل USB، وعلبة التخزين.",
+        badge: "الطقم",
+        image: "/products/screw-contents.jpg",
+        callouts: ["رؤوس", "وصلة", "USB"],
+        accent: "amber"
+      },
+      {
+        type: "result",
+        title: "كلشي مرتب فالعلبة",
+        subtitle: "المفك الكبير والصغير، الرؤوس، والمآخذ كيرجعو لبلاصتهم.",
+        badge: "العلبة",
+        image: "/products/screw-case.jpg",
+        callouts: ["علبة", "مرتب", "جاهز"],
+        accent: "emerald"
+      },
+      {
+        type: "usage",
+        title: "قبضة مريحة وضوء",
+        subtitle: "المقبض مطاطي، والزر كيشغل، والضوء كيبان قدام الخدمة.",
+        badge: "الاستعمال",
+        image: "/products/screw-grip.jpg",
+        callouts: ["قبضة", "زر", "ضوء"],
+        accent: "teal"
+      }
+    ],
+    offerTiers: [
+      {
+        tier: 1,
+        name: "طقم واحد",
+        subtitle: "لخدمة الدار",
+        price: 199,
+        originalPrice: 349,
+        savingsText: "وفر 150 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 199,
+        bullets: ["1× طقم مفك كهربائي لاسلكي", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 2,
+        name: "2 أطقم",
+        subtitle: "واحد للدار وواحد للطوموبيل ولا الواليد",
+        price: 349,
+        originalPrice: 698,
+        savingsText: "وفر 349 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 174.5,
+        bullets: ["2× طقم مفك كهربائي لاسلكي", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 3,
+        name: "3 أطقم",
+        subtitle: "للدار والخدمة ولا هدية",
+        price: 499,
+        originalPrice: 1047,
+        savingsText: "وفر 548 درهم",
+        badge: "أفضل قيمة",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 166.3,
+        bullets: ["3× طقم مفك كهربائي لاسلكي", "توصيل مجاني", "المعاينة قبل الدفع"]
+      }
+    ],
+    painPoints: [
+      { title: "المفك اليدوي كيعيا", description: "البراغي الكثيرة فالرف ولا فالأتات كياخدوا الوقت وكتعيا اليد." },
+      { title: "الرأس ما كيكونش موجود", description: "كتقلب على الرأس المناسب وهو فدرج آخر، ولا ما عندكش الوصلة للبلايص الضيقة." },
+      { title: "الأداة الكبيرة ثقيلة للدار", description: "ما محتاجش مثقاب ديال الورش لكل رف صغير." }
+    ],
+    solutionProofs: [
+      { title: "لاسلكي وبالUSB", description: "كيتشارجا بالكابل، وكتخدم بيه فالدار بلا سلك معقد.", metric: "USB", iconText: "شحن" },
+      { title: "رؤوس ووصلة", description: "رؤوس متعددة ومآخذ، والوصلة المرنة كتوصلك للزاوية الضيقة.", metric: "47", iconText: "قطعة" },
+      { title: "علبة وحدة", description: "كلشي كيرجع للعلبة. ما كيبقاوش الرؤوس مفرقين.", metric: "1", iconText: "علبة" }
+    ],
+    comparison: [
+      { feature: "الخدمة", vitalis: "مفك كهربائي لاسلكي للدار", others: "مفك يدوي كيعيا" },
+      { feature: "الرؤوس", vitalis: "رؤوس، مآخذ، ووصلة مرنة فالطقم", others: "كتشري كل رأس بوحدو" },
+      { feature: "التخزين", vitalis: "علبة كتجمع الطقم", others: "أدوات مفرقة فالدروج" }
+    ],
+    faqs: [
+      { question: "شنو داخل فالطقم؟", answer: "مفك كهربائي لاسلكي كبير وآخر صغير، رؤوس متعددة، مآخذ، وصلة مرنة، كابل USB، وعلبة التخزين." },
+      { question: "واش كيتشارجا؟", answer: "إيه، بالكابل USB اللي جاي معاه." },
+      { question: "فين نقدر نستعملو؟", answer: "فالخدمة الخفيفة فالدار: رفوف، أثاث، براغي، وتجميع. ماشي للخرسانة ولا للورش الثقيل." },
+      { question: "واش فيه ضوء؟", answer: "إيه، فيه إضاءة قدام الرأس، وكيقدر يدور يمين ويسار." },
+      { question: "واش نخلص قبل ما نشوفو؟", answer: "لا. التوصيل فابور، وكتخلص حتى يوصلك وتشوف العلبة." }
+    ],
+    sections: [
+      {
+        title: "خدمة الدار بلا تعب",
+        description: "تركيب رف ولا تجميع أثاث كيكون أسرع بمفك لاسلكي. الرؤوس فالعلبة حداك، والضوء كيبان على البراغي.",
+        highlight: "فالدار",
+        imagePosition: "right",
+        placeholderSvgText: "تركيب رف",
+        image: "/products/screw-home.jpg"
+      },
+      {
+        title: "طقم كامل ماشي قطعة وحدة",
+        description: "رؤوس متعددة، مآخذ، وصلة مرنة للبلايص الضيقة، وكابل الشحن. كلشي باين ومرتب.",
+        highlight: "47 قطعة",
+        imagePosition: "left",
+        placeholderSvgText: "محتوى الطقم",
+        image: "/products/screw-contents.jpg"
+      },
+      {
+        title: "كيتجمع فالعلبة",
+        description: "ملي تسالي الخدمة، المفك والرؤوس كيرجعو للعلبة. ما كيبقاوش مفرقين فوق الطبلة.",
+        highlight: "تخزين ساهل",
+        imagePosition: "right",
+        placeholderSvgText: "علبة التخزين",
+        image: "/products/screw-case.jpg"
+      }
+    ]
+  },
+  {
+    id: "clothes-dryer",
+    sku: "VM-DRY-09",
+    upsellPrice: 300,
+    slug: "sechoir-portable",
+    name: "مجفف الثياب المحمول - Séchoir Portable",
+    shortName: "مجفف الثياب المحمول",
+    category: "بيت وغسيل",
+    icon: "👕",
+    image: "/products/dryer-product.png",
+    beforeAfterImage: "/products/dryer-home.jpg",
+    rating: 4.9,
+    reviewsCount: 118,
+    badge: "الثياب ناشفة فالدار",
+    headline: "الشتا ما بقاتش مشكل… الثياب كتنشف فالدار",
+    subheadline: "مجفف محمول: آلة بيضاء كتخرج الهواء السخون عبر أنبوب لخزانة قماش كتعلق فيها الثياب. فيه ريموت ومؤقت، وكتطوى وتتخزن ملي تسالي.",
+    stockLeft: 10,
+    recentOrdersCount: 22,
+    heroBullets: [
+      "الهواء السخون كيدور داخل الخزانة والثياب كتنشف فالدار",
+      "مزيان فالشتا ملي الحبل برا ما كينشفش",
+      "ريموت ومؤقت، ما خاصكش تبقى واقف حداها",
+      "الخزانة القماشية كتطوى وتتخزن بسهولة"
+    ],
+    features: [
+      "آلة مستقلة وكتتحط حدا الخزانة",
+      "أنبوب كيوصّل الهواء السخون للثياب المعلقة",
+      "شاشة وأزرار على الآلة، وريموت بيديك",
+      "ما كياخدش بلاصة ملي تطويه"
+    ],
+    scientificReason: "الهواء السخون اللي كيدور على الثياب المعلقة كيعاونها تنشف فالداخل، بلا ما تسناها برا فالشتا.",
+    colors: [
+      { hex: "#D6C6B0", nameAr: "بيج", nameFr: "Beige" }
+    ],
+    visualStory: [
+      {
+        type: "usage",
+        title: "كتعلق الثياب وتنشف فالدار",
+        subtitle: "كتدخل الحوايج للخزانة، والآلة كتخرج الهواء السخون. كتخرجهم ناشفين.",
+        badge: "فالدار",
+        image: "/products/dryer-home.jpg",
+        callouts: ["هواء سخون", "فالدار", "شتا"],
+        accent: "teal"
+      },
+      {
+        type: "result",
+        title: "مجفف محمول، ماشي ماكينة كبيرة",
+        subtitle: "الآلة على الطبلة، والخزانة حداها. كتستعملو غير ملي تحتاجو.",
+        badge: "محمول",
+        image: "/products/dryer-product.png",
+        callouts: ["أنبوب", "ريموت", "شاشة"],
+        accent: "emerald"
+      },
+      {
+        type: "trust",
+        title: "مؤقت، ريموت، وتجفيف سريع",
+        subtitle: "كتضبط المؤقت وكتتحكم من الريموت. الهواء السخون كيدور داخل الخزانة.",
+        badge: "التحكم",
+        image: "/products/dryer-features.jpg",
+        callouts: ["مؤقت", "ريموت", "هواء سخون"],
+        accent: "amber"
+      },
+      {
+        type: "result",
+        title: "كيتطوى ويتخزن",
+        subtitle: "ملي تسالي، الخزانة كتطوى وما كتبقىش واخدة البلاصة.",
+        badge: "التخزين",
+        image: "/products/dryer-fold.jpg",
+        callouts: ["كيتطوى", "خفيف", "سهل"],
+        accent: "teal"
+      }
+    ],
+    offerTiers: [
+      {
+        tier: 1,
+        name: "مجفف واحد",
+        subtitle: "لثياب الدار فالشتا",
+        price: 349,
+        originalPrice: 549,
+        savingsText: "وفر 200 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 349,
+        bullets: ["1× مجفف ثياب محمول", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 2,
+        name: "2 مجففات",
+        subtitle: "واحد للدار وواحد عند الوالدين",
+        price: 599,
+        originalPrice: 1098,
+        savingsText: "وفر 499 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 299.5,
+        bullets: ["2× مجفف ثياب محمول", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 3,
+        name: "3 مجففات",
+        subtitle: "للدار والكراء ولا هدية",
+        price: 799,
+        originalPrice: 1647,
+        savingsText: "وفر 848 درهم",
+        badge: "أفضل قيمة",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 266.3,
+        bullets: ["3× مجفف ثياب محمول", "توصيل مجاني", "المعاينة قبل الدفع"]
+      }
+    ],
+    painPoints: [
+      { title: "الشتا والثياب ما كتنشفش", description: "الحبل برا كيبقا مبلل، والدار كتبقى فيها الرطوبة والريحة." },
+      { title: "الماكينة الكبيرة غالية", description: "مجفف الثياب الكبير كياخد بلاصة وكيسحب بزاف، وما كاينش فكل دار." },
+      { title: "الستنّى كيطوّل", description: "كتسنى يومين باش تلبس حاجة، وخصوصاً القمصان والجلابب." }
+    ],
+    solutionProofs: [
+      { title: "هواء سخون داخل الخزانة", description: "الأنبوب كيوصّل الهواء للثياب المعلقة، والتنشيف كيتم فالدار.", metric: "1", iconText: "أنبوب" },
+      { title: "ريموت ومؤقت", description: "كتضبط الوقت وكتبعد. ما خاصكش تبقى واقف حدا الآلة.", metric: "▶", iconText: "ريموت" },
+      { title: "كيتطوى", description: "ملي تسالي كتجمع الخزانة وتخزنها. ما كتبقىش منصوبة طول الوقت.", metric: "0", iconText: "بلاصة زايدة" }
+    ],
+    comparison: [
+      { feature: "الشتا", vitalis: "التنشيف فالدار بالهواء السخون", others: "الحبل برا والثياب كتبقى مبللة" },
+      { feature: "البلاصة", vitalis: "محمول وكيتطوى", others: "مجفف كبير ثابت" },
+      { feature: "التحكم", vitalis: "شاشة، أزرار، وريموت", others: "كتسنى بلا تحكم" }
+    ],
+    faqs: [
+      { question: "شنو كيدير هاد المجفف؟", answer: "كتعلق الثياب فالخزانة القماشية، والآلة البيضاء كتخرج الهواء السخون عبر الأنبوب باش يتنشفو فالدار." },
+      { question: "واش كيعوض ماكينة التصبين؟", answer: "لا. هاد مجفف. الثياب خاصها تكون متصبنة، وهو كينشفها." },
+      { question: "واش فيه ريموت؟", answer: "إيه، الريموت جاي معاه، وفيه مؤقت على الشاشة." },
+      { question: "واش كياخد بلاصة؟", answer: "كتستعملو ملي تحتاجو، ومن بعد الخزانة كتطوى وتتخزن." },
+      { question: "واش نخلص قبل ما نشوفو؟", answer: "لا. التوصيل فابور، وكتخلص حتى يوصلك وتشوفو." }
+    ],
+    sections: [
+      {
+        title: "الشتا ما بقاتش مشكل",
+        description: "بدل ما تسنى الثياب على الحبل، كتعلقها فالدار والآلة كتنشفها بالهواء السخون. مزيان للقمصان، الجلابب، وحوايج الولاد.",
+        highlight: "تنشيف فالدار",
+        imagePosition: "right",
+        placeholderSvgText: "فالشتا",
+        image: "/products/dryer-home.jpg"
+      },
+      {
+        title: "ريموت ومؤقت",
+        description: "كتضبط المؤقت من الآلة ولا من الريموت، وكتمشي لشغلك. الهواء السخون كيدور داخل الخزانة.",
+        highlight: "تحكم عن بعد",
+        imagePosition: "left",
+        placeholderSvgText: "ريموت",
+        image: "/products/dryer-features.jpg"
+      },
+      {
+        title: "كيتطوى ويتخزن",
+        description: "الخزانة قماش. ملي تسالي كتطويها وتخزنها مع الآلة، والدار ما كتزحمش.",
+        highlight: "محمول",
+        imagePosition: "right",
+        placeholderSvgText: "كيتطوى",
+        image: "/products/dryer-fold.jpg"
+      }
+    ]
+  },
+  {
+    id: "gift-set",
+    sku: "VM-SET-08",
+    upsellPrice: 275,
+    slug: "coffret-montre-bijoux",
+    name: "طقم ساعة ذكية ومجوهرات هدية - Coffret H69 Plus",
+    shortName: "طقم الساعة والمجوهرات",
+    category: "هدية وأناقة",
+    icon: "🎁",
+    image: "/products/set-box.jpg",
+    beforeAfterImage: "/products/set-look.png",
+    rating: 4.9,
+    reviewsCount: 121,
+    badge: "هدية جاهزة",
+    headline: "علبة وحدة فيها الساعة والمجوهرات… هدية راقية بلا ما تجمعي القطع بوحدك",
+    subheadline: "طقم فيه ساعة ذكية بشاشة 2.02، ساعة حلي خضراء، قلادة قلب، سوار، خاتم وحلق، مع سوار وردي زايد وكابل الشحن. كلشي مجموع فعلبة وردية، جاهز تهديه.",
+    stockLeft: 16,
+    recentOrdersCount: 24,
+    heroBullets: [
+      "ساعة ذكية H69 Plus بشاشة كبيرة 2.02، وسوار وردي زايد",
+      "ساعة حلي خضراء، قلادة قلب، سوار، خاتم وحلق",
+      "كابل الشحن وسلسلة زايدة داخلين فالعلبة",
+      "علبة هدية وردية، ما محتاجاش تغلّفيها"
+    ],
+    features: [
+      "لون ذهبي مع حجر أخضر، إطلالة وحدة متناسقة",
+      "السوار الوردي ديال الساعة كيتبدل",
+      "مناسبة لعيد الميلاد، العيد، ولا مفاجأة بلا مناسبة",
+      "كتشوفي كل القطع قبل ما تخلصي"
+    ],
+    scientificReason: "الطقم مجموع بلون واحد، باش الهدية تبان كاملة وما تضطريش تشري كل قطعة بوحدها.",
+    colors: [
+      { hex: "#059669", nameAr: "ذهبي وأخضر", nameFr: "Doré vert" }
+    ],
+    visualStory: [
+      {
+        type: "result",
+        title: "طقم كامل بإطلالة راقية",
+        subtitle: "الساعة، القلادة، السوار، الخاتم والحلق كيمشيو مع بعضياتهم.",
+        badge: "الإطلالة",
+        image: "/products/set-look.png",
+        callouts: ["ساعة", "قلادة", "خاتم وحلق"],
+        accent: "emerald"
+      },
+      {
+        type: "usage",
+        title: "كلشي داخل العلبة",
+        subtitle: "الساعة الذكية، ساعة الحلي، المجوهرات، السوار الزايد وكابل الشحن.",
+        badge: "المحتوى",
+        image: "/products/set-box.jpg",
+        callouts: ["علبة وحدة", "سوار زايد", "كابل"],
+        accent: "teal"
+      },
+      {
+        type: "trust",
+        title: "القطع اللي داخلين",
+        subtitle: "ساعة متصلة، ساعة حلي، قلادة قلب، سوار، خاتم وحلق، سلسلة، وسوار وردي زايد.",
+        badge: "التفاصيل",
+        image: "/products/set-contents.jpg",
+        callouts: ["10 قطع", "هدية", "متناسق"],
+        accent: "amber"
+      },
+      {
+        type: "result",
+        title: "هدية مثالية لمن تحب",
+        subtitle: "العلبة وردية ومزوقة. كتعطيها نيشان بلا تغليف زايد.",
+        badge: "الهدية",
+        image: "/products/set-gift.jpg",
+        callouts: ["علبة هدية", "جاهزة", "راقية"],
+        accent: "rose"
+      }
+    ],
+    offerTiers: [
+      {
+        tier: 1,
+        name: "طقم واحد",
+        subtitle: "هدية كاملة لشخص واحد",
+        price: 299,
+        originalPrice: 499,
+        savingsText: "وفر 200 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 299,
+        bullets: ["1× طقم ساعة ومجوهرات", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 2,
+        name: "2 أطقم",
+        subtitle: "جوج هدايا، ولا وحدة ليك ووحدة تهديها",
+        price: 549,
+        originalPrice: 998,
+        savingsText: "وفر 449 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 274.5,
+        bullets: ["2× طقم ساعة ومجوهرات", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 3,
+        name: "3 أطقم",
+        subtitle: "للعائلة ولا هدايا العيد",
+        price: 749,
+        originalPrice: 1497,
+        savingsText: "وفر 748 درهم",
+        badge: "أفضل قيمة",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 249.7,
+        bullets: ["3× طقم ساعة ومجوهرات", "توصيل مجاني", "المعاينة قبل الدفع"]
+      }
+    ],
+    painPoints: [
+      { title: "الهدية كتبقى ناقصة", description: "كتشري ساعة بوحدها ولا سلسلة بوحدها، وما كيبانش طقم." },
+      { title: "الجمع كيضيع الوقت", description: "كتقلبي على قطع كيمشيو مع بعضياتهم، والألوان ما كيتناسقوش." },
+      { title: "التغليف زايد", description: "كتخلص على العلبة والشريط. هنا العلبة جاية هدية." }
+    ],
+    solutionProofs: [
+      { title: "ساعة ذكية + ساعة حلي", description: "شاشة 2.02، سوار وردي زايد، وكابل الشحن. ومعاها ساعة خضراء مزوقة.", metric: "2", iconText: "ساعات" },
+      { title: "مجوهرات متناسقة", description: "قلادة قلب، سوار، خاتم وحلق، بلون ذهبي وحجر أخضر.", metric: "1", iconText: "طقم" },
+      { title: "علبة تهديها نيشان", description: "ما تحتاجي لا تغليف لا تجمع. كتفتحي العلبة وكتشوفي القطع.", metric: "0", iconText: "تغليف زايد" }
+    ],
+    comparison: [
+      { feature: "المحتوى", vitalis: "ساعة ذكية، ساعة حلي، ومجوهرات فعلبة وحدة", others: "قطعة وحدة بوحدها" },
+      { feature: "الهدية", vitalis: "علبة وردية جاهزة", others: "كتغلفها بوحدك" },
+      { feature: "اللون", vitalis: "ذهبي وأخضر متناسقين", others: "قطع مخلطة ما كيمشيوش" }
+    ],
+    faqs: [
+      { question: "شنو داخل فالعلبة؟", answer: "ساعة ذكية H69 Plus بشاشة 2.02 وسوار وردي زايد وكابل الشحن، ساعة حلي خضراء، قلادة قلب، سوار، خاتم وحلق، سلسلة زايدة، وإكسسوار صغير." },
+      { question: "واش الذهب والزمرّد حقيقيين؟", answer: "لا. هاد طقم أناقة بلون ذهبي وحجر أخضر. ماشي ذهب عيار وماشي حجر كريم طبيعي." },
+      { question: "واش الساعة كتتشارجا؟", answer: "إيه، كابل الشحن داخل مع الطقم." },
+      { question: "واش مزيانة هدية؟", answer: "إيه. العلبة وردية وجاهزة تعطيها فالعيد، عيد الميلاد، ولا مفاجأة." },
+      { question: "واش نخلص قبل ما نشوفها؟", answer: "لا. التوصيل فابور، وكتخلص حتى توصلك وتشوفي العلبة." }
+    ],
+    sections: [
+      {
+        title: "إطلالة كاملة",
+        description: "الساعة الخضراء، قلادة القلب، السوار، الخاتم والحلق كيلبسو مع بعض. الطقم باين راقي بلا ما تجمعي القطع من بلايص مختلفة.",
+        highlight: "طقم متناسق",
+        imagePosition: "right",
+        placeholderSvgText: "إطلالة راقية",
+        image: "/products/set-look.png"
+      },
+      {
+        title: "ساعة ذكية داخل الهدية",
+        description: "H69 Plus بشاشة 2.02 كما مكتوب على العلبة. السوار الوردي كيتبدل، وكابل الشحن جاي معاها.",
+        highlight: "شاشة 2.02",
+        imagePosition: "left",
+        placeholderSvgText: "ساعة ذكية",
+        image: "/products/set-gift.jpg"
+      },
+      {
+        title: "علبة تهديها نيشان",
+        description: "كل القطع مرتبين فالعلبة الوردية: الساعات، المجوهرات، السوار الزايد والكابل. كتشوفيهم قبل الخلاص.",
+        highlight: "هدية جاهزة",
+        imagePosition: "right",
+        placeholderSvgText: "محتوى العلبة",
+        image: "/products/set-contents.jpg"
+      }
+    ]
+  },
+  {
+    id: "faucet-filter",
+    sku: "VM-TAP-07",
+    upsellPrice: 249,
+    slug: "robinet-filtre-eau",
+    name: "صنبور الماء المصفي والساخن - Robinet Filtre",
+    shortName: "صنبور الماء المصفي",
+    category: "مطبخ وماء",
+    icon: "🚰",
+    image: "/products/faucet-splash.jpg",
+    beforeAfterImage: "/products/faucet-home.jpg",
+    rating: 4.9,
+    reviewsCount: 136,
+    badge: "ماء مصفى فالكوزينة",
+    headline: "من روبيني واحد: ماء مصفى للشرب، وماء ساخن بلا ما تسنا السخان",
+    subheadline: "كيتركب على روبيني الكوزينة. جهة كتعطي ماء مصفى للكاس والطبخ، وجهة فيها ماء ساخن والشاشة كاتبين الحرارة. الفلتر كيتبدل، والتركيب ساهل.",
+    stockLeft: 13,
+    recentOrdersCount: 29,
+    heroBullets: [
+      "ماء مصفى للكاس، للطبخ، وغسيل الخضر",
+      "ماء ساخن من نفس الصنبور، والشاشة كاتبين الحرارة",
+      "كيتركب على روبيني الكوزينة اللي عندك",
+      "الفلتر كيتبدل، ما محتاجش سخان كبير للكوزينة"
+    ],
+    features: [
+      "زر كتحول بين الماء المصفي والماء الساخن",
+      "خراطيش بيضاء كتتركب وتتحل بسهولة",
+      "مناسب للكوزينة اليومية",
+      "كتوفر الوقت: الكاس حاضر، والماء السخون ما كيسناش"
+    ],
+    scientificReason: "الفلتر كينقص الشوائب اللي كتبان فالماء، والماء الساخن الجاهز كيسهل الغسيل والطبخ بلا ما تشعل السخان الكبير لكل حاجة صغيرة.",
+    colors: [
+      { hex: "#38BDF8", nameAr: "أبيض وكروم", nameFr: "Blanc chromé" }
+    ],
+    visualStory: [
+      {
+        type: "usage",
+        title: "كاس ديال الماء من الروبينية",
+        subtitle: "كتفتح الماء المصفي وتعمر الكاس نيشان فالكوزينة.",
+        badge: "الشرب",
+        image: "/products/faucet-kitchen.jpg",
+        callouts: ["ماء مصفى", "فالكوزينة", "تركيب ساهل"],
+        accent: "teal"
+      },
+      {
+        type: "result",
+        title: "ماء صافي فأي وقت",
+        subtitle: "للشرب والطبخ، بلا ما تمشي تشري قراعي كل مرة.",
+        badge: "فأي وقت",
+        image: "/products/faucet-home.jpg",
+        callouts: ["الشرب", "الطبخ", "كل نهار"],
+        accent: "emerald"
+      },
+      {
+        type: "trust",
+        title: "ماء ساخن وماء مصفى",
+        subtitle: "جهة سخونة للمطبخ، وجهة مصفية للكاس. بلا سخان كبير.",
+        badge: "جوج جهات",
+        image: "/products/faucet-features.jpg",
+        callouts: ["ساخن", "مصفى", "يوفر الوقت"],
+        accent: "amber"
+      },
+      {
+        type: "usage",
+        title: "الشاشة كاتبين الحرارة",
+        subtitle: "كتشوف الحرارة على الشاشة، وكتبدل الجهة بالزر.",
+        badge: "الحرارة",
+        image: "/products/faucet-splash.jpg",
+        callouts: ["شاشة", "زر", "صنبور واحد"],
+        accent: "teal"
+      }
+    ],
+    offerTiers: [
+      {
+        tier: 1,
+        name: "صنبور واحد",
+        subtitle: "لكوزينة الدار",
+        price: 279,
+        originalPrice: 459,
+        savingsText: "وفر 180 درهم",
+        badge: "الأساسي",
+        popular: false,
+        accent: "teal",
+        perUnitPrice: 279,
+        bullets: ["1× صنبور مصفي مع الماء الساخن", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 2,
+        name: "2 صنابير",
+        subtitle: "كوزينة ووحدة عند الوالدين",
+        price: 499,
+        originalPrice: 918,
+        savingsText: "وفر 419 درهم",
+        badge: "الأكثر طلباً",
+        popular: true,
+        accent: "emerald",
+        perUnitPrice: 249.5,
+        bullets: ["2× صنبور مصفي مع الماء الساخن", "توصيل مجاني", "المعاينة قبل الدفع"]
+      },
+      {
+        tier: 3,
+        name: "3 صنابير",
+        subtitle: "للدار والكراء ولا هدية",
+        price: 699,
+        originalPrice: 1377,
+        savingsText: "وفر 678 درهم",
+        badge: "أفضل قيمة",
+        popular: false,
+        accent: "amber",
+        perUnitPrice: 233,
+        bullets: ["3× صنبور مصفي مع الماء الساخن", "توصيل مجاني", "المعاينة قبل الدفع"]
+      }
+    ],
+    painPoints: [
+      {
+        title: "الماء ديال الروبينية ما كيبغيوش يشربوه",
+        description: "الكلس والطعم كيخليهم يشرو القراعي، والقراعي كتخلص وكتجمع."
+      },
+      {
+        title: "الماء السخون كيسنا",
+        description: "باش تغسل ولا تعمر طنجرة، كتسنى السخان الكبير يسخن."
+      },
+      {
+        title: "الأجهزة الكبار كياخدوا بلاصة",
+        description: "سخان ولا جهاز تصفية كبير ما كيدخلش فالكوزينة الصغيرة."
+      }
+    ],
+    solutionProofs: [
+      {
+        title: "ماء مصفى للكاس",
+        description: "الفلتر على الروبينية كيعطي ماء أصفى للشرب والطبخ، والخرطوشة كتبدل.",
+        metric: "1",
+        iconText: "فلتر"
+      },
+      {
+        title: "ماء ساخن جاهز",
+        description: "الشاشة كاتبين الحرارة. كتستعمل الماء الساخن فالمطبخ بلا ما تشعل السخان الكبير.",
+        metric: "°C",
+        iconText: "شاشة"
+      },
+      {
+        title: "كيتركب على الروبيني",
+        description: "ما كيبنيش شبكة جديدة. كيتركب على روبيني الكوزينة اللي عندك.",
+        metric: "0",
+        iconText: "سخان كبير"
+      }
+    ],
+    comparison: [
+      { feature: "الماء", vitalis: "مصفى للشرب، وسخون للمطبخ", others: "ماء الروبينية كيف ما جا" },
+      { feature: "البلاصة", vitalis: "على الروبيني، بلا جهاز كبير", others: "سخان ولا وحدة تصفية كتاخد بلاصة" },
+      { feature: "الوقت", vitalis: "الكاس والماء السخون حاضرين", others: "قراعي كل سيمانة، وستنّى السخان" }
+    ],
+    faqs: [
+      { question: "شنو كيدير هاد الصنبور؟", answer: "كيتركب على روبيني الكوزينة. كيعطي ماء مصفى للشرب والطبخ، وماء ساخن للمطبخ، والشاشة كاتبين الحرارة." },
+      { question: "واش كيعوض السخان ديال الدار كامل؟", answer: "لا. هادشي لكوزينة: غسل، طبخ، وماء سخن فبلاصتو. السخان الكبير ديال الحمام كيبقا خدمتو." },
+      { question: "واش الفلتر كيتبدل؟", answer: "إيه، الخرطوشة كتبدل ملي تسالي." },
+      { question: "واش الماء المصفي كيعني ماء طبي؟", answer: "لا. الفلتر كيعطي ماء أصفى للاستعمال اليومي. إلا كان عندك مشكل فالماء ولا نصيحة من الطبيب، تبعها." },
+      { question: "واش نخلص قبل ما نشوفو؟", answer: "لا. التوصيل فابور، وكتخلص حتى يوصلك وتشوفو." }
+    ],
+    sections: [
+      {
+        title: "ماء مصفى للكاس والطبخ",
+        description: "بدل ما تشري قراعي كل مرة، كتعمر الكاس من الروبينية. الفلتر كينقص الشوائب اللي كتبان فالماء، والخرطوشة كتبدل.",
+        highlight: "ماء مصفى",
+        imagePosition: "right",
+        placeholderSvgText: "كاس من الروبينية",
+        image: "/products/faucet-home.jpg"
+      },
+      {
+        title: "ماء ساخن بلا سخان كبير",
+        description: "جهة سخونة للمطبخ، والشاشة كاتبين الحرارة. كتغسل وتعمر الطنجرة بلا ما تسنا السخان ديال الدار.",
+        highlight: "ماء ساخن",
+        imagePosition: "left",
+        placeholderSvgText: "شاشة الحرارة",
+        image: "/products/faucet-splash.jpg"
+      },
+      {
+        title: "كيتركب على روبيني الكوزينة",
+        description: "ما كتحتاجش تهد الحيط ولا تجيب جهاز كبير. كيتركب على الروبيني، وكتبدل بين المصفي والساخن بالزر.",
+        highlight: "تركيب ساهل",
+        imagePosition: "right",
+        placeholderSvgText: "تركيب ساهل",
+        image: "/products/faucet-kitchen.jpg"
+      }
+    ]
+  },
+  {
     id: "neck-massager",
     sku: "VM-NCK-06",
     upsellPrice: 275,
