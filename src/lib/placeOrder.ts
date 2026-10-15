@@ -29,6 +29,7 @@ function skuFor(id: string, name: string, sku?: string): string {
   if (id.includes('massager') || name.includes('مساج')) return 'VM-FMS-02';
   if (id.includes('chaise') || name.includes('كرسي')) return 'VM-BBY-03';
   if (id.includes('makeup') || name.includes('مكياج') || name.includes('منظم')) return 'VM-MKB-04';
+  if (id.includes('box') || name.includes('ملاكمة')) return 'VM-BOX-05';
   return `VM-${id.toUpperCase()}-01`;
 }
 

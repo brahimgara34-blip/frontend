@@ -62,7 +62,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
       ? 'خزانة قماش كتركب باليد، ماشي بلاكار دالخشب.'
       : product.slug === 'chaise-haute-bebe'
         ? 'كرسي كيتطوى وكيتهز معاك، والخلص حتى يوصلك.'
-        : '';
+        : product.slug === 'machine-boxe-enfants'
+          ? 'كتثبت فالحيط، فيها موسيقى ونقاط، والقفازات داخلين. خلّص حتى يوصلك.'
+          : '';
 
   const otherProducts = PRODUCTS.filter((p) => p.id !== product.id);
 
@@ -493,6 +495,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
                 'foot-massager': 'كنديرها شي دقايق فالعشية وكنحس برجلي خفافو. ساهلة وما محتاجاش تريسيتي.',
                 'chaise-haute-bebe': 'ولدي ولى كياكل جالس مزيان. الطبلة كتحيد وتغسل، وكنطويه وكنهزو معايا عند العائلة.',
                 'makeup-storage-box': 'المنظم كيهز بزاف وشكلو راقي، وكندورو وكنلقى كلشي قدامي. الموزع خلاني نشوفو عاد خلصت.',
+                'machine-boxe-enfants': 'ولدي ولى كيلعب فالملاكمة فالدار بدل التليفون. الموسيقى والنقاط كيخليوه فرحان، وحتى باه كيلعب معاه.',
               }[product.slug] ?? product.subheadline}"
             </p>
             <div className="flex items-center gap-2 mt-2 text-[10px]">

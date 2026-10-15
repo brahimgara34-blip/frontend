@@ -33,7 +33,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-[#6B7280] text-sm md:text-base mt-5 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              منتجات عملية مختارة للبيت المغربي: خزانة للحوايج، لوحة مساج للرجلين، كرسي الماكلة للأطفال، ومنظم المكياج الدوار. شوف المنتج بعينيك قبل ما تخلص.
+              منتجات عملية للبيت المغربي: آلة ملاكمة موسيقية للولاد، خزانة للحوايج، لوحة مساج للرجلين، كرسي الماكلة، ومنظم المكياج. شوف المنتج بعينيك قبل ما تخلص.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-6 text-[11px] md:text-xs text-[#111827]">
@@ -65,7 +65,9 @@ export default function HomePage() {
               <Link
                 key={p.id}
                 href={`/products/${p.slug}`}
-                className="group relative aspect-square rounded-2xl overflow-hidden bg-white border border-[#E5E7EB] shadow-sm hover:shadow-lg transition-all"
+                className={`group relative rounded-2xl overflow-hidden bg-white border border-[#E5E7EB] shadow-sm hover:shadow-lg transition-all ${
+                  p.id === 'boxing-machine' ? 'col-span-2 aspect-[16/8]' : 'aspect-square'
+                }`}
               >
                 <Image
                   src={p.image}
@@ -133,7 +135,7 @@ export default function HomePage() {
             اختر الحل المناسب لاحتياجك اليومي
           </h2>
           <p className="text-[#6B7280] text-xs md:text-sm mt-1.5">
-            حلول هندسية مصممة بدقة لتنظيم المساحات، راحة العضلات، أمان الأطفال، وترتيب مستحضرات التجميل.
+            آلة ملاكمة للولاد فيها موسيقى ونقاط، وتنظيم الدار، راحة الرجلين، وكرسي الماكلة.
           </p>
         </div>
 
