@@ -22,7 +22,7 @@ const GROUPS: { id: string; title: string; why: string; ids: string[] }[] = [
   {
     id: 'style',
     title: 'التصفيف والأناقة',
-    why: 'الشعر، الهدية، والتسريحة. كل واحد كيجمع خدمة كانت متفرقة، وبثمن باين من الأول.',
+    why: 'فرشاة السيشوار كتنشف وكتصاوب الشعر، طقم الساعة جاهز تهديه، ومنظم المكياج كيجمع التسريحة.',
     ids: ['hair-brush', 'gift-set', 'makeup-box'],
   },
   {
@@ -64,12 +64,12 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-3xl md:text-5xl font-black text-[#111827] leading-tight tracking-tight">
-              منتجات الدار، كل واحد
-              <span className="text-[#047857]"> فبلاصتو</span>
+              منتجات كتدخل للدار
+              <span className="text-[#047857]"> كل نهار</span>
             </h1>
 
             <p className="text-[#6B7280] text-sm md:text-base mt-5 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              التصفيف، خدمة الدار، الماء، الثياب، الراحة، والولاد. الثمن ديال القطعة باين، وعرض الجوج وعرض التلاتة كينقصو عليك الثمن. التوصيل فابور، وكتخلص حتى تشوف السلعة.
+              فرشاة سيشوار كتنشف وكتصاوب، طقم مفك لاسلكي للرفوف والأثاث، مجفف ثياب للشتا، صنبور بماء مصفى وماء ساخن، وطقم ساعة ومجوهرات للهدية. كاين حتى مدلك الرقبة، لوحة الرجلين، آلة الملاكمة للولاد، كرسي الماكلة، خزانة الحوايج، ومنظم المكياج. القطعة بثمنها، وعرض الجوج والتلاتة كينقص الثمن. التوصيل فابور، وكتخلص حتى تشوف السلعة.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-6 text-[11px] md:text-xs text-[#111827]">
@@ -153,10 +153,10 @@ export default function HomePage() {
             <span>كل منتجات الستور</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-[#111827]">
-            اختار على حساب شنو محتاج فالدار
+            شنو كاين فالستور
           </h2>
           <p className="text-[#6B7280] text-xs md:text-sm mt-2 leading-relaxed">
-            كل قسم فيه غير المنتجات اللي كيمشيو معاه. الثمن دابا هو اللي مكتوب، وعرض الجوج والتلاتة تحت كل منتج.
+            التصفيف والهدية، خدمة الدار والماء والثياب، الراحة، والولاد. تحت كل منتج الثمن دابا، وعرض الجوج، وعرض التلاتة.
           </p>
         </div>
 
